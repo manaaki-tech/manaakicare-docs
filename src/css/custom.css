@@ -1,29 +1,101 @@
 /**
  * ManaakiCare Documentation Custom Styles
  *
- * Based on the earthy palette from the ManaakiCare design system:
- * - Sage (145°) - Primary/Success
- * - Teal (195°) - Info/Links
- * - Terracotta (35°) - Accent/Warning
- * - Stone (70°) - Neutral
+ * Uses the exact OKLCH earthy palette from the ManaakiCare design system:
+ * - Terracotta (35°) - Critical, urgent, medical
+ * - Amber (75°) - Warning, high priority
+ * - Stone (70°) - Neutral, inactive
+ * - Sage (145°) - Success, active, primary
+ * - Teal (195°) - Info, assessment
+ * - Olive (115°) - Medium priority, on-hold
+ * - Brown (55°) - Referral, pending
  */
 
-/* Light mode colors */
+/* ============================================
+   EARTHY PALETTE - Light Mode
+   ============================================ */
 :root {
-  /* Primary - Sage green */
-  --ifm-color-primary: #4a7c59;
-  --ifm-color-primary-dark: #426f50;
-  --ifm-color-primary-darker: #3e684b;
-  --ifm-color-primary-darkest: #33563e;
-  --ifm-color-primary-light: #528962;
-  --ifm-color-primary-lighter: #569067;
-  --ifm-color-primary-lightest: #62a275;
+  /* Terracotta - for critical, error (earthy red) */
+  --terracotta-50: oklch(0.95 0.04 35);
+  --terracotta-100: oklch(0.90 0.08 35);
+  --terracotta-200: oklch(0.82 0.12 35);
+  --terracotta-500: oklch(0.55 0.16 35);
+  --terracotta-600: oklch(0.48 0.16 35);
+  --terracotta-700: oklch(0.40 0.14 35);
+  --terracotta-800: oklch(0.35 0.12 35);
 
-  /* Accent colors for callouts */
-  --ifm-color-info: #2d7d9a;        /* Teal */
-  --ifm-color-success: #4a7c59;     /* Sage */
-  --ifm-color-warning: #c17f4a;     /* Terracotta */
-  --ifm-color-danger: #b54c3f;      /* Dark terracotta */
+  /* Amber - for warnings, priority */
+  --amber-50: oklch(0.96 0.04 75);
+  --amber-100: oklch(0.92 0.08 75);
+  --amber-200: oklch(0.85 0.12 75);
+  --amber-500: oklch(0.72 0.14 75);
+  --amber-600: oklch(0.62 0.14 75);
+  --amber-700: oklch(0.50 0.12 75);
+  --amber-800: oklch(0.38 0.10 75);
+
+  /* Stone - for neutral (warm gray) */
+  --stone-50: oklch(0.96 0.01 70);
+  --stone-100: oklch(0.93 0.015 70);
+  --stone-200: oklch(0.88 0.02 70);
+  --stone-500: oklch(0.60 0.03 70);
+  --stone-600: oklch(0.50 0.03 70);
+  --stone-700: oklch(0.45 0.03 70);
+  --stone-800: oklch(0.35 0.03 70);
+
+  /* Sage - for success, active, primary (earthy green) */
+  --sage-50: oklch(0.96 0.03 145);
+  --sage-100: oklch(0.92 0.05 145);
+  --sage-200: oklch(0.85 0.08 145);
+  --sage-500: oklch(0.58 0.10 145);
+  --sage-600: oklch(0.50 0.10 145);
+  --sage-700: oklch(0.42 0.08 145);
+  --sage-800: oklch(0.35 0.08 145);
+
+  /* Teal - for info (blue-green) */
+  --teal-50: oklch(0.96 0.03 195);
+  --teal-100: oklch(0.92 0.05 195);
+  --teal-200: oklch(0.85 0.08 195);
+  --teal-500: oklch(0.55 0.10 195);
+  --teal-600: oklch(0.48 0.10 195);
+  --teal-700: oklch(0.40 0.08 195);
+  --teal-800: oklch(0.32 0.08 195);
+
+  /* Olive - for medium states (yellow-green) */
+  --olive-50: oklch(0.96 0.03 115);
+  --olive-100: oklch(0.92 0.06 115);
+  --olive-200: oklch(0.85 0.08 115);
+  --olive-500: oklch(0.55 0.10 115);
+  --olive-600: oklch(0.48 0.10 115);
+  --olive-700: oklch(0.40 0.08 115);
+  --olive-800: oklch(0.32 0.08 115);
+
+  /* Brown - for pending (warm brown) */
+  --brown-50: oklch(0.96 0.02 55);
+  --brown-100: oklch(0.92 0.04 55);
+  --brown-200: oklch(0.85 0.06 55);
+  --brown-500: oklch(0.55 0.08 55);
+  --brown-600: oklch(0.48 0.08 55);
+  --brown-700: oklch(0.40 0.08 55);
+  --brown-800: oklch(0.32 0.06 55);
+
+  /* Docusaurus theme overrides - using Sage as primary */
+  --ifm-color-primary: var(--sage-600);
+  --ifm-color-primary-dark: var(--sage-700);
+  --ifm-color-primary-darker: var(--sage-800);
+  --ifm-color-primary-darkest: var(--sage-800);
+  --ifm-color-primary-light: var(--sage-500);
+  --ifm-color-primary-lighter: var(--sage-500);
+  --ifm-color-primary-lightest: var(--sage-200);
+
+  /* Semantic colors */
+  --ifm-color-info: var(--teal-600);
+  --ifm-color-success: var(--sage-600);
+  --ifm-color-warning: var(--amber-600);
+  --ifm-color-danger: var(--terracotta-600);
+
+  /* Background and surfaces */
+  --ifm-background-color: oklch(0.99 0.005 80);
+  --ifm-background-surface-color: oklch(0.97 0.01 80);
 
   /* Font */
   --ifm-font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -31,38 +103,108 @@
 
   /* Code blocks */
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(74, 124, 89, 0.1);
+  --docusaurus-highlighted-code-line-bg: var(--sage-50);
 
-  /* Navbar */
-  --ifm-navbar-background-color: #ffffff;
+  /* Navbar - warm cream */
+  --ifm-navbar-background-color: oklch(0.99 0.005 80);
   --ifm-navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
-  /* Footer */
-  --ifm-footer-background-color: #1a2e23;
-  --ifm-footer-link-color: #a8c5b0;
+  /* Footer - dark sage */
+  --ifm-footer-background-color: oklch(0.25 0.04 145);
+  --ifm-footer-link-color: var(--sage-200);
 
   /* Sidebar */
-  --ifm-menu-color-background-active: rgba(74, 124, 89, 0.1);
+  --ifm-menu-color-background-active: var(--sage-50);
+
+  /* Borders */
+  --ifm-color-emphasis-200: var(--stone-200);
+  --ifm-color-emphasis-300: var(--stone-500);
 }
 
-/* Dark mode colors */
+/* ============================================
+   EARTHY PALETTE - Dark Mode
+   ============================================ */
 [data-theme='dark'] {
-  --ifm-color-primary: #7ab38a;
-  --ifm-color-primary-dark: #65a877;
-  --ifm-color-primary-darker: #5aa26d;
-  --ifm-color-primary-darkest: #478756;
-  --ifm-color-primary-light: #8fbe9d;
-  --ifm-color-primary-lighter: #9ac4a7;
-  --ifm-color-primary-lightest: #b9d6c2;
+  /* Inverted lightness for dark mode */
+  --terracotta-50: oklch(0.35 0.12 35);
+  --terracotta-100: oklch(0.40 0.14 35);
+  --terracotta-200: oklch(0.48 0.16 35);
+  --terracotta-500: oklch(0.55 0.16 35);
+  --terracotta-600: oklch(0.65 0.16 35);
+  --terracotta-700: oklch(0.75 0.14 35);
+  --terracotta-800: oklch(0.85 0.12 35);
 
-  --ifm-color-info: #5cb3d1;
-  --ifm-color-success: #7ab38a;
-  --ifm-color-warning: #daa06d;
-  --ifm-color-danger: #e07b6f;
+  --amber-50: oklch(0.38 0.10 75);
+  --amber-100: oklch(0.50 0.12 75);
+  --amber-200: oklch(0.62 0.14 75);
+  --amber-500: oklch(0.72 0.14 75);
+  --amber-600: oklch(0.80 0.12 75);
+  --amber-700: oklch(0.88 0.10 75);
+  --amber-800: oklch(0.92 0.08 75);
 
-  --docusaurus-highlighted-code-line-bg: rgba(122, 179, 138, 0.15);
+  --stone-50: oklch(0.35 0.03 70);
+  --stone-100: oklch(0.45 0.03 70);
+  --stone-200: oklch(0.50 0.03 70);
+  --stone-500: oklch(0.60 0.03 70);
+  --stone-600: oklch(0.75 0.02 70);
+  --stone-700: oklch(0.85 0.015 70);
+  --stone-800: oklch(0.93 0.015 70);
 
-  --ifm-footer-background-color: #0f1a14;
+  --sage-50: oklch(0.35 0.08 145);
+  --sage-100: oklch(0.42 0.08 145);
+  --sage-200: oklch(0.50 0.10 145);
+  --sage-500: oklch(0.58 0.10 145);
+  --sage-600: oklch(0.68 0.10 145);
+  --sage-700: oklch(0.80 0.08 145);
+  --sage-800: oklch(0.92 0.05 145);
+
+  --teal-50: oklch(0.32 0.08 195);
+  --teal-100: oklch(0.40 0.08 195);
+  --teal-200: oklch(0.48 0.10 195);
+  --teal-500: oklch(0.55 0.10 195);
+  --teal-600: oklch(0.68 0.10 195);
+  --teal-700: oklch(0.80 0.08 195);
+  --teal-800: oklch(0.92 0.05 195);
+
+  --olive-50: oklch(0.32 0.08 115);
+  --olive-100: oklch(0.40 0.08 115);
+  --olive-200: oklch(0.48 0.10 115);
+  --olive-500: oklch(0.55 0.10 115);
+  --olive-600: oklch(0.68 0.10 115);
+  --olive-700: oklch(0.80 0.08 115);
+  --olive-800: oklch(0.92 0.06 115);
+
+  --brown-50: oklch(0.32 0.06 55);
+  --brown-100: oklch(0.40 0.08 55);
+  --brown-200: oklch(0.48 0.08 55);
+  --brown-500: oklch(0.55 0.08 55);
+  --brown-600: oklch(0.68 0.08 55);
+  --brown-700: oklch(0.80 0.06 55);
+  --brown-800: oklch(0.92 0.04 55);
+
+  /* Docusaurus overrides */
+  --ifm-color-primary: var(--sage-600);
+  --ifm-color-primary-dark: var(--sage-700);
+  --ifm-color-primary-darker: var(--sage-800);
+  --ifm-color-primary-darkest: var(--sage-800);
+  --ifm-color-primary-light: var(--sage-500);
+  --ifm-color-primary-lighter: var(--sage-200);
+  --ifm-color-primary-lightest: var(--sage-100);
+
+  --ifm-color-info: var(--teal-600);
+  --ifm-color-success: var(--sage-600);
+  --ifm-color-warning: var(--amber-600);
+  --ifm-color-danger: var(--terracotta-600);
+
+  /* Background - dark brown */
+  --ifm-background-color: oklch(0.20 0.03 55);
+  --ifm-background-surface-color: oklch(0.25 0.035 55);
+
+  --docusaurus-highlighted-code-line-bg: var(--sage-50);
+
+  /* Footer */
+  --ifm-footer-background-color: oklch(0.15 0.03 55);
+  --ifm-footer-link-color: var(--sage-700);
 }
 
 /* Typography improvements */
@@ -82,28 +224,37 @@
   font-weight: 600;
 }
 
-/* Admonition (callout) styling */
+/* Admonition (callout) styling - using palette variables */
 .alert {
   border-radius: 8px;
   border-left-width: 4px;
 }
 
 .alert--info {
-  --ifm-alert-background-color: rgba(45, 125, 154, 0.1);
-  --ifm-alert-border-color: var(--ifm-color-info);
+  background-color: var(--teal-50);
+  border-left-color: var(--teal-600);
+  color: var(--teal-800);
 }
 
 .alert--success {
-  --ifm-alert-background-color: rgba(74, 124, 89, 0.1);
-  --ifm-alert-border-color: var(--ifm-color-success);
+  background-color: var(--sage-50);
+  border-left-color: var(--sage-600);
+  color: var(--sage-800);
 }
 
 .alert--warning {
-  --ifm-alert-background-color: rgba(193, 127, 74, 0.1);
-  --ifm-alert-border-color: var(--ifm-color-warning);
+  background-color: var(--amber-50);
+  border-left-color: var(--amber-600);
+  color: var(--amber-800);
 }
 
-/* Table styling */
+.alert--danger {
+  background-color: var(--terracotta-50);
+  border-left-color: var(--terracotta-600);
+  color: var(--terracotta-800);
+}
+
+/* Table styling - enhanced with palette */
 table {
   display: table;
   width: 100%;
@@ -111,12 +262,18 @@ table {
 }
 
 table th {
-  background-color: rgba(74, 124, 89, 0.08);
+  background-color: var(--stone-100);
   font-weight: 600;
+  color: var(--stone-800);
 }
 
-[data-theme='dark'] table th {
-  background-color: rgba(122, 179, 138, 0.1);
+table tbody tr:nth-child(odd) {
+  background-color: var(--stone-50);
+}
+
+table tbody tr:hover {
+  background-color: var(--sage-50);
+  transition: background-color 0.2s ease;
 }
 
 table td, table th {
@@ -129,9 +286,18 @@ table td, table th {
   font-weight: 500;
 }
 
-/* Breadcrumbs */
+/* Breadcrumbs - enhanced hover states */
 .breadcrumbs__link {
   font-size: 0.875rem;
+  color: var(--stone-600);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.breadcrumbs__link:hover {
+  color: var(--sage-600);
+  background-color: var(--sage-50);
 }
 
 /* Search bar placeholder */
@@ -152,17 +318,6 @@ table td, table th {
   border-color: var(--ifm-color-warning);
 }
 
-/* Card-like doc items in category index pages */
-.cardContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocCard-styles-module {
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 8px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.cardContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocCard-styles-module:hover {
-  border-color: var(--ifm-color-primary);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
 
 /* TOC (Table of Contents) */
 .table-of-contents__link--active {
@@ -170,9 +325,129 @@ table td, table th {
   color: var(--ifm-color-primary);
 }
 
-/* Footer links */
+/* Footer links - enhanced with palette */
+.footer__link-item {
+  transition: color 0.2s ease;
+}
+
 .footer__link-item:hover {
-  color: #ffffff;
+  color: var(--sage-700);
+}
+
+.footer__title {
+  color: var(--sage-200);
+  font-weight: 600;
+}
+
+/* Tags and labels */
+.tag {
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.tag--primary {
+  background-color: var(--sage-100);
+  color: var(--sage-800);
+  border: 1px solid var(--sage-200);
+}
+
+.tag--info {
+  background-color: var(--teal-100);
+  color: var(--teal-800);
+  border: 1px solid var(--teal-200);
+}
+
+.tag--warning {
+  background-color: var(--amber-100);
+  color: var(--amber-800);
+  border: 1px solid var(--amber-200);
+}
+
+.tag--danger {
+  background-color: var(--terracotta-100);
+  color: var(--terracotta-800);
+  border: 1px solid var(--terracotta-200);
+}
+
+/* Pagination controls */
+.pagination__item--active .pagination__link {
+  background-color: var(--sage-600);
+  border-color: var(--sage-600);
+  color: white;
+}
+
+.pagination__item:hover:not(.pagination__item--active) .pagination__link {
+  background-color: var(--teal-50);
+  border-color: var(--teal-200);
+  transition: all 0.2s ease;
+}
+
+.pagination__item--disabled .pagination__link {
+  background-color: var(--stone-100);
+  color: var(--stone-500);
+}
+
+/* Code block enhancements */
+.markdown > pre {
+  border-left: 3px solid var(--sage-500);
+  transition: border-left-color 0.2s ease;
+}
+
+.markdown > pre:hover {
+  border-left-color: var(--teal-500);
+}
+
+/* Highlighted lines in code blocks */
+.theme-code-block-highlighted-line {
+  background-color: var(--sage-50);
+  border-left: 3px solid var(--sage-600);
+  padding-left: 0.5rem;
+  display: block;
+  margin: 0 -1rem;
+  padding-right: 1rem;
+}
+
+/* Borders and dividers */
+hr {
+  border-color: var(--stone-200);
+  margin: 2rem 0;
+}
+
+/* Enhanced card styling */
+.card {
+  border: 1px solid var(--stone-200);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--sage-300);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Section highlights */
+.markdown > .section--highlight {
+  background-color: var(--teal-50);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--teal-600);
+  margin: 2rem 0;
+}
+
+/* Doc cards on category pages */
+.cardContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocCard-styles-module {
+  border: 1px solid var(--stone-200);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.cardContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocCard-styles-module:hover {
+  border-color: var(--sage-500);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Mobile responsive adjustments */

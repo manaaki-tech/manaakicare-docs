@@ -1,0 +1,97 @@
+/**
+ * Callout component styles using earthy palette
+ */
+
+.callout {
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid;
+  transition: all 0.2s ease;
+}
+
+.callout:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.calloutTitle {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.calloutContent {
+  line-height: 1.6;
+}
+
+/* Color variants */
+.callout--teal {
+  background-color: var(--teal-50);
+  border-left-color: var(--teal-600);
+  color: var(--teal-800);
+}
+
+.callout--teal .calloutTitle {
+  color: var(--teal-700);
+}
+
+.callout--sage {
+  background-color: var(--sage-50);
+  border-left-color: var(--sage-600);
+  color: var(--sage-800);
+}
+
+.callout--sage .calloutTitle {
+  color: var(--sage-700);
+}
+
+.callout--amber {
+  background-color: var(--amber-50);
+  border-left-color: var(--amber-600);
+  color: var(--amber-800);
+}
+
+.callout--amber .calloutTitle {
+  color: var(--amber-700);
+}
+
+.callout--terracotta {
+  background-color: var(--terracotta-50);
+  border-left-color: var(--terracotta-600);
+  color: var(--terracotta-800);
+}
+
+.callout--terracotta .calloutTitle {
+  color: var(--terracotta-700);
+}
+
+.callout--olive {
+  background-color: var(--olive-50);
+  border-left-color: var(--olive-600);
+  color: var(--olive-800);
+}
+
+.callout--olive .calloutTitle {
+  color: var(--olive-700);
+}
+
+.callout--brown {
+  background-color: var(--brown-50);
+  border-left-color: var(--brown-600);
+  color: var(--brown-800);
+}
+
+.callout--brown .calloutTitle {
+  color: var(--brown-700);
+}
+
+.callout--stone {
+  background-color: var(--stone-50);
+  border-left-color: var(--stone-600);
+  color: var(--stone-800);
+}
+
+.callout--stone .calloutTitle {
+  color: var(--stone-700);
+}

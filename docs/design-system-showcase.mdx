@@ -1,0 +1,141 @@
+---
+sidebar_position: 99
+title: Design System Showcase
+description: Visual examples of the ManaakiCare earthy palette in use
+---
+
+# Design System Showcase
+
+This page demonstrates the full earthy palette implementation in the documentation theme.
+
+## Earthy Color Palette
+
+ManaakiCare uses a warm, earthy color palette inspired by New Zealand's natural landscapes:
+
+- **Terracotta** (35°) - Critical, urgent, medical alerts
+- **Amber** (75°) - Warnings, high priority items
+- **Stone** (70°) - Neutral elements, inactive states
+- **Sage** (145°) - Success, active states, primary actions
+- **Teal** (195°) - Informational content, assessments
+- **Olive** (115°) - Medium priority, on-hold states
+- **Brown** (55°) - Referrals, pending items
+
+## Standard Admonitions
+
+Built-in Docusaurus admonitions now use our palette:
+
+:::note Information
+This is a **note** admonition using Teal from the earthy palette. Use for general information and tips.
+:::
+
+:::tip Success
+This is a **tip** admonition using Sage green. Use for helpful suggestions and best practices.
+:::
+
+:::warning Caution
+This is a **warning** admonition using Amber. Use for important warnings and gotchas.
+:::
+
+:::danger Critical
+This is a **danger** admonition using Terracotta. Use for critical errors and security warnings.
+:::
+
+## Custom Callout Components
+
+Use the `<Callout>` component for more flexible, color-coded content blocks:
+
+<Callout color="teal" title="Assessment Information">
+Use **Teal** callouts for assessment-related information, helpful tips, or general guidance.
+</Callout>
+
+<Callout color="sage" title="Active Status">
+Use **Sage** callouts for success messages, active states, or positive confirmations.
+</Callout>
+
+<Callout color="amber" title="High Priority">
+Use **Amber** callouts for warnings, high-priority items, or time-sensitive information.
+</Callout>
+
+<Callout color="terracotta" title="Urgent Medical Alert">
+Use **Terracotta** callouts for critical alerts, urgent medical information, or errors.
+</Callout>
+
+<Callout color="olive" title="On-Hold Process">
+Use **Olive** callouts for medium-priority items, on-hold processes, or coordination notes.
+</Callout>
+
+<Callout color="brown" title="Referral Process">
+Use **Brown** callouts for referral information, pending items, or intake processes.
+</Callout>
+
+<Callout color="stone" title="Administrative Note">
+Use **Stone** callouts for neutral information, administrative notes, or general context.
+</Callout>
+
+## Table Styling
+
+Tables now feature Stone-colored headers with alternating row backgrounds and Sage hover states:
+
+| Priority Level | Color | Use Case | Example |
+|---------------|-------|----------|---------|
+| Critical | Terracotta | Medical emergencies, urgent alerts | Hospital admission required |
+| High | Amber | Time-sensitive tasks, warnings | Follow-up needed within 24h |
+| Medium | Olive | Standard priority, coordination | Schedule monthly check-in |
+| Low | Stone | Administrative, inactive | File archived |
+| Active | Sage | Success states, completions | Service episode approved |
+| Assessment | Teal | Information gathering | Initial assessment pending |
+| Referral | Brown | Intake processes | New referral received |
+
+## Usage in MDX Files
+
+### Standard Admonitions
+
+```markdown
+:::note
+Your information content here
+:::
+
+:::tip
+Your success content here
+:::
+
+:::warning
+Your warning content here
+:::
+
+:::danger
+Your critical content here
+:::
+```
+
+### Custom Callouts
+
+```jsx
+<Callout color="teal" title="Optional Title">
+Your content here with **markdown** support
+</Callout>
+
+<Callout color="amber">
+Content without a title
+</Callout>
+```
+
+## Color Accessibility
+
+All color combinations in the palette meet WCAG AA contrast standards:
+
+- Light mode: Dark text on light backgrounds
+- Dark mode: Light text on dark backgrounds
+- Border accents provide additional visual differentiation
+- Hover states enhance interactivity
+
+## Implementation Notes
+
+The design system is implemented through:
+
+1. **OKLCH Color Space** - Perceptually uniform colors with consistent lightness
+2. **CSS Custom Properties** - All colors defined as CSS variables in `custom.css`
+3. **Automatic Dark Mode** - Inverted lightness values for dark theme
+4. **Semantic Naming** - Color names reflect their purpose in the application
+
+This ensures consistency between the documentation site and the ManaakiCare application frontend.
