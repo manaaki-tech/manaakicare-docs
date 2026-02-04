@@ -1,0 +1,305 @@
+---
+title: Workflow Overview
+description: Visual guides to understanding how referrals flow through ManaakiCare
+sidebar_position: 4
+helpId: workflow-overview
+keywords: [workflow, referral flow, process, status, lifecycle, diagram]
+---
+
+import Callout from '@site/src/components/Callout';
+
+# Workflow Overview
+
+This page provides visual diagrams to help you understand how referrals and service episodes flow through ManaakiCare. These diagrams are useful for new staff orientation and understanding the end-to-end process.
+
+---
+
+## Referral Lifecycle
+
+The complete journey of a referral from creation to service completion.
+
+```mermaid
+flowchart TB
+    subgraph intake["<b>INTAKE PHASE</b>"]
+        draft["📝 Draft"]
+        submitted["📤 Submitted"]
+        pending_review["⏳ Pending Review"]
+    end
+
+    subgraph approval["<b>APPROVAL PHASE</b>"]
+        pending_service["📋 Pending Service Review"]
+        rejected["❌ Rejected"]
+    end
+
+    subgraph delivery["<b>SERVICE DELIVERY PHASE</b>"]
+        awaiting["🕐 Awaiting Service"]
+        active["✅ Active"]
+        completed["🎉 Completed"]
+    end
+
+    draft -->|"Intake Officer submits"| submitted
+    submitted -->|"Auto-progress"| pending_review
+    pending_review -->|"Supervisor approves"| pending_service
+    pending_review -->|"Supervisor rejects"| rejected
+    rejected -->|"Resubmit with changes"| pending_review
+    pending_service -->|"Dispatch to service"| awaiting
+    awaiting -->|"Case Worker begins"| active
+    active -->|"Service complete"| completed
+
+    style draft fill:#F5F0E8,stroke:#8B7355,color:#4A3D30
+    style submitted fill:#F7F0E0,stroke:#C4A35A,color:#4A3D20
+    style pending_review fill:#F7F0E0,stroke:#C4A35A,color:#4A3D20
+    style pending_service fill:#E6F2F2,stroke:#4A8B8C,color:#2A4A4A
+    style rejected fill:#F5E6E0,stroke:#B85C38,color:#5C2E1A
+    style awaiting fill:#E6F2F2,stroke:#4A8B8C,color:#2A4A4A
+    style active fill:#E8F2EC,stroke:#5C8A72,color:#2D4A3E
+    style completed fill:#E8F2EC,stroke:#5C8A72,color:#2D4A3E
+```
+
+### Status Definitions
+
+| Status | Phase | Owner | Description |
+|--------|-------|-------|-------------|
+| **Draft** | Intake | Intake Officer | Referral started but not yet submitted |
+| **Submitted** | Intake | Intake Officer | Sent for initial processing |
+| **Pending Review** | Intake | Supervisor | Awaiting supervisor approval |
+| **Rejected** | Approval | Supervisor | Returned with feedback for correction |
+| **Pending Service Review** | Approval | Intake Officer | Approved, ready for service allocation |
+| **Awaiting Service** | Delivery | Case Worker | Dispatched, waiting for service to begin |
+| **Active** | Delivery | Case Worker | Service delivery in progress |
+| **Completed** | Delivery | Case Worker | Service delivery finished |
+
+---
+
+## Role Responsibilities
+
+This diagram shows how work flows between the three main roles in ManaakiCare.
+
+```mermaid
+flowchart TB
+    subgraph io["<b>INTAKE OFFICER</b>"]
+        io1["Create referral"]
+        io2["Complete intake assessment"]
+        io3["Submit for review"]
+        io4["Dispatch to service"]
+    end
+
+    subgraph sup["<b>SUPERVISOR / PROGRAM MANAGER</b>"]
+        sup1["Review referral"]
+        sup2{"Approve?"}
+        sup3["Accept service request"]
+        sup4["Allocate to case worker"]
+        sup5["Monitor team activity"]
+    end
+
+    subgraph cw["<b>CASE WORKER</b>"]
+        cw1["Receive assignment"]
+        cw2["Begin service delivery"]
+        cw3["Record activities"]
+        cw4["Complete follow-ups"]
+        cw5["Close episode"]
+    end
+
+    io1 --> io2 --> io3
+    io3 --> sup1
+    sup1 --> sup2
+    sup2 -->|"Yes"| io4
+    sup2 -->|"No"| io3
+    io4 --> sup3
+    sup3 --> sup4
+    sup4 --> cw1
+    cw1 --> cw2 --> cw3 --> cw4
+    cw4 --> cw5
+    sup5 -.->|"Oversight"| cw3
+    sup5 -.->|"Oversight"| cw4
+
+    style io fill:#E6F2F2,stroke:#4A8B8C,color:#2A4A4A
+    style sup fill:#F7F0E0,stroke:#C4A35A,color:#4A3D20
+    style cw fill:#E8F2EC,stroke:#5C8A72,color:#2D4A3E
+```
+
+### Role Quick Reference
+
+| Role | Primary Responsibilities | Dashboard Focus |
+|------|-------------------------|-----------------|
+| **Intake Officer** | Create referrals, process intake, dispatch to services | New referrals, review queue, service dispatch |
+| **Supervisor** | Approve/reject referrals, allocate to team, monitor contacts | Pending requests, team activity, client engagement |
+| **Case Worker** | Deliver services, record activities, manage follow-ups | Active cases, follow-ups due, client interactions |
+
+---
+
+## Service Request Flow
+
+When a referral is dispatched to a service, the supervisor must accept or reject it.
+
+```mermaid
+stateDiagram-v2
+    [*] --> PendingDispatch: Referral approved
+
+    PendingDispatch --> ServiceRequested: Intake dispatches to service
+    ServiceRequested --> Accepted: Supervisor accepts
+    ServiceRequested --> Rejected: Supervisor rejects
+
+    Rejected --> PendingDispatch: Select different service
+
+    Accepted --> EpisodeCreated: System creates episode
+    EpisodeCreated --> Unassigned: No case worker selected
+    EpisodeCreated --> Assigned: Case worker allocated
+
+    Unassigned --> Assigned: Supervisor assigns later
+    Assigned --> ServiceDelivery: Case worker begins work
+    ServiceDelivery --> [*]: Episode completed
+```
+
+<Callout color="teal" title="Automatic Episode Creation">
+When a supervisor accepts a service request, ManaakiCare automatically creates a service episode. If a case worker is selected during acceptance, they are immediately assigned and can see the episode on their dashboard.
+</Callout>
+
+---
+
+## Priority Handling
+
+Different priorities have different expected response times.
+
+```mermaid
+flowchart LR
+    subgraph priorities["<b>PRIORITY LEVELS</b>"]
+        direction TB
+        critical["🔴 Critical / Emergency"]
+        urgent["🟠 Urgent"]
+        priority["🟡 Priority"]
+        routine["🟢 Routine"]
+    end
+
+    subgraph response["<b>EXPECTED RESPONSE</b>"]
+        direction TB
+        r1["Immediate - same hour"]
+        r2["Same day"]
+        r3["Within 24 hours"]
+        r4["Within 48 hours"]
+    end
+
+    critical --> r1
+    urgent --> r2
+    priority --> r3
+    routine --> r4
+
+    style critical fill:#F5E6E0,stroke:#B85C38,color:#5C2E1A
+    style urgent fill:#F7F0E0,stroke:#C4A35A,color:#4A3D20
+    style priority fill:#F7F0E0,stroke:#C4A35A,color:#4A3D20
+    style routine fill:#E8F2EC,stroke:#5C8A72,color:#2D4A3E
+```
+
+### Priority Guidelines
+
+| Priority | When to Use | Example Scenarios |
+|----------|-------------|-------------------|
+| **Critical / Emergency** | Immediate safety concern | Child at risk, medical emergency, crisis situation |
+| **Urgent** | Needs same-day attention | Family in distress, time-sensitive support needed |
+| **Priority** | Important but not emergency | New client intake, scheduled assessment overdue |
+| **Routine** | Standard processing | Regular check-in, administrative referral |
+
+---
+
+## Daily Workflow by Role
+
+### Intake Officer Daily Flow
+
+```mermaid
+flowchart LR
+    start(["☀️ Start of Day"]) --> check["Check new referrals"]
+    check --> urgent{"Urgent items?"}
+    urgent -->|"Yes"| process_urgent["Process urgent first"]
+    urgent -->|"No"| process_queue["Process in order"]
+    process_urgent --> process_queue
+    process_queue --> review["Check In Review queue"]
+    review --> dispatch["Dispatch approved referrals"]
+    dispatch --> end_day(["🌙 End of Day"])
+
+    style start fill:#E8F2EC,stroke:#5C8A72
+    style end_day fill:#E8F2EC,stroke:#5C8A72
+    style process_urgent fill:#F5E6E0,stroke:#B85C38
+```
+
+### Supervisor Daily Flow
+
+```mermaid
+flowchart LR
+    start(["☀️ Start of Day"]) --> pending["Review pending requests"]
+    pending --> accept_reject["Accept/Reject referrals"]
+    accept_reject --> allocate["Allocate to team members"]
+    allocate --> contacts["Check Service Users Needing Contact"]
+    contacts --> followup{"Overdue contacts?"}
+    followup -->|"Yes"| chase["Follow up with case workers"]
+    followup -->|"No"| monitor["Monitor team activity"]
+    chase --> monitor
+    monitor --> end_day(["🌙 End of Day"])
+
+    style start fill:#F7F0E0,stroke:#C4A35A
+    style end_day fill:#F7F0E0,stroke:#C4A35A
+    style chase fill:#F5E6E0,stroke:#B85C38
+```
+
+### Case Worker Daily Flow
+
+```mermaid
+flowchart LR
+    start(["☀️ Start of Day"]) --> dashboard["Check My Caseload"]
+    dashboard --> overdue{"Overdue follow-ups?"}
+    overdue -->|"Yes"| address["Address overdue items"]
+    overdue -->|"No"| today["Check today's follow-ups"]
+    address --> today
+    today --> visits["Conduct client visits"]
+    visits --> record["Record activities & notes"]
+    record --> schedule["Schedule next follow-ups"]
+    schedule --> end_day(["🌙 End of Day"])
+
+    style start fill:#E8F2EC,stroke:#5C8A72
+    style end_day fill:#E8F2EC,stroke:#5C8A72
+    style address fill:#F5E6E0,stroke:#B85C38
+```
+
+---
+
+## Data Visibility
+
+Understanding who can see what in ManaakiCare.
+
+```mermaid
+flowchart TB
+    subgraph admin["<b>ADMIN / PROGRAM MANAGER</b>"]
+        a1["All records in organisation"]
+    end
+
+    subgraph supervisor["<b>SUPERVISOR</b>"]
+        s1["Own records"]
+        s2["Supervised case workers' records"]
+    end
+
+    subgraph caseworker["<b>CASE WORKER</b>"]
+        c1["Only own assigned cases"]
+    end
+
+    admin --> supervisor
+    supervisor --> caseworker
+
+    style admin fill:#F5F3F0,stroke:#8B8178,color:#3D3830
+    style supervisor fill:#F7F0E0,stroke:#C4A35A,color:#4A3D20
+    style caseworker fill:#E8F2EC,stroke:#5C8A72,color:#2D4A3E
+```
+
+| Role | Can View | Cannot View |
+|------|----------|-------------|
+| **Case Worker** | Own assigned service episodes and activities | Other case workers' cases |
+| **Supervisor** | Own records + all supervised case workers' records | Records outside their team |
+| **Program Manager / Admin** | All records within their organisation | Records from other organisations |
+
+---
+
+## Related Documentation
+
+- [Intake Officer Dashboard](/dashboards/intake-officer) - Processing referrals
+- [Supervisor Dashboard](/dashboards/supervisor) - Managing team and approvals
+- [Case Worker Dashboard](/dashboards/case-worker) - Managing caseload
+- [Referral Overview](/referrals/overview) - Detailed referral documentation
+- [User Roles](/user-roles/case-worker) - Role permissions and responsibilities
