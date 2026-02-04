@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- ManaakiLink Icon: Interlocking links -->
+  <rect width="48" height="48" rx="10" fill="#FDFCFA"/>
+
+  <!-- Left link -->
+  <rect x="8" y="14" width="22" height="16" rx="8" ry="8"
+        fill="none" stroke="#5C8A72" stroke-width="4"/>
+  <!-- Right link -->
+  <rect x="20" y="18" width="22" height="16" rx="8" ry="8"
+        fill="none" stroke="#4A8B8C" stroke-width="4"/>
+  <!-- Connection highlight -->
+  <circle cx="30" cy="24" r="4" fill="#C4A35A"/>
+</svg>

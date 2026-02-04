@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- TiakiLink Icon: Shield with link -->
+  <rect width="48" height="48" rx="10" fill="#FDFCFA"/>
+
+  <!-- Shield -->
+  <path d="M24 6 L40 12 L40 26 Q40 38, 24 42 Q8 38, 8 26 L8 12 Z"
+        fill="none" stroke="#5C8A72" stroke-width="3"/>
+
+  <!-- Interlocking links inside -->
+  <ellipse cx="19" cy="24" rx="9" ry="6" fill="none" stroke="#4A8B8C" stroke-width="2.5"/>
+  <ellipse cx="29" cy="24" rx="9" ry="6" fill="none" stroke="#C4A35A" stroke-width="2.5"/>
+</svg>

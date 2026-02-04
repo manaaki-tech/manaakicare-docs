@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- ManaakiCentral Icon: Hub with connections -->
+  <rect width="48" height="48" rx="10" fill="#FDFCFA"/>
+
+  <!-- Radiating lines -->
+  <line x1="24" y1="24" x2="12" y2="12" stroke="#5C8A72" stroke-width="3" stroke-linecap="round"/>
+  <line x1="24" y1="24" x2="36" y2="12" stroke="#5C8A72" stroke-width="3" stroke-linecap="round"/>
+  <line x1="24" y1="24" x2="12" y2="36" stroke="#4A8B8C" stroke-width="3" stroke-linecap="round"/>
+  <line x1="24" y1="24" x2="36" y2="36" stroke="#4A8B8C" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Outer nodes -->
+  <circle cx="12" cy="12" r="5" fill="#5C8A72"/>
+  <circle cx="36" cy="12" r="5" fill="#5C8A72"/>
+  <circle cx="12" cy="36" r="5" fill="#4A8B8C"/>
+  <circle cx="36" cy="36" r="5" fill="#4A8B8C"/>
+
+  <!-- Central hub -->
+  <circle cx="24" cy="24" r="8" fill="#C4A35A"/>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 50" width="260" height="50">
+  <!-- ManaakiCentral Logo: Hub with radiating connections -->
+
+  <!-- Symbol: Central hub with spokes -->
+  <g transform="translate(5, 6)">
+    <!-- Radiating lines -->
+    <line x1="22" y1="19" x2="8" y2="8" stroke="#5C8A72" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="22" y1="19" x2="36" y2="8" stroke="#5C8A72" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="22" y1="19" x2="8" y2="30" stroke="#4A8B8C" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="22" y1="19" x2="36" y2="30" stroke="#4A8B8C" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Outer nodes -->
+    <circle cx="8" cy="8" r="4" fill="#5C8A72"/>
+    <circle cx="36" cy="8" r="4" fill="#5C8A72"/>
+    <circle cx="8" cy="30" r="4" fill="#4A8B8C"/>
+    <circle cx="36" cy="30" r="4" fill="#4A8B8C"/>
+    <!-- Central hub -->
+    <circle cx="22" cy="19" r="7" fill="#C4A35A"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="52" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="22"
+        font-weight="600">
+    <tspan fill="#5C8A72">Manaaki</tspan><tspan fill="#4A8B8C">Central</tspan>
+  </text>
+</svg>

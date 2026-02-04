@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="240" height="50">
+  <!-- ManaakiLink Logo: Connected chain links -->
+
+  <!-- Symbol: Two interlocking links -->
+  <g transform="translate(5, 10)">
+    <!-- Left link -->
+    <rect x="4" y="8" width="20" height="14" rx="7" ry="7"
+          fill="none" stroke="#5C8A72" stroke-width="3"/>
+    <!-- Right link (overlapping) -->
+    <rect x="18" y="8" width="20" height="14" rx="7" ry="7"
+          fill="none" stroke="#4A8B8C" stroke-width="3"/>
+    <!-- Connection point highlight -->
+    <circle cx="28" cy="15" r="3" fill="#C4A35A"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="55" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="22"
+        font-weight="600">
+    <tspan fill="#5C8A72">Manaaki</tspan><tspan fill="#4A8B8C">Link</tspan>
+  </text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- TiakiPath Icon: Shield with path -->
+  <rect width="48" height="48" rx="10" fill="#FDFCFA"/>
+
+  <!-- Shield -->
+  <path d="M24 6 L40 12 L40 26 Q40 38, 24 42 Q8 38, 8 26 L8 12 Z"
+        fill="none" stroke="#5C8A72" stroke-width="3"/>
+
+  <!-- Path inside -->
+  <path d="M16 32 Q20 26, 24 22 Q28 18, 32 16"
+        fill="none" stroke="#4A8B8C" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Waypoints -->
+  <circle cx="18" cy="29" r="3" fill="#C4A35A"/>
+  <circle cx="30" cy="17" r="3" fill="#C4A35A"/>
+</svg>
