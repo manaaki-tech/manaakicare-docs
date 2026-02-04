@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="200" height="50">
+  <!-- ManaakiCare Logo Concept 3: Connected people / whānau -->
+
+  <!-- Symbol: Three overlapping circles suggesting community/connection -->
+  <g transform="translate(5, 10)">
+    <!-- Left circle (sage) -->
+    <circle cx="15" cy="18" r="12" fill="#5C8A72" opacity="0.85"/>
+    <!-- Center circle (teal) -->
+    <circle cx="28" cy="15" r="12" fill="#4A8B8C" opacity="0.85"/>
+    <!-- Right circle (amber) -->
+    <circle cx="41" cy="18" r="12" fill="#C4A35A" opacity="0.85"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="62" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="22"
+        font-weight="600"
+        fill="#3D3830">
+    <tspan fill="#5C8A72">Manaaki</tspan><tspan fill="#4A8B8C">Care</tspan>
+  </text>
+</svg>

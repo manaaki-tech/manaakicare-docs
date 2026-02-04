@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="200" height="50">
+  <!-- ManaakiCare Logo Concept 1: Hands forming a protective arc -->
+
+  <!-- Symbol: Two curved shapes suggesting caring hands or a sheltering form -->
+  <g transform="translate(5, 8)">
+    <!-- Left hand/arc -->
+    <path d="M8 30 Q8 10, 20 8 Q28 6, 32 14"
+          fill="none"
+          stroke="#5C8A72"
+          stroke-width="3"
+          stroke-linecap="round"/>
+    <!-- Right hand/arc -->
+    <path d="M32 14 Q36 6, 44 8 Q56 10, 56 30"
+          fill="none"
+          stroke="#4A8B8C"
+          stroke-width="3"
+          stroke-linecap="round"/>
+    <!-- Small circle in center (person/heart being cared for) -->
+    <circle cx="32" cy="22" r="6" fill="#C4A35A"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="70" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="22"
+        font-weight="600"
+        fill="#3D3830">
+    <tspan fill="#5C8A72">Manaaki</tspan><tspan fill="#4A8B8C">Care</tspan>
+  </text>
+</svg>

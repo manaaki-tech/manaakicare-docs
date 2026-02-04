@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="200" height="50">
+  <!-- ManaakiCare Logo Concept 2: Koru-inspired (NZ fern unfurling) -->
+
+  <!-- Symbol: Stylised koru representing growth, new life, care -->
+  <g transform="translate(5, 5)">
+    <!-- Outer koru spiral -->
+    <path d="M30 40 Q10 40, 10 25 Q10 10, 25 10 Q35 10, 38 18 Q40 24, 35 28 Q30 32, 26 28 Q24 25, 27 23"
+          fill="none"
+          stroke="#5C8A72"
+          stroke-width="3.5"
+          stroke-linecap="round"/>
+    <!-- Inner dot (seed/beginning) -->
+    <circle cx="28" cy="24" r="3" fill="#C4A35A"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="55" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="22"
+        font-weight="600"
+        fill="#3D3830">
+    <tspan fill="#5C8A72">Manaaki</tspan><tspan fill="#4A8B8C">Care</tspan>
+  </text>
+</svg>

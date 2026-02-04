@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- ManaakiCare Icon Concept 2: Koru -->
+  <rect width="48" height="48" rx="10" fill="#FDFCFA"/>
+
+  <!-- Koru spiral -->
+  <path d="M32 38 Q8 38, 8 22 Q8 8, 24 8 Q36 8, 38 18 Q40 26, 32 30 Q24 34, 22 28 Q20 22, 26 20"
+        fill="none"
+        stroke="#5C8A72"
+        stroke-width="4"
+        stroke-linecap="round"/>
+
+  <!-- Center seed -->
+  <circle cx="27" cy="22" r="4" fill="#C4A35A"/>
+</svg>

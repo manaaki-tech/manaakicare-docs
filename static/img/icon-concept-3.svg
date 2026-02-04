@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- ManaakiCare Icon Concept 3: Connected circles / whānau -->
+  <rect width="48" height="48" rx="10" fill="#FDFCFA"/>
+
+  <!-- Three overlapping circles -->
+  <circle cx="17" cy="26" r="11" fill="#5C8A72" opacity="0.85"/>
+  <circle cx="31" cy="26" r="11" fill="#4A8B8C" opacity="0.85"/>
+  <circle cx="24" cy="16" r="11" fill="#C4A35A" opacity="0.85"/>
+</svg>
