@@ -1,0 +1,354 @@
+---
+title: Intake Officer Dashboard
+description: Complete guide to the Intake Officer Dashboard in ManaakiCare
+sidebar_position: 1
+helpId: dashboard-intake-officer
+keywords: [dashboard, intake officer, referrals, intake processing, service dispatch]
+---
+
+import Callout from '@site/src/components/Callout';
+
+# Intake Officer Dashboard
+
+The Intake Officer Dashboard is your central hub for managing the referral intake process. It provides a comprehensive view of all referrals at different stages, from new submissions through to service dispatch.
+
+## Overview
+
+![Intake Dashboard Analytics](/intake_officer/dashboard/Analytic.png)
+
+The Intake Dashboard displays:
+- **Real-time analytics** showing referral volumes and statuses
+- **Filtered views** of referrals at each stage of the intake process
+- **Quick actions** to view and process referrals
+- **Search functionality** to find specific referrals
+
+---
+
+## Analytics Section
+
+The top section of the dashboard displays four key metrics that give you an at-a-glance view of your workload.
+
+### Statistics Cards
+
+| Card | Description | What It Shows |
+|------|-------------|---------------|
+| **Total Referrals** | All referrals in the system | Complete count across all statuses |
+| **New Referrals** | Referrals in intake processing | Draft and newly submitted referrals requiring initial processing |
+| **In Review** | Referrals pending review | Referrals submitted and awaiting supervisor/manager review |
+| **Service Review** | Referrals pending service allocation | Approved referrals ready to be dispatched to services |
+
+### Understanding the Numbers
+
+- **Yellow/Orange highlight** on "New Referrals" indicates items requiring your attention
+- **Green highlight** on "Service Review" shows referrals ready for dispatch
+- Numbers update in real-time as referrals progress through the workflow
+
+### Filters
+
+Use the filters at the top to narrow down your view:
+
+| Filter | Options | Use Case |
+|--------|---------|----------|
+| **Priority** | All Priorities, Urgent, Priority, Routine | Focus on high-priority referrals |
+| **Referral Date** | All dates, Custom date range | View referrals from specific time periods |
+
+#### How to Use Filters
+
+1. Click the **Priority** dropdown to select a priority level
+2. Click the **Referral Date** field to open the date picker
+3. Select your date range
+4. The dashboard updates automatically to show filtered results
+
+---
+
+## New Referrals Section
+
+![New Referrals](/intake_officer/dashboard/new_intake.png)
+
+This section displays all referrals that are new or in the initial intake processing stage.
+
+### What You'll See
+
+Referrals with status:
+- **Draft** - Referrals that have been started but not yet submitted
+- **Submitted** - Newly submitted referrals awaiting initial processing
+
+### Table Columns
+
+| Column | Description |
+|--------|-------------|
+| **Date** | The date the referral was created |
+| **Client** | Client name and reference number (e.g., REF-2026-DEFAULT-00047) |
+| **Referrer** | The person or organization who made the referral (N/A for self-referrals) |
+| **Priority** | Priority level badge (Urgent, Priority, or Routine) |
+| **Status** | Current status of the referral |
+| **Action** | View button to open the referral |
+
+### Priority Badges
+
+| Badge | Color | Meaning |
+|-------|-------|---------|
+| **Urgent** | Dark red/brown | Requires immediate attention |
+| **Priority** | Brown/orange | High priority, process promptly |
+| **Routine** | Green | Standard priority |
+
+### Actions
+
+- **View** - Click to open the full referral details
+- **View All** - Click to see all referrals in this category
+- **Search** - Use the search bar to find specific referrals by client name, referrer, or status
+
+### How to Process New Referrals
+
+1. Review the list sorted by date (newest first)
+2. Check priority levels - process Urgent and Priority items first
+3. Click **View** to open a referral
+4. Complete the intake assessment
+5. Submit for review when ready
+
+<Callout color="teal" title="Reference Numbers">
+Each referral has a unique reference number (e.g., REF-2026-DEFAULT-00047) that you can use to track and search for referrals.
+</Callout>
+
+---
+
+## In Review Section
+
+![In Review](/intake_officer/dashboard/in_review_referral.png)
+
+This section shows referrals that have been submitted and are awaiting review by a supervisor or manager.
+
+### What You'll See
+
+Referrals with status:
+- **Pending Review** - Submitted referrals awaiting approval
+
+### Table Columns
+
+Same structure as New Referrals, with the status showing **Pending Review**.
+
+### Understanding This Section
+
+- Referrals appear here after an intake officer submits them for review
+- A supervisor or manager must approve before the referral can proceed
+- The **Referrer** column now shows the referrer's name (e.g., "MrTeacher Riverdale")
+
+### What You Can Do
+
+| Action | Description |
+|--------|-------------|
+| **View** | Open the referral to check details or make updates |
+| **Track Progress** | Monitor how long referrals have been pending |
+| **Follow Up** | Contact supervisor if referrals are delayed |
+
+<Callout color="amber" title="Review Delays">
+If referrals stay in "Pending Review" for too long, follow up with your supervisor to ensure timely processing.
+</Callout>
+
+---
+
+## Service Review Section
+
+![Service Review](/intake_officer/dashboard/pending_service_review_referral.png)
+
+This section displays referrals that have been approved and are ready to be allocated to services.
+
+### What You'll See
+
+Referrals with status:
+- **Pending Service Review** - Approved referrals awaiting service allocation
+
+### Purpose
+
+These referrals have completed the review process and need to be:
+1. Matched with appropriate services
+2. Assigned to case workers or service teams
+3. Dispatched for service delivery
+
+### Actions
+
+- **View** - Review referral details and service requirements
+- **Dispatch** - Allocate the referral to a service (from the referral detail page)
+
+### How to Dispatch a Referral
+
+1. Click **View** on a referral
+2. Review the client's needs and service requirements
+3. Select the appropriate service
+4. Assign to a case worker or team
+5. Confirm the dispatch
+
+---
+
+## Post-Dispatch Section
+
+![Post-Dispatch](/intake_officer/dashboard/post_dispatch_referral.png)
+
+This section shows referrals that have been dispatched to services and are in various stages of service delivery.
+
+### What You'll See
+
+Referrals with status:
+- **Awaiting Service** - Dispatched but service hasn't started yet
+- **Completed** - Service delivery has been completed
+
+### Additional Features
+
+#### Status Filter
+
+Use the dropdown filter to view specific post-dispatch statuses:
+- **All Post-Dispatch** - View all dispatched referrals
+- **Awaiting Service** - Only referrals waiting to start
+- **Completed** - Only completed referrals
+
+### Table Information
+
+| Column | Description |
+|--------|-------------|
+| **Date** | Original referral date |
+| **Client** | Client name and reference number |
+| **Referrer** | Person/organization who made the referral |
+| **Priority** | Original priority level |
+| **Status** | Current status (Awaiting Service or Completed) |
+
+### Status Badges
+
+| Status | Color | Meaning |
+|--------|-------|---------|
+| **Awaiting Service** | Orange | Dispatched, waiting for service to begin |
+| **Completed** | Green | Service delivery finished |
+
+### Monitoring Post-Dispatch Referrals
+
+- Track referrals that are awaiting service start
+- Follow up on delayed service initiations
+- Review completed referrals for closure
+
+---
+
+## Common Tasks
+
+### Searching for Referrals
+
+Each section includes a search bar for finding specific referrals:
+
+1. Click in the search field
+2. Enter your search term:
+   - Client name
+   - Reference number
+   - Referrer name
+   - Status
+3. Results filter automatically as you type
+
+### Pagination
+
+When there are many referrals, use pagination to navigate:
+
+- **Showing X-Y of Z** - Indicates which records are displayed
+- **Page X of Y** - Current page number
+- **< >** arrows - Navigate between pages
+
+### Refreshing Data
+
+To refresh the dashboard data:
+1. Click the **refresh icon** (circular arrow) in the top-right corner
+2. The dashboard reloads with the latest data
+
+### Switching Themes
+
+Click the **sun/moon icon** in the top-right corner to toggle between light and dark modes.
+
+---
+
+## Workflow Reference
+
+### Referral Status Flow
+
+```
+Draft → Submitted → Pending Review → Pending Service Review → Awaiting Service → Completed
+```
+
+### Status Definitions
+
+| Status | Stage | Description |
+|--------|-------|-------------|
+| **Draft** | New Referrals | Started but not submitted |
+| **Submitted** | New Referrals | Sent for initial processing |
+| **Pending Review** | In Review | Awaiting supervisor approval |
+| **Pending Service Review** | Service Review | Approved, needs service allocation |
+| **Awaiting Service** | Post-Dispatch | Dispatched, service not started |
+| **Active** | Post-Dispatch | Service delivery in progress |
+| **Completed** | Post-Dispatch | Service delivery finished |
+
+---
+
+## Tips for Efficient Work
+
+### Daily Routine
+
+1. **Start of Day**
+   - Check the analytics cards for an overview
+   - Review Urgent and Priority referrals first
+   - Check for any referrals stuck in review
+
+2. **Throughout the Day**
+   - Process new referrals as they arrive
+   - Monitor the In Review queue
+   - Dispatch approved referrals promptly
+
+3. **End of Day**
+   - Review any pending items
+   - Note referrals requiring follow-up
+   - Check for overdue reviews
+
+### Priority Management
+
+| Priority | Response Time | Action |
+|----------|---------------|--------|
+| **Urgent** | Same day | Process immediately |
+| **Priority** | Within 24 hours | Process as soon as possible |
+| **Routine** | Within 48 hours | Process in order received |
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl + F` | Open search |
+| `Enter` | Submit search |
+| `Esc` | Close dialogs |
+
+---
+
+## Troubleshooting
+
+### Dashboard Not Loading
+
+1. Check your internet connection
+2. Click the refresh button
+3. Try logging out and back in
+4. Clear your browser cache
+
+### Missing Referrals
+
+If you can't find a referral:
+1. Check all sections (it may have moved to a different status)
+2. Use the search function with the reference number
+3. Check the filters - you may have a filter active
+4. Go to the full Referrals page for advanced search
+
+### Data Not Updating
+
+1. Click the refresh button
+2. Check if filters are affecting the view
+3. Wait a few moments and try again
+4. Contact support if the issue persists
+
+---
+
+## Related Documentation
+
+- [Intake Officer Role](/user-roles/intake-officer) - Role overview and responsibilities
+- [Creating a Referral](/referrals/creating-a-referral) - Step-by-step guide
+- [Referral Overview](/referrals/overview) - Understanding the referral process
+- [Submitting for Review](/referrals/submitting-for-review) - How to submit referrals
+- [Searching for Clients](/clients/searching-for-clients) - Finding client records

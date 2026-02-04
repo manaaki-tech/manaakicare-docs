@@ -29,6 +29,20 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Dashboards',
+      link: {
+        type: 'generated-index',
+        title: 'Dashboards',
+        description: 'Learn about the different dashboards in ManaakiCare based on your role',
+      },
+      items: [
+        'dashboards/intake-officer',
+        'dashboards/supervisor',
+        'dashboards/case-worker',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Clients',
       link: {
         type: 'generated-index',
@@ -102,6 +116,7 @@ const sidebars: SidebarsConfig = {
         'user-roles/case-worker',
         'user-roles/supervisor',
         'user-roles/program-manager',
+        'user-roles/intake-officer',
       ],
     },
     'glossary',

@@ -1,40 +1,136 @@
 ---
 title: Supervisor Role
-description: Capabilities and responsibilities of supervisors
+description: Capabilities and responsibilities of supervisors in ManaakiCare
 sidebar_position: 2
 helpId: role-supervisor
-keywords: [supervisor, role, permissions, approval, review]
+keywords: [supervisor, role, permissions, approval, review, team management]
 ---
 
 # Supervisor Role
 
-Understand the supervisor role, including team management, approvals, and oversight capabilities.
-
-:::note Work in Progress
-This documentation is being developed. Check back soon for updates.
-:::
+Understand the supervisor role, including team management, referral allocation, and oversight capabilities.
 
 ## Overview
 
-Supervisors lead teams of case workers, review and approve work, and ensure quality service delivery.
+Supervisors lead teams of case workers, manage incoming referral requests, and ensure clients receive timely and quality service delivery. They serve as the bridge between program management and frontline case workers.
 
 ## Key Responsibilities
 
-- Team oversight and management
-- Reviewing and approving referrals
-- Quality assurance
-- Workload distribution
-- Performance monitoring
+### Referral Request Management
+- Reviewing incoming referral service requests
+- Accepting or rejecting referrals with documented reasons
+- Allocating accepted referrals to team members
+- Ensuring timely processing of urgent and priority referrals
+
+### Team Oversight
+- Monitoring case worker activity and engagement
+- Tracking client contact frequency (flagging clients not contacted in 5+ days)
+- Reviewing Activities / Episodes ratio for team productivity
+- Managing workload distribution across team members
+
+### Service Delivery Monitoring
+- Tracking active service episodes under their supervision
+- Monitoring pending service dispatches
+- Ensuring referrals progress through the workflow
+- Following up on delayed or stalled referrals
+
+### Quality Assurance
+- Reviewing referral assessments for completeness
+- Ensuring documentation standards are maintained
+- Providing guidance on complex cases
+- Escalating issues to program managers when needed
 
 ## Permissions
 
-Details on supervisor-specific permissions will be added here.
+| Action | Permission |
+|--------|------------|
+| View referral requests for supervised services | Yes |
+| Accept referral requests | Yes |
+| Reject referral requests (with reason) | Yes |
+| Allocate referrals to team members | Yes |
+| View supervised case workers' records | Yes |
+| View active service episodes | Yes |
+| View team activities | Yes |
+| View client information | Yes |
+| Approve programs | No (Program Manager only) |
+| Access settings | No (Admin only) |
+
+## Data Visibility
+
+Supervisors can see:
+- **Their own records** - personal activities and assignments
+- **Supervised staff records** - all records belonging to case workers they supervise
+- **Organisation-level referrals** - referral requests assigned to their services
+
+This scoped visibility ensures supervisors have full oversight of their team without accessing data outside their responsibility.
 
 ## Dashboard Features
 
-Information about the supervisor dashboard will be documented here.
+The Supervisor Dashboard provides a management-focused view with four key sections:
+
+- **Analytics Overview** - Pending requests, active episodes, activities/episodes ratio, monthly referrals
+- **Pending Referral Requests** - Incoming requests with Accept/Reject actions
+- **Service Users Needing Contact** - Clients not contacted in 5+ days
+- **Pending Service Dispatch** - Referrals awaiting service assignment
+
+For detailed dashboard documentation, see [Supervisor / Program Manager Dashboard](/dashboards/supervisor).
+
+## Workflow Overview
+
+### Referral Request Processing
+
+```
+Referral Dispatched → Service Request Created → Supervisor Reviews
+    → Accept (allocate to team member) → Service Delivery
+    → Reject (with documented reason)
+```
+
+### Supervision Hierarchy
+
+```
+Program Manager
+  └── Supervisor
+        └── Case Worker 1
+        └── Case Worker 2
+        └── Case Worker 3
+```
+
+## Best Practices
+
+### Prioritization
+- Process **Critical** and **Urgent** referral requests immediately
+- Review the Pending Requests card at the start of each day
+- Monitor the Service Users Needing Contact section daily
+
+### Team Management
+- Distribute workload evenly across case workers
+- Use the Activities / Episodes ratio to gauge team engagement
+- Follow up when clients haven't been contacted in 5+ days
+
+### Communication
+- Provide clear notes when allocating referrals to team members
+- Document reasons when rejecting referrals
+- Escalate complex cases to program managers promptly
+
+### Timeliness
+- Aim to process new referral requests within 24 hours
+- Follow up on referrals pending service dispatch
+- Monitor the "Days" column for overdue client contacts
+
+## Common Tasks
+
+| Task | How To |
+|------|--------|
+| Accept a referral request | [Supervisor Dashboard](/dashboards/supervisor#accepting-a-referral) |
+| Reject a referral request | [Supervisor Dashboard](/dashboards/supervisor#rejecting-a-referral) |
+| Monitor client contacts | [Supervisor Dashboard](/dashboards/supervisor#service-users-needing-contact) |
+| View dashboard | [Supervisor / Program Manager Dashboard](/dashboards/supervisor) |
+| Search for clients | [Searching for Clients](/clients/searching-for-clients) |
 
 ## Related Topics
 
-- [Case Worker Role](/user-roles/case-worker)
+- [Supervisor / Program Manager Dashboard](/dashboards/supervisor)
 - [Program Manager Role](/user-roles/program-manager)
+- [Case Worker Role](/user-roles/case-worker)
+- [Intake Officer Role](/user-roles/intake-officer)
+- [Referral Overview](/referrals/overview)

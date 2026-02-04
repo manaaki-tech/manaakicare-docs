@@ -1,40 +1,156 @@
 ---
 title: Program Manager Role
-description: Capabilities and responsibilities of program managers
+description: Capabilities and responsibilities of program managers in ManaakiCare
 sidebar_position: 3
 helpId: role-program-manager
-keywords: [program manager, role, permissions, analytics, reporting]
+keywords: [program manager, role, permissions, analytics, reporting, oversight]
 ---
 
 # Program Manager Role
 
-Understand the program manager role, including program oversight, analytics, and reporting capabilities.
-
-:::note Work in Progress
-This documentation is being developed. Check back soon for updates.
-:::
+Understand the program manager role, including organisation-wide oversight, program approvals, and strategic management capabilities.
 
 ## Overview
 
-Program managers oversee entire programs, analyze performance metrics, and guide strategic decisions.
+Program Managers oversee entire programs and have the broadest data visibility within their organisation. They share the same dashboard as Supervisors but with organisation-wide data access, enabling them to monitor all teams, services, and referral activity.
 
 ## Key Responsibilities
 
-- Program-level oversight
-- Performance analysis
-- Resource planning
+### Organisation-Wide Oversight
+- Monitoring all referral requests across the organisation
+- Reviewing service delivery across all teams
+- Tracking organisation-wide metrics and trends
+- Ensuring consistent service quality
+
+### Program Approval
+- Approving programs and service configurations
+- Managing program capacity and resource allocation
+- Reviewing and approving organisational processes
+- Setting program-level policies
+
+### Referral Request Management
+- Reviewing incoming referral service requests (same as Supervisors)
+- Accepting or rejecting referrals with documented reasons
+- Allocating referrals to team members across the organisation
+- Prioritizing critical and urgent cases
+
+### Strategic Management
+- Analyzing performance metrics for reporting
+- Resource planning and workload balancing
+- Identifying service gaps and improvement opportunities
 - Reporting to stakeholders
-- Policy and procedure development
 
 ## Permissions
 
-Details on program manager permissions will be added here.
+| Action | Permission |
+|--------|------------|
+| View all referral requests in organisation | Yes |
+| Accept referral requests | Yes |
+| Reject referral requests (with reason) | Yes |
+| Allocate referrals to team members | Yes |
+| Approve programs | Yes |
+| View all records in organisation | Yes |
+| View all service episodes | Yes |
+| View all team activities | Yes |
+| View client information | Yes |
+| Supervise cases | Yes |
+| Access settings | No (Admin only) |
+
+## Data Visibility
+
+Program Managers have **organisation-wide visibility**:
+
+| Data Type | Scope |
+|-----------|-------|
+| Referral requests | All services in the organisation |
+| Service episodes | All episodes across all teams |
+| Activities | All activities across all case workers |
+| Client records | All clients in the organisation |
+| Team performance | All supervisors and case workers |
+
+This is broader than Supervisor access, which is limited to their directly supervised staff.
+
+### Comparison with Other Roles
+
+| Feature | Case Worker | Supervisor | Program Manager |
+|---------|-------------|------------|-----------------|
+| **Data scope** | Own records only | Own + supervised staff | Entire organisation |
+| **Accept/Reject referrals** | No | Yes | Yes |
+| **Allocate to staff** | No | Yes | Yes |
+| **Approve programs** | No | No | Yes |
+| **Supervise cases** | No | Yes | Yes |
 
 ## Dashboard Features
 
-Information about the program manager dashboard and analytics will be documented here.
+Program Managers use the same Supervisor Dashboard, which provides:
+
+- **Analytics Overview** - Pending requests, active episodes, activities/episodes ratio, monthly referrals
+- **Pending Referral Requests** - Incoming requests with Accept/Reject actions
+- **Service Users Needing Contact** - Clients not contacted in 5+ days (across all teams)
+- **Pending Service Dispatch** - Referrals awaiting service assignment (organisation-wide)
+
+The key difference is that all data shown is **organisation-wide**, not limited to a specific team.
+
+For detailed dashboard documentation, see [Supervisor / Program Manager Dashboard](/dashboards/supervisor).
+
+## Workflow Overview
+
+### Management Hierarchy
+
+```
+Admin
+  └── Program Manager (organisation-wide oversight)
+        └── Supervisor (team-level oversight)
+              └── Case Worker (individual caseload)
+```
+
+### Program Manager Workflow
+
+```
+Monitor Organisation Metrics
+  → Review Pending Referral Requests
+  → Accept & Allocate (or Reject)
+  → Monitor Service Delivery
+  → Track Client Engagement
+  → Report to Stakeholders
+```
+
+## Best Practices
+
+### Strategic Oversight
+- Review organisation-wide analytics at the start of each day
+- Monitor pending requests across all services
+- Track referral trends over time using monthly referral counts
+
+### Resource Management
+- Balance workload across supervisors and teams
+- Monitor the Activities / Episodes ratio to identify underperforming areas
+- Ensure all services have adequate staffing
+
+### Quality Assurance
+- Review the Service Users Needing Contact section for systemic issues
+- Follow up on referrals delayed in the dispatch queue
+- Ensure rejection reasons are well-documented and appropriate
+
+### Stakeholder Reporting
+- Use analytics data for regular reporting
+- Track referral volumes and service delivery outcomes
+- Document program capacity and resource utilization
+
+## Common Tasks
+
+| Task | How To |
+|------|--------|
+| Accept a referral request | [Supervisor Dashboard](/dashboards/supervisor#accepting-a-referral) |
+| Reject a referral request | [Supervisor Dashboard](/dashboards/supervisor#rejecting-a-referral) |
+| Monitor client contacts | [Supervisor Dashboard](/dashboards/supervisor#service-users-needing-contact) |
+| View dashboard | [Supervisor / Program Manager Dashboard](/dashboards/supervisor) |
+| Search for clients | [Searching for Clients](/clients/searching-for-clients) |
 
 ## Related Topics
 
+- [Supervisor / Program Manager Dashboard](/dashboards/supervisor)
 - [Supervisor Role](/user-roles/supervisor)
-- [Understanding Your Dashboard](/getting-started/understanding-your-dashboard)
+- [Case Worker Role](/user-roles/case-worker)
+- [Intake Officer Role](/user-roles/intake-officer)
+- [Referral Overview](/referrals/overview)
