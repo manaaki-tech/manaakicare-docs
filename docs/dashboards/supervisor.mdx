@@ -1,0 +1,351 @@
+---
+title: Supervisor / Program Manager Dashboard
+description: Complete guide to the Supervisor and Program Manager Dashboard in ManaakiCare
+sidebar_position: 2
+helpId: dashboard-supervisor
+keywords: [dashboard, supervisor, program manager, referral requests, service dispatch, team management]
+---
+
+import Callout from '@site/src/components/Callout';
+
+# Supervisor / Program Manager Dashboard
+
+The Supervisor Dashboard is your central hub for managing referral requests, monitoring team activity, and ensuring timely service delivery. Both Supervisors and Program Managers share the same dashboard experience.
+
+## Overview
+
+![Supervisor Dashboard Analytics](/supervisor/dashboard/analytic.png)
+
+The Supervisor Dashboard displays:
+- **Real-time analytics** showing pending requests, active episodes, and referral volumes
+- **Pending Referral Requests** queue for accepting or rejecting incoming referrals
+- **Service Users Needing Contact** to flag clients not contacted recently
+- **Pending Service Dispatch** for referrals awaiting service assignment
+
+The dashboard description reads: *"Review referrals, allocate to team members, and monitor service user engagement."*
+
+---
+
+## Analytics Section
+
+The top section displays four key metric cards that give you an at-a-glance view of your workload.
+
+### Statistics Cards
+
+| Card | Icon | Description | What It Shows |
+|------|------|-------------|---------------|
+| **Pending Requests** | Document | Referral requests awaiting your action | Count of incoming requests needing accept/reject |
+| **Active Episodes** | People | Active service episodes under your oversight | Total active service delivery episodes |
+| **Activities / Episodes** | Activity | Activity engagement ratio | Format: "X/Y" (total activities / unique episodes with activities) |
+| **Referrals (This Month)** | Clock | Referrals created in the current month | Monthly referral volume |
+
+### Understanding the Cards
+
+- **Orange highlight** on "Pending Requests" indicates items requiring your immediate attention
+- The **Activities / Episodes** ratio helps you gauge team engagement - a higher ratio means more activities per episode
+- Numbers update in real-time as your team processes referrals and records activities
+
+---
+
+## Pending Referral Requests
+
+![Pending Referral Requests](/supervisor/dashboard/pending_referral_service_request.png)
+
+This full-width section displays all incoming referral requests that require your review. These are referrals that have been dispatched to a service you supervise and need to be accepted or rejected.
+
+**Section description:** *"Review and allocate incoming referral requests to your team."*
+
+### Table Columns
+
+| Column | Description |
+|--------|-------------|
+| **Client** | Client name and phone number |
+| **Service** | The service being requested (displayed as a badge) |
+| **Reference** | Referral reference number (e.g., REF-2026-DEFAULT-00045) |
+| **Start Date** | Requested service start date |
+| **Actions** | Accept and Reject buttons |
+
+### Accepting a Referral
+
+When you click **Accept**, a dialog appears with the following options:
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| **Allocate to Team Member** | Optional | Dropdown to assign the referral to a specific staff member from your team |
+| **Notes for Team Member** | Optional | Free-text instructions or context for the allocated worker |
+
+After accepting:
+1. The referral service request status changes to **Accepted**
+2. A **Service Episode** is automatically created for the client under the requested service
+3. If a team member is selected in the "Allocate to Team Member" dropdown:
+   - The selected case worker is **assigned to the service episode** as staff
+   - A **"Referral and Service Enrolment"** activity is automatically created within the episode, containing the referral summary, service details, and staff assignment
+   - The case worker will see this episode appear on their [Case Worker Dashboard](/dashboards/case-worker) under **My Active Cases**
+4. Notes provided in the "Notes for Team Member" field are included in the enrolment activity for the case worker's reference
+5. The referral progresses forward in the workflow
+
+<Callout color="teal" title="Service Episode Creation">
+Every accepted referral request creates a service episode. Selecting a team member ensures the case worker is immediately assigned and can begin service delivery. If no team member is selected, the episode is created but will need staff assignment later.
+</Callout>
+
+### Rejecting a Referral
+
+When you click **Reject**, a dialog requires:
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| **Reason for Rejection** | **Yes** | You must provide an explanation for the rejection |
+
+After rejecting:
+1. The referral service request status changes to **Rejected** with the reason recorded
+2. The referral status reverts to **Pending Service Dispatch**
+3. The referral reappears in the [Pending Service Dispatch](#pending-service-dispatch) section (on the intake officer's or dispatching user's view)
+4. A new service must be selected and a new service request created before the referral can proceed again
+
+<Callout color="amber" title="Rejection Reason Required">
+You cannot submit a rejection without providing a reason. This ensures transparency and helps the referring team understand the decision. After rejection, the referral goes back to pending service dispatch where a different service can be selected and a new request submitted.
+</Callout>
+
+### Search and Pagination
+
+- Use the search bar to filter by **client name** or **service name**
+- Results filter automatically as you type
+- Pagination controls show at the bottom: "Showing X-Y of Z" with page navigation
+
+### Empty State
+
+When there are no pending requests, you will see a green checkmark with the message: *"All caught up! No pending referrals to allocate."*
+
+---
+
+## Service Users Needing Contact
+
+![Service Users Needing Contact and Pending Service Dispatch](/supervisor/dashboard/service_needing_contact_and_pending_service_dispatch.png)
+
+This section (left column) flags clients who have not been contacted by their assigned case worker in **5 or more days**. It helps supervisors ensure clients receive timely follow-up.
+
+**Section description:** *"Clients not contacted in 5+ days"*
+
+### Table Columns
+
+| Column | Description |
+|--------|-------------|
+| **Client** | Client name and phone number |
+| **Case Worker** | The case worker assigned to this client |
+| **Days** | Number of days since last contact (displayed as a badge) |
+
+### Days Badge Colors
+
+| Color | Condition | Meaning |
+|-------|-----------|---------|
+| **Red** | More than 7 days | Overdue - requires immediate follow-up |
+| **Gray** | 5-7 days | Approaching overdue - monitor closely |
+| **--** | No contact recorded | No contact history available |
+
+### How Contact Is Tracked
+
+The system tracks the most recent activity where:
+- The activity outcome is marked as **completed**
+- The activity type is a **telehealth session** or **in-person visit**
+
+### What You Can Do
+
+1. Review clients flagged for follow-up
+2. Search by **client name** or **case worker name**
+3. Follow up with case workers who have overdue contacts
+4. Ensure no client falls through the cracks
+
+<Callout color="teal" title="Proactive Monitoring">
+Check this section daily to ensure your team maintains regular contact with all service users. Early intervention prevents disengagement.
+</Callout>
+
+---
+
+## Pending Service Dispatch
+
+This section (right column) shows referrals where the **service request has been accepted** by a supervisor/manager but **no case worker has been assigned yet**. A service episode has been created, but it still needs a case worker allocated to begin service delivery.
+
+**Section description:** *"Referrals awaiting service assignment"*
+
+### Why Referrals Appear Here
+
+A referral appears in this section when:
+- The service request was **accepted** by a supervisor/manager
+- **No case worker was selected** during the acceptance step (the "Allocate to Team Member" field was left empty)
+- The service episode exists but has no staff assigned
+
+### Table Columns
+
+| Column | Description |
+|--------|-------------|
+| **Client** | Client name and referral reference number |
+| **Priority** | Priority level badge |
+| **Date** | Referral date |
+
+### Priority Badges
+
+| Badge | Color | Meaning |
+|-------|-------|---------|
+| **Routine** | Green | Standard processing timeline |
+| **Priority** | Amber/Orange | Requires prompt attention |
+| **Urgent** | Orange | Requires immediate action |
+| **Critical** | Red | Crisis situation - highest urgency |
+
+### Search
+
+Use the search bar to filter by **client name** or **priority level**.
+
+### What You Can Do
+
+1. Identify accepted referrals that still need a case worker assigned
+2. Prioritize urgent and critical referrals for faster allocation
+3. Assign a case worker to the service episode to begin service delivery
+4. Track any referrals that have been waiting too long without staff assignment
+
+---
+
+## Common Tasks
+
+### Searching Within Sections
+
+Each section includes its own search bar:
+
+| Section | Search Placeholder | Searchable Fields |
+|---------|--------------------|-------------------|
+| **Pending Referral Requests** | "Search by client or service..." | Client name, service name |
+| **Service Users Needing Contact** | "Search by client or case worker..." | Client name, case worker name |
+| **Pending Service Dispatch** | "Search by client or priority..." | Client name, priority level |
+
+### Pagination
+
+When there are many records, pagination controls appear at the bottom of each section:
+
+| Element | Description |
+|---------|-------------|
+| **Showing X-Y of Z** | Indicates which records are currently displayed |
+| **Page X of Y** | Current page number and total pages |
+| **< >** arrows | Navigate to previous/next page |
+
+### Refreshing Data
+
+Click the **refresh icon** (circular arrow) in the top-right header to reload all dashboard data.
+
+### Switching Themes
+
+Click the **sun/moon icon** in the top-right header to toggle between light and dark modes.
+
+---
+
+## Referral Request Workflow
+
+### Status Flow for Service Requests
+
+```
+Pending → Accepted → Service Episode Created → Case Worker Assigned → Service Delivery
+         → Rejected (with reason)
+```
+
+### What Happens on Accept
+
+1. Service request status changes to **Accepted**
+2. A **Service Episode** is created for the client under the requested service
+3. If a team member is allocated:
+   - The case worker is **assigned to the service episode**
+   - A **"Referral and Service Enrolment"** activity is auto-created within the episode containing:
+     - Referral summary and reference number
+     - Service name and details
+     - Staff assignment information
+     - Any notes provided by the supervisor
+   - The case worker sees this episode on their dashboard immediately
+4. The referral progresses to active service delivery
+
+### What Happens on Reject
+
+1. Service request status changes to **Rejected** with the reason recorded
+2. The referral status reverts to **Pending Service Dispatch**
+3. The referral goes back to the dispatch queue where a new service can be selected
+4. A new service request must be created before the referral can be sent to a supervisor again
+
+---
+
+## Data Visibility
+
+Supervisors and Program Managers have different data scopes:
+
+| Role | Data Scope |
+|------|------------|
+| **Supervisor** | Own records + supervised case workers' records |
+| **Program Manager** | All records within their organisation |
+| **Admin** | All records within their organisation |
+
+---
+
+## Tips for Efficient Work
+
+### Daily Routine
+
+1. **Start of Day**
+   - Check the Pending Requests card for new referral requests
+   - Review the Service Users Needing Contact section
+   - Accept/reject pending referral requests
+
+2. **Throughout the Day**
+   - Allocate accepted referrals to team members
+   - Monitor pending service dispatches
+   - Follow up on overdue client contacts
+
+3. **End of Day**
+   - Review any remaining pending requests
+   - Check Activities / Episodes ratio for team engagement
+   - Note any clients approaching the 7-day contact threshold
+
+### Priority Management
+
+| Priority | Expected Response | Action |
+|----------|-------------------|--------|
+| **Critical** | Immediate | Accept and allocate immediately |
+| **Urgent** | Same day | Process as soon as possible |
+| **Priority** | Within 24 hours | Process promptly |
+| **Routine** | Within 48 hours | Process in order received |
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl + F` | Open search |
+| `Enter` | Submit search |
+| `Esc` | Close dialogs |
+
+---
+
+## Troubleshooting
+
+### Dashboard Not Loading
+
+1. Check your internet connection
+2. Click the refresh button
+3. Try logging out and back in
+4. Clear your browser cache
+
+### No Pending Requests Showing
+
+- This is normal if all requests have been processed
+- The green checkmark message confirms there are no pending items
+- New requests will appear automatically when submitted
+
+### Data Not Updating
+
+1. Click the refresh button
+2. Wait a few moments and try again
+3. Check if search filters are affecting the view
+4. Contact support if the issue persists
+
+---
+
+## Related Documentation
+
+- [Supervisor Role](/user-roles/supervisor) - Role overview and responsibilities
+- [Program Manager Role](/user-roles/program-manager) - Role overview and responsibilities
+- [Intake Officer Dashboard](/dashboards/intake-officer) - Intake officer's dashboard view
+- [Referral Overview](/referrals/overview) - Understanding the referral process
+- [Searching for Clients](/clients/searching-for-clients) - Finding client records

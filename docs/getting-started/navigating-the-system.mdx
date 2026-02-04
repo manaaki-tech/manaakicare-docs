@@ -10,60 +10,71 @@ keywords: [navigation, menu, sidebar, search, breadcrumbs]
 
 Learn how to move around ManaakiCare efficiently using the navigation menu, search, and other navigation features.
 
-:::note Work in Progress
-This documentation is being developed. Check back soon for updates.
-:::
-
 ## Overview
 
 ManaakiCare uses a consistent navigation structure to help you find what you need quickly:
 
 - **Sidebar Menu** - Main navigation to different sections
-- **Search Bar** - Quick search for clients and records
-- **Breadcrumbs** - Show your current location and path
-- **Quick Actions** - Common tasks accessible from anywhere
+- **Header Bar** - Theme toggle, refresh, and user profile
+- **Search Bars** - Context-specific search within each section
+- **Pagination** - Navigate through large lists of records
 
 ## Sidebar Menu
 
-The sidebar provides access to main sections:
+The left sidebar provides access to the main sections of ManaakiCare. The sidebar is always visible for quick navigation.
 
-- **Dashboard** - Your home screen
-- **Clients** - Client search and management
-- **Referrals** - Referral list and creation
-- **Service Episodes** - Active service delivery tracking
-- **Activities** - Case notes and interaction records
-- **Reports** - Analytics and reporting (role-dependent)
+| Menu Item | Icon | Description |
+|-----------|------|-------------|
+| **Dashboard** | Home icon | Your personalized dashboard based on your role |
+| **Clients** | List icon | Search, view, and manage client records |
+| **Referrals** | Document icon | View all referrals with advanced filtering |
+| **Service-episodes** | Activity icon | Track active service delivery episodes |
 
-### Collapsing the Sidebar
+### Current Page Indicator
 
-- Click the collapse icon to minimize the sidebar
-- Hover to temporarily expand
-- Click again to fully expand
+The currently active page is highlighted with a green/teal background in the sidebar, making it easy to see where you are in the system.
+
+### Organization Logo
+
+The **Manaaki Care** logo at the top of the sidebar returns you to your dashboard when clicked.
+
+## Header Bar
+
+The header bar at the top of every page contains:
+
+| Element | Description |
+|---------|-------------|
+| **Page Title** | Shows the current page name (e.g., "Intake Dashboard") |
+| **Theme Toggle** | Sun/moon icon to switch between light and dark modes |
+| **Refresh Button** | Circular arrow to reload the current page data |
+| **User Avatar** | Your profile initial - click for account options |
 
 ## Search
 
-The global search bar allows you to:
+Each section includes a context-specific search bar to help you find records quickly.
 
-- Search for clients by name
-- Find referrals by ID
-- Locate specific records
+### How to Search
+
+1. Click in the search field
+2. Type your search term (client name, reference number, referrer name)
+3. Results filter automatically as you type
+4. Press **Enter** to confirm or click on a result
 
 ### Search Tips
 
-- Start typing to see suggestions
-- Use quotes for exact matches
-- Press Enter to see all results
+- Use client names for quick lookups
+- Reference numbers (e.g., REF-2026-DEFAULT-00047) provide exact matches
+- Search works across multiple fields in each section
 
-## Breadcrumbs
+## Pagination
 
-Breadcrumbs show your current location:
+When viewing lists with many records, pagination controls appear at the bottom:
 
-```
-Dashboard > Clients > John Smith > Service Episodes
-```
-
-- Click any breadcrumb to navigate back
-- Helpful for understanding page hierarchy
+| Element | Description |
+|---------|-------------|
+| **Showing X-Y of Z** | Indicates which records are currently displayed |
+| **Page X of Y** | Current page number and total pages |
+| **< >** arrows | Navigate to previous/next page |
 
 ## Keyboard Shortcuts
 
@@ -71,20 +82,12 @@ Speed up navigation with keyboard shortcuts:
 
 | Shortcut | Action |
 |----------|--------|
-| `/` | Focus search bar |
-| `g` then `d` | Go to Dashboard |
-| `g` then `c` | Go to Clients |
-| `g` then `r` | Go to Referrals |
-
-## Mobile Navigation
-
-On mobile devices:
-
-- Tap the hamburger menu to open navigation
-- Swipe from left edge to open sidebar
-- Use bottom navigation for quick access
+| `Ctrl + F` | Focus search bar |
+| `Enter` | Submit search |
+| `Esc` | Close dialogs or cancel actions |
 
 ## Related Topics
 
 - [Understanding Your Dashboard](/getting-started/understanding-your-dashboard)
 - [Searching for Clients](/clients/searching-for-clients)
+- [Intake Officer Dashboard](/dashboards/intake-officer)

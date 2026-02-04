@@ -1,40 +1,164 @@
 ---
 title: Case Worker Role
-description: Capabilities and responsibilities of case workers
+description: Capabilities and responsibilities of case workers in ManaakiCare
 sidebar_position: 1
 helpId: role-case-worker
-keywords: [case worker, role, permissions, capabilities]
+keywords: [case worker, role, permissions, capabilities, caseload, activities]
 ---
 
 # Case Worker Role
 
-Understand the case worker role, including capabilities, responsibilities, and dashboard features.
-
-:::note Work in Progress
-This documentation is being developed. Check back soon for updates.
-:::
+Understand the case worker role, including caseload management, activity recording, and service delivery responsibilities.
 
 ## Overview
 
-Case workers are front-line staff who manage direct client relationships and service delivery.
+Case workers are front-line staff who manage direct client relationships and service delivery. They work with assigned service episodes, record activities and case notes, and ensure clients receive timely follow-up and support. Their dashboard — **"My Caseload"** — provides a personal view of their active cases and pending follow-ups.
 
 ## Key Responsibilities
 
-- Managing assigned caseload
-- Creating and updating referrals
-- Recording activities and case notes
-- Maintaining client documentation
-- Coordinating services
+### Caseload Management
+- Managing assigned service episodes from commencement to completion
+- Tracking active cases and their current status
+- Ensuring timely service commencement for newly assigned episodes
+- Monitoring and completing service delivery
+
+### Client Engagement
+- Conducting in-person visits and telehealth sessions
+- Maintaining regular contact with clients (tracked by the system)
+- Building and maintaining client relationships
+- Identifying and responding to client needs
+
+### Activity Recording
+- Recording all client interactions (visits, phone calls, telehealth)
+- Writing case notes and documenting observations
+- Setting follow-up dates for future actions
+- Assessing and recording risk levels for activities
+
+### Follow-up Management
+- Tracking scheduled follow-ups via the dashboard
+- Addressing overdue follow-ups promptly
+- Prioritizing activities based on risk level and urgency
+- Rescheduling missed interactions
+
+### Documentation
+- Maintaining accurate client records
+- Uploading supporting documents
+- Recording activity outcomes (completed, no-show, rescheduled, etc.)
+- Keeping service episode records up to date
 
 ## Permissions
 
-Details on what case workers can and cannot do in the system will be added here.
+| Action | Permission |
+|--------|------------|
+| View assigned service episodes | Yes |
+| View activities within assigned episodes | Yes |
+| Create activities / case notes | Yes |
+| Edit own activities (within 10 days) | Yes |
+| Set follow-up dates | Yes |
+| Record risk levels | Yes |
+| View assigned client information | Yes |
+| Upload documents | Yes |
+| View other case workers' records | No |
+| Accept/Reject referral requests | No |
+| Allocate referrals to staff | No |
+| Approve programs | No |
+| Access settings | No |
+
+## Data Visibility
+
+Case workers have a **personal scope** — they can only see data directly assigned to them:
+
+| Data Type | Scope |
+|-----------|-------|
+| Service episodes | Only episodes where assigned as staff |
+| Activities | Only activities within assigned episodes |
+| Client records | Only clients linked to assigned episodes |
+| Referral counts | Only referrals linked to assignments |
+
+This means your dashboard shows only your workload, keeping the view focused and uncluttered.
+
+### Comparison with Other Roles
+
+| Feature | Case Worker | Supervisor | Program Manager |
+|---------|-------------|------------|-----------------|
+| **Data scope** | Own records only | Own + supervised staff | Entire organisation |
+| **Dashboard title** | "My Caseload" | "Supervisor Dashboard" | "Supervisor Dashboard" |
+| **Key focus** | Service delivery | Team management | Organisation oversight |
+| **Accept/Reject referrals** | No | Yes | Yes |
 
 ## Dashboard Features
 
-Information about the case worker dashboard will be documented here.
+The Case Worker Dashboard — **"My Caseload"** — provides:
+
+- **Analytics Overview** — Active cases, urgent/crisis count, follow-ups due, total referrals
+- **My Active Cases** — All service episodes assigned to you with status and actions
+- **Activities Needing Follow-up** — Scheduled follow-ups sorted by date and priority, with risk level and overdue tracking
+
+For detailed dashboard documentation, see [Case Worker Dashboard](/dashboards/case-worker).
+
+## Workflow Overview
+
+### Daily Workflow
+
+```
+Check Dashboard Metrics
+  → Address Overdue Follow-ups (red badges)
+  → Process Urgent/Crisis Items
+  → Conduct Scheduled Visits & Sessions
+  → Record Activities & Case Notes
+  → Set Follow-up Dates
+  → Review Upcoming Follow-ups
+```
+
+### Service Episode Lifecycle
+
+```
+Assigned (awaiting_commencement)
+  → Active (service delivery in progress)
+  → Completed / Closed / Discharged
+```
+
+## Best Practices
+
+### Prioritization
+- Check **Urgent/Crisis** count first thing each day
+- Address **overdue follow-ups** (red badges) before anything else
+- Process **follow-ups due today** next
+- Then work through routine caseload
+
+### Client Contact
+- Maintain regular contact — your supervisor is alerted when clients aren't contacted for 5+ days
+- Record every interaction as an activity
+- Set follow-up dates to ensure no client falls through the cracks
+
+### Activity Recording
+- Record activities promptly after each client interaction
+- Set appropriate risk levels (None, Medium, High, Critical)
+- Always set a follow-up date when future action is needed
+- Mark activity outcomes accurately (completed, no-show, rescheduled, etc.)
+
+### Documentation Quality
+- Write clear, concise case notes
+- Include relevant observations and client feedback
+- Upload supporting documents when available
+- Keep service episode records current
+
+## Common Tasks
+
+| Task | How To |
+|------|--------|
+| View your caseload | [Case Worker Dashboard](/dashboards/case-worker) |
+| Check follow-ups | [Activities Needing Follow-up](/dashboards/case-worker#activities-needing-follow-up) |
+| Record a visit | [Recording Visits](/activities/recording-visits) |
+| Write case notes | [Case Notes](/activities/case-notes) |
+| Manage an episode | [Managing Episodes](/service-episodes/managing-episodes) |
+| Search for clients | [Searching for Clients](/clients/searching-for-clients) |
 
 ## Related Topics
 
+- [Case Worker Dashboard](/dashboards/case-worker)
 - [Supervisor Role](/user-roles/supervisor)
-- [Understanding Your Dashboard](/getting-started/understanding-your-dashboard)
+- [Managing Service Episodes](/service-episodes/managing-episodes)
+- [Recording Visits](/activities/recording-visits)
+- [Case Notes](/activities/case-notes)
+- [Activities Overview](/activities/overview)
