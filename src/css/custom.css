@@ -202,6 +202,10 @@
 
   --docusaurus-highlighted-code-line-bg: var(--sage-50);
 
+  /* Navbar - dark mode */
+  --ifm-navbar-background-color: oklch(0.22 0.03 55);
+  --ifm-navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+
   /* Footer */
   --ifm-footer-background-color: oklch(0.15 0.03 55);
   --ifm-footer-link-color: var(--sage-700);

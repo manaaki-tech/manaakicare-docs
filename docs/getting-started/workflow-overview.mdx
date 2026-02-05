@@ -46,14 +46,6 @@ flowchart TB
     awaiting -->|"Case Worker begins"| active
     active -->|"Service complete"| completed
 
-    style draft fill:#F5F0E8,stroke:#8B7355,color:#4A3D30
-    style submitted fill:#F7F0E0,stroke:#C4A35A,color:#4A3D20
-    style pending_review fill:#F7F0E0,stroke:#C4A35A,color:#4A3D20
-    style pending_service fill:#E6F2F2,stroke:#4A8B8C,color:#2A4A4A
-    style rejected fill:#F5E6E0,stroke:#B85C38,color:#5C2E1A
-    style awaiting fill:#E6F2F2,stroke:#4A8B8C,color:#2A4A4A
-    style active fill:#E8F2EC,stroke:#5C8A72,color:#2D4A3E
-    style completed fill:#E8F2EC,stroke:#5C8A72,color:#2D4A3E
 ```
 
 ### Status Definitions
@@ -113,9 +105,6 @@ flowchart TB
     sup5 -.->|"Oversight"| cw3
     sup5 -.->|"Oversight"| cw4
 
-    style io fill:#E6F2F2,stroke:#4A8B8C,color:#2A4A4A
-    style sup fill:#F7F0E0,stroke:#C4A35A,color:#4A3D20
-    style cw fill:#E8F2EC,stroke:#5C8A72,color:#2D4A3E
 ```
 
 ### Role Quick Reference
@@ -184,10 +173,6 @@ flowchart LR
     priority --> r3
     routine --> r4
 
-    style critical fill:#F5E6E0,stroke:#B85C38,color:#5C2E1A
-    style urgent fill:#F7F0E0,stroke:#C4A35A,color:#4A3D20
-    style priority fill:#F7F0E0,stroke:#C4A35A,color:#4A3D20
-    style routine fill:#E8F2EC,stroke:#5C8A72,color:#2D4A3E
 ```
 
 ### Priority Guidelines
@@ -203,61 +188,94 @@ flowchart LR
 
 ## Daily Workflow by Role
 
-### Intake Officer Daily Flow
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem'}}>
+
+<div>
+
+### Intake Officer
 
 ```mermaid
-flowchart LR
-    start(["☀️ Start of Day"]) --> check["Check new referrals"]
-    check --> urgent{"Urgent items?"}
-    urgent -->|"Yes"| process_urgent["Process urgent first"]
-    urgent -->|"No"| process_queue["Process in order"]
+flowchart TB
+    start(["☀️ Start"])
+    check["Check new referrals"]
+    urgent{"Urgent?"}
+    process_urgent["Process urgent"]
+    process_queue["Process queue"]
+    review["Check In Review"]
+    dispatch["Dispatch approved"]
+    end_day(["🌙 End"])
+
+    start --> check
+    check --> urgent
+    urgent -->|"Yes"| process_urgent
+    urgent -->|"No"| process_queue
     process_urgent --> process_queue
-    process_queue --> review["Check In Review queue"]
-    review --> dispatch["Dispatch approved referrals"]
-    dispatch --> end_day(["🌙 End of Day"])
-
-    style start fill:#E8F2EC,stroke:#5C8A72
-    style end_day fill:#E8F2EC,stroke:#5C8A72
-    style process_urgent fill:#F5E6E0,stroke:#B85C38
+    process_queue --> review
+    review --> dispatch
+    dispatch --> end_day
 ```
 
-### Supervisor Daily Flow
+</div>
+
+<div>
+
+### Supervisor
 
 ```mermaid
-flowchart LR
-    start(["☀️ Start of Day"]) --> pending["Review pending requests"]
-    pending --> accept_reject["Accept/Reject referrals"]
-    accept_reject --> allocate["Allocate to team members"]
-    allocate --> contacts["Check Service Users Needing Contact"]
-    contacts --> followup{"Overdue contacts?"}
-    followup -->|"Yes"| chase["Follow up with case workers"]
-    followup -->|"No"| monitor["Monitor team activity"]
+flowchart TB
+    start(["☀️ Start"])
+    pending["Review pending"]
+    accept_reject["Accept/Reject"]
+    allocate["Allocate to team"]
+    contacts["Check contacts due"]
+    followup{"Overdue?"}
+    chase["Follow up"]
+    monitor["Monitor activity"]
+    end_day(["🌙 End"])
+
+    start --> pending
+    pending --> accept_reject
+    accept_reject --> allocate
+    allocate --> contacts
+    contacts --> followup
+    followup -->|"Yes"| chase
+    followup -->|"No"| monitor
     chase --> monitor
-    monitor --> end_day(["🌙 End of Day"])
-
-    style start fill:#F7F0E0,stroke:#C4A35A
-    style end_day fill:#F7F0E0,stroke:#C4A35A
-    style chase fill:#F5E6E0,stroke:#B85C38
+    monitor --> end_day
 ```
 
-### Case Worker Daily Flow
+</div>
+
+<div>
+
+### Case Worker
 
 ```mermaid
-flowchart LR
-    start(["☀️ Start of Day"]) --> dashboard["Check My Caseload"]
-    dashboard --> overdue{"Overdue follow-ups?"}
-    overdue -->|"Yes"| address["Address overdue items"]
-    overdue -->|"No"| today["Check today's follow-ups"]
-    address --> today
-    today --> visits["Conduct client visits"]
-    visits --> record["Record activities & notes"]
-    record --> schedule["Schedule next follow-ups"]
-    schedule --> end_day(["🌙 End of Day"])
+flowchart TB
+    start(["☀️ Start"])
+    dashboard["Check caseload"]
+    overdue{"Overdue?"}
+    address["Address overdue"]
+    today["Today's follow-ups"]
+    visits["Client visits"]
+    record["Record activities"]
+    schedule["Schedule next"]
+    end_day(["🌙 End"])
 
-    style start fill:#E8F2EC,stroke:#5C8A72
-    style end_day fill:#E8F2EC,stroke:#5C8A72
-    style address fill:#F5E6E0,stroke:#B85C38
+    start --> dashboard
+    dashboard --> overdue
+    overdue -->|"Yes"| address
+    overdue -->|"No"| today
+    address --> today
+    today --> visits
+    visits --> record
+    record --> schedule
+    schedule --> end_day
 ```
+
+</div>
+
+</div>
 
 ---
 
@@ -283,9 +301,6 @@ flowchart TB
     admin --> supervisor
     supervisor --> caseworker
 
-    style admin fill:#F5F3F0,stroke:#8B8178,color:#3D3830
-    style supervisor fill:#F7F0E0,stroke:#C4A35A,color:#4A3D20
-    style caseworker fill:#E8F2EC,stroke:#5C8A72,color:#2D4A3E
 ```
 
 | Role | Can View | Cannot View |

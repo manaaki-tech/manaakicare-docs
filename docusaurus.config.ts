@@ -147,43 +147,11 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
 
-    // Mermaid diagram theming - ManaakiCare earthy palette
+    // Mermaid diagram theming
     mermaid: {
       theme: {
-        light: 'base',
+        light: 'neutral',
         dark: 'dark',
-      },
-      options: {
-        themeVariables: {
-          // Primary colours (Sage green)
-          primaryColor: '#E8F2EC',
-          primaryTextColor: '#2D4A3E',
-          primaryBorderColor: '#5C8A72',
-          // Secondary colours (Teal)
-          secondaryColor: '#E6F2F2',
-          secondaryTextColor: '#2A4A4A',
-          secondaryBorderColor: '#4A8B8C',
-          // Tertiary colours (Amber)
-          tertiaryColor: '#F7F0E0',
-          tertiaryTextColor: '#4A3D20',
-          tertiaryBorderColor: '#C4A35A',
-          // Background
-          background: '#FDFCFA',
-          mainBkg: '#E8F2EC',
-          // Lines and text
-          lineColor: '#8B8178',
-          textColor: '#3D3830',
-          // Node colours
-          nodeBorder: '#5C8A72',
-          clusterBkg: '#F5F3F0',
-          clusterBorder: '#8B8178',
-          // State diagram specific
-          labelBackground: '#FDFCFA',
-          // Notes (Brown)
-          noteBkgColor: '#F5F0E8',
-          noteTextColor: '#4A3D30',
-          noteBorderColor: '#8B7355',
-        },
       },
     },
 
