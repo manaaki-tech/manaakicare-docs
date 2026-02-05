@@ -1,6 +1,6 @@
-# ManaakiCare Documentation
+# Manaaki Central Documentation
 
-This repository contains the documentation for ManaakiCare, built with [Docusaurus](https://docusaurus.io/).
+This repository contains the documentation for Manaaki Central, built with [Docusaurus](https://docusaurus.io/).
 
 ## Development
 

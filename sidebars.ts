@@ -19,7 +19,7 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'Getting Started',
-        description: 'Learn how to get started with ManaakiCare',
+        description: 'Learn how to get started with Manaaki Central',
       },
       items: [
         'getting-started/workflow-overview',
@@ -34,7 +34,7 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'Dashboards',
-        description: 'Learn about the different dashboards in ManaakiCare based on your role',
+        description: 'Learn about the different dashboards in Manaaki Central based on your role',
       },
       items: [
         'dashboards/intake-officer',
@@ -48,7 +48,7 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'generated-index',
         title: 'Client Management',
-        description: 'Learn how to manage clients in ManaakiCare',
+        description: 'Learn how to manage clients in Manaaki Central',
       },
       items: [
         'clients/searching-for-clients',

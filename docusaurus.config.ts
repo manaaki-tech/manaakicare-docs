@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // PRODUCT NAME CONFIGURATION
 // To rename the product, update these values and run find/replace in MDX files
 // =============================================================================
-const PRODUCT_NAME = 'ManaakiCare';
+const PRODUCT_NAME = 'Manaaki Central';
 const PRODUCT_TAGLINE = 'Case Management Documentation';
 const DOCS_URL = 'https://docs.manaakitech.com';
 const ORG_NAME = 'manaaki-tech';
@@ -139,7 +139,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Manaaki Technologies. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} ManaakiTech. Built with Docusaurus.`,
     },
 
     prism: {
