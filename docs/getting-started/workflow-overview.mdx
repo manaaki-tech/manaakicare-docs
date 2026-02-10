@@ -16,94 +16,158 @@ This page provides visual diagrams to help you understand how referrals and serv
 
 ## Referral Lifecycle
 
-The complete journey of a referral from creation to service completion.
+The complete journey of a referral from client search to service completion, showing all 13 referral statuses.
 
 ```mermaid
 flowchart TB
-    subgraph intake["<b>INTAKE PHASE</b>"]
-        draft["📝 Draft"]
-        submitted["📤 Submitted"]
-        pending_review["⏳ Pending Review"]
+    subgraph client["<b>CLIENT LOOKUP</b>"]
+        search["🔍 Search Client"]
+        exists{"Client exists?"}
+        select["Select Client"]
+        create["Create New Client"]
     end
 
-    subgraph approval["<b>APPROVAL PHASE</b>"]
-        pending_service["📋 Pending Service Review"]
+    subgraph intake_steps["<b>REFERRAL INTAKE (5 Steps)</b>"]
+        draft["📝 <b>DRAFT</b><br/>Step 1: Intake - Basic Details"]
+        pending_consent["📝 <b>PENDING CONSENT</b><br/>Step 2: Consent & Agreement"]
+        pending_contact["📝 <b>PENDING ASSOCIATED CONTACT</b><br/>Step 3: Support Network"]
+        pending_assessment["📝 <b>PENDING ASSESSMENT</b><br/>Step 4: Need Assessment"]
+        pending_cultural["📝 <b>PENDING CULTURAL SOCO</b><br/>Step 5: Cultural & Socioeconomic"]
+    end
+
+    subgraph review["<b>REVIEW PHASE</b>"]
+        pending_review["⏳ <b>PENDING REVIEW</b><br/>Review all information"]
+        pending_dispatch["📤 <b>PENDING SERVICE DISPATCH</b><br/>Ready for service allocation"]
+    end
+
+    subgraph service_allocation["<b>SERVICE ALLOCATION</b>"]
+        select_service["Select Service"]
+        load_staff["Load Case Workers, Supervisors, Managers"]
+        path{"Allocation path?"}
+    end
+
+    subgraph approval_path["<b>PATH 1: SEND FOR APPROVAL</b>"]
+        pending_service_review["⏳ <b>PENDING SERVICE REVIEW</b>"]
+        manager_decision{"Manager decision?"}
         rejected["❌ Rejected"]
+        accepted_pending["✅ <b>ACCEPTED PENDING ALLOCATION</b><br/>Select Case Worker"]
     end
 
-    subgraph delivery["<b>SERVICE DELIVERY PHASE</b>"]
-        awaiting["🕐 Awaiting Service"]
-        active["✅ Active"]
-        completed["🎉 Completed"]
+    subgraph direct_path["<b>PATH 2: DIRECT ASSIGN</b>"]
+        direct_assign["Directly assign Case Worker"]
+        auto_approved["Auto-approved by Intake Officer"]
     end
 
-    draft -->|"Intake Officer submits"| submitted
-    submitted -->|"Auto-progress"| pending_review
-    pending_review -->|"Supervisor approves"| pending_service
-    pending_review -->|"Supervisor rejects"| rejected
-    rejected -->|"Resubmit with changes"| pending_review
-    pending_service -->|"Dispatch to service"| awaiting
-    awaiting -->|"Case Worker begins"| active
-    active -->|"Service complete"| completed
+    subgraph delivery["<b>SERVICE DELIVERY</b>"]
+        allocated["🎯 <b>ALLOCATED AWAITING SERVICE</b><br/>Service Episode Created"]
+        active["✅ <b>SERVICE IN PROGRESS</b><br/>Case Worker activated episode"]
+        completed["🎉 <b>COMPLETED</b>"]
+        closed["🔒 <b>CLOSED</b>"]
+    end
+
+    search --> exists
+    exists -->|"Yes"| select
+    exists -->|"No"| create
+    select --> draft
+    create --> draft
+
+    draft -->|"Complete Step 1"| pending_consent
+    pending_consent -->|"Complete Step 2"| pending_contact
+    pending_contact -->|"Complete Step 3"| pending_assessment
+    pending_assessment -->|"Complete Step 4"| pending_cultural
+    pending_cultural -->|"Complete Step 5"| pending_review
+
+    pending_review -->|"Intake Officer / Head of Intake submits review"| pending_dispatch
+
+    pending_dispatch --> select_service
+    select_service --> load_staff
+    load_staff --> path
+
+    path -->|"Send for approval"| pending_service_review
+    path -->|"Direct assign"| direct_assign
+
+    pending_service_review --> manager_decision
+    manager_decision -->|"Rejected"| rejected
+    manager_decision -->|"Approved"| accepted_pending
+    rejected -->|"Back to dispatch"| pending_dispatch
+    accepted_pending -->|"Case Worker selected & submitted"| allocated
+
+    direct_assign --> auto_approved
+    auto_approved --> allocated
+
+    allocated -->|"Case Worker activates episode"| active
+    active -->|"Service delivery complete"| completed
+    active -->|"Early closure"| closed
 
 ```
 
-### Status Definitions
+### All Referral Statuses
 
-| Status | Phase | Owner | Description |
-|--------|-------|-------|-------------|
-| **Draft** | Intake | Intake Officer | Referral started but not yet submitted |
-| **Submitted** | Intake | Intake Officer | Sent for initial processing |
-| **Pending Review** | Intake | Supervisor | Awaiting supervisor approval |
-| **Rejected** | Approval | Supervisor | Returned with feedback for correction |
-| **Pending Service Review** | Approval | Intake Officer | Approved, ready for service allocation |
-| **Awaiting Service** | Delivery | Case Worker | Dispatched, waiting for service to begin |
-| **Active** | Delivery | Case Worker | Service delivery in progress |
-| **Completed** | Delivery | Case Worker | Service delivery finished |
+| # | Status | Phase | Description |
+|---|--------|-------|-------------|
+| 1 | **Draft** | Intake | Step 1 - Intake officer filling in basic details |
+| 2 | **Pending Consent** | Intake | Step 2 - Waiting for consent & agreement to be completed |
+| 3 | **Pending Associated Contact** | Intake | Step 3 - Waiting for support network / emergency contacts |
+| 4 | **Pending Assessment** | Intake | Step 4 - Waiting for need assessment to be completed |
+| 5 | **Pending Cultural Soco** | Intake | Step 5 - Waiting for cultural & socioeconomic details |
+| 6 | **Pending Review** | Review | All 5 steps complete, awaiting intake officer / head of intake review |
+| 7 | **Pending Service Dispatch** | Dispatch | Review submitted, ready for service allocation |
+| 8 | **Pending Service Review** | Approval | Service request sent to supervisor / program manager for approval |
+| 9 | **Accepted Pending Allocation** | Approval | Service approved by manager, case worker selection pending |
+| 10 | **Allocated Awaiting Service** | Delivery | Case worker assigned, service episode created (Awaiting Commencement) |
+| 11 | **Service In Progress** | Delivery | Case worker has activated the service episode |
+| 12 | **Completed** | Closed | Service episode successfully completed |
+| 13 | **Closed** | Closed | Referral closed (early closure or termination) |
 
 ---
 
 ## Role Responsibilities
 
-This diagram shows how work flows between the three main roles in ManaakiCare.
+This diagram shows how work flows between the roles in ManaakiCare.
 
 ```mermaid
 flowchart TB
     subgraph io["<b>INTAKE OFFICER</b>"]
-        io1["Create referral"]
-        io2["Complete intake assessment"]
+        io1["Search / Create client"]
+        io2["Complete 5-step intake"]
         io3["Submit for review"]
-        io4["Dispatch to service"]
+        io4["Select service & allocate"]
+    end
+
+    subgraph reviewer["<b>HEAD OF INTAKE / INTAKE OFFICER</b>"]
+        rev1["Review all referral information"]
+        rev2["Submit review"]
     end
 
     subgraph sup["<b>SUPERVISOR / PROGRAM MANAGER</b>"]
-        sup1["Review referral"]
+        sup1["Receive service request"]
         sup2{"Approve?"}
-        sup3["Accept service request"]
-        sup4["Allocate to case worker"]
-        sup5["Monitor team activity"]
+        sup3["Select case worker on approval"]
+        sup4["Monitor team activity"]
     end
 
     subgraph cw["<b>CASE WORKER</b>"]
         cw1["Receive assignment"]
-        cw2["Begin service delivery"]
-        cw3["Record activities"]
-        cw4["Complete follow-ups"]
-        cw5["Close episode"]
+        cw2["Activate service episode"]
+        cw3["Deliver services & record activities"]
+        cw4["Close service episode"]
     end
 
     io1 --> io2 --> io3
-    io3 --> sup1
+    io3 --> rev1
+    rev1 --> rev2
+    rev2 --> io4
+
+    io4 -->|"Send for approval"| sup1
+    io4 -->|"Direct assign"| cw1
+
     sup1 --> sup2
-    sup2 -->|"Yes"| io4
-    sup2 -->|"No"| io3
-    io4 --> sup3
-    sup3 --> sup4
-    sup4 --> cw1
+    sup2 -->|"Yes"| sup3
+    sup3 --> cw1
+    sup2 -->|"No"| io4
+
     cw1 --> cw2 --> cw3 --> cw4
-    cw4 --> cw5
-    sup5 -.->|"Oversight"| cw3
-    sup5 -.->|"Oversight"| cw4
+    sup4 -.->|"Oversight"| cw3
 
 ```
 
@@ -111,38 +175,10 @@ flowchart TB
 
 | Role | Primary Responsibilities | Dashboard Focus |
 |------|-------------------------|-----------------|
-| **Intake Officer** | Create referrals, process intake, dispatch to services | New referrals, review queue, service dispatch |
-| **Supervisor** | Approve/reject referrals, allocate to team, monitor contacts | Pending requests, team activity, client engagement |
-| **Case Worker** | Deliver services, record activities, manage follow-ups | Active cases, follow-ups due, client interactions |
-
----
-
-## Service Request Flow
-
-When a referral is dispatched to a service, the supervisor must accept or reject it.
-
-```mermaid
-stateDiagram-v2
-    [*] --> PendingDispatch: Referral approved
-
-    PendingDispatch --> ServiceRequested: Intake dispatches to service
-    ServiceRequested --> Accepted: Supervisor accepts
-    ServiceRequested --> Rejected: Supervisor rejects
-
-    Rejected --> PendingDispatch: Select different service
-
-    Accepted --> EpisodeCreated: System creates episode
-    EpisodeCreated --> Unassigned: No case worker selected
-    EpisodeCreated --> Assigned: Case worker allocated
-
-    Unassigned --> Assigned: Supervisor assigns later
-    Assigned --> ServiceDelivery: Case worker begins work
-    ServiceDelivery --> [*]: Episode completed
-```
-
-<Callout color="teal" title="Automatic Episode Creation">
-When a supervisor accepts a service request, Manaaki Central automatically creates a service episode. If a case worker is selected during acceptance, they are immediately assigned and can see the episode on their dashboard.
-</Callout>
+| **Intake Officer** | Search/create clients, complete 5-step intake, dispatch to services, can directly assign case workers | New referrals, review queue, service dispatch |
+| **Head of Intake / Intake Officer** | Review all referral information and submit review | Review queue, pending reviews |
+| **Supervisor / Program Manager** | Approve/reject service requests, select case workers on approval, monitor team | Pending service reviews, team activity |
+| **Case Worker** | Activate service episodes, deliver services, record activities, close episodes | Active cases, follow-ups due, client interactions |
 
 ---
 
@@ -196,14 +232,14 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    start(["☀️ Start"])
+    start(["Start"])
     check["Check new referrals"]
     urgent{"Urgent?"}
     process_urgent["Process urgent"]
     process_queue["Process queue"]
-    review["Check In Review"]
-    dispatch["Dispatch approved"]
-    end_day(["🌙 End"])
+    review["Check review queue"]
+    dispatch["Dispatch services"]
+    end_day(["End"])
 
     start --> check
     check --> urgent
@@ -223,15 +259,15 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    start(["☀️ Start"])
-    pending["Review pending"]
-    accept_reject["Accept/Reject"]
-    allocate["Allocate to team"]
-    contacts["Check contacts due"]
+    start(["Start"])
+    pending["Review service requests"]
+    accept_reject["Approve/Reject"]
+    allocate["Select case workers"]
+    contacts["Check team activity"]
     followup{"Overdue?"}
     chase["Follow up"]
-    monitor["Monitor activity"]
-    end_day(["🌙 End"])
+    monitor["Monitor cases"]
+    end_day(["End"])
 
     start --> pending
     pending --> accept_reject
@@ -252,62 +288,35 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    start(["☀️ Start"])
+    start(["Start"])
     dashboard["Check caseload"]
-    overdue{"Overdue?"}
-    address["Address overdue"]
+    activate{"New episodes?"}
+    activate_ep["Activate episodes"]
     today["Today's follow-ups"]
     visits["Client visits"]
     record["Record activities"]
+    close{"Episode done?"}
+    close_ep["Close episode"]
     schedule["Schedule next"]
-    end_day(["🌙 End"])
+    end_day(["End"])
 
     start --> dashboard
-    dashboard --> overdue
-    overdue -->|"Yes"| address
-    overdue -->|"No"| today
-    address --> today
+    dashboard --> activate
+    activate -->|"Yes"| activate_ep
+    activate -->|"No"| today
+    activate_ep --> today
     today --> visits
     visits --> record
-    record --> schedule
+    record --> close
+    close -->|"Yes"| close_ep
+    close -->|"No"| schedule
+    close_ep --> schedule
     schedule --> end_day
 ```
 
 </div>
 
 </div>
-
----
-
-## Data Visibility
-
-Understanding who can see what in Manaaki Central.
-
-```mermaid
-flowchart TB
-    subgraph admin["<b>ADMIN / PROGRAM MANAGER</b>"]
-        a1["All records in organisation"]
-    end
-
-    subgraph supervisor["<b>SUPERVISOR</b>"]
-        s1["Own records"]
-        s2["Supervised case workers' records"]
-    end
-
-    subgraph caseworker["<b>CASE WORKER</b>"]
-        c1["Only own assigned cases"]
-    end
-
-    admin --> supervisor
-    supervisor --> caseworker
-
-```
-
-| Role | Can View | Cannot View |
-|------|----------|-------------|
-| **Case Worker** | Own assigned service episodes and activities | Other case workers' cases |
-| **Supervisor** | Own records + all supervised case workers' records | Records outside their team |
-| **Program Manager / Admin** | All records within their organisation | Records from other organisations |
 
 ---
 
