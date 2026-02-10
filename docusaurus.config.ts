@@ -15,7 +15,7 @@ const REPO_NAME = 'manaakicare-docs';
 const config: Config = {
   title: PRODUCT_NAME,
   tagline: PRODUCT_TAGLINE,
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   // Production URL
   url: DOCS_URL,
