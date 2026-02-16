@@ -42,69 +42,34 @@ const sidebars: SidebarsConfig = {
         'dashboards/case-worker',
       ],
     },
-    {
-      type: 'category',
-      label: 'Clients',
-      link: {
-        type: 'generated-index',
-        title: 'Client Management',
-        description: 'Learn how to manage clients in Manaaki Central',
-      },
-      items: [
-        'clients/searching-for-clients',
-        'clients/viewing-client-details',
-        'clients/client-documents',
-        'clients/family-relationships',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Referrals',
-      link: {
-        type: 'generated-index',
-        title: 'Referral Management',
-        description: 'Learn how to create and manage referrals',
-      },
-      items: [
-        'referrals/overview',
-        'referrals/creating-a-referral',
-        'referrals/client-information',
-        'referrals/referral-details',
-        'referrals/uploading-documents',
-        'referrals/submitting-for-review',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Service Episodes',
-      link: {
-        type: 'generated-index',
-        title: 'Service Episodes',
-        description: 'Learn about service episode management',
-      },
-      items: [
-        'service-episodes/what-are-service-episodes',
-        'service-episodes/starting-an-episode',
-        'service-episodes/managing-episodes',
-        'service-episodes/closing-an-episode',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Activities',
-      link: {
-        type: 'generated-index',
-        title: 'Activities & Case Notes',
-        description: 'Learn how to record and manage activities',
-      },
-      items: [
-        'activities/overview',
-        'activities/recording-visits',
-        'activities/phone-calls-and-emails',
-        'activities/case-notes',
-        'activities/viewing-activity-history',
-      ],
-    },
+    // NOTE: Clients, Referrals, Service Episodes, and Activities sections
+    // are hidden from sidebar for now. The docs files still exist and are
+    // accessible via direct URL. Uncomment when ready to publish.
+    //
+    // {
+    //   type: 'category',
+    //   label: 'Clients',
+    //   link: { type: 'generated-index', title: 'Client Management', description: 'Learn how to manage clients in Manaaki Central' },
+    //   items: ['clients/searching-for-clients', 'clients/viewing-client-details', 'clients/client-documents', 'clients/family-relationships'],
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Referrals',
+    //   link: { type: 'generated-index', title: 'Referral Management', description: 'Learn how to create and manage referrals' },
+    //   items: ['referrals/overview', 'referrals/creating-a-referral', 'referrals/client-information', 'referrals/referral-details', 'referrals/uploading-documents', 'referrals/submitting-for-review'],
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Service Episodes',
+    //   link: { type: 'generated-index', title: 'Service Episodes', description: 'Learn about service episode management' },
+    //   items: ['service-episodes/what-are-service-episodes', 'service-episodes/starting-an-episode', 'service-episodes/managing-episodes', 'service-episodes/closing-an-episode'],
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Activities',
+    //   link: { type: 'generated-index', title: 'Activities & Case Notes', description: 'Learn how to record and manage activities' },
+    //   items: ['activities/overview', 'activities/recording-visits', 'activities/phone-calls-and-emails', 'activities/case-notes', 'activities/viewing-activity-history'],
+    // },
     {
       type: 'category',
       label: 'User Roles',

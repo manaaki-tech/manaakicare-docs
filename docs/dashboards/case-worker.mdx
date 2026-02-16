@@ -10,7 +10,7 @@ import Callout from '@site/src/components/Callout';
 
 # Case Worker Dashboard
 
-The Case Worker Dashboard — titled **"My Caseload"** — is your personal hub for managing assigned service episodes and tracking activities that need follow-up. It gives you a focused view of your own workload.
+The Case Worker Dashboard — titled **"<Term path="myCaseload" />"** — is your personal hub for managing assigned <Term path="serviceEpisode" plural /> and tracking activities that need follow-up. It gives you a focused view of your own workload.
 
 ## Overview
 
@@ -18,7 +18,7 @@ The Case Worker Dashboard — titled **"My Caseload"** — is your personal hub 
 
 The dashboard displays:
 - **Real-time metrics** showing your active cases, urgent items, follow-ups, and referral counts
-- **My Active Cases** table of all service episodes assigned to you
+- **<Term path="myActiveCases" />** table of all service episodes assigned to you
 - **Activities Needing Follow-up** table of scheduled follow-ups sorted by date and priority
 
 The dashboard description reads: *"View and manage your assigned service episodes and activities."*
@@ -33,27 +33,27 @@ The top section displays four metric cards summarising your current workload.
 
 | Card | Icon | Description | Highlight Colour |
 |------|------|-------------|-----------------|
-| **Active Cases** | Document | Number of active service episodes assigned to you | Blue when you have active cases |
+| **Active <Term path="serviceEpisode" plural />** | Document | Number of active service episodes assigned to you | Blue when you have active cases |
 | **Urgent/Crisis** | Warning triangle | Combined count of urgent, crisis, and emergency priority referrals | Orange when count is greater than 0 |
 | **Follow-ups Due** | Calendar | Number of activities with scheduled follow-up dates | Yellow when follow-ups are pending |
-| **Total Referrals** | Activity | Total number of referrals across all priority levels | Default (no highlight) |
+| **Total <Term path="referral" plural />** | Activity | Total number of referrals across all priority levels | Default (no highlight) |
 
 ### Understanding the Numbers
 
-- **Active Cases** reflects your current service episode assignments
+- **Active <Term path="serviceEpisode" plural />** reflects your current service episode assignments
 - **Urgent/Crisis** sums up urgent + crisis + emergency priority referrals — check these first
 - **Follow-ups Due** counts activities where you have set a follow-up date that still needs action
-- **Total Referrals** shows your overall referral volume across all priorities (routine, priority, urgent, crisis, emergency)
+- **Total <Term path="referral" plural />** shows your overall referral volume across all priorities (routine, priority, urgent, crisis, emergency)
 
 ---
 
-## My Active Cases
+## <Term path="myActiveCases" />
 
 ![My Active Cases](/case_worker/dashboard/my_active_cases.png)
 
 This section lists all service episodes currently assigned to you.
 
-**Section description:** *"Service episodes assigned to you"*
+**Section description:** *"<Term path="serviceEpisode" plural /> assigned to you"*
 
 ### Table Columns
 
@@ -172,7 +172,7 @@ Each section has its own search bar:
 
 | Section | Search Placeholder | Searchable Fields |
 |---------|--------------------|-------------------|
-| **My Active Cases** | "Search by client, service, or status..." | Client name, service name, status |
+| **<Term path="myActiveCases" />** | "Search by client, service, or status..." | Client name, service name, status |
 | **Activities Needing Follow-up** | "Search by client, activity, or service..." | Client name, activity title, service name |
 
 ### Refreshing Data
@@ -185,7 +185,7 @@ Click the **sun/moon icon** in the top-right header to toggle between light and 
 
 ### Navigating to a Service Episode
 
-1. Find the episode in the **My Active Cases** table
+1. Find the episode in the **<Term path="myActiveCases" />** table
 2. Click the **View** button
 3. You will be taken to the full service episode page
 
@@ -203,7 +203,7 @@ As a case worker, you can only see data assigned to you:
 
 | Data Type | Scope |
 |-----------|-------|
-| Service episodes | Only episodes where you are assigned as staff |
+| <Term path="serviceEpisode" plural /> | Only episodes where you are assigned as staff |
 | Activities | Only activities within your assigned episodes |
 | Referral counts | Only referrals linked to your assignments |
 
@@ -218,7 +218,7 @@ Your supervisor can see all your records plus records of other case workers they
 1. **Start of Day**
    - Check the **Urgent/Crisis** card for high-priority items
    - Review **Follow-ups Due** for any overdue follow-ups (red badges)
-   - Scan **My Active Cases** for episodes awaiting commencement
+   - Scan **<Term path="myActiveCases" />** for episodes awaiting commencement
 
 2. **Throughout the Day**
    - Record activities after each client interaction

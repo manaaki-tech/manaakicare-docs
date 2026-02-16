@@ -18,8 +18,8 @@ The Supervisor Dashboard is your central hub for managing referral requests, mon
 
 The Supervisor Dashboard displays:
 - **Real-time analytics** showing pending requests, active episodes, and referral volumes
-- **Pending Referral Requests** queue for accepting or rejecting incoming referrals
-- **Service Users Needing Contact** to flag clients not contacted recently
+- **Pending <Term path="referral" plural /> Requests** queue for accepting or rejecting incoming referrals
+- **<Term path="serviceUser" plural /> Needing Contact** to flag clients not contacted recently
 - **Pending Service Dispatch** for referrals awaiting service assignment
 
 The dashboard description reads: *"Review referrals, allocate to team members, and monitor service user engagement."*
@@ -35,7 +35,7 @@ The top section displays four key metric cards that give you an at-a-glance view
 | Card | Icon | Description | What It Shows |
 |------|------|-------------|---------------|
 | **Pending Requests** | Document | Referral requests awaiting your action | Count of incoming requests needing accept/reject |
-| **Active Episodes** | People | Active service episodes under your oversight | Total active service delivery episodes |
+| **Active <Term path="serviceEpisode" plural />** | People | Active service episodes under your oversight | Total active service delivery episodes |
 | **Activities / Episodes** | Activity | Activity engagement ratio | Format: "X/Y" (total activities / unique episodes with activities) |
 | **Referrals (This Month)** | Clock | Referrals created in the current month | Monthly referral volume |
 
@@ -47,7 +47,7 @@ The top section displays four key metric cards that give you an at-a-glance view
 
 ---
 
-## Pending Referral Requests
+## Pending <Term path="referral" plural /> Requests
 
 ![Pending Referral Requests](/supervisor/dashboard/pending_referral_service_request.png)
 
@@ -76,11 +76,11 @@ When you click **Accept**, a dialog appears with the following options:
 
 After accepting:
 1. The referral service request status changes to **Accepted**
-2. A **Service Episode** is automatically created for the client under the requested service
+2. A **<Term path="serviceEpisode" />** is automatically created for the client under the requested service
 3. If a team member is selected in the "Allocate to Team Member" dropdown:
    - The selected case worker is **assigned to the service episode** as staff
    - A **"Referral and Service Enrolment"** activity is automatically created within the episode, containing the referral summary, service details, and staff assignment
-   - The case worker will see this episode appear on their [Case Worker Dashboard](/dashboards/case-worker) under **My Active Cases**
+   - The case worker will see this episode appear on their [Case Worker Dashboard](/dashboards/case-worker) under **<Term path="myActiveCases" />**
 4. Notes provided in the "Notes for Team Member" field are included in the enrolment activity for the case worker's reference
 5. The referral progresses forward in the workflow
 
@@ -118,7 +118,7 @@ When there are no pending requests, you will see a green checkmark with the mess
 
 ---
 
-## Service Users Needing Contact
+## <Term path="serviceUser" plural /> Needing Contact {#service-users-needing-contact}
 
 ![Service Users Needing Contact and Pending Service Dispatch](/supervisor/dashboard/service_needing_contact_and_pending_service_dispatch.png)
 
@@ -212,8 +212,8 @@ Each section includes its own search bar:
 
 | Section | Search Placeholder | Searchable Fields |
 |---------|--------------------|-------------------|
-| **Pending Referral Requests** | "Search by client or service..." | Client name, service name |
-| **Service Users Needing Contact** | "Search by client or case worker..." | Client name, case worker name |
+| **Pending <Term path="referral" plural /> Requests** | "Search by client or service..." | Client name, service name |
+| **<Term path="serviceUser" plural /> Needing Contact** | "Search by client or case worker..." | Client name, case worker name |
 | **Pending Service Dispatch** | "Search by client or priority..." | Client name, priority level |
 
 ### Pagination
@@ -248,7 +248,7 @@ Pending → Accepted → Service Episode Created → Case Worker Assigned → Se
 ### What Happens on Accept
 
 1. Service request status changes to **Accepted**
-2. A **Service Episode** is created for the client under the requested service
+2. A **<Term path="serviceEpisode" />** is created for the client under the requested service
 3. If a team member is allocated:
    - The case worker is **assigned to the service episode**
    - A **"Referral and Service Enrolment"** activity is auto-created within the episode containing:

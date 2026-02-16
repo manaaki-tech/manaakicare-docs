@@ -8,10 +8,12 @@ import React from 'react';
 import MDXComponents from '@theme-original/MDXComponents';
 // Import our custom components
 import Callout from '@site/src/components/Callout';
+import Term from '@site/src/components/Term';
 
 export default {
   // Spread the default components
   ...MDXComponents,
   // Add our custom components
   Callout,
+  Term,
 };

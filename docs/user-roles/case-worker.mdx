@@ -12,27 +12,27 @@ Understand the case worker role, including caseload management, activity recordi
 
 ## Overview
 
-Case workers are front-line staff who manage direct client relationships and service delivery. They work with assigned service episodes, record activities and case notes, and ensure clients receive timely follow-up and support. Their dashboard — **"My Caseload"** — provides a personal view of their active cases and pending follow-ups.
+Case workers are front-line staff who manage direct <Term path="serviceUser" /> relationships and service delivery. They work with assigned <Term path="serviceEpisode" plural />, record <Term path="activity" plural /> and case notes, and ensure <Term path="serviceUser" plural /> receive timely follow-up and support. Their dashboard — **"<Term path="myCaseload" />"** — provides a personal view of their active cases and pending follow-ups.
 
 ## Key Responsibilities
 
 ### Caseload Management
-- Managing assigned service episodes from commencement to completion
-- Tracking active cases and their current status
-- Ensuring timely service commencement for newly assigned episodes
+- Managing assigned <Term path="serviceEpisode" plural /> from commencement to completion
+- Tracking active <Term path="serviceEpisode" plural /> and their current status
+- Ensuring timely service commencement for newly assigned <Term path="serviceEpisode" plural />
 - Monitoring and completing service delivery
 
-### Client Engagement
+### <Term path="serviceUser" /> Engagement
 - Conducting in-person visits and telehealth sessions
-- Maintaining regular contact with clients (tracked by the system)
-- Building and maintaining client relationships
-- Identifying and responding to client needs
+- Maintaining regular contact with <Term path="serviceUser" plural /> (tracked by the system)
+- Building and maintaining <Term path="serviceUser" /> relationships
+- Identifying and responding to <Term path="serviceUser" /> needs
 
-### Activity Recording
-- Recording all client interactions (visits, phone calls, telehealth)
+### <Term path="activity" /> Recording
+- Recording all <Term path="serviceUser" /> interactions (visits, phone calls, telehealth)
 - Writing case notes and documenting observations
 - Setting follow-up dates for future actions
-- Assessing and recording risk levels for activities
+- Assessing and recording risk levels for <Term path="activity" plural />
 
 ### Follow-up Management
 - Tracking scheduled follow-ups via the dashboard
@@ -41,26 +41,26 @@ Case workers are front-line staff who manage direct client relationships and ser
 - Rescheduling missed interactions
 
 ### Documentation
-- Maintaining accurate client records
+- Maintaining accurate <Term path="serviceUser" /> records
 - Uploading supporting documents
-- Recording activity outcomes (completed, no-show, rescheduled, etc.)
-- Keeping service episode records up to date
+- Recording <Term path="activity" /> outcomes (completed, no-show, rescheduled, etc.)
+- Keeping <Term path="serviceEpisode" /> records up to date
 
 ## Permissions
 
 | Action | Permission |
 |--------|------------|
-| View assigned service episodes | Yes |
-| View activities within assigned episodes | Yes |
-| Create activities / case notes | Yes |
-| Edit own activities (within 10 days) | Yes |
+| View assigned <Term path="serviceEpisode" plural /> | Yes |
+| View <Term path="activity" plural /> within assigned <Term path="serviceEpisode" plural /> | Yes |
+| Create <Term path="activity" plural /> / case notes | Yes |
+| Edit own <Term path="activity" plural /> (within 10 days) | Yes |
 | Set follow-up dates | Yes |
 | Record risk levels | Yes |
-| View assigned client information | Yes |
+| View assigned <Term path="serviceUser" /> information | Yes |
 | Upload documents | Yes |
 | View other case workers' records | No |
-| Accept/Reject referral requests | No |
-| Allocate referrals to staff | No |
+| Accept/Reject <Term path="referral" /> requests | No |
+| Allocate <Term path="referral" plural /> to staff | No |
 | Approve programs | No |
 | Access settings | No |
 
@@ -70,10 +70,10 @@ Case workers have a **personal scope** — they can only see data directly assig
 
 | Data Type | Scope |
 |-----------|-------|
-| Service episodes | Only episodes where assigned as staff |
-| Activities | Only activities within assigned episodes |
-| Client records | Only clients linked to assigned episodes |
-| Referral counts | Only referrals linked to assignments |
+| <Term path="serviceEpisode" plural /> | Only episodes where assigned as staff |
+| <Term path="activity" plural /> | Only <Term path="activity" plural /> within assigned <Term path="serviceEpisode" plural /> |
+| <Term path="serviceUser" /> records | Only <Term path="serviceUser" plural /> linked to assigned <Term path="serviceEpisode" plural /> |
+| Referral counts | Only <Term path="referral" plural /> linked to assignments |
 
 This means your dashboard shows only your workload, keeping the view focused and uncluttered.
 
@@ -82,17 +82,17 @@ This means your dashboard shows only your workload, keeping the view focused and
 | Feature | Case Worker | Supervisor | Program Manager |
 |---------|-------------|------------|-----------------|
 | **Data scope** | Own records only | Own + supervised staff | Entire organisation |
-| **Dashboard title** | "My Caseload" | "Supervisor Dashboard" | "Supervisor Dashboard" |
+| **Dashboard title** | "<Term path="myCaseload" />" | "<Term path="supervisorDashboard" />" | "<Term path="supervisorDashboard" />" |
 | **Key focus** | Service delivery | Team management | Organisation oversight |
 | **Accept/Reject referrals** | No | Yes | Yes |
 
 ## Dashboard Features
 
-The Case Worker Dashboard — **"My Caseload"** — provides:
+The Case Worker Dashboard — **"<Term path="myCaseload" />"** — provides:
 
-- **Analytics Overview** — Active cases, urgent/crisis count, follow-ups due, total referrals
-- **My Active Cases** — All service episodes assigned to you with status and actions
-- **Activities Needing Follow-up** — Scheduled follow-ups sorted by date and priority, with risk level and overdue tracking
+- **Analytics Overview** — Active <Term path="serviceEpisode" plural />, urgent/crisis count, follow-ups due, total <Term path="referral" plural />
+- **<Term path="myActiveCases" />** — All <Term path="serviceEpisode" plural /> assigned to you with status and actions
+- **<Term path="activity" plural /> Needing Follow-up** — Scheduled follow-ups sorted by date and priority, with risk level and overdue tracking
 
 For detailed dashboard documentation, see [Case Worker Dashboard](/dashboards/case-worker).
 
@@ -110,7 +110,7 @@ Check Dashboard Metrics
   → Review Upcoming Follow-ups
 ```
 
-### Service Episode Lifecycle
+### <Term path="serviceEpisode" /> Lifecycle
 
 ```
 Assigned (awaiting_commencement)
@@ -126,22 +126,22 @@ Assigned (awaiting_commencement)
 - Process **follow-ups due today** next
 - Then work through routine caseload
 
-### Client Contact
-- Maintain regular contact — your supervisor is alerted when clients aren't contacted for 5+ days
-- Record every interaction as an activity
-- Set follow-up dates to ensure no client falls through the cracks
+### <Term path="serviceUser" /> Contact
+- Maintain regular contact — your supervisor is alerted when <Term path="serviceUser" plural /> aren't contacted for 5+ days
+- Record every interaction as an <Term path="activity" />
+- Set follow-up dates to ensure no <Term path="serviceUser" /> falls through the cracks
 
-### Activity Recording
-- Record activities promptly after each client interaction
+### <Term path="activity" /> Recording
+- Record <Term path="activity" plural /> promptly after each <Term path="serviceUser" /> interaction
 - Set appropriate risk levels (None, Medium, High, Critical)
 - Always set a follow-up date when future action is needed
-- Mark activity outcomes accurately (completed, no-show, rescheduled, etc.)
+- Mark <Term path="activity" /> outcomes accurately (completed, no-show, rescheduled, etc.)
 
 ### Documentation Quality
 - Write clear, concise case notes
-- Include relevant observations and client feedback
+- Include relevant observations and <Term path="serviceUser" /> feedback
 - Upload supporting documents when available
-- Keep service episode records current
+- Keep <Term path="serviceEpisode" /> records current
 
 ## Common Tasks
 
@@ -151,8 +151,8 @@ Assigned (awaiting_commencement)
 | Check follow-ups | [Activities Needing Follow-up](/dashboards/case-worker#activities-needing-follow-up) |
 | Record a visit | [Recording Visits](/activities/recording-visits) |
 | Write case notes | [Case Notes](/activities/case-notes) |
-| Manage an episode | [Managing Episodes](/service-episodes/managing-episodes) |
-| Search for clients | [Searching for Clients](/clients/searching-for-clients) |
+| Manage a <Term path="serviceEpisode" /> | [Managing Episodes](/service-episodes/managing-episodes) |
+| Search for <Term path="serviceUser" plural /> | [Searching for Clients](/clients/searching-for-clients) |
 
 ## Related Topics
 
