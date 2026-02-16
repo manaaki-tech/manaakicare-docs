@@ -25,6 +25,14 @@ const config: Config = {
   organizationName: ORG_NAME,
   projectName: REPO_NAME,
 
+  customFields: {
+    terminologyApiUrls: {
+      local: 'http://localhost:8000',
+      sit: 'https://api.manaakitech.com',
+      uat: 'https://api-uat.manaakicentral.com',
+    },
+  },
+
   onBrokenLinks: 'throw',
 
   markdown: {
