@@ -14,95 +14,168 @@ The Intake Officer Dashboard is your central hub for managing the referral intak
 
 ## Overview
 
-![Intake Dashboard Analytics](/intake_officer/dashboard/Analytic.png)
+![Intake Dashboard Overview](/intake_officer/dashboard/intake_dashboard_overview.png)
 
 The Intake Dashboard displays:
-- **Real-time analytics** showing referral volumes and statuses
-- **Filtered views** of referrals at each stage of the intake process
-- **Quick actions** to view and process referrals
+- **Real-time analytics cards** showing active pipeline, new referrals, and items needing attention
+- **Tab-based navigation** to view referrals at each stage of the intake process
+- **Inline filters** for priority and date
+- **Quick actions** to view and edit referrals
 - **Search functionality** to find specific referrals
+- **+ New Referral** button to create referrals directly from the dashboard
 
 ---
 
-## Analytics Section
+## Analytics Cards
 
-The top section of the dashboard displays four key metrics that give you an at-a-glance view of your workload.
+The top section of the dashboard displays three key metric cards that give you an at-a-glance view of your workload.
 
 ### Statistics Cards
 
-| Card | Description | What It Shows |
-|------|-------------|---------------|
-| **Total <Term path="referral" plural />** | All referrals in the system | Complete count across all statuses |
-| **New Referrals** | Referrals in intake processing | Draft and newly submitted referrals requiring initial processing |
-| **In Review** | Referrals pending review | Referrals submitted and awaiting supervisor/manager review |
-| **Service Review** | Referrals pending service allocation | Approved referrals ready to be dispatched to services |
+<table style={{borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{padding: '10px 14px', textAlign: 'left', borderBottom: '2px solid var(--ifm-table-border-color)'}}>Card</th>
+      <th style={{padding: '10px 14px', textAlign: 'left', borderBottom: '2px solid var(--ifm-table-border-color)'}}>Description</th>
+      <th style={{padding: '10px 14px', textAlign: 'left', borderBottom: '2px solid var(--ifm-table-border-color)'}}>What It Shows</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{borderLeft: '4px solid #0f766e', background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px', fontWeight: 600}}>Active Pipeline</td>
+      <td style={{background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px'}}>All active referrals across every stage</td>
+      <td style={{background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px'}}>Sum of referrals in Intake Processing + In Review + Service Review + Awaiting Service Delivery. A secondary label shows the total referral count in the system.</td>
+    </tr>
+    <tr>
+      <td style={{borderLeft: '4px solid #b45309', background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px', fontWeight: 600}}>New Referrals</td>
+      <td style={{background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px'}}>Referrals not yet dispatched to a service</td>
+      <td style={{background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px'}}>Sum of referrals in Intake Processing + In Review + Service Review (8 statuses). Clicking opens an expanded panel listing all of these referrals.</td>
+    </tr>
+    <tr>
+      <td style={{borderLeft: '4px solid #c2410c', background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px', fontWeight: 600}}>Needs Attention</td>
+      <td style={{background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px'}}>High-priority referrals needing immediate action</td>
+      <td style={{background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px'}}>Count of referrals with <strong>Urgent</strong>, <strong>Crisis</strong>, or <strong>Emergency</strong> priority, filtered to Intake Processing and In Review stages only. Clicking opens a panel sorted by priority rank (Emergency first).</td>
+    </tr>
+  </tbody>
+</table>
 
-### Understanding the Numbers
+Numbers update in real-time as referrals progress through the workflow. Clicking any card opens an expanded panel — for example, clicking **New Referrals** shows all pre-dispatch referrals in one list:
 
-- **Yellow/Orange highlight** on "New Referrals" indicates items requiring your attention
-- **Green highlight** on "Service Review" shows referrals ready for dispatch
-- Numbers update in real-time as referrals progress through the workflow
+![New Referrals Detail](/intake_officer/dashboard/new_referrals_detail.png)
 
-### Filters
+---
 
-Use the filters at the top to narrow down your view:
+## Tab Navigation
+
+<div style={{textAlign: 'center'}}>
+  <img src="/intake_officer/dashboard/tab_navigation.png" alt="Tab Navigation" />
+</div>
+
+The dashboard uses tabs to organise referrals by their current stage. Each tab displays a count badge showing the number of referrals in that stage.
+
+| Tab | Description | Badge |
+|-----|-------------|-------|
+| **Intake Processing** | New referrals requiring initial processing | Shows count of referrals in intake |
+| **In Review** | Referrals submitted and awaiting review | Shows count pending review |
+| **Service Review** | Approved referrals ready for service allocation | Shows count pending service review |
+| **Awaiting Service Delivery** | Dispatched referrals waiting for service to begin | Shows count awaiting delivery |
+
+Click any tab to switch the table view to show referrals at that stage.
+
+---
+
+## Filters
+
+Use the inline filters to narrow down your view:
 
 | Filter | Options | Use Case |
 |--------|---------|----------|
-| **Priority** | All Priorities, Urgent, Priority, Routine | Focus on high-priority referrals |
+| **Search** | Free text search by client, referrer, or status | Find specific referrals quickly |
+| **Priority** | All Priorities, Emergency, Crisis, Urgent, Priority, Routine | Focus on high-priority referrals |
 | **Referral Date** | All dates, Custom date range | View referrals from specific time periods |
 
 #### How to Use Filters
 
-1. Click the **Priority** dropdown to select a priority level
-2. Click the **Referral Date** field to open the date picker
-3. Select your date range
-4. The dashboard updates automatically to show filtered results
+1. Type in the **search bar** to filter by client name, referrer, or status
+2. Click the **Priority** dropdown to select a priority level
+3. Click the **date** field to open the date picker and select a date range
+4. The table updates automatically to show filtered results
 
 ---
 
-## New <Term path="referral" plural /> Section
+## Table Columns
 
-![New Referrals](/intake_officer/dashboard/new_intake.png)
-
-This section displays all referrals that are new or in the initial intake processing stage.
-
-### What You'll See
-
-Referrals with status:
-- **Draft** - Referrals that have been started but not yet submitted
-- **Submitted** - Newly submitted referrals awaiting initial processing
-
-### Table Columns
+All tabs share a consistent table layout with the following columns:
 
 | Column | Description |
 |--------|-------------|
-| **Date** | The date the referral was created |
-| **Client** | Client name and reference number (e.g., REF-2026-DEFAULT-00047) |
-| **Referrer** | The person or organisation who made the referral (N/A for self-referrals) |
-| **Priority** | Priority level badge (Urgent, Priority, or Routine) |
+| **Priority** | Priority level badge (Emergency, Crisis, Urgent, Priority, or Routine) |
+| **Client** | Client name and reference number (e.g., REF-2026-DEFAULT-00002) |
+| **Age** | How long since the referral was created (e.g., 0d, 1d, 3d) |
 | **Status** | Current status of the referral |
-| **Action** | View button to open the referral |
+| **Referrer** | The person or organisation who made the referral |
+| **Actions** | View (eye icon) and Edit (pencil icon) buttons |
 
 ### Priority Badges
 
-| Badge | Colour | Meaning |
-|-------|--------|---------|
-| **Urgent** | Dark red/brown | Requires immediate attention |
-| **Priority** | Brown/orange | High priority, process promptly |
-| **Routine** | Green | Standard priority |
+<table style={{borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{padding: '10px 14px', textAlign: 'left', borderBottom: '2px solid var(--ifm-table-border-color)'}}>Badge</th>
+      <th style={{padding: '10px 14px', textAlign: 'left', borderBottom: '2px solid var(--ifm-table-border-color)'}}>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#f8d4c4', color: '#7c2d12', border: '1px solid #f0a888', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Emergency</span></td>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}>Requires immediate emergency response</td>
+    </tr>
+    <tr>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#fed7aa', color: '#9a3412', border: '1px solid #fdba74', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Crisis</span></td>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}>Crisis situation, handle urgently</td>
+    </tr>
+    <tr>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#fef3c7', color: '#92400e', border: '1px solid #fde68a', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Urgent</span></td>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}>Requires immediate attention</td>
+    </tr>
+    <tr>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#ecfccb', color: '#3f6212', border: '1px solid #d9f99d', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Priority</span></td>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}>High priority, process promptly</td>
+    </tr>
+    <tr>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#f5f5f4', color: '#57534e', border: '1px solid #d6d3d1', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Routine</span></td>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}>Standard priority</td>
+    </tr>
+  </tbody>
+</table>
 
-### Actions
+### Action Icons
 
-- **View** - Click to open the full referral details
-- **View All** - Click to see all referrals in this category
-- **Search** - Use the search bar to find specific referrals by client name, referrer, or status
+| Icon | Action | Description |
+|------|--------|-------------|
+| 👁 Eye | **View** | Open the referral details in read-only mode |
+| ✏ Pencil | **Edit** | Open the referral for editing |
+
+---
+
+## Intake Processing Tab
+
+This is the default tab showing all referrals that are new or in the initial intake processing stage.
+
+### What You'll See
+
+Referrals with the following statuses:
+- **Draft** — Referral has been started but not yet submitted
+- **Pending Consent** — Awaiting client consent before proceeding
+- **Pending Contact** — Awaiting associated contact information
+- **Pending Assessment** — Awaiting assessment completion
+- **Pending Cultural** — Pending cultural and socioeconomic review
 
 ### How to Process New Referrals
 
-1. Review the list sorted by date (newest first)
-2. Check priority levels - process Urgent and Priority items first
-3. Click **View** to open a referral
+1. Review the list - check priority levels and age
+2. Process Emergency and Crisis items first
+3. Click the **eye icon** to view a referral, or the **pencil icon** to edit
 4. Complete the intake assessment
 5. Submit for review when ready
 
@@ -112,67 +185,36 @@ Each referral has a unique reference number (e.g., REF-2026-DEFAULT-00047) that 
 
 ---
 
-## In Review Section
+## In Review Tab
 
-![In Review](/intake_officer/dashboard/in_review_referral.png)
-
-This section shows referrals that have been submitted and are awaiting review by a supervisor or manager.
+This tab shows referrals that have been submitted and are awaiting review by a supervisor or manager.
 
 ### What You'll See
 
 Referrals with status:
 - **Pending Review** - Submitted referrals awaiting approval
 
-### Table Columns
-
-Same structure as New Referrals, with the status showing **Pending Review**.
-
-### Understanding This Section
-
-- Referrals appear here after an intake officer submits them for review
-- A supervisor or manager must approve before the referral can proceed
-- The **Referrer** column now shows the referrer's name (e.g., "MrTeacher Riverdale")
-
-### What You Can Do
-
-| Action | Description |
-|--------|-------------|
-| **View** | Open the referral to check details or make updates |
-| **Track Progress** | Monitor how long referrals have been pending |
-| **Follow Up** | Contact supervisor if referrals are delayed |
+A supervisor or manager must approve before the referral can proceed to service dispatch.
 
 <Callout color="amber" title="Review Delays">
-If referrals stay in "Pending Review" for too long, follow up with your supervisor to ensure timely processing.
+Use the **Age** column to monitor how long referrals have been pending. If items stay in "Pending Review" for too long, follow up with your supervisor.
 </Callout>
 
 ---
 
-## Service Review Section
+## Service Review Tab
 
-![Service Review](/intake_officer/dashboard/pending_service_review_referral.png)
-
-This section displays referrals that have been approved and are ready to be allocated to services.
+This tab displays referrals that have been approved and are ready to be allocated to services.
 
 ### What You'll See
 
-Referrals with status:
-- **Pending Service Review** - Approved referrals awaiting service allocation
-
-### Purpose
-
-These referrals have completed the review process and need to be:
-1. Matched with appropriate services
-2. Assigned to case workers or service teams
-3. Dispatched for service delivery
-
-### Actions
-
-- **View** - Review referral details and service requirements
-- **Dispatch** - Allocate the referral to a service (from the referral detail page)
+Referrals with the following statuses:
+- **Pending Service Dispatch** — Approved referrals ready to be dispatched to a service
+- **Pending Service Review** — Referrals awaiting service allocation review
 
 ### How to Dispatch a Referral
 
-1. Click **View** on a referral
+1. Click the **eye icon** on a referral to view details
 2. Review the client's needs and service requirements
 3. Select the appropriate service
 4. Assign to a case worker or team
@@ -180,65 +222,51 @@ These referrals have completed the review process and need to be:
 
 ---
 
-## Post-Dispatch Section
+## Awaiting Service Delivery Tab
 
-![Post-Dispatch](/intake_officer/dashboard/post_dispatch_referral.png)
-
-This section shows referrals that have been dispatched to services and are in various stages of service delivery.
+This tab shows referrals that have been dispatched to services and are in various stages of service delivery.
 
 ### What You'll See
 
-Referrals with status:
-- **Awaiting Service** - Dispatched but service hasn't started yet
-- **Completed** - Service delivery has been completed
+Referrals with the following statuses:
+- **Pending Allocation** — Accepted by a service, awaiting worker allocation
+- **Awaiting Service** — Allocated to a worker, service has not started yet
+- **Active** — Service delivery is in progress
+- **Completed** — Service delivery has been completed
+- **Cancelled** — Referral was cancelled
+- **On Hold** — Referral is temporarily paused
+- **Closed** — Referral has been permanently closed
 
-### Additional Features
+### Status Filter Dropdown
 
-#### Status Filter
-
-Use the dropdown filter to view specific post-dispatch statuses:
-- **All Post-Dispatch** - View all dispatched referrals
-- **Awaiting Service** - Only referrals waiting to start
-- **Completed** - Only completed referrals
-
-### Table Information
-
-| Column | Description |
-|--------|-------------|
-| **Date** | Original referral date |
-| **Client** | Client name and reference number |
-| **Referrer** | Person/organisation who made the referral |
-| **Priority** | Original priority level |
-| **Status** | Current status (Awaiting Service or Completed) |
-
-### Status Badges
-
-| Status | Colour | Meaning |
-|--------|--------|---------|
-| **Awaiting Service** | Orange | Dispatched, waiting for service to begin |
-| **Completed** | Green | Service delivery finished |
+This tab includes an additional **status filter dropdown** that lets you narrow the list to a specific post-dispatch status (any of the statuses listed above, or "All Statuses").
 
 ### Monitoring Post-Dispatch Referrals
 
-- Track referrals that are awaiting service start
+- Track referrals that are awaiting service start using the Age column
+- Use the status filter dropdown to focus on a specific stage
 - Follow up on delayed service initiations
 - Review completed referrals for closure
 
 ---
 
+## Creating a New Referral
+
+Click the **+ New Referral** button in the top-right corner of the dashboard. See [Creating a Referral](/referrals/creating-a-referral) for a step-by-step guide.
+
+---
+
+## Expanded Card Panels
+
+Clicking any analytics card opens an expanded panel below it. Click the **X** button to close.
+
+- **Active Pipeline** — Shows all referrals across every tab.
+- **New Referrals** — Combines referrals from the Intake Processing, In Review, and Service Review tabs into one list.
+- **Needs Attention** — Shows only Intake Processing and In Review referrals, filtered to Urgent/Crisis/Emergency priority and sorted with Emergency first.
+
+---
+
 ## Common Tasks
-
-### Searching for Referrals
-
-Each section includes a search bar for finding specific referrals:
-
-1. Click in the search field
-2. Enter your search term:
-   - Client name
-   - Reference number
-   - Referrer name
-   - Status
-3. Results filter automatically as you type
 
 ### Pagination
 
@@ -260,62 +288,11 @@ Click the **sun/moon icon** in the top-right corner to toggle between light and 
 
 ---
 
-## Workflow Reference
+## Workflow and Status Reference
 
-### Referral Status Flow
+For the complete referral lifecycle diagram, all 15 status definitions, and role responsibilities, see the [Workflow Overview](/getting-started/workflow-overview).
 
-```
-Draft → Submitted → Pending Review → Pending Service Review → Awaiting Service → Completed
-```
-
-### Status Definitions
-
-| Status | Stage | Description |
-|--------|-------|-------------|
-| **Draft** | New Referrals | Started but not submitted |
-| **Submitted** | New Referrals | Sent for initial processing |
-| **Pending Review** | In Review | Awaiting supervisor approval |
-| **Pending Service Review** | Service Review | Approved, needs service allocation |
-| **Awaiting Service** | Post-Dispatch | Dispatched, service not started |
-| **Active** | Post-Dispatch | Service delivery in progress |
-| **Completed** | Post-Dispatch | Service delivery finished |
-
----
-
-## Tips for Efficient Work
-
-### Daily Routine
-
-1. **Start of Day**
-   - Check the analytics cards for an overview
-   - Review Urgent and Priority referrals first
-   - Check for any referrals stuck in review
-
-2. **Throughout the Day**
-   - Process new referrals as they arrive
-   - Monitor the In Review queue
-   - Dispatch approved referrals promptly
-
-3. **End of Day**
-   - Review any pending items
-   - Note referrals requiring follow-up
-   - Check for overdue reviews
-
-### Priority Management
-
-| Priority | Response Time | Action |
-|----------|---------------|--------|
-| **Urgent** | Same day | Process immediately |
-| **Priority** | Within 24 hours | Process as soon as possible |
-| **Routine** | Within 48 hours | Process in order received |
-
-### Keyboard Shortcuts
-
-| Shortcut | Action |
-|----------|--------|
-| `Ctrl + F` | Open search |
-| `Enter` | Submit search |
-| `Esc` | Close dialogs |
+For priority handling guidelines and expected response times, see [Priority Handling](/getting-started/workflow-overview#priority-handling).
 
 ---
 
@@ -331,7 +308,7 @@ Draft → Submitted → Pending Review → Pending Service Review → Awaiting S
 ### Missing Referrals
 
 If you can't find a referral:
-1. Check all sections (it may have moved to a different status)
+1. Check all tabs (it may have moved to a different status)
 2. Use the search function with the reference number
 3. Check the filters - you may have a filter active
 4. Go to the full Referrals page for advanced search
@@ -347,7 +324,8 @@ If you can't find a referral:
 
 ## Related Documentation
 
-- [Intake Officer Role](/user-roles/intake-officer) - Role overview and responsibilities
+- [Workflow Overview](/getting-started/workflow-overview) - Referral lifecycle, status definitions, and daily workflows
+- [Intake Officer Role](/user-roles/intake-officer) - Role overview, permissions, and best practices
 - [Creating a Referral](/referrals/creating-a-referral) - Step-by-step guide
 - [Referral Overview](/referrals/overview) - Understanding the referral process
 - [Submitting for Review](/referrals/submitting-for-review) - How to submit referrals
