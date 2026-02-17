@@ -8,9 +8,9 @@ keywords: [dashboard, case worker, caseload, service episodes, activities, follo
 
 import Callout from '@site/src/components/Callout';
 
-# Case Worker Dashboard
+# <Term path="caseWorker" /> Dashboard
 
-The Case Worker Dashboard — titled **"<Term path="myCaseload" />"** — is your personal hub for managing assigned <Term path="serviceEpisode" plural /> and tracking activities that need follow-up. It gives you a focused view of your own workload.
+The <Term path="caseWorker" /> Dashboard — titled **"My <Term path="caseload" />"** — is your personal hub for managing assigned <Term path="serviceEpisode" plural /> and tracking activities that need follow-up. It gives you a focused view of your own workload.
 
 ## Overview
 
@@ -18,7 +18,7 @@ The Case Worker Dashboard — titled **"<Term path="myCaseload" />"** — is you
 
 The dashboard displays:
 - **Real-time metrics** showing your active cases, urgent items, follow-ups, and referral counts
-- **<Term path="myActiveCases" />** table of all service episodes assigned to you
+- **My Active <Term path="cases" />** table of all service episodes assigned to you
 - **Activities Needing Follow-up** table of scheduled follow-ups sorted by date and priority
 
 The dashboard description reads: *"View and manage your assigned service episodes and activities."*
@@ -47,7 +47,7 @@ The top section displays four metric cards summarising your current workload.
 
 ---
 
-## <Term path="myActiveCases" />
+## My Active <Term path="cases" />
 
 ![My Active Cases](/case_worker/dashboard/my_active_cases.png)
 
@@ -156,7 +156,7 @@ Use the search bar to filter by **client name**, **activity title**, or **servic
 
 ### Pagination
 
-Same pagination pattern as My Active Cases — 5 items per page with page navigation.
+Same pagination pattern as My Active <Term path="cases" /> — 5 items per page with page navigation.
 
 ### Empty State
 
@@ -172,7 +172,7 @@ Each section has its own search bar:
 
 | Section | Search Placeholder | Searchable Fields |
 |---------|--------------------|-------------------|
-| **<Term path="myActiveCases" />** | "Search by client, service, or status..." | Client name, service name, status |
+| **My Active <Term path="cases" />** | "Search by client, service, or status..." | Client name, service name, status |
 | **Activities Needing Follow-up** | "Search by client, activity, or service..." | Client name, activity title, service name |
 
 ### Refreshing Data
@@ -185,7 +185,7 @@ Click the **sun/moon icon** in the top-right header to toggle between light and 
 
 ### Navigating to a Service Episode
 
-1. Find the episode in the **<Term path="myActiveCases" />** table
+1. Find the episode in the **My Active <Term path="cases" />** table
 2. Click the **View** button
 3. You will be taken to the full service episode page
 
@@ -199,7 +199,7 @@ Click the **sun/moon icon** in the top-right header to toggle between light and 
 
 ## Data Visibility
 
-As a case worker, you can only see data assigned to you:
+As a <Term path="caseWorker" />, you can only see data assigned to you:
 
 | Data Type | Scope |
 |-----------|-------|
@@ -207,7 +207,7 @@ As a case worker, you can only see data assigned to you:
 | Activities | Only activities within your assigned episodes |
 | Referral counts | Only referrals linked to your assignments |
 
-Your supervisor can see all your records plus records of other case workers they supervise.
+Your supervisor can see all your records plus records of other <Term path="caseWorker" plural /> they supervise.
 
 ---
 
@@ -218,7 +218,7 @@ Your supervisor can see all your records plus records of other case workers they
 1. **Start of Day**
    - Check the **Urgent/Crisis** card for high-priority items
    - Review **Follow-ups Due** for any overdue follow-ups (red badges)
-   - Scan **<Term path="myActiveCases" />** for episodes awaiting commencement
+   - Scan **My Active <Term path="cases" />** for episodes awaiting commencement
 
 2. **Throughout the Day**
    - Record activities after each client interaction

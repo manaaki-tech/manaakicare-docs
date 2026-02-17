@@ -78,14 +78,14 @@ After accepting:
 1. The referral service request status changes to **Accepted**
 2. A **<Term path="serviceEpisode" />** is automatically created for the client under the requested service
 3. If a team member is selected in the "Allocate to Team Member" dropdown:
-   - The selected case worker is **assigned to the service episode** as staff
+   - The selected <Term path="caseWorker" /> is **assigned to the service episode** as staff
    - A **"Referral and Service Enrolment"** activity is automatically created within the episode, containing the referral summary, service details, and staff assignment
-   - The case worker will see this episode appear on their [Case Worker Dashboard](/dashboards/case-worker) under **<Term path="myActiveCases" />**
-4. Notes provided in the "Notes for Team Member" field are included in the enrolment activity for the case worker's reference
+   - The <Term path="caseWorker" /> will see this episode appear on their [Case Worker Dashboard](/dashboards/case-worker) under **My Active <Term path="cases" />**
+4. Notes provided in the "Notes for Team Member" field are included in the enrolment activity for the <Term path="caseWorker" />'s reference
 5. The referral progresses forward in the workflow
 
 <Callout color="teal" title="Service Episode Creation">
-Every accepted referral request creates a service episode. Selecting a team member ensures the case worker is immediately assigned and can begin service delivery. If no team member is selected, the episode is created but will need staff assignment later.
+Every accepted referral request creates a service episode. Selecting a team member ensures the <Term path="caseWorker" /> is immediately assigned and can begin service delivery. If no team member is selected, the episode is created but will need staff assignment later.
 </Callout>
 
 ### Rejecting a Referral
@@ -122,7 +122,7 @@ When there are no pending requests, you will see a green checkmark with the mess
 
 ![Service Users Needing Contact and Pending Service Dispatch](/supervisor/dashboard/service_needing_contact_and_pending_service_dispatch.png)
 
-This section (left column) flags clients who have not been contacted by their assigned case worker in **5 or more days**. It helps supervisors ensure clients receive timely follow-up.
+This section (left column) flags clients who have not been contacted by their assigned <Term path="caseWorker" /> in **5 or more days**. It helps supervisors ensure clients receive timely follow-up.
 
 **Section description:** *"Clients not contacted in 5+ days"*
 
@@ -131,7 +131,7 @@ This section (left column) flags clients who have not been contacted by their as
 | Column | Description |
 |--------|-------------|
 | **Client** | Client name and phone number |
-| **Case Worker** | The case worker assigned to this client |
+| **<Term path="caseWorker" />** | The <Term path="caseWorker" /> assigned to this client |
 | **Days** | Number of days since last contact (displayed as a badge) |
 
 ### Days Badge Colours
@@ -151,8 +151,8 @@ The system tracks the most recent activity where:
 ### What You Can Do
 
 1. Review clients flagged for follow-up
-2. Search by **client name** or **case worker name**
-3. Follow up with case workers who have overdue contacts
+2. Search by **client name** or **<Term path="caseWorker" /> name**
+3. Follow up with <Term path="caseWorker" plural /> who have overdue contacts
 4. Ensure no client falls through the cracks
 
 <Callout color="teal" title="Proactive Monitoring">
@@ -163,7 +163,7 @@ Check this section daily to ensure your team maintains regular contact with all 
 
 ## Pending Service Dispatch
 
-This section (right column) shows referrals where the **service request has been accepted** by a supervisor/manager but **no case worker has been assigned yet**. A service episode has been created, but it still needs a case worker allocated to begin service delivery.
+This section (right column) shows referrals where the **service request has been accepted** by a supervisor/manager but **no <Term path="caseWorker" /> has been assigned yet**. A service episode has been created, but it still needs a <Term path="caseWorker" /> allocated to begin service delivery.
 
 **Section description:** *"Referrals awaiting service assignment"*
 
@@ -171,7 +171,7 @@ This section (right column) shows referrals where the **service request has been
 
 A referral appears in this section when:
 - The service request was **accepted** by a supervisor/manager
-- **No case worker was selected** during the acceptance step (the "Allocate to Team Member" field was left empty)
+- **No <Term path="caseWorker" /> was selected** during the acceptance step (the "Allocate to Team Member" field was left empty)
 - The service episode exists but has no staff assigned
 
 ### Table Columns
@@ -197,9 +197,9 @@ Use the search bar to filter by **client name** or **priority level**.
 
 ### What You Can Do
 
-1. Identify accepted referrals that still need a case worker assigned
+1. Identify accepted referrals that still need a <Term path="caseWorker" /> assigned
 2. Prioritise urgent and critical referrals for faster allocation
-3. Assign a case worker to the service episode to begin service delivery
+3. Assign a <Term path="caseWorker" /> to the service episode to begin service delivery
 4. Track any referrals that have been waiting too long without staff assignment
 
 ---
@@ -213,7 +213,7 @@ Each section includes its own search bar:
 | Section | Search Placeholder | Searchable Fields |
 |---------|--------------------|-------------------|
 | **Pending <Term path="referral" plural /> Requests** | "Search by client or service..." | Client name, service name |
-| **<Term path="serviceUser" plural /> Needing Contact** | "Search by client or case worker..." | Client name, case worker name |
+| **<Term path="serviceUser" plural /> Needing Contact** | "Search by client or <Term path="caseWorker" />..." | Client name, <Term path="caseWorker" /> name |
 | **Pending Service Dispatch** | "Search by client or priority..." | Client name, priority level |
 
 ### Pagination
@@ -250,13 +250,13 @@ Pending → Accepted → Service Episode Created → Case Worker Assigned → Se
 1. Service request status changes to **Accepted**
 2. A **<Term path="serviceEpisode" />** is created for the client under the requested service
 3. If a team member is allocated:
-   - The case worker is **assigned to the service episode**
+   - The <Term path="caseWorker" /> is **assigned to the service episode**
    - A **"Referral and Service Enrolment"** activity is auto-created within the episode containing:
      - Referral summary and reference number
      - Service name and details
      - Staff assignment information
      - Any notes provided by the supervisor
-   - The case worker sees this episode on their dashboard immediately
+   - The <Term path="caseWorker" /> sees this episode on their dashboard immediately
 4. The referral progresses to active service delivery
 
 ### What Happens on Reject
@@ -274,7 +274,7 @@ Supervisors and Program Managers have different data scopes:
 
 | Role | Data Scope |
 |------|------------|
-| **Supervisor** | Own records + supervised case workers' records |
+| **Supervisor** | Own records + supervised <Term path="caseWorker" plural />' records |
 | **Program Manager** | All records within their organisation |
 | **Admin** | All records within their organisation |
 
