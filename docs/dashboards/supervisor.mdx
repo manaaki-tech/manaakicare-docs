@@ -10,19 +10,19 @@ import Callout from '@site/src/components/Callout';
 
 # Supervisor / Program Manager Dashboard
 
-The Supervisor Dashboard is your central hub for managing referral requests, monitoring team activity, and ensuring timely service delivery. Both Supervisors and Program Managers share the same dashboard experience.
+The Supervisor Dashboard is your central hub for managing <Term path="referral" /> requests, monitoring team <Term path="activity" />, and ensuring timely service delivery. Both Supervisors and Program Managers share the same dashboard experience.
 
 ## Overview
 
 ![Supervisor Dashboard Analytics](/supervisor/dashboard/analytic.png)
 
 The Supervisor Dashboard displays:
-- **Real-time analytics** showing pending requests, active episodes, and referral volumes
-- **Pending <Term path="referral" plural /> Requests** queue for accepting or rejecting incoming referrals
+- **Real-time analytics** showing pending requests, active episodes, and <Term path="referral" /> volumes
+- **Pending <Term path="referral" plural /> Requests** queue for accepting or rejecting incoming <Term path="referral" plural />
 - **<Term path="serviceUser" plural /> Needing Contact** to flag clients not contacted recently
-- **Pending Service Dispatch** for referrals awaiting service assignment
+- **Pending Service Dispatch** for <Term path="referral" plural /> awaiting service assignment
 
-The dashboard description reads: *"Review referrals, allocate to team members, and monitor service user engagement."*
+The dashboard description reads: *"Review <Term path="referral" plural />, allocate to team members, and monitor <Term path="serviceUser" /> engagement."*
 
 ---
 
@@ -34,16 +34,16 @@ The top section displays four key metric cards that give you an at-a-glance view
 
 | Card | Icon | Description | What It Shows |
 |------|------|-------------|---------------|
-| **Pending Requests** | Document | Referral requests awaiting your action | Count of incoming requests needing accept/reject |
-| **Active <Term path="serviceEpisode" plural />** | People | Active service episodes under your oversight | Total active service delivery episodes |
-| **Activities / Episodes** | Activity | Activity engagement ratio | Format: "X/Y" (total activities / unique episodes with activities) |
-| **Referrals (This Month)** | Clock | Referrals created in the current month | Monthly referral volume |
+| **Pending Requests** | Document | <Term path="referral" /> requests awaiting your action | Count of incoming requests needing accept/reject |
+| **Active <Term path="serviceEpisode" plural />** | People | Active <Term path="serviceEpisode" plural /> under your oversight | Total active service delivery episodes |
+| **<Term path="activity" plural /> / <Term path="serviceEpisode" plural />** | Activity | <Term path="activity" /> engagement ratio | Format: "X/Y" (total <Term path="activity" plural /> / unique episodes with <Term path="activity" plural />) |
+| **<Term path="referral" plural /> (This Month)** | Clock | <Term path="referral" plural /> created in the current month | Monthly <Term path="referral" /> volume |
 
 ### Understanding the Cards
 
 - **Orange highlight** on "Pending Requests" indicates items requiring your immediate attention
-- The **Activities / Episodes** ratio helps you gauge team engagement - a higher ratio means more activities per episode
-- Numbers update in real-time as your team processes referrals and records activities
+- The **<Term path="activity" plural /> / <Term path="serviceEpisode" plural />** ratio helps you gauge team engagement - a higher ratio means more <Term path="activity" plural /> per episode
+- Numbers update in real-time as your team processes <Term path="referral" plural /> and records <Term path="activity" plural />
 
 ---
 
@@ -51,9 +51,9 @@ The top section displays four key metric cards that give you an at-a-glance view
 
 ![Pending Referral Requests](/supervisor/dashboard/pending_referral_service_request.png)
 
-This full-width section displays all incoming referral requests that require your review. These are referrals that have been dispatched to a service you supervise and need to be accepted or rejected.
+This full-width section displays all incoming <Term path="referral" /> requests that require your review. These are <Term path="referral" plural /> that have been dispatched to a service you supervise and need to be accepted or rejected.
 
-**Section description:** *"Review and allocate incoming referral requests to your team."*
+**Section description:** *"Review and allocate incoming <Term path="referral" /> requests to your team."*
 
 ### Table Columns
 
@@ -61,34 +61,34 @@ This full-width section displays all incoming referral requests that require you
 |--------|-------------|
 | **Client** | Client name and phone number |
 | **Service** | The service being requested (displayed as a badge) |
-| **Reference** | Referral reference number (e.g., REF-2026-DEFAULT-00045) |
+| **Reference** | <Term path="referral" /> reference number (e.g., REF-2026-DEFAULT-00045) |
 | **Start Date** | Requested service start date |
 | **Actions** | Accept and Reject buttons |
 
-### Accepting a Referral
+### Accepting a <Term path="referral" /> {#accepting-a-referral}
 
 When you click **Accept**, a dialog appears with the following options:
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| **Allocate to Team Member** | Optional | Dropdown to assign the referral to a specific staff member from your team |
+| **Allocate to Team Member** | Optional | Dropdown to assign the <Term path="referral" /> to a specific staff member from your team |
 | **Notes for Team Member** | Optional | Free-text instructions or context for the allocated worker |
 
 After accepting:
-1. The referral service request status changes to **Accepted**
+1. The <Term path="referral" /> service request status changes to **Accepted**
 2. A **<Term path="serviceEpisode" />** is automatically created for the client under the requested service
 3. If a team member is selected in the "Allocate to Team Member" dropdown:
    - The selected <Term path="caseWorker" /> is **assigned to the service episode** as staff
-   - A **"Referral and Service Enrolment"** activity is automatically created within the episode, containing the referral summary, service details, and staff assignment
+   - A **"<Term path="referral" /> and Service Enrolment"** <Term path="activity" /> is automatically created within the episode, containing the <Term path="referral" /> summary, service details, and staff assignment
    - The <Term path="caseWorker" /> will see this episode appear on their [Case Worker Dashboard](/dashboards/case-worker) under **My Active <Term path="cases" />**
-4. Notes provided in the "Notes for Team Member" field are included in the enrolment activity for the <Term path="caseWorker" />'s reference
-5. The referral progresses forward in the workflow
+4. Notes provided in the "Notes for Team Member" field are included in the enrolment <Term path="activity" /> for the <Term path="caseWorker" />'s reference
+5. The <Term path="referral" /> progresses forward in the workflow
 
 <Callout color="teal" title="Service Episode Creation">
-Every accepted referral request creates a service episode. Selecting a team member ensures the <Term path="caseWorker" /> is immediately assigned and can begin service delivery. If no team member is selected, the episode is created but will need staff assignment later.
+Every accepted <Term path="referral" /> request creates a <Term path="serviceEpisode" />. Selecting a team member ensures the <Term path="caseWorker" /> is immediately assigned and can begin service delivery. If no team member is selected, the episode is created but will need staff assignment later.
 </Callout>
 
-### Rejecting a Referral
+### Rejecting a <Term path="referral" /> {#rejecting-a-referral}
 
 When you click **Reject**, a dialog requires:
 
@@ -97,13 +97,13 @@ When you click **Reject**, a dialog requires:
 | **Reason for Rejection** | **Yes** | You must provide an explanation for the rejection |
 
 After rejecting:
-1. The referral service request status changes to **Rejected** with the reason recorded
-2. The referral status reverts to **Pending Service Dispatch**
-3. The referral reappears in the [Pending Service Dispatch](#pending-service-dispatch) section (on the intake officer's or dispatching user's view)
-4. A new service must be selected and a new service request created before the referral can proceed again
+1. The <Term path="referral" /> service request status changes to **Rejected** with the reason recorded
+2. The <Term path="referral" /> status reverts to **Pending Service Dispatch**
+3. The <Term path="referral" /> reappears in the [Pending Service Dispatch](#pending-service-dispatch) section (on the intake officer's or dispatching user's view)
+4. A new service must be selected and a new service request created before the <Term path="referral" /> can proceed again
 
 <Callout color="amber" title="Rejection Reason Required">
-You cannot submit a rejection without providing a reason. This ensures transparency and helps the referring team understand the decision. After rejection, the referral goes back to pending service dispatch where a different service can be selected and a new request submitted.
+You cannot submit a rejection without providing a reason. This ensures transparency and helps the referring team understand the decision. After rejection, the <Term path="referral" /> goes back to pending service dispatch where a different service can be selected and a new request submitted.
 </Callout>
 
 ### Search and Pagination
@@ -114,7 +114,7 @@ You cannot submit a rejection without providing a reason. This ensures transpare
 
 ### Empty State
 
-When there are no pending requests, you will see a green checkmark with the message: *"All caught up! No pending referrals to allocate."*
+When there are no pending requests, you will see a green checkmark with the message: *"All caught up! No pending <Term path="referral" plural /> to allocate."*
 
 ---
 
@@ -122,7 +122,7 @@ When there are no pending requests, you will see a green checkmark with the mess
 
 ![Service Users Needing Contact and Pending Service Dispatch](/supervisor/dashboard/service_needing_contact_and_pending_service_dispatch.png)
 
-This section (left column) flags clients who have not been contacted by their assigned <Term path="caseWorker" /> in **5 or more days**. It helps supervisors ensure clients receive timely follow-up.
+This section (left column) flags <Term path="serviceUser" plural /> who have not been contacted by their assigned <Term path="caseWorker" /> in **5 or more days**. It helps supervisors ensure <Term path="serviceUser" plural /> receive timely follow-up.
 
 **Section description:** *"Clients not contacted in 5+ days"*
 
@@ -144,43 +144,43 @@ This section (left column) flags clients who have not been contacted by their as
 
 ### How Contact Is Tracked
 
-The system tracks the most recent activity where:
-- The activity outcome is marked as **completed**
-- The activity type is a **telehealth session** or **in-person visit**
+The system tracks the most recent <Term path="activity" /> where:
+- The <Term path="activity" /> outcome is marked as **completed**
+- The <Term path="activity" /> type is a **telehealth session** or **in-person visit**
 
 ### What You Can Do
 
-1. Review clients flagged for follow-up
+1. Review <Term path="serviceUser" plural /> flagged for follow-up
 2. Search by **client name** or **<Term path="caseWorker" /> name**
 3. Follow up with <Term path="caseWorker" plural /> who have overdue contacts
-4. Ensure no client falls through the cracks
+4. Ensure no <Term path="serviceUser" /> falls through the cracks
 
 <Callout color="teal" title="Proactive Monitoring">
-Check this section daily to ensure your team maintains regular contact with all service users. Early intervention prevents disengagement.
+Check this section daily to ensure your team maintains regular contact with all <Term path="serviceUser" plural />. Early intervention prevents disengagement.
 </Callout>
 
 ---
 
 ## Pending Service Dispatch
 
-This section (right column) shows referrals where the **service request has been accepted** by a supervisor/manager but **no <Term path="caseWorker" /> has been assigned yet**. A service episode has been created, but it still needs a <Term path="caseWorker" /> allocated to begin service delivery.
+This section (right column) shows <Term path="referral" plural /> where the **service request has been accepted** by a supervisor/manager but **no <Term path="caseWorker" /> has been assigned yet**. A <Term path="serviceEpisode" /> has been created, but it still needs a <Term path="caseWorker" /> allocated to begin service delivery.
 
-**Section description:** *"Referrals awaiting service assignment"*
+**Section description:** *"<Term path="referral" plural /> awaiting service assignment"*
 
-### Why Referrals Appear Here
+### Why <Term path="referral" plural /> Appear Here
 
-A referral appears in this section when:
+A <Term path="referral" /> appears in this section when:
 - The service request was **accepted** by a supervisor/manager
 - **No <Term path="caseWorker" /> was selected** during the acceptance step (the "Allocate to Team Member" field was left empty)
-- The service episode exists but has no staff assigned
+- The <Term path="serviceEpisode" /> exists but has no staff assigned
 
 ### Table Columns
 
 | Column | Description |
 |--------|-------------|
-| **Client** | Client name and referral reference number |
+| **Client** | Client name and <Term path="referral" /> reference number |
 | **Priority** | Priority level badge |
-| **Date** | Referral date |
+| **Date** | <Term path="referral" /> date |
 
 ### Priority Badges
 
@@ -197,10 +197,10 @@ Use the search bar to filter by **client name** or **priority level**.
 
 ### What You Can Do
 
-1. Identify accepted referrals that still need a <Term path="caseWorker" /> assigned
-2. Prioritise urgent and critical referrals for faster allocation
-3. Assign a <Term path="caseWorker" /> to the service episode to begin service delivery
-4. Track any referrals that have been waiting too long without staff assignment
+1. Identify accepted <Term path="referral" plural /> that still need a <Term path="caseWorker" /> assigned
+2. Prioritise urgent and critical <Term path="referral" plural /> for faster allocation
+3. Assign a <Term path="caseWorker" /> to the <Term path="serviceEpisode" /> to begin service delivery
+4. Track any <Term path="referral" plural /> that have been waiting too long without staff assignment
 
 ---
 
@@ -236,7 +236,7 @@ Click the **sun/moon icon** in the top-right header to toggle between light and 
 
 ---
 
-## Referral Request Workflow
+## <Term path="referral" /> Request Workflow
 
 ### Status Flow for Service Requests
 
@@ -251,20 +251,20 @@ Pending → Accepted → Service Episode Created → Case Worker Assigned → Se
 2. A **<Term path="serviceEpisode" />** is created for the client under the requested service
 3. If a team member is allocated:
    - The <Term path="caseWorker" /> is **assigned to the service episode**
-   - A **"Referral and Service Enrolment"** activity is auto-created within the episode containing:
-     - Referral summary and reference number
+   - A **"<Term path="referral" /> and Service Enrolment"** <Term path="activity" /> is auto-created within the episode containing:
+     - <Term path="referral" /> summary and reference number
      - Service name and details
      - Staff assignment information
      - Any notes provided by the supervisor
    - The <Term path="caseWorker" /> sees this episode on their dashboard immediately
-4. The referral progresses to active service delivery
+4. The <Term path="referral" /> progresses to active service delivery
 
 ### What Happens on Reject
 
 1. Service request status changes to **Rejected** with the reason recorded
-2. The referral status reverts to **Pending Service Dispatch**
-3. The referral goes back to the dispatch queue where a new service can be selected
-4. A new service request must be created before the referral can be sent to a supervisor again
+2. The <Term path="referral" /> status reverts to **Pending Service Dispatch**
+3. The <Term path="referral" /> goes back to the dispatch queue where a new service can be selected
+4. A new service request must be created before the <Term path="referral" /> can be sent to a supervisor again
 
 ---
 
@@ -285,19 +285,19 @@ Supervisors and Program Managers have different data scopes:
 ### Daily Routine
 
 1. **Start of Day**
-   - Check the Pending Requests card for new referral requests
-   - Review the Service Users Needing Contact section
-   - Accept/reject pending referral requests
+   - Check the Pending Requests card for new <Term path="referral" /> requests
+   - Review the <Term path="serviceUser" plural /> Needing Contact section
+   - Accept/reject pending <Term path="referral" /> requests
 
 2. **Throughout the Day**
-   - Allocate accepted referrals to team members
+   - Allocate accepted <Term path="referral" plural /> to team members
    - Monitor pending service dispatches
-   - Follow up on overdue client contacts
+   - Follow up on overdue <Term path="serviceUser" /> contacts
 
 3. **End of Day**
    - Review any remaining pending requests
-   - Check Activities / Episodes ratio for team engagement
-   - Note any clients approaching the 7-day contact threshold
+   - Check <Term path="activity" plural /> / <Term path="serviceEpisode" plural /> ratio for team engagement
+   - Note any <Term path="serviceUser" plural /> approaching the 7-day contact threshold
 
 ### Priority Management
 
@@ -347,5 +347,5 @@ Supervisors and Program Managers have different data scopes:
 - [Supervisor Role](/user-roles/supervisor) - Role overview and responsibilities
 - [Program Manager Role](/user-roles/program-manager) - Role overview and responsibilities
 - [Intake Officer Dashboard](/dashboards/intake-officer) - Intake officer's dashboard view
-- [Referral Overview](/referrals/overview) - Understanding the referral process
+- [Referral Overview](/referrals/overview) - Understanding the <Term path="referral" /> process
 - [Searching for Clients](/clients/searching-for-clients) - Finding client records
