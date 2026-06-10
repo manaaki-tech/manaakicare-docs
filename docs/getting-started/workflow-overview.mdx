@@ -16,7 +16,7 @@ This page provides visual diagrams to help you understand how <Term path="referr
 
 ## <Term path="referral" /> Lifecycle
 
-The complete journey of a <Term path="referral" /> from client search to service completion, showing all 13 <Term path="referral" /> statuses.
+The complete journey of a <Term path="referral" /> from client search to service completion, showing the referral and service episode statuses.
 
 ```mermaid
 flowchart TB
@@ -60,9 +60,15 @@ flowchart TB
 
     subgraph delivery["<b>SERVICE DELIVERY</b>"]
         allocated["🎯 <b>ALLOCATED AWAITING SERVICE</b><br/>Service Episode Created"]
-        active["✅ <b>SERVICE IN PROGRESS</b><br/>Case Worker activated episode"]
+        active["✅ <b>ACTIVE / IN PROGRESS</b><br/>Case Worker activated episode"]
+        on_hold["⏸️ <b>ON HOLD</b><br/>Temporarily paused"]
         completed["🎉 <b>COMPLETED</b>"]
         closed["🔒 <b>CLOSED</b>"]
+    end
+
+    subgraph terminal["<b>TERMINAL (REFERRAL)</b>"]
+        cancelled["🚫 <b>CANCELLED</b>"]
+        withdrawn["↩️ <b>WITHDRAWN</b>"]
     end
 
     search --> exists
@@ -97,27 +103,30 @@ flowchart TB
 
     allocated -->|"Case Worker activates episode"| active
     active -->|"Service delivery complete"| completed
+    active -->|"Temporarily pause"| on_hold
+    on_hold -->|"Resume"| active
+    on_hold -->|"Close without completing"| closed
     active -->|"Early closure"| closed
+    pending_dispatch -->|"Entry cancelled"| cancelled
+    pending_dispatch -->|"Client withdraws"| withdrawn
+    pending_service_review -->|"Entry cancelled"| cancelled
+    pending_service_review -->|"Client withdraws"| withdrawn
 
 ```
 
-### All <Term path="referral" /> Statuses
+### <Term path="referral" /> Intake Steps
 
-| # | Status | Phase | Description |
-|---|--------|-------|-------------|
-| 1 | **Draft** | Intake | Step 1 - Intake officer filling in basic details |
-| 2 | **Pending Consent** | Intake | Step 2 - Waiting for consent & agreement to be completed |
-| 3 | **Pending Associated Contact** | Intake | Step 3 - Waiting for support network / emergency contacts |
-| 4 | **Pending Assessment** | Intake | Step 4 - Waiting for need assessment to be completed |
-| 5 | **Pending Cultural Soco** | Intake | Step 5 - Waiting for cultural & socioeconomic details |
-| 6 | **Pending Review** | Review | All 5 steps complete, awaiting intake officer / head of intake review |
-| 7 | **Pending Service Dispatch** | Dispatch | Review submitted, ready for service allocation |
-| 8 | **Pending Service Review** | Approval | Service request sent to supervisor / program manager for approval |
-| 9 | **Accepted Pending Allocation** | Approval | Service approved by manager, <Term path="caseWorker" /> selection pending |
-| 10 | **Allocated Awaiting Service** | Delivery | <Term path="caseWorker" /> assigned, service episode created (Awaiting Commencement) |
-| 11 | **Service In Progress** | Delivery | <Term path="caseWorker" /> has activated the service episode |
-| 12 | **Completed** | Closed | Service episode successfully completed |
-| 13 | **Closed** | Closed | <Term path="referral" /> closed (early closure or termination) |
+The five intake steps represent the progressive completion of a referral form. Each step moves the entry closer to being ready for review:
+
+| Step | Label | What is captured |
+|------|-------|-----------------|
+| 1 | Draft | Basic intake details — the entry point |
+| 2 | Pending Consent | Consent and agreement from the client |
+| 3 | Pending Associated Contact | Support network and emergency contacts |
+| 4 | Pending Assessment | Needs assessment |
+| 5 | Pending Cultural Soco | Cultural and socioeconomic context |
+
+Once all five steps are complete, the entry moves to **Pending Review**.
 
 ---
 
@@ -317,6 +326,54 @@ flowchart TB
 </div>
 
 </div>
+
+---
+
+## Status Reference
+
+All status values used across the system, grouped by lifecycle. These are the values you will see in badges, filters, and reports.
+
+### Referral statuses
+
+These statuses track where an entry is in the intake-to-allocation pipeline.
+
+| Status | Description |
+|--------|-------------|
+| **Draft** | Entry is being created — intake step 1 in progress |
+| **Pending Consent** | Intake step 2 — awaiting consent and agreement |
+| **Pending Review** | All intake steps complete, awaiting review submission |
+| **Pending Service Dispatch** | Review complete, ready for service selection and allocation |
+| **Pending Service Review** | Service request sent to supervisor/programme manager for approval |
+| **Accepted Pending Allocation** | Service approved by manager, <Term path="caseWorker" /> selection pending |
+| **Allocated Awaiting Service** | <Term path="caseWorker" /> assigned, service episode created and ready to commence |
+| **Cancelled** | Entry cancelled before a service episode began |
+| **Withdrawn** | Client withdrew before a service episode began |
+
+### Service episode statuses
+
+Once a referral is allocated, a service episode is created and moves through its own lifecycle.
+
+| Status | Description |
+|--------|-------------|
+| **Awaiting Staff Assignment** | Service episode created, no <Term path="caseWorker" /> yet confirmed |
+| **Awaiting Commencement** | <Term path="caseWorker" /> assigned, waiting for them to activate the episode |
+| **Active / In Progress** | <Term path="caseWorker" /> has activated the episode — service delivery is underway |
+| **On Hold** | Delivery temporarily paused (e.g. client unavailable, waiting on external factor) |
+| **Completed** | Service episode successfully concluded |
+| **Closed** | Episode closed without full completion (early closure or termination) |
+
+### Consent statuses
+
+Consent is tracked separately from the referral status and may change at any point.
+
+| Status | Description |
+|--------|-------------|
+| **Consent Active** | Client has given consent and it remains in force |
+| **Consent Withdrawn** | Client has withdrawn their consent — service delivery should not proceed |
+
+:::warning
+If a client's consent is withdrawn at any stage, check with your supervisor before taking any further action on their record.
+:::
 
 ---
 

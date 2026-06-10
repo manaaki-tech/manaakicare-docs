@@ -72,6 +72,31 @@ const sidebars: SidebarsConfig = {
     // },
     {
       type: 'category',
+      label: 'Organisations',
+      link: {
+        type: 'generated-index',
+        title: 'External Organisations',
+        description: 'Manage partner and referrer organisations and their contacts.',
+      },
+      items: [
+        'external-organisations/overview',
+        'external-organisations/managing-contacts',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Document Library',
+      link: {
+        type: 'generated-index',
+        title: 'Document Library',
+        description: 'Manage shared templates and documents for your organisation.',
+      },
+      items: [
+        'organisation-documents/overview',
+      ],
+    },
+    {
+      type: 'category',
       label: 'User Roles',
       link: {
         type: 'generated-index',
