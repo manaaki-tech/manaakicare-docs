@@ -3,69 +3,64 @@ title: Logging In
 description: How to log in to Manaaki Central and reset your password
 sidebar_position: 1
 helpId: login
-keywords: [login, password, reset, authentication, sign in]
+keywords: [login, password, reset, authentication, sign in, OTP]
 ---
 
 # Logging In
 
-This guide covers how to access your Manaaki Central account, including first-time login and password reset procedures.
-
-:::note Work in Progress
-This documentation is being developed. Check back soon for updates.
-:::
-
-## Overview
-
-Manaaki Central uses secure authentication to protect client data. You'll need valid credentials provided by your organisation's administrator.
+This guide covers how to access your Manaaki Central account and what to do if you need to reset your password.
 
 ## Accessing Manaaki Central
 
-1. Open your web browser
-2. Navigate to your organisation's Manaaki Central URL
-3. Enter your email address
-4. Enter your password
-5. Click **Sign In**
+1. Open your web browser and navigate to your organisation's Manaaki Central URL
+2. Enter your **email address** and **password**
+3. Click **Sign In**
 
-## First-Time Login
+On success you will be taken straight to your dashboard. If your credentials are not accepted, an inline error message will appear — check that your email address is correct and that Caps Lock is off. If your account has been locked, contact your organisation administrator.
 
-When you first receive your account:
+## Session Management
 
-- You'll receive an email with a temporary password
-- On first login, you'll be prompted to create a new password
-- Your password must meet security requirements
+Sessions stay active while your browser is open. If you close the browser, or the session expires due to inactivity, you will need to sign in again.
 
-## Password Requirements
+If your session expires while you are working, you will be redirected to the login page automatically. After signing back in, Manaaki Central will return you to the page you were on — you will not lose your place.
 
-Your password must include:
-
-- At least 8 characters
-- At least one uppercase letter
-- At least one lowercase letter
-- At least one number
-- At least one special character
+:::note
+On shared or public computers, close the browser when you are done to ensure your session ends.
+:::
 
 ## Resetting Your Password
 
-If you've forgotten your password:
+If you have forgotten your password, use the three-step reset flow:
 
-1. Click **Forgot Password?** on the login page
-2. Enter your email address
-3. Check your email for reset instructions
-4. Follow the link to create a new password
+### Step 1 — Request a code
 
-## Staying Signed In
+Click **Forgot your password?** on the login page. Enter your email address and submit the form. A one-time code (OTP) will be sent to that address.
 
-- Sessions automatically expire after a period of inactivity
-- You'll be prompted to sign in again when your session expires
-- For security, always sign out when using shared computers
+### Step 2 — Verify the code
+
+Check your email for a message containing a 6-digit code. Enter the code on the verification screen. If the code did not arrive, use the **Resend code** option to request a new one.
+
+### Step 3 — Set a new password
+
+Enter your new password and confirm it. Once submitted, you will be redirected back to the login page with a confirmation message. You can then sign in with your new password.
+
+## Password Requirements
+
+Your password must:
+
+- Be at least 8 characters long
+- Contain at least one uppercase letter
+- Contain at least one lowercase letter
+- Contain at least one number
+- Contain at least one special character
 
 ## Troubleshooting
 
-| Problem | Solution |
-|---------|----------|
-| Can't log in | Verify your email and password are correct |
-| Account locked | Contact your administrator |
-| Didn't receive reset email | Check spam folder, or contact support |
+| Problem | What to do |
+|---------|------------|
+| "Invalid credentials" error | Check that your username is your full email address; check Caps Lock |
+| Did not receive the OTP email | Check your spam or junk folder; use **Resend code** on the verification screen |
+| Account locked | Contact your organisation administrator to have it unlocked |
 
 ## Related Topics
 

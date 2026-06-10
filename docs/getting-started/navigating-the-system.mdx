@@ -14,27 +14,48 @@ Learn how to move around Manaaki Central efficiently using the navigation menu, 
 
 Manaaki Central uses a consistent navigation structure to help you find what you need quickly:
 
-- **Sidebar Menu** - Main navigation to different sections
-- **Header Bar** - Theme toggle, refresh, and user profile
-- **Search Bars** - Context-specific search within each section
-- **Pagination** - Navigate through large lists of records
+- **Sidebar Menu** — Main navigation to different sections
+- **Header Bar** — Page title, theme toggle, refresh, and user profile
+- **Search Bars** — Context-specific search within each section
+- **Pagination** — Navigate through large lists of records
 
 ## Sidebar Menu
 
-The left sidebar provides access to the main sections of Manaaki Central. The sidebar is always visible for quick navigation.
+The left sidebar provides access to the main sections of Manaaki Central. It is always visible for quick navigation, and the currently active page is highlighted so you can see where you are at a glance.
 
-| Menu Item | Icon | Description |
+| Menu Item | Path | Description |
 |-----------|------|-------------|
-| **<Term path="dashboard" />** | Home icon | Your personalized dashboard based on your role |
-| **<Term path="serviceUser" plural />** | List icon | Search, view, and manage client records |
-| **<Term path="referral" plural />** | Document icon | View all <Term path="referral" plural /> with advanced filtering |
-| **<Term path="serviceEpisode" plural />** | Activity icon | Track active <Term path="serviceEpisode" plural /> |
+| **Dashboard** | `/` | Your personalised dashboard based on your role |
+| **Clients** | `/clients` | Search, view, and manage client records |
+| **Entries** | `/referrals` | The intake and referral entry point — all incoming entries |
+| **Active Care** | `/care-journeys` | Active service episodes currently in progress |
+| **Completed Care** | `/completed-care` | Service episodes that have been completed or closed |
 
-### Current Page Indicator
+### Management section
 
-The currently active page is highlighted with a green/teal background in the sidebar, making it easy to see where you are in the system.
+If you hold an org manager or admin role, you will also see a Management section in the sidebar:
 
-### Organisation Logo
+| Menu Item | Path | Description |
+|-----------|------|-------------|
+| **Organisations** | `/external-organisations` | Directory of partner and referrer organisations |
+| **Templates** | `/organisation-documents` | Organisational document library |
+
+This section is not visible to staff without management access.
+
+### Customised navigation labels
+
+Navigation labels can be configured per organisation, so what you see may differ from the defaults above. Some organisations use te reo Māori phrases as their labels — for example, an NPO preset might show:
+
+| Default label | Customised label |
+|---------------|-----------------|
+| Clients | Whānau I am Supporting |
+| Entries | Awareness and Entry |
+| Active Care | In-progress Journeys |
+| Completed Care | Preservation of Relationship |
+
+If your sidebar looks different from a colleague's, this is expected — your organisation has configured its own terminology.
+
+### Organisation logo
 
 The **Manaaki Central** logo at the top of the sidebar returns you to your dashboard when clicked.
 
@@ -44,10 +65,10 @@ The header bar at the top of every page contains:
 
 | Element | Description |
 |---------|-------------|
-| **Page Title** | Shows the current page name (e.g., "Intake Dashboard") |
+| **Page Title** | Shows the current page name (e.g., "Intake Dashboard") — left side |
 | **Theme Toggle** | Sun/moon icon to switch between light and dark modes |
 | **Refresh Button** | Circular arrow to reload the current page data |
-| **User Avatar** | Your profile initial - click for account options |
+| **User Avatar** | Your profile initial and organisation name — click for account options |
 
 ## Search
 
@@ -56,15 +77,15 @@ Each section includes a context-specific search bar to help you find records qui
 ### How to Search
 
 1. Click in the search field
-2. Type your search term (<Term path="serviceUser" /> name, reference number, referrer name)
+2. Type your search term (client name, reference number, referrer name)
 3. Results filter automatically as you type
 4. Press **Enter** to confirm or click on a result
 
 ### Search Tips
 
-- Use <Term path="serviceUser" /> names for quick lookups
-- Reference numbers (e.g., REF-2026-DEFAULT-00047) provide exact matches
-- Search works across multiple fields in each section
+- Client names give quick lookups across the Clients and Entries sections
+- Reference numbers (e.g., `REF-2026-DEFAULT-00047`) provide exact matches
+- Search works across multiple fields within each section
 
 ## Pagination
 
@@ -72,7 +93,7 @@ When viewing lists with many records, pagination controls appear at the bottom:
 
 | Element | Description |
 |---------|-------------|
-| **Showing X-Y of Z** | Indicates which records are currently displayed |
+| **Showing X–Y of Z** | Indicates which records are currently displayed |
 | **Page X of Y** | Current page number and total pages |
 | **< >** arrows | Navigate to previous/next page |
 
