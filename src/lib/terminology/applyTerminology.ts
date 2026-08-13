@@ -1,14 +1,29 @@
 import defaultTerminology from './default.json';
 
+/** Escapes regex metacharacters so a term can be used in a RegExp. */
+function escapeRegExp(value: string): string {
+	return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/** Replaces every occurrence of `find` in `input`, literally (not just the first). */
+function replaceAll(input: string, find: string, replacement: string): string {
+	return input.replace(new RegExp(escapeRegExp(find), 'g'), replacement);
+}
+
 /**
  * Applies an organisation's terminology overrides to a plain string.
  *
- * Used for sidebar labels, which come from `sidebars.ts` / MDX frontmatter and
- * are therefore plain strings — the `<Term>` component cannot be used there.
+ * Used wherever the `<Term>` component cannot reach: sidebar labels (plain
+ * strings in `sidebars.ts` / MDX frontmatter) and mermaid diagram source
+ * (handed to mermaid.js as raw text, so JSX never renders inside it).
  *
  * Replaces the plural form before the singular, since the plural is the longer
  * match and replacing the singular first would corrupt it ("Referrals" ->
  * "<override>s").
+ *
+ * Replacement is global — a single mermaid diagram can mention the same term
+ * many times, and replacing only the first occurrence would leave the diagram
+ * half-translated.
  */
 export function applyTerminology(label: string, t: Record<string, string>): string {
 	let result = label;
@@ -26,10 +41,10 @@ export function applyTerminology(label: string, t: Record<string, string>): stri
 
 		// Plural first (longer match) to avoid partial replacements
 		if (defaultParts[1] && overrideParts[1] && result.includes(defaultParts[1])) {
-			result = result.replace(defaultParts[1], overrideParts[1]);
+			result = replaceAll(result, defaultParts[1], overrideParts[1]);
 		}
 		if (defaultParts[0] && overrideParts[0] && result.includes(defaultParts[0])) {
-			result = result.replace(defaultParts[0], overrideParts[0]);
+			result = replaceAll(result, defaultParts[0], overrideParts[0]);
 		}
 	}
 
@@ -42,7 +57,7 @@ export function applyTerminology(label: string, t: Record<string, string>): stri
 		if (!defaultVal || !overrideVal || defaultVal === overrideVal) continue;
 
 		if (result.includes(defaultVal)) {
-			result = result.replace(defaultVal, overrideVal);
+			result = replaceAll(result, defaultVal, overrideVal);
 		}
 	}
 
