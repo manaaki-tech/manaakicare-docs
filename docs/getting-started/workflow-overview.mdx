@@ -64,9 +64,9 @@ flowchart TB
         closed["🔒 <b>CLOSED</b>"]
     end
 
-    subgraph terminal["<b>TERMINAL (REFERRAL)</b>"]
-        cancelled["🚫 <b>CANCELLED</b>"]
-        withdrawn["↩️ <b>WITHDRAWN</b>"]
+    subgraph terminal["<b>FINAL STATUSES</b>"]
+        completed_ref["🎉 <b>COMPLETED</b>"]
+        closed_ref["🔒 <b>CLOSED</b><br/>Cancelled or consent withdrawn"]
     end
 
     search --> exists
@@ -103,10 +103,10 @@ flowchart TB
     on_hold -->|"Resume"| active
     on_hold -->|"Close without completing"| closed
     active -->|"Early closure"| closed
-    pending_dispatch -->|"Entry cancelled"| cancelled
-    pending_dispatch -->|"Client withdraws"| withdrawn
-    pending_service_review -->|"Entry cancelled"| cancelled
-    pending_service_review -->|"Client withdraws"| withdrawn
+    completed --> completed_ref
+    closed --> closed_ref
+    pending_dispatch -->|"Cancelled / consent withdrawn"| closed_ref
+    pending_service_review -->|"Cancelled / consent withdrawn"| closed_ref
 
 ```
 
@@ -343,15 +343,18 @@ These statuses track where an entry is in the intake-to-allocation pipeline.
 
 | Status | Description |
 |--------|-------------|
-| **Draft** | Entry is being created — intake step 1 in progress |
-| **Pending Consent** | Intake step 2 — awaiting consent and agreement |
-| **Pending Review** | All intake steps complete, awaiting review submission |
-| **Pending Service Dispatch** | Review complete, ready for service selection and allocation |
+| **Draft** | Entry has been created — Step 1 complete, Consent not yet done |
+| **Pending Consent** | Awaiting consent and agreement |
+| **Pending Review** | Consent recorded, awaiting review and submission |
+| **Pending Service Dispatch** | Submitted, ready for service selection and allocation |
 | **Pending Service Review** | Service request sent to supervisor/programme manager for approval |
-| **Accepted Pending Allocation** | Service approved by manager, <Term path="caseWorker" /> selection pending |
+| **Accepted Pending Allocation** | Service accepted, <Term path="caseWorker" /> selection pending |
 | **Allocated Awaiting Service** | <Term path="caseWorker" /> assigned, service episode created and ready to commence |
-| **Cancelled** | Entry cancelled before a service episode began |
-| **Withdrawn** | Client withdrew before a service episode began |
+| **Service In Progress** | Service delivery underway |
+| **Completed** | Service concluded successfully — final status |
+| **Closed** | Entry closed without completing — final status |
+
+**Completed** and **Closed** are the only final statuses. There is no separate "Cancelled" or "Withdrawn" status — an entry that is cancelled, or whose consent is withdrawn, ends up as **Closed** with a recorded reason.
 
 ### Service episode statuses
 
@@ -368,15 +371,15 @@ Once a referral is allocated, a service episode is created and moves through its
 
 ### Consent statuses
 
-Consent is tracked separately from the referral status and may change at any point.
+Consent is tracked separately from the referral status and may change at any point. It is not a single status field — consent is **active** when all of the following hold, and **withdrawn** once it has been withdrawn.
 
-| Status | Description |
-|--------|-------------|
-| **Consent Active** | Client has given consent and it remains in force |
-| **Consent Withdrawn** | Client has withdrawn their consent — service delivery should not proceed |
+| State | What it means |
+|-------|---------------|
+| **Consent active** | Consent to service and information sharing are both recorded, guardian consent is complete where required, consent has not expired, and it has not been withdrawn |
+| **Consent withdrawn** | The client has withdrawn consent — service delivery must not proceed |
 
 :::warning
-If a client's consent is withdrawn at any stage, check with your supervisor before taking any further action on their record.
+Withdrawing consent is not reversible in the system, and it does more than change a flag: it **closes any active <Term path="serviceEpisode" plural /> and closes the <Term path="referral" /> itself**, recording the withdrawal reason. Check with your supervisor before withdrawing consent on anyone's record.
 :::
 
 ---

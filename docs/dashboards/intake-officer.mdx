@@ -49,7 +49,7 @@ The top section of the dashboard displays three key metric cards that give you a
     <tr>
       <td style={{borderLeft: '4px solid #b45309', background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px', fontWeight: 600}}>New <Term path="referral" plural /></td>
       <td style={{background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px'}}><Term path="referral" plural /> not yet dispatched to a service</td>
-      <td style={{background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px'}}>Sum of <Term path="referral" plural /> in Intake Processing + In Review + Service Review (8 statuses). Clicking opens an expanded panel listing all of these <Term path="referral" plural />.</td>
+      <td style={{background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px'}}>Sum of <Term path="referral" plural /> in Intake Processing + In Review + Service Review. Clicking opens an expanded panel listing all of these <Term path="referral" plural />.</td>
     </tr>
     <tr>
       <td style={{borderLeft: '4px solid #c2410c', background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px', fontWeight: 600}}>Needs Attention</td>
@@ -165,11 +165,8 @@ This is the default tab showing all <Term path="referral" plural /> that are new
 ### What You'll See
 
 <Term path="referral" plural /> with the following statuses:
-- **Draft** — <Term path="referral" /> has been started but not yet submitted
-- **Pending Consent** — Awaiting client consent before proceeding
-- **Pending Contact** — Awaiting associated contact information
-- **Pending Assessment** — Awaiting assessment completion
-- **Pending Cultural** — Pending cultural and socioeconomic review
+- **Draft** — intake has been started but consent is not yet recorded
+- **Pending Consent** — awaiting client consent before proceeding
 
 ### How to Process New <Term path="referral" plural />
 
@@ -229,13 +226,11 @@ This tab shows <Term path="referral" plural /> that have been dispatched to serv
 ### What You'll See
 
 <Term path="referral" plural /> with the following statuses:
-- **Pending Allocation** — Accepted by a service, awaiting worker allocation
-- **Awaiting Service** — Allocated to a worker, service has not started yet
-- **Active** — Service delivery is in progress
-- **Completed** — Service delivery has been completed
-- **Cancelled** — <Term path="referral" /> was cancelled
-- **On Hold** — <Term path="referral" /> is temporarily paused
-- **Closed** — <Term path="referral" /> has been permanently closed
+- **Accepted Pending Allocation** — accepted by a service, awaiting <Term path="caseWorker" /> allocation
+- **Allocated Awaiting Service** — allocated to a <Term path="caseWorker" />, service has not started yet
+- **Service In Progress** — service delivery is underway
+- **Completed** — service delivery concluded successfully
+- **Closed** — closed without completing, including cancellations and consent withdrawals
 
 ### Status Filter Dropdown
 
@@ -290,7 +285,7 @@ Click the **sun/moon icon** in the top-right corner to toggle between light and 
 
 ## Workflow and Status Reference
 
-For the complete <Term path="referral" /> lifecycle diagram, all 15 status definitions, and role responsibilities, see the [Workflow Overview](/getting-started/workflow-overview).
+For the complete <Term path="referral" /> lifecycle diagram, all status definitions, and role responsibilities, see the [Workflow Overview](/getting-started/workflow-overview).
 
 For priority handling guidelines and expected response times, see [Priority Handling](/getting-started/workflow-overview#priority-handling).
 
