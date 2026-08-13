@@ -20,15 +20,13 @@ The complete journey of a <Term path="referral" /> from client search to service
 
 ```mermaid
 flowchart TB
-    subgraph client["<b>CLIENT LOOKUP</b>"]
-        search["🔍 Search Client"]
-        exists{"Client exists?"}
-        select["Select Client"]
-        create["Create New Client"]
-    end
-
     subgraph intake_steps["<b>REFERRAL INTAKE (3 Steps)</b>"]
-        draft["📝 <b>Step 1: Intake</b><br/>Client &amp; referral"]
+        service["🧩 <b>Step 1: Intake</b><br/>Select the service"]
+        search["🔍 Search for the client"]
+        exists{"Client exists?"}
+        selectclient["Select client"]
+        create["Create new client"]
+        details["📝 Referral details &amp; referrer"]
         consent_step["🛡️ <b>Step 2: Consent</b><br/>Permissions on file"]
         review_step["✅ <b>Step 3: Review &amp; Submit</b><br/>Confirm &amp; dispatch"]
     end
@@ -69,13 +67,14 @@ flowchart TB
         closed_ref["🔒 <b>CLOSED</b><br/>Cancelled or consent withdrawn"]
     end
 
+    service --> search
     search --> exists
-    exists -->|"Yes"| select
+    exists -->|"Yes"| selectclient
     exists -->|"No"| create
-    select --> draft
-    create --> draft
+    selectclient --> details
+    create --> details
 
-    draft -->|"Continue — referral created"| consent_step
+    details -->|"Continue — referral created"| consent_step
     consent_step -->|"Continue to Review"| review_step
     review_step -->|"Submit"| pending_review
 
@@ -116,7 +115,7 @@ The intake form is a three-step wizard. Each step must be completed before the n
 
 | Step | Label | What is captured |
 |------|-------|-----------------|
-| 1 | Intake | Client, referrer, service and reason for <Term path="referral" /> |
+| 1 | Intake | Service first, then the client, the referrer and the reason for the <Term path="referral" /> |
 | 2 | Consent | How consent was obtained, and what was provided to the client |
 | 3 | Review & Submit | Read-only confirmation, then submit and dispatch to a service |
 
