@@ -27,12 +27,10 @@ flowchart TB
         create["Create New Client"]
     end
 
-    subgraph intake_steps["<b>REFERRAL INTAKE (5 Steps)</b>"]
-        draft["📝 <b>DRAFT</b><br/>Step 1: Intake - Basic Details"]
-        pending_consent["📝 <b>PENDING CONSENT</b><br/>Step 2: Consent & Agreement"]
-        pending_contact["📝 <b>PENDING ASSOCIATED CONTACT</b><br/>Step 3: Support Network"]
-        pending_assessment["📝 <b>PENDING ASSESSMENT</b><br/>Step 4: Need Assessment"]
-        pending_cultural["📝 <b>PENDING CULTURAL SOCO</b><br/>Step 5: Cultural & Socioeconomic"]
+    subgraph intake_steps["<b>REFERRAL INTAKE (3 Steps)</b>"]
+        draft["📝 <b>Step 1: Intake</b><br/>Client &amp; referral"]
+        consent_step["🛡️ <b>Step 2: Consent</b><br/>Permissions on file"]
+        review_step["✅ <b>Step 3: Review &amp; Submit</b><br/>Confirm &amp; dispatch"]
     end
 
     subgraph review["<b>REVIEW PHASE</b>"]
@@ -77,11 +75,9 @@ flowchart TB
     select --> draft
     create --> draft
 
-    draft -->|"Complete Step 1"| pending_consent
-    pending_consent -->|"Complete Step 2"| pending_contact
-    pending_contact -->|"Complete Step 3"| pending_assessment
-    pending_assessment -->|"Complete Step 4"| pending_cultural
-    pending_cultural -->|"Complete Step 5"| pending_review
+    draft -->|"Continue — referral created"| consent_step
+    consent_step -->|"Continue to Review"| review_step
+    review_step -->|"Submit"| pending_review
 
     pending_review -->|"Intake Officer / Head of Intake submits review"| pending_dispatch
 
@@ -116,29 +112,31 @@ flowchart TB
 
 ### <Term path="referral" /> Intake Steps
 
-The five intake steps represent the progressive completion of a referral form. Each step moves the entry closer to being ready for review:
+The intake form is a three-step wizard. Each step must be completed before the next unlocks:
 
 | Step | Label | What is captured |
 |------|-------|-----------------|
-| 1 | Draft | Basic intake details — the entry point |
-| 2 | Pending Consent | Consent and agreement from the client |
-| 3 | Pending Associated Contact | Support network and emergency contacts |
-| 4 | Pending Assessment | Needs assessment |
-| 5 | Pending Cultural Soco | Cultural and socioeconomic context |
+| 1 | Intake | Client, referrer, service and reason for <Term path="referral" /> |
+| 2 | Consent | How consent was obtained, and what was provided to the client |
+| 3 | Review & Submit | Read-only confirmation, then submit and dispatch to a service |
 
-Once all five steps are complete, the entry moves to **Pending Review**.
+The <Term path="referral" /> record is created at the **end of Step 1**, not at final submission — from that point it exists with a reference number and **Draft** status and can be returned to later.
+
+Once all three steps are complete and the entry is submitted, it moves to **Pending Service Dispatch**.
+
+For the full walkthrough see [Creating a Referral](/referrals/creating-a-referral).
 
 ---
 
 ## Role Responsibilities
 
-This diagram shows how work flows between the roles in ManaakiCare.
+This diagram shows how work flows between the roles in Manaaki Central.
 
 ```mermaid
 flowchart TB
     subgraph io["<b>INTAKE OFFICER</b>"]
         io1["Search / Create client"]
-        io2["Complete 5-step intake"]
+        io2["Complete 3-step intake"]
         io3["Submit for review"]
         io4["Select service & allocate"]
     end
@@ -184,7 +182,7 @@ flowchart TB
 
 | Role | Primary Responsibilities | Dashboard Focus |
 |------|-------------------------|-----------------|
-| **Intake Officer** | Search/create clients, complete 5-step intake, dispatch to services, can directly assign <Term path="caseWorker" plural /> | New <Term path="referral" plural />, review queue, service dispatch |
+| **Intake Officer** | Search/create clients, complete 3-step intake, dispatch to services, can directly assign <Term path="caseWorker" plural /> | New <Term path="referral" plural />, review queue, service dispatch |
 | **Head of Intake / Intake Officer** | Review all <Term path="referral" /> information and submit review | Review queue, pending reviews |
 | **Supervisor / Program Manager** | Approve/reject service requests, select <Term path="caseWorker" plural /> on approval, monitor team | Pending service reviews, team <Term path="activity" /> |
 | **<Term path="caseWorker" />** | Activate service episodes, deliver services, record activities, close episodes | Active <Term path="cases" />, follow-ups due, client interactions |
@@ -199,7 +197,8 @@ Different priorities have different expected response times.
 flowchart LR
     subgraph priorities["<b>PRIORITY LEVELS</b>"]
         direction TB
-        critical["🔴 Critical / Emergency"]
+        emergency["🔴 Emergency"]
+        crisis["🟠 Crisis"]
         urgent["🟠 Urgent"]
         priority["🟡 Priority"]
         routine["🟢 Routine"]
@@ -213,7 +212,8 @@ flowchart LR
         r4["Within 48 hours"]
     end
 
-    critical --> r1
+    emergency --> r1
+    crisis --> r1
     urgent --> r2
     priority --> r3
     routine --> r4
@@ -222,11 +222,14 @@ flowchart LR
 
 ### Priority Guidelines
 
+There are five priority levels, selectable when creating a <Term path="referral" />:
+
 | Priority | When to Use | Example Scenarios |
 |----------|-------------|-------------------|
-| **Critical / Emergency** | Immediate safety concern | Child at risk, medical emergency, crisis situation |
+| **Emergency** | Immediate safety concern requiring emergency response | Child at risk, medical emergency |
+| **Crisis** | Crisis situation, handle urgently | Acute family breakdown, imminent harm |
 | **Urgent** | Needs same-day attention | Family in distress, time-sensitive support needed |
-| **Priority** | Important but not emergency | New client intake, scheduled assessment overdue |
+| **Priority** | Important but not an emergency | New client intake, scheduled assessment overdue |
 | **Routine** | Standard processing | Regular check-in, administrative <Term path="referral" /> |
 
 ---

@@ -3,40 +3,180 @@ title: Creating a Referral
 description: Step-by-step guide to creating a new client referral
 sidebar_position: 2
 helpId: referral-form
-keywords: [referral, create, intake, new client]
+keywords: [referral, create, intake, new client, wizard, entry]
 ---
 
-# Create <Term path="referral" />
+import Callout from '@site/src/components/Callout';
 
-Step-by-step guide to creating a new client <Term path="referral" /> in Manaaki Central.
+# Creating a <Term path="referral" />
 
-:::note Work in Progress
-This documentation is being developed. Check back soon for updates.
-:::
+This guide walks you through creating a new <Term path="referral" /> in Manaaki Central, from finding the client through to dispatching the <Term path="referral" /> to a service.
 
-## Overview
+## Before you start
 
-The <Term path="referral" /> creation wizard guides you through collecting all necessary information for client intake.
+You will need:
 
-## Wizard Sections
+- The client's name and date of birth (to search for them, or to create a new record)
+- The **service** the <Term path="referral" /> is for
+- Who made the <Term path="referral" /> — the referrer
+- Consent details, if consent has already been obtained
 
-1. <Term path="serviceUser" /> Information
-2. <Term path="referral" /> Details
-3. Service Information
-4. Documents
-5. Review and Submit
+<Callout color="teal" title="Any staff member can create a referral">
+Creating a <Term path="referral" /> is not restricted by role. Any signed-in staff member can start one — <Term path="caseWorker" plural />, <Term path="referral" /> officers, supervisors and managers alike. What differs by role is what happens *after* dispatch.
+</Callout>
 
-## Step-by-Step Guide
+---
 
-Detailed instructions for each section will be added here.
+## The three steps
 
-## Saving Drafts
+The <Term path="referral" /> form is a three-step wizard. A progress bar at the top shows where you are.
 
-Information about draft saving functionality will be documented here.
+| Step | Name | What it covers |
+|------|------|----------------|
+| 1 | **Intake** | Client & referral — who the client is, who referred them, which service, and why |
+| 2 | **Consent** | Permissions on file — how consent was obtained and what was provided |
+| 3 | **Review & Submit** | Confirm & dispatch — check everything, submit, and send to a service |
 
-## Related Topics
+The steps are completed in order. Consent unlocks once Intake is complete, and Review & Submit unlocks once Consent is saved.
 
-- [Client Information Section](/referrals/client-information)
-- [Referral Details Section](/referrals/referral-details)
-- [Uploading Documents](/referrals/uploading-documents)
-- [Submitting for Review](/referrals/submitting-for-review)
+<Callout color="amber" title="Your referral is saved at the end of Step 1">
+The <Term path="referral" /> record is created when you click **Continue** at the end of Step 1 — not at the end of the wizard. From that point it exists in the system with a reference number and **Draft** status, and you can safely leave and come back to it.
+</Callout>
+
+---
+
+## Step 1 — Intake
+
+Open **+ New <Term path="referral" />** from your dashboard, or go to `/referrals/new`.
+
+### Choose the service
+
+Select the **service contract** the <Term path="referral" /> is for. This drives everything else on the page — each service has its own additional questions, which appear lower down once selected.
+
+### Find or create the client
+
+Click the client search box and start typing a name.
+
+- **If the client already exists** — select them from the results.
+- **If they are new** — click **Create new client** and complete the inline form: first name, last name, date of birth, gender, phone and email.
+
+<Callout color="amber" title="Search before you create">
+Always search first. Creating a new client here also creates a new whānau group, so a duplicate record is more disruptive than it looks. If the client already has other active <Term path="referral" plural />, a warning appears once you select them — check it before continuing.
+</Callout>
+
+### Referral details
+
+| Field | Required | Notes |
+|-------|----------|-------|
+| **Referral type** | Yes | Self, Whānau, Educational, or Professional. Choose from the four cards — this changes which referrer fields you are asked for. |
+| **Urgency level** | Yes | Routine, Priority, Urgent, Crisis, or Emergency. |
+| **Referral date** | Yes | Cannot be in the future. |
+| **Channel** | Yes | How the <Term path="referral" /> arrived — Internal, Face to face, Walk in, Email, Electronic, Event, or Network. |
+| **Reason for referral** | Yes | At least 10 characters, up to 2000. |
+| **Additional referral details** | No | Free-text, in the collapsible section below the reason. |
+
+### Who made the referral?
+
+The referrer fields appear once you have chosen a **referral type**, and change depending on which you picked:
+
+| Referral type | What you need to provide |
+|---------------|--------------------------|
+| **Self** | Nothing — the client is the referrer. |
+| **Whānau** | Select the whānau member making the <Term path="referral" />. If the client is under 16, a contact phone number is also required. |
+| **Educational** | Search for and select the school or organisation, then select or add the contact person there. |
+| **Professional** | Search for and select the organisation, then select or add the contact person there. |
+
+If you select an organisation for an **Educational** <Term path="referral" />, the school name is filled in for you automatically.
+
+### Service-specific questions
+
+Below the standard fields you may see an **Entry Details** panel with extra questions specific to the service you selected — for example child safety concerns or risk ratings.
+
+<Callout color="teal" title="These can wait">
+Service-specific questions are advisory at this stage. Complete as much as you can — they will not stop you continuing, and you can fill them in later.
+</Callout>
+
+### Continue
+
+Click **Continue** when you have a client and a service selected. This creates the <Term path="referral" /> and moves you to Consent.
+
+---
+
+## Step 2 — Consent
+
+Record how and when consent was obtained.
+
+### Consent details
+
+| Field | Required | Options |
+|-------|----------|---------|
+| **Way consent obtained** | Yes | Verbal, Written, or Electronic |
+| **Consent date** | Yes | Cannot be in the future |
+
+### Confirmations
+
+These must all be ticked before the <Term path="referral" /> can be submitted:
+
+- Consent to receive services
+- Information sharing consent
+- Rights and responsibilities document received
+- Complaints form provided
+- Privacy information sheet provided
+
+These are optional:
+
+- Funder research contact consent
+- Photographic recording consent
+- Emergency contact authorisation
+
+### Guardian consent
+
+If the client is a child, a guardian consent section appears. You will need the guardian's name, their relationship to the client, and to select them from the client's support network. If the guardian is not there yet, you can add them without leaving the page.
+
+### Supporting documents
+
+You can attach supporting documents — such as a signed consent form — in the collapsible section beneath the consent form. This is optional here, but see the note under [dispatch](#step-3--review--submit) below.
+
+Click **Continue to Review** when done.
+
+---
+
+## Step 3 — Review & Submit
+
+The review screen shows everything you have entered, grouped by section, with an **Edit** link on each to jump back and change it.
+
+Check it over, then click **Submit**. The <Term path="referral" /> moves to **Pending Service Dispatch** and the dispatch dialog opens automatically.
+
+### Dispatching to a service
+
+Choose the service, then pick one of three options:
+
+| Option | What it does | Resulting status |
+|--------|--------------|------------------|
+| **Accept entry** | Accepts the <Term path="referral" /> into the service without assigning anyone yet | Accepted, awaiting allocation |
+| **Accept & assign kaimahi** | Accepts and assigns a <Term path="caseWorker" /> in one action, creating the service episode immediately | Allocated, awaiting service |
+| **Send for approval** | Sends to a supervisor or programme manager to approve and allocate | Pending Service Review |
+
+<Callout color="amber" title="Signed consent document">
+If a signed consent document has not been uploaded, the dispatch dialog shows a reminder. This is a warning, not a block — you can still dispatch, but the document will be outstanding against the <Term path="referral" />.
+</Callout>
+
+Once dispatched you can go back to your dashboard or open the <Term path="referral" /> to view it.
+
+---
+
+## Saving a draft
+
+You can click **Save Draft** at any point after selecting a client and service. Draft saving is deliberately forgiving — it only needs the client, service, referral date and referral type. Everything else can be incomplete.
+
+To pick a draft back up, open it from your dashboard's **Intake Processing** tab. It reopens at the step you left it on.
+
+---
+
+## Related topics
+
+- [<Term path="referral" /> Overview](/referrals/overview) — statuses and the full lifecycle
+- [Submitting for Review](/referrals/submitting-for-review) — what happens after dispatch
+- [Uploading Documents](/referrals/uploading-documents) — attaching files
+- [Workflow Overview](/getting-started/workflow-overview) — the end-to-end process
+- [Searching for Clients](/clients/searching-for-clients) — finding existing client records

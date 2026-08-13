@@ -3,32 +3,75 @@ title: Referral Overview
 description: Understanding the referral process in Manaaki Central
 sidebar_position: 1
 helpId: referral-overview
-keywords: [referral, intake, workflow, process]
+keywords: [referral, intake, workflow, process, entry]
 ---
+
+import Callout from '@site/src/components/Callout';
 
 # <Term path="referral" plural /> Overview
 
-Understand the <Term path="referral" /> process and workflow states in Manaaki Central.
+A <Term path="referral" /> is how a client enters service in Manaaki Central. It records who the client is, who referred them, what they need, and what consent is on file — and once dispatched to a service it becomes a <Term path="serviceEpisode" /> that a <Term path="caseWorker" /> delivers against.
 
-:::note Work in Progress
-This documentation is being developed. Check back soon for updates.
-:::
+## The journey end to end
 
-## What is a <Term path="referral" />?
+1. **Intake** — a staff member completes the three-step <Term path="referral" /> form
+2. **Dispatch** — the <Term path="referral" /> is sent to a service, either accepted directly or sent to a manager for approval
+3. **Allocation** — a <Term path="caseWorker" /> is assigned and a <Term path="serviceEpisode" /> is created
+4. **Delivery** — the <Term path="caseWorker" /> commences the episode and records <Term path="activity" plural />
+5. **Closure** — the episode is completed or closed
 
-A <Term path="referral" /> is the formal process of bringing a client into service, documenting their needs, and initiating service delivery.
+<Callout color="teal" title="Referrals and Service Episodes are different things">
+The <Term path="referral" /> is the intake record — the request for service. The <Term path="serviceEpisode" /> is the delivery record created once a <Term path="caseWorker" /> is allocated. They have separate statuses and separate lifecycles, and both remain linked to the client.
+</Callout>
 
-## <Term path="referral" plural /> Workflow States
+## Creating a referral
 
-Information about <Term path="referral" /> states (draft, submitted, under review, approved, etc.) will be added here.
+The <Term path="referral" /> form is a **three-step wizard**:
 
-## Key Concepts
+| Step | Name | Covers |
+|------|------|--------|
+| 1 | **Intake** | Client & referral |
+| 2 | **Consent** | Permissions on file |
+| 3 | **Review & Submit** | Confirm & dispatch |
 
-- <Term path="referral" /> creation
-- Review and approval process
-- Service initiation
+The record is created at the end of Step 1, so a part-finished <Term path="referral" /> is never lost.
 
-## Related Topics
+See [Creating a Referral](/referrals/creating-a-referral) for the full walkthrough.
 
-- [Creating a Referral](/referrals/creating-a-referral)
-- [Submitting for Review](/referrals/submitting-for-review)
+## Who can create one
+
+Any signed-in staff member can create a <Term path="referral" />. There is no role restriction on the <Term path="referral" /> form itself.
+
+What *is* role-dependent is what happens after dispatch — approving a service request and allocating a <Term path="caseWorker" /> are supervisor and programme manager actions.
+
+## Ways a referral can start
+
+| Route | How |
+|-------|-----|
+| **New <Term path="referral" />** | The **+ New <Term path="referral" />** button on your dashboard, or `/referrals/new` |
+| **From a client** | The **New Entry** link on a client's whānau tab, which preselects that client |
+
+## Referral types
+
+The **referral type** you choose determines who is recorded as the referrer:
+
+| Type | Referrer is |
+|------|-------------|
+| **Self** | The client themselves |
+| **Whānau** | A whānau member |
+| **Educational** | A contact at a school or educational organisation |
+| **Professional** | A contact at another organisation |
+
+## Statuses
+
+A <Term path="referral" /> moves through intake statuses (Draft through to Pending Service Dispatch), then into allocation and delivery. Consent is tracked separately and can change at any point.
+
+For the complete list of statuses with definitions, and the lifecycle diagram, see the [Workflow Overview](/getting-started/workflow-overview#status-reference).
+
+## Related topics
+
+- [Creating a Referral](/referrals/creating-a-referral) — the three-step walkthrough
+- [Submitting for Review](/referrals/submitting-for-review) — dispatch and approval
+- [Uploading Documents](/referrals/uploading-documents) — attaching files
+- [Workflow Overview](/getting-started/workflow-overview) — lifecycle diagrams and status reference
+- [Intake Officer Dashboard](/dashboards/intake-officer) — managing the intake queue
