@@ -42,21 +42,33 @@ const sidebars: SidebarsConfig = {
         'dashboards/case-worker',
       ],
     },
-    // NOTE: Clients, Referrals, Service Episodes, and Activities sections
-    // are hidden from sidebar for now. The docs files still exist and are
-    // accessible via direct URL. Uncomment when ready to publish.
+    {
+      type: 'category',
+      label: 'Referrals',
+      link: {
+        type: 'generated-index',
+        title: 'Referral Management',
+        description: 'Learn how to create and manage referrals',
+      },
+      items: [
+        'referrals/overview',
+        'referrals/creating-a-referral',
+        'referrals/client-information',
+        'referrals/referral-details',
+        'referrals/uploading-documents',
+        'referrals/submitting-for-review',
+      ],
+    },
+    // NOTE: Clients, Service Episodes, and Activities sections are hidden
+    // from the sidebar because their pages are still Work-in-Progress
+    // stubs. The files exist and are reachable by direct URL. Uncomment
+    // each section once its pages have real content.
     //
     // {
     //   type: 'category',
     //   label: 'Clients',
     //   link: { type: 'generated-index', title: 'Client Management', description: 'Learn how to manage clients in Manaaki Central' },
     //   items: ['clients/searching-for-clients', 'clients/viewing-client-details', 'clients/client-documents', 'clients/family-relationships'],
-    // },
-    // {
-    //   type: 'category',
-    //   label: 'Referrals',
-    //   link: { type: 'generated-index', title: 'Referral Management', description: 'Learn how to create and manage referrals' },
-    //   items: ['referrals/overview', 'referrals/creating-a-referral', 'referrals/client-information', 'referrals/referral-details', 'referrals/uploading-documents', 'referrals/submitting-for-review'],
     // },
     // {
     //   type: 'category',
