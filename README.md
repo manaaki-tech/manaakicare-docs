@@ -55,6 +55,42 @@ manaakicare-docs/
 └── sidebars.ts                  # Sidebar navigation
 ```
 
+## Previewing a customer's terminology
+
+Words like "Referral", "Service User" and "Case Worker" are white-labelled per
+organisation. In the MDX they are written as `<Term path="referral" />`, which
+renders the default English from `src/lib/terminology/default.json` unless the
+site is told which organisation to load.
+
+To preview the site as a given customer sees it, add `env` and `org_id` to the
+URL **once**:
+
+```
+http://localhost:3000/?env=uat&org_id=<ORG_UUID>
+```
+
+| Param | Values |
+|---|---|
+| `env` | `local` (localhost:8000), `sit` (api.manaakitech.com), `uat` (api-uat.manaakicentral.com) — see `customFields.terminologyApiUrls` in `docusaurus.config.ts` |
+| `org_id` | The organisation's UUID |
+
+The pair is cached in `sessionStorage` and re-appended on every client-side
+navigation, so you only pass it once — the whole site stays in that
+organisation's terminology for the rest of the session. Open a new tab or clear
+session storage to go back to the defaults.
+
+**Finding an organisation's UUID:** there is no public list endpoint. Log into
+that environment's app, open DevTools → Network, and read it out of any request
+path that embeds it (for example
+`/api/v1/organisations/<uuid>/relationship-master/`).
+
+The terminology endpoint itself
+(`/api/v1/organisations/terminologies/<org_id>/docs/`) is public — no auth
+needed — and returns `{}` if that organisation has no docs terminology
+configured, in which case you will silently see the defaults. Fetch failures
+also fall back to the defaults silently, so if nothing changes, check the
+Network tab before assuming the terminology is unset.
+
 ## Product Name Configuration
 
 To rename the product throughout the documentation:
