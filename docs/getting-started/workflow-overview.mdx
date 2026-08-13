@@ -206,31 +206,32 @@ flowchart LR
 
     subgraph response["<b>EXPECTED RESPONSE</b>"]
         direction TB
-        r1["Immediate - same hour"]
-        r2["Same day"]
-        r3["Within 24 hours"]
-        r4["Within 48 hours"]
+        r1["Now"]
+        r2["4 hours"]
+        r3["24 hours"]
+        r4["3 days"]
+        r5["5 days"]
     end
 
     emergency --> r1
-    crisis --> r1
-    urgent --> r2
-    priority --> r3
-    routine --> r4
+    crisis --> r2
+    urgent --> r3
+    priority --> r4
+    routine --> r5
 
 ```
 
 ### Priority Guidelines
 
-There are five priority levels, selectable when creating a <Term path="referral" />:
+There are five priority levels. The <Term path="referral" /> form shows the expected response time against each one as you select it.
 
-| Priority | When to Use | Example Scenarios |
-|----------|-------------|-------------------|
-| **Emergency** | Immediate safety concern requiring emergency response | Child at risk, medical emergency |
-| **Crisis** | Crisis situation, handle urgently | Acute family breakdown, imminent harm |
-| **Urgent** | Needs same-day attention | Family in distress, time-sensitive support needed |
-| **Priority** | Important but not an emergency | New client intake, scheduled assessment overdue |
-| **Routine** | Standard processing | Regular check-in, administrative <Term path="referral" /> |
+| Priority | Response time | When to Use | Example Scenarios |
+|----------|---------------|-------------|-------------------|
+| **Emergency** | Now | Immediate safety concern requiring emergency response | Child at risk, medical emergency |
+| **Crisis** | 4 hours | Crisis situation, handle urgently | Acute family breakdown, imminent harm |
+| **Urgent** | 24 hours | Needs attention within a day | Family in distress, time-sensitive support needed |
+| **Priority** | 3 days | Important but not an emergency | New client intake, scheduled assessment overdue |
+| **Routine** | 5 days | Standard processing | Regular check-in, administrative <Term path="referral" /> |
 
 ---
 
