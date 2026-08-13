@@ -71,8 +71,14 @@ http://localhost:3000/?env=uat&org_id=<ORG_UUID>
 
 | Param | Values |
 |---|---|
-| `env` | `local` (localhost:8000), `sit` (api.manaakitech.com), `uat` (api-uat.manaakicentral.com) — see `customFields.terminologyApiUrls` in `docusaurus.config.ts` |
-| `org_id` | The organisation's UUID |
+| `env` | `local`, `sit` (api.manaakitech.com), `uat` (api-uat.manaakicentral.com) — see `customFields.terminologyApiUrls` in `docusaurus.config.ts` |
+| `org_id` | The organisation's UUID — the `Organisation` record's own id, **not** the id of its `Terminology` row |
+
+`local` resolves against whichever host you are viewing the docs on, keeping
+the port from the config entry. Serving the docs over the LAN at
+`http://192.168.100.10:3000` therefore fetches from
+`http://192.168.100.10:8000`, not from the viewer's own machine. Browsing at
+`localhost:3000` behaves as before.
 
 The pair is cached in `sessionStorage` and re-appended on every client-side
 navigation, so you only pass it once — the whole site stays in that
@@ -86,10 +92,14 @@ path that embeds it (for example
 
 The terminology endpoint itself
 (`/api/v1/organisations/terminologies/<org_id>/docs/`) is public — no auth
-needed — and returns `{}` if that organisation has no docs terminology
-configured, in which case you will silently see the defaults. Fetch failures
-also fall back to the defaults silently, so if nothing changes, check the
-Network tab before assuming the terminology is unset.
+needed — and returns `{}` if that organisation has no **active `docs`-type**
+terminology row. Note that an organisation's `frontend` terminology is a
+separate row with different key names, and the docs site cannot read it.
+
+If the words do not change, open the browser console: an unknown `env`, a
+failed fetch, and an empty `{}` response each log a warning naming the URL
+that was tried. All three still fall back to the default terminology, so the
+page renders normally either way.
 
 ## Product Name Configuration
 

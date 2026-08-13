@@ -14,6 +14,34 @@ const TerminologyContext = createContext<TerminologyContextValue>({
 const SESSION_KEY_ENV = 'mc_docs_env';
 const SESSION_KEY_ORG = 'mc_docs_org_id';
 
+/**
+ * Resolves the API base URL for an env key.
+ *
+ * `local` is resolved against whatever host the docs are being served from,
+ * rather than the literal hostname in the config. Serving the docs over the
+ * LAN (http://192.168.100.10:3000) and pointing at `http://localhost:8000`
+ * would send the request to the *viewer's* machine, not the server running
+ * the backend. The port still comes from the config entry, so it stays
+ * configurable in one place.
+ *
+ * Browsing at http://localhost:3000 is unaffected — the hostname resolves
+ * back to `localhost`.
+ */
+function resolveBaseUrl(env: string, apiUrls: Record<string, string>): string | undefined {
+	const configured = apiUrls[env];
+	if (!configured) return undefined;
+	if (env !== 'local') return configured;
+
+	try {
+		const url = new URL(configured);
+		url.hostname = window.location.hostname;
+		url.protocol = window.location.protocol;
+		return url.origin;
+	} catch {
+		return configured;
+	}
+}
+
 export function TerminologyProvider({ children }: { children: React.ReactNode }) {
 	const isBrowser = useIsBrowser();
 	const location = useLocation();
@@ -45,14 +73,22 @@ export function TerminologyProvider({ children }: { children: React.ReactNode })
 
 		if (!env || !org) return;
 
-		const baseUrl = apiUrlsRef.current[env];
-		if (!baseUrl) return;
+		const baseUrl = resolveBaseUrl(env, apiUrlsRef.current);
+		if (!baseUrl) {
+			console.warn(
+				`[terminology] Unknown env "${env}". Expected one of: ${Object.keys(apiUrlsRef.current).join(', ')}. ` +
+					`Falling back to default terminology.`,
+			);
+			return;
+		}
 
 		fetchedRef.current = true;
 		setOrgId(org);
 		setIsLoading(true);
 
-		fetch(`${baseUrl}/api/v1/organisations/terminologies/${org}/docs/`)
+		const url = `${baseUrl}/api/v1/organisations/terminologies/${org}/docs/`;
+
+		fetch(url)
 			.then((res) => {
 				if (!res.ok) throw new Error(`HTTP ${res.status}`);
 				return res.json();
@@ -60,10 +96,20 @@ export function TerminologyProvider({ children }: { children: React.ReactNode })
 			.then((data: TerminologyOverrides) => {
 				if (data && typeof data === 'object' && Object.keys(data).length > 0) {
 					setTerminology({ ...defaultTerminology, ...data });
+				} else {
+					// An org with no docs-type terminology row returns {}. That is
+					// indistinguishable from a working fetch unless we say so.
+					console.warn(
+						`[terminology] ${url} returned no overrides — org "${org}" has no active ` +
+							`docs terminology configured. Showing default terminology.`,
+					);
 				}
 			})
-			.catch(() => {
-				// Silently fall back to defaults
+			.catch((err) => {
+				console.warn(
+					`[terminology] Could not load terminology from ${url} (${err.message}). ` +
+						`Showing default terminology.`,
+				);
 			})
 			.finally(() => {
 				setIsLoading(false);
