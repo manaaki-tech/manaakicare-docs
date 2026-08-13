@@ -8,16 +8,16 @@ keywords: [dashboard, supervisor, program manager, referral requests, service di
 
 import Callout from '@site/src/components/Callout';
 
-# Supervisor / Program Manager Dashboard
+# Supervisor / Program Manager <Term path="dashboard" />
 
-The Supervisor Dashboard is your central hub for managing <Term path="referral" /> requests, monitoring team <Term path="activity" />, and ensuring timely service delivery. Both Supervisors and Program Managers share the same dashboard experience.
+The <Term path="supervisorDashboard" /> is your central hub for managing <Term path="referral" /> requests, monitoring team <Term path="activity" />, and ensuring timely service delivery. Both Supervisors and Program Managers share the same dashboard experience.
 
 ## Overview
 
 ![Supervisor Dashboard Analytics](/supervisor/dashboard/analytic.png)
 
-The Supervisor Dashboard displays:
-- **Real-time analytics** showing pending requests, active episodes, and <Term path="referral" /> volumes
+The <Term path="supervisorDashboard" /> displays:
+- **Real-time analytics** showing pending requests, active <Term path="serviceEpisode" plural />, and <Term path="referral" /> volumes
 - **Pending <Term path="referral" plural /> Requests** queue for accepting or rejecting incoming <Term path="referral" plural />
 - **<Term path="serviceUser" plural /> Needing Contact** to flag clients not contacted recently
 - **Pending Service Dispatch** for <Term path="referral" plural /> awaiting service assignment
@@ -35,14 +35,14 @@ The top section displays four key metric cards that give you an at-a-glance view
 | Card | Icon | Description | What It Shows |
 |------|------|-------------|---------------|
 | **Pending Requests** | Document | <Term path="referral" /> requests awaiting your action | Count of incoming requests needing accept/reject |
-| **Active <Term path="serviceEpisode" plural />** | People | Active <Term path="serviceEpisode" plural /> under your oversight | Total active service delivery episodes |
-| **<Term path="activity" plural /> / <Term path="serviceEpisode" plural />** | Activity | <Term path="activity" /> engagement ratio | Format: "X/Y" (total <Term path="activity" plural /> / unique episodes with <Term path="activity" plural />) |
+| **Active <Term path="serviceEpisode" plural />** | People | Active <Term path="serviceEpisode" plural /> under your oversight | Total active service delivery <Term path="serviceEpisode" plural /> |
+| **<Term path="activity" plural /> / <Term path="serviceEpisode" plural />** | Activity | <Term path="activity" /> engagement ratio | Format: "X/Y" (total <Term path="activity" plural /> / unique <Term path="serviceEpisode" plural /> with <Term path="activity" plural />) |
 | **<Term path="referral" plural /> (This Month)** | Clock | <Term path="referral" plural /> created in the current month | Monthly <Term path="referral" /> volume |
 
 ### Understanding the Cards
 
 - **Orange highlight** on "Pending Requests" indicates items requiring your immediate attention
-- The **<Term path="activity" plural /> / <Term path="serviceEpisode" plural />** ratio helps you gauge team engagement - a higher ratio means more <Term path="activity" plural /> per episode
+- The **<Term path="activity" plural /> / <Term path="serviceEpisode" plural />** ratio helps you gauge team engagement - a higher ratio means more <Term path="activity" plural /> per <Term path="serviceEpisode" />
 - Numbers update in real-time as your team processes <Term path="referral" plural /> and records <Term path="activity" plural />
 
 ---
@@ -78,14 +78,14 @@ After accepting:
 1. The <Term path="referral" /> service request status changes to **Accepted**
 2. A **<Term path="serviceEpisode" />** is automatically created for the client under the requested service
 3. If a team member is selected in the "Allocate to Team Member" dropdown:
-   - The selected <Term path="caseWorker" /> is **assigned to the service episode** as staff
-   - A **"<Term path="referral" /> and Service Enrolment"** <Term path="activity" /> is automatically created within the episode, containing the <Term path="referral" /> summary, service details, and staff assignment
-   - The <Term path="caseWorker" /> will see this episode appear on their [Case Worker Dashboard](/dashboards/case-worker) under **My Active <Term path="cases" />**
+   - The selected <Term path="caseWorker" /> is **assigned to the <Term path="serviceEpisode" />** as staff
+   - A **"<Term path="referral" /> and Service Enrolment"** <Term path="activity" /> is automatically created within the <Term path="serviceEpisode" />, containing the <Term path="referral" /> summary, service details, and staff assignment
+   - The <Term path="caseWorker" /> will see this <Term path="serviceEpisode" /> appear on their [Case Worker Dashboard](/dashboards/case-worker) under **My Active <Term path="cases" />**
 4. Notes provided in the "Notes for Team Member" field are included in the enrolment <Term path="activity" /> for the <Term path="caseWorker" />'s reference
 5. The <Term path="referral" /> progresses forward in the workflow
 
-<Callout color="teal" title="Service Episode Creation">
-Every accepted <Term path="referral" /> request creates a <Term path="serviceEpisode" />. Selecting a team member ensures the <Term path="caseWorker" /> is immediately assigned and can begin service delivery. If no team member is selected, the episode is created but will need staff assignment later.
+<Callout color="teal" title="Automatic Record Creation">
+Every accepted <Term path="referral" /> request creates a <Term path="serviceEpisode" />. Selecting a team member ensures the <Term path="caseWorker" /> is immediately assigned and can begin service delivery. If no team member is selected, the <Term path="serviceEpisode" /> is created but will need staff assignment later.
 </Callout>
 
 ### Rejecting a <Term path="referral" /> {#rejecting-a-referral}
@@ -250,13 +250,13 @@ Pending → Accepted → Service Episode Created → Case Worker Assigned → Se
 1. Service request status changes to **Accepted**
 2. A **<Term path="serviceEpisode" />** is created for the client under the requested service
 3. If a team member is allocated:
-   - The <Term path="caseWorker" /> is **assigned to the service episode**
-   - A **"<Term path="referral" /> and Service Enrolment"** <Term path="activity" /> is auto-created within the episode containing:
+   - The <Term path="caseWorker" /> is **assigned to the <Term path="serviceEpisode" />**
+   - A **"<Term path="referral" /> and Service Enrolment"** <Term path="activity" /> is auto-created within the <Term path="serviceEpisode" /> containing:
      - <Term path="referral" /> summary and reference number
      - Service name and details
      - Staff assignment information
      - Any notes provided by the supervisor
-   - The <Term path="caseWorker" /> sees this episode on their dashboard immediately
+   - The <Term path="caseWorker" /> sees this <Term path="serviceEpisode" /> on their dashboard immediately
 4. The <Term path="referral" /> progresses to active service delivery
 
 ### What Happens on Reject

@@ -16,7 +16,7 @@ This page provides visual diagrams to help you understand how <Term path="referr
 
 ## <Term path="referral" /> Lifecycle
 
-The complete journey of a <Term path="referral" /> from client search to service completion, showing the referral and service episode statuses.
+The complete journey of a <Term path="referral" /> from client search to service completion, showing the <Term path="referral" /> and <Term path="serviceEpisode" /> statuses.
 
 ```mermaid
 flowchart TB
@@ -180,7 +180,7 @@ flowchart TB
 
 ### Role Quick Reference
 
-| Role | Primary Responsibilities | Dashboard Focus |
+| Role | Primary Responsibilities | <Term path="dashboard" /> Focus |
 |------|-------------------------|-----------------|
 | **Intake Officer** | Search/create clients, complete 3-step intake, dispatch to services, can directly assign <Term path="caseWorker" plural /> | New <Term path="referral" plural />, review queue, service dispatch |
 | **Head of Intake / Intake Officer** | Review all <Term path="referral" /> information and submit review | Review queue, pending reviews |
@@ -337,7 +337,7 @@ flowchart TB
 
 All status values used across the system, grouped by lifecycle. These are the values you will see in badges, filters, and reports.
 
-### Referral statuses
+### <Term path="referral" /> statuses
 
 These statuses track where an entry is in the intake-to-allocation pipeline.
 
@@ -349,29 +349,29 @@ These statuses track where an entry is in the intake-to-allocation pipeline.
 | **Pending Service Dispatch** | Submitted, ready for service selection and allocation |
 | **Pending Service Review** | Service request sent to supervisor/programme manager for approval |
 | **Accepted Pending Allocation** | Service accepted, <Term path="caseWorker" /> selection pending |
-| **Allocated Awaiting Service** | <Term path="caseWorker" /> assigned, service episode created and ready to commence |
+| **Allocated Awaiting Service** | <Term path="caseWorker" /> assigned, <Term path="serviceEpisode" /> created and ready to commence |
 | **Service In Progress** | Service delivery underway |
 | **Completed** | Service concluded successfully — final status |
 | **Closed** | Entry closed without completing — final status |
 
 **Completed** and **Closed** are the only final statuses. There is no separate "Cancelled" or "Withdrawn" status — an entry that is cancelled, or whose consent is withdrawn, ends up as **Closed** with a recorded reason.
 
-### Service episode statuses
+### <Term path="serviceEpisode" /> statuses
 
-Once a referral is allocated, a service episode is created and moves through its own lifecycle.
+Once a <Term path="referral" /> is allocated, a <Term path="serviceEpisode" /> is created and moves through its own lifecycle.
 
 | Status | Description |
 |--------|-------------|
-| **Awaiting Staff Assignment** | Service episode created, no <Term path="caseWorker" /> yet confirmed |
-| **Awaiting Commencement** | <Term path="caseWorker" /> assigned, waiting for them to activate the episode |
-| **Active / In Progress** | <Term path="caseWorker" /> has activated the episode — service delivery is underway |
+| **Awaiting Staff Assignment** | <Term path="serviceEpisode" /> created, no <Term path="caseWorker" /> yet confirmed |
+| **Awaiting Commencement** | <Term path="caseWorker" /> assigned, waiting for them to activate the <Term path="serviceEpisode" /> |
+| **Active / In Progress** | <Term path="caseWorker" /> has activated the <Term path="serviceEpisode" /> — service delivery is underway |
 | **On Hold** | Delivery temporarily paused (e.g. client unavailable, waiting on external factor) |
-| **Completed** | Service episode successfully concluded |
-| **Closed** | Episode closed without full completion (early closure or termination) |
+| **Completed** | <Term path="serviceEpisode" /> successfully concluded |
+| **Closed** | <Term path="serviceEpisode" /> closed without full completion (early closure or termination) |
 
 ### Consent statuses
 
-Consent is tracked separately from the referral status and may change at any point. It is not a single status field — consent is **active** when all of the following hold, and **withdrawn** once it has been withdrawn.
+Consent is tracked separately from the <Term path="referral" /> status and may change at any point. It is not a single status field — consent is **active** when all of the following hold, and **withdrawn** once it has been withdrawn.
 
 | State | What it means |
 |-------|---------------|
