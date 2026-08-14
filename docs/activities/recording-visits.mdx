@@ -1,39 +1,84 @@
 ---
 title: Recording Visits
-description: How to document home and office visits
+description: How to record an in-person visit as an activity, step by step
 sidebar_position: 2
 helpId: record-visits
-keywords: [visits, home visit, office visit, documentation]
+keywords: [visits, home visit, office visit, activity form, participants]
 ---
+
+import Callout from '@site/src/components/Callout';
 
 # Recording Visits
 
-Learn how to properly document home visits and office visits.
+A **<Term path="serviceUser" /> Visit** <Term path="activity" /> documents in-person contact with a <Term path="serviceUser" /> — at their home, your office, in the community, or anywhere else you meet face to face. This page walks through creating one from start to finish; the same tabs and buttons apply to every <Term path="activity" /> type, so it also works as the general reference for the <Term path="activity" /> form.
 
-:::note Work in Progress
-This documentation is being developed. Check back soon for updates.
-:::
+## Before you start
 
-## Overview
+You'll need the <Term path="serviceEpisode" /> open — <Term path="activity" plural /> are created from a client's Care Journey, not from anywhere else.
 
-Visit <Term path="activity" plural /> document in-person interactions with clients at their home or your office.
+## Starting a new activity
 
-## Types of Visits
+From the Care Journey's **Activities** tab, click **+ New Activity**. This opens the <Term path="activity" /> form in the right-hand panel, with three tabs: **Essentials**, **Notes**, and **Follow-up**.
 
-- Home visits
-- Office visits
-- Community visits
+Give the <Term path="activity" /> a title at the top of the panel — this is what shows in the timeline, so make it identifiable (e.g. "Home visit — housing check-in").
 
-## Recording a Visit
+## Essentials tab
 
-Step-by-step guide for documenting visits will be added here.
+### Activity type
 
-## Key Information to Include
+Click the **<Term path="serviceUser" /> Visit** chip. This reveals the Location field and the Participants section further down the tab.
 
-Details on what to document during visits will be covered here.
+### When
 
-## Related Topics
+Set the date and time, and optionally a duration in minutes. The date can't be in the future, and can't be more than 7 days in the past.
 
-- [Activities Overview](/activities/overview)
-- [Case Notes](/activities/case-notes)
-- [Viewing Activity History](/activities/viewing-activity-history)
+### Priority
+
+Choose a risk-level rating for this specific <Term path="activity" />: None, Low, Medium, High, or Critical.
+
+### Status
+
+By default the <Term path="activity" /> is marked **Completed**. If the visit didn't go ahead as planned, click **Didn't happen** and pick a reason: No-show, Unavailable, Not fit, Rescheduled, Client cancelled, or Staff cancelled.
+
+### Location
+
+Pick where the visit took place: Home, Office, Community, Court, School, or Other.
+
+### Participants
+
+At least one participant is required for a <Term path="serviceUser" /> Visit. Click **Add participant**, then choose one of two sources:
+
+- **Support Contact** — search the client's existing support network (whānau members and other support contacts already linked to the <Term path="referral" />), or add a new one. Adding a new whānau member needs a relationship and a phone number; adding a new professional support contact needs an organisation.
+- **External** — search for a contact at any external organisation across the system, or add a new one by name and organisation.
+
+<Callout color="teal" title="Participants aren't only for visits">
+The Participants section appears for every <Term path="activity" /> type, not only <Term path="serviceUser" /> Visits — it's only required for this one.
+</Callout>
+
+## Notes tab
+
+Write up what happened in the rich-text Notes field. See [Case Notes](/activities/case-notes) for using templates and what to include.
+
+## Follow-up tab
+
+Toggle **Follow-up required** if this visit needs a follow-up, then set a date. The date must be between today and three months from now.
+
+## Saving
+
+At the bottom of the form:
+
+- **Save Draft** — saves your progress without validating every field. Use this if you're interrupted and need to come back later.
+- **Complete Activity** — validates the form and saves it as a completed record.
+
+If required fields are missing when you try **Complete Activity**, the form jumps to the first tab with an error.
+
+<Callout color="amber" title="Editing window">
+Once saved, only you (the creator) can edit the <Term path="activity" />, and only within 24 hours of creating it. After that the Edit option disappears from the record.
+</Callout>
+
+## Related topics
+
+- [Activities Overview](/activities/overview) — the five activity types and shared fields
+- [Phone Calls and Emails](/activities/phone-calls-and-emails) — recording remote contact instead of a visit
+- [Case Notes](/activities/case-notes) — writing notes and using templates
+- [Viewing Activity History](/activities/viewing-activity-history) — finding and reopening past activities

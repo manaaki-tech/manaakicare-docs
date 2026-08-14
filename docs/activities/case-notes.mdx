@@ -1,33 +1,49 @@
 ---
 title: Case Notes
-description: Writing effective case notes
+description: Writing activity notes and using note templates
 sidebar_position: 4
 helpId: case-notes
-keywords: [case notes, documentation, notes, records]
+keywords: [case notes, documentation, notes, templates]
 ---
+
+import Callout from '@site/src/components/Callout';
 
 # Case Notes
 
-Learn how to write effective case notes that document client interactions and case progress.
+<Callout color="teal" title="Notes aren't a separate activity type">
+In Manaaki Central, there isn't a distinct "Case Note" <Term path="activity" /> — every <Term path="activity" />, whatever its type, has the same **Notes** tab. This page covers that tab.
+</Callout>
 
-:::note Work in Progress
-This documentation is being developed. Check back soon for updates.
-:::
+## Writing notes
 
-## Overview
+On the Notes tab, the main **Notes** field is a rich-text editor — use it to record what happened, what was observed, and what actions were taken. Below it, an **Additional Notes** field is available for any extra context that doesn't belong in the main write-up.
 
-Case notes provide a narrative record of <Term path="serviceUser" /> interactions, decisions, and case progress.
+## Using templates
 
-## Best Practices
+Click **Template** above the Notes field to insert a structured starting point instead of writing from scratch. Templates are grouped by where they come from:
 
-Guidelines for effective case note writing will be added here.
+- **From your service** — templates set up for the specific service this <Term path="activity" />'s <Term path="serviceEpisode" /> belongs to
+- **Organisation** — templates available across all of your organisation's services
 
-## What to Include
+Search for a template by name, preview it before inserting, and click to insert — the template's content is appended to whatever is already in the Notes field, not used to replace it. If you insert the wrong one, an **Undo** option appears briefly afterward.
 
-Information about essential case note components will be documented here.
+If your organisation hasn't set up any templates yet, the picker will say so — ask a service manager or administrator if you think you need one.
 
-## Related Topics
+<Callout color="amber" title="No templates? Nothing to click">
+The Template button always appears, but if your organisation or service has no templates configured, opening it just shows an empty-state message. This isn't a fault — templates are opt-in and set up per organisation.
+</Callout>
 
-- [Activities Overview](/activities/overview)
-- [Recording Visits](/activities/recording-visits)
-- [Viewing Activity History](/activities/viewing-activity-history)
+## What to include
+
+Good case notes are specific enough that someone else picking up the file later — a colleague, a supervisor, or an auditor — can understand what happened without needing to ask you. As a general guide:
+
+- What was discussed or observed, in enough detail to stand alone
+- Any decisions made or actions agreed, and who is responsible for them
+- Anything relevant to risk, safety, or wellbeing
+- Write notes as soon as practical after the <Term path="activity" /> took place, while it's fresh
+
+## Related topics
+
+- [Activities Overview](/activities/overview) — the five activity types and shared fields
+- [Recording Visits](/activities/recording-visits) — the full activity form walkthrough
+- [Viewing Activity History](/activities/viewing-activity-history) — finding and reopening past activities

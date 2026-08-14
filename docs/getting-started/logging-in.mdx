@@ -1,68 +1,62 @@
 ---
 title: Logging In
-description: How to log in to Manaaki Central and reset your password
+description: How to sign in to Manaaki Central with your Microsoft account
 sidebar_position: 1
 helpId: login
-keywords: [login, password, reset, authentication, sign in, OTP]
+keywords: [login, sign in, authentication, sso, microsoft, two-factor, authenticator]
 ---
+
+import Callout from '@site/src/components/Callout';
 
 # Logging In
 
-This guide covers how to access your Manaaki Central account and what to do if you need to reset your password.
+Manaaki Central uses **single sign-on with your Microsoft work account**. There is no separate Manaaki Central password to remember or reset.
 
-## Accessing Manaaki Central
+## Signing in
 
-1. Open your web browser and navigate to your organisation's Manaaki Central URL
-2. Enter your **email address** and **password**
-3. Click **Sign In**
+1. Open your browser and go to your organisation's Manaaki Central address
+2. Click **Sign In with Microsoft**
+3. You are taken to Microsoft's sign-in page — enter your work account details there
+4. Once Microsoft confirms who you are, you are returned to Manaaki Central and land on your dashboard
 
-On success you will be taken straight to your dashboard. If your credentials are not accepted, an inline error message will appear — check that your email address is correct and that Caps Lock is off. If your account has been locked, contact your organisation administrator.
+<Callout color="teal" title="Your password is managed by Microsoft, not Manaaki Central">
+Because sign-in goes through your Microsoft work account, Manaaki Central never sees or stores your password. To change it, or if you have forgotten it, use your organisation's normal Microsoft account process — your administrator can help.
+</Callout>
 
-## Session Management
+## Two-factor authentication
 
-Sessions stay active while your browser is open. If you close the browser, or the session expires due to inactivity, you will need to sign in again.
+You will be asked to confirm your identity with the **Microsoft Authenticator** app when you:
 
-If your session expires while you are working, you will be redirected to the login page automatically. After signing back in, Manaaki Central will return you to the page you were on — you will not lose your place.
+- Sign in on a new device or browser for the first time
+- Return after a long period without signing in
+- Sign in from an unfamiliar location, depending on your organisation's policy
+
+When prompted, open Microsoft Authenticator on your phone and approve the request, or enter the number shown on screen.
+
+<Callout color="amber" title="Set up Authenticator before you need it">
+If you have not set up Microsoft Authenticator yet, do it before your first sign-in on a new device — not while you are trying to start work. Your administrator can walk you through it.
+</Callout>
+
+## Session management
+
+Sessions stay active while your browser is open. If you **sign out**, or the session expires through inactivity, you will need to sign in again.
+
+If your session expires while you are working, you are redirected to the login page. After signing back in you are returned to the page you were on, so you do not lose your place.
 
 :::note
-On shared or public computers, close the browser when you are done to ensure your session ends.
+On a shared or public computer, **sign out** and then close the browser when you finish to make sure your session ends.
 :::
-
-## Resetting Your Password
-
-If you have forgotten your password, use the three-step reset flow:
-
-### Step 1 — Request a code
-
-Click **Forgot your password?** on the login page. Enter your email address and submit the form. A one-time code (OTP) will be sent to that address.
-
-### Step 2 — Verify the code
-
-Check your email for a message containing a 6-digit code. Enter the code on the verification screen. If the code did not arrive, use the **Resend code** option to request a new one.
-
-### Step 3 — Set a new password
-
-Enter your new password and confirm it. Once submitted, you will be redirected back to the login page with a confirmation message. You can then sign in with your new password.
-
-## Password Requirements
-
-Your password must:
-
-- Be at least 8 characters long
-- Contain at least one uppercase letter
-- Contain at least one lowercase letter
-- Contain at least one number
-- Contain at least one special character
 
 ## Troubleshooting
 
 | Problem | What to do |
 |---------|------------|
-| "Invalid credentials" error | Check that your username is your full email address; check Caps Lock |
-| Did not receive the OTP email | Check your spam or junk folder; use **Resend code** on the verification screen |
-| Account locked | Contact your organisation administrator to have it unlocked |
+| **Sign In with Microsoft** does nothing | Wait a moment — the button shows **Initializing...** until it is ready. If it stays that way, refresh the page. |
+| Microsoft accepts you but Manaaki Central does not | Your Microsoft account is not yet linked to a Manaaki Central user. Contact your organisation administrator. |
+| No access to your Authenticator app | If your phone is lost, replaced, or unavailable, your administrator must reset your authentication method. There is no self-service route. |
+| Account locked or disabled | Contact your organisation administrator. |
 
-## Related Topics
+## Related topics
 
 - [Understanding Your Dashboard](/getting-started/understanding-your-dashboard)
 - [Navigating the System](/getting-started/navigating-the-system)

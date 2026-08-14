@@ -1,37 +1,85 @@
 ---
-title: Submitting a Referral for Review
-description: How to submit a completed referral for supervisor review
+title: Submitting and Dispatching a Referral
+description: How to submit a completed referral and dispatch it to a service
 sidebar_position: 6
 helpId: referral-submit
-keywords: [referral, submit, review, approval]
+keywords: [referral, submit, review, approval, dispatch, allocation]
 ---
 
-# Submitting a <Term path="referral" plural /> for Review
+import Callout from '@site/src/components/Callout';
 
-Learn how to submit a completed <Term path="referral" /> for supervisor review and approval.
+# Submitting and Dispatching a <Term path="referral" />
 
-:::note Work in Progress
-This documentation is being developed. Check back soon for updates.
-:::
+Once the Intake and Consent steps are complete, the final step is to review the <Term path="referral" />, submit it, and dispatch it to a service.
 
-## Overview
+## Before you submit
 
-Once all sections are complete, <Term path="referral" plural /> are submitted to supervisors for review and approval.
+The **Review & Submit** step shows everything you have entered, grouped by section. Each section has an **Edit** link that takes you back to the relevant step so you can correct it.
 
-## Pre-Submission Checklist
+Check that:
 
-Items to verify before submission will be listed here.
+- The client is the right person, and is not a duplicate of an existing record
+- The service is correct — it determines who picks the <Term path="referral" /> up
+- The urgency level reflects the actual need
+- Consent is recorded, and any signed consent document is attached
 
-## Submission Process
+## Submitting
 
-Step-by-step submission instructions will be documented here.
+Click **Submit**. The <Term path="referral" /> moves to **Pending Service Dispatch** and the dispatch dialog opens automatically.
 
-## What Happens Next
+<Callout color="teal" title="You can dispatch later">
+Submitting and dispatching are deliberately two separate steps. **Pending Service Dispatch** means "reviewed, but not yet sent to a team" — it is a normal place for a <Term path="referral" /> to sit, not an error.
 
-Information about the review workflow will be added here.
+If you close the dispatch dialog without choosing a service, nothing is lost. The <Term path="referral" /> stays on your dashboard with that status, and you can dispatch it whenever you are ready.
+</Callout>
 
-## Related Topics
+## Dispatching to a service
 
-- [Creating a Referral](/referrals/creating-a-referral)
-- [Referral Overview](/referrals/overview)
-- [Supervisor Role](/user-roles/supervisor)
+Select the service, then choose one of three options.
+
+| Option | What it does | Who it suits |
+|--------|--------------|--------------|
+| **Accept entry** | Accepts the <Term path="referral" /> into the service without assigning anyone yet | You know which service, but not yet which <Term path="caseWorker" /> |
+| **Accept & assign kaimahi** | Accepts and assigns a <Term path="caseWorker" /> in one action, creating the <Term path="serviceEpisode" /> immediately | You have authority to allocate and know who is taking it |
+| **Send for approval** | Sends a service request to a supervisor or programme manager to approve and allocate | Allocation is someone else's decision |
+
+<Callout color="amber" title="Signed consent document">
+If no signed consent document has been uploaded, the dispatch dialog shows a reminder. It is a warning, not a block — you can still dispatch, but the document remains outstanding against the <Term path="referral" />.
+</Callout>
+
+After a successful dispatch you can return to your dashboard or open the <Term path="referral" /> to view it.
+
+## Dispatching later
+
+To pick up a <Term path="referral" /> you submitted but did not dispatch:
+
+1. Find it on your dashboard under **Service Review**, or in the <Term path="referral" plural /> list filtered to **Pending Dispatch**
+2. Open it
+3. Click **Dispatch to Service** on the amber banner at the top
+
+The banner reads *"Dispatch to a service to begin logging activities"* — it appears on any <Term path="referral" /> that has been submitted but has no <Term path="serviceEpisode" /> yet.
+
+## What happens next
+
+### If you sent it for approval
+
+The <Term path="referral" /> moves to **Pending Service Review** and appears in the supervisor's or programme manager's queue. They can:
+
+- **Accept** — they select the <Term path="caseWorker" /> and may add notes. A <Term path="serviceEpisode" /> is created.
+- **Reject** — they must give a reason. The <Term path="referral" /> returns to dispatch so it can be sent to a different service.
+
+### If you accepted it directly
+
+The <Term path="referral" /> is allocated straight away and a <Term path="serviceEpisode" /> is created, with no manager approval step.
+
+### Then
+
+The assigned <Term path="caseWorker" /> sees the <Term path="serviceEpisode" /> on their dashboard under **Awaiting Commencement**. They commence it, and service delivery begins — from that point work is recorded as <Term path="activity" plural /> against the <Term path="serviceEpisode" />.
+
+## Related topics
+
+- [Creating a Referral](/referrals/creating-a-referral) — the three-step walkthrough
+- [<Term path="referral" /> Overview](/referrals/overview) — the full lifecycle
+- [Workflow Overview](/getting-started/workflow-overview) — lifecycle diagrams and status reference
+- [Supervisor Role](/user-roles/supervisor) — approving and allocating
+- [Starting an Episode](/service-episodes/starting-an-episode) — what the <Term path="caseWorker" /> does next

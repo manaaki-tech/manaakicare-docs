@@ -16,13 +16,13 @@ Understand the <Term path="caseWorker" /> role, including <Term path="caseload" 
 
 ## Key Responsibilities
 
-### <Term path="caseload" /> Management
+### <Term path="caseload" /> Management {#caseload-management}
 - Managing assigned <Term path="serviceEpisode" plural /> from commencement to completion
 - Tracking active <Term path="serviceEpisode" plural /> and their current status
 - Ensuring timely service commencement for newly assigned <Term path="serviceEpisode" plural />
 - Monitoring and completing service delivery
 
-### <Term path="serviceUser" /> Engagement
+### <Term path="serviceUser" /> Engagement {#service-user-engagement}
 - Conducting in-person visits and telehealth sessions
 - Maintaining regular contact with <Term path="serviceUser" plural /> (tracked by the system)
 - Building and maintaining <Term path="serviceUser" /> relationships
@@ -37,7 +37,7 @@ Understand the <Term path="caseWorker" /> role, including <Term path="caseload" 
 ### Follow-up Management
 - Tracking scheduled follow-ups via the dashboard
 - Addressing overdue follow-ups promptly
-- Prioritizing activities based on risk level and urgency
+- Prioritizing <Term path="activity" plural /> based on risk level and urgency
 - Rescheduling missed interactions
 
 ### Documentation
@@ -70,7 +70,7 @@ Understand the <Term path="caseWorker" /> role, including <Term path="caseload" 
 
 | Data Type | Scope |
 |-----------|-------|
-| <Term path="serviceEpisode" plural /> | Only episodes where assigned as staff |
+| <Term path="serviceEpisode" plural /> | Only <Term path="serviceEpisode" plural /> where assigned as staff |
 | <Term path="activity" plural /> | Only <Term path="activity" plural /> within assigned <Term path="serviceEpisode" plural /> |
 | <Term path="serviceUser" /> records | Only <Term path="serviceUser" plural /> linked to assigned <Term path="serviceEpisode" plural /> |
 | <Term path="referral" /> counts | Only <Term path="referral" plural /> linked to assignments |
@@ -88,7 +88,7 @@ This means your dashboard shows only your workload, keeping the view focused and
 
 ## Dashboard Features
 
-The <Term path="caseWorker" /> Dashboard — **"My <Term path="caseload" />"** — provides:
+The <Term path="caseWorker" /> <Term path="dashboard" /> — **"My <Term path="caseload" />"** — provides:
 
 - **Analytics Overview** — Active <Term path="serviceEpisode" plural />, urgent/crisis count, follow-ups due, total <Term path="referral" plural />
 - **My Active <Term path="cases" />** — All <Term path="serviceEpisode" plural /> assigned to you with status and actions
@@ -110,7 +110,7 @@ Check Dashboard Metrics
   → Review Upcoming Follow-ups
 ```
 
-### <Term path="serviceEpisode" /> Lifecycle
+### <Term path="serviceEpisode" /> Lifecycle {#service-episode-lifecycle}
 
 ```
 Assigned (awaiting_commencement)
@@ -126,7 +126,7 @@ Assigned (awaiting_commencement)
 - Process **follow-ups due today** next
 - Then work through routine <Term path="caseload" />
 
-### <Term path="serviceUser" /> Contact
+### <Term path="serviceUser" /> Contact {#service-user-contact}
 - Maintain regular contact — your supervisor is alerted when <Term path="serviceUser" plural /> aren't contacted for 5+ days
 - Record every interaction as an <Term path="activity" />
 - Set follow-up dates to ensure no <Term path="serviceUser" /> falls through the cracks
