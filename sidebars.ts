@@ -115,7 +115,6 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'getting-started/workflow-overview',
-        'getting-started/logging-in',
         'getting-started/understanding-your-dashboard',
         'getting-started/navigating-the-system',
       ],

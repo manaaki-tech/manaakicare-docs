@@ -157,7 +157,7 @@ const config: Config = {
           items: [
             {
               label: 'Getting Started',
-              to: '/getting-started/logging-in',
+              to: '/manual/everyone/signing-in',
             },
             {
               label: 'Referrals',
