@@ -91,6 +91,10 @@ export function applyTerminology(label: string, t: Record<string, string>): stri
 			plural: ['Service Episodes', 'Episodes of Care', 'Episodes'],
 			singular: ['Service Episode', 'Episode of Care', 'Episode'],
 		},
+		serviceUser: {
+			plural: ['Service Users', 'Clients'],
+			singular: ['Service User', 'Client'],
+		},
 	};
 
 	for (const [key, forms] of Object.entries(aliases)) {

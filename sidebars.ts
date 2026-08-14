@@ -59,29 +59,52 @@ const sidebars: SidebarsConfig = {
         'referrals/submitting-for-review',
       ],
     },
-    // NOTE: Clients, Service Episodes, and Activities sections are hidden
-    // from the sidebar because their pages are still Work-in-Progress
-    // stubs. The files exist and are reachable by direct URL. Uncomment
-    // each section once its pages have real content.
-    //
-    // {
-    //   type: 'category',
-    //   label: 'Clients',
-    //   link: { type: 'generated-index', title: 'Client Management', description: 'Learn how to manage clients in Manaaki Central' },
-    //   items: ['clients/searching-for-clients', 'clients/viewing-client-details', 'clients/client-documents', 'clients/family-relationships'],
-    // },
-    // {
-    //   type: 'category',
-    //   label: 'Service Episodes',
-    //   link: { type: 'generated-index', title: 'Service Episodes', description: 'Learn about service episode management' },
-    //   items: ['service-episodes/what-are-service-episodes', 'service-episodes/starting-an-episode', 'service-episodes/managing-episodes', 'service-episodes/closing-an-episode'],
-    // },
-    // {
-    //   type: 'category',
-    //   label: 'Activities',
-    //   link: { type: 'generated-index', title: 'Activities & Case Notes', description: 'Learn how to record and manage activities' },
-    //   items: ['activities/overview', 'activities/recording-visits', 'activities/phone-calls-and-emails', 'activities/case-notes', 'activities/viewing-activity-history'],
-    // },
+    {
+      type: 'category',
+      label: 'Clients',
+      link: {
+        type: 'generated-index',
+        title: 'Client Management',
+        description: 'Learn how to manage clients in Manaaki Central',
+      },
+      items: [
+        'clients/searching-for-clients',
+        'clients/viewing-client-details',
+        'clients/client-documents',
+        'clients/family-relationships',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Service Episodes',
+      link: {
+        type: 'generated-index',
+        title: 'Service Episodes',
+        description: 'Learn about service episode management',
+      },
+      items: [
+        'service-episodes/what-are-service-episodes',
+        'service-episodes/starting-an-episode',
+        'service-episodes/managing-episodes',
+        'service-episodes/closing-an-episode',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Activities',
+      link: {
+        type: 'generated-index',
+        title: 'Activities & Case Notes',
+        description: 'Learn how to record and manage activities',
+      },
+      items: [
+        'activities/overview',
+        'activities/recording-visits',
+        'activities/phone-calls-and-emails',
+        'activities/case-notes',
+        'activities/viewing-activity-history',
+      ],
+    },
     {
       type: 'category',
       label: 'Organisations',
