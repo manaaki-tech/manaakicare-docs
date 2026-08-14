@@ -21,7 +21,9 @@ from html.parser import HTMLParser
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILD = os.path.join(ROOT, 'build', 'manual')
 STATIC = os.path.join(ROOT, 'static')
-OUT = os.path.join(ROOT, 'build', 'manual-preview.html')
+# Deliberately NOT inside build/ — `docusaurus build` wipes that directory, so
+# a preview written there disappears the next time anyone builds.
+OUT = os.path.join(ROOT, 'manual-preview.html')
 
 # Sidebar order, which is the reading order.
 PAGES = [
@@ -112,9 +114,27 @@ def inline_images(markup):
 	return re.sub(r'src="(/img/[^"]+)"', swap, markup)
 
 
-def strip_internal_links(markup):
-	"""Turn in-site links into plain text — they go nowhere in a single file."""
-	markup = re.sub(r'<a\b[^>]*\bhref="/[^"]*"[^>]*>', '<span class="xlink">', markup)
+def strip_anchors(markup):
+	"""Replace every <a> with a <span>, leaving no anchor unclosed.
+
+	Links go nowhere useful in a single self-contained file, so they become
+	spans. The rule that matters is that EVERY opening tag is rewritten, not
+	just the ones pointing at doc routes: the closing tags are rewritten
+	wholesale, so any anchor left behind ends up unclosed.
+
+	That is not a cosmetic problem. Docusaurus emits a "Direct link to
+	heading" anchor after every heading, carrying class `hash-link`, which the
+	stylesheet hides. An unclosed hidden anchor adopts the rest of the section
+	as its children and hides all of it — which is exactly how an earlier
+	version of this file rendered as a nearly blank page.
+
+	The heading anchors are removed outright rather than converted; they are
+	navigation furniture with nothing to point at here.
+	"""
+	markup = re.sub(
+		r'<a[^>]*class="[^"]*hash-link[^"]*"[^>]*>.*?</a>', '', markup, flags=re.S
+	)
+	markup = re.sub(r'<a\b[^>]*>', '<span class="xlink">', markup)
 	return markup.replace('</a>', '</span>')
 
 
@@ -138,11 +158,16 @@ def main():
 			print(f'  ! extracted nothing from {slug}')
 			continue
 
-		# Screenshots link to themselves; in a single file that just reopens the
-		# data URI, which is fine, but the image links must survive the strip.
 		markup = inline_images(markup)
+		# The screenshot's own wrapper link, tagged before the generic sweep so
+		# it keeps its framing style.
 		markup = re.sub(r'<a\b[^>]*\bhref="/img/[^"]*"[^>]*>', '<span class="shot">', markup)
-		markup = strip_internal_links(markup)
+		markup = strip_anchors(markup)
+
+		opened = len(re.findall(r'<a\b', markup))
+		closed = len(re.findall(r'</a>', markup))
+		if opened or closed:
+			print(f'  ! {slug}: {opened} unclosed <a>, {closed} stray </a> — page will render wrong')
 
 		sections.append(f'<section id="{slug}">{markup}</section>')
 		print(f'  {slug}')

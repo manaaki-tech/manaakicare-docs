@@ -39,3 +39,6 @@ yarn-error.log*
 
 # TypeScript
 *.tsbuildinfo
+
+# Generated single-file read-through (tools/build_manual_preview.py)
+/manual-preview.html
