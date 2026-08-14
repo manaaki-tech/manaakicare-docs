@@ -1,0 +1,9 @@
+{
+  "label": "User Manual",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "title": "User Manual",
+    "description": "Step-by-step walkthroughs of the everyday jobs, with pictures. Start here if you are new."
+  }
+}

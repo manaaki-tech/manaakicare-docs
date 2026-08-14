@@ -1,0 +1,57 @@
+/**
+ * Screenshot figure for the user manual.
+ */
+
+.screen {
+	margin: 1.75rem 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.frame {
+	display: block;
+	border: 1px solid var(--stone-200);
+	border-radius: 8px;
+	overflow: hidden;
+	background: var(--ifm-background-surface-color);
+	line-height: 0;
+	transition: border-color 120ms ease;
+}
+
+.frame:hover,
+.frame:focus-visible {
+	border-color: var(--sage-500);
+}
+
+.frame img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.caption {
+	font-size: 0.9rem;
+	line-height: 1.5;
+	color: var(--stone-600);
+	margin: 0;
+}
+
+.caption strong {
+	color: var(--ifm-font-color-base);
+	font-weight: 600;
+}
+
+/* The whole figure is narrower than the column for tight crops, so a small
+   dialog does not stretch to full width and look like a full page. */
+.narrow .frame {
+	max-width: 26rem;
+}
+
+[data-theme='dark'] .frame {
+	border-color: var(--stone-700);
+}
+
+[data-theme='dark'] .caption {
+	color: var(--stone-200);
+}
