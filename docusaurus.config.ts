@@ -35,25 +35,33 @@ const config: Config = {
     //
     // What the application actually sends:
     //
-    //   production  — the NPO production deployment. HOSTNAME UNKNOWN, see below.
-    //   sandbox     — HOSTNAME UNKNOWN.
+    //   production  — the NPO production deployment. Only NPO exists; the
+    //                 manaakicentral-prod environment and branch never did.
+    //   sandbox     — HOSTNAME UNKNOWN, still absent rather than guessed.
     //   uat         — see the warning on the uat entry.
     //   sit         — believed correct.
     //   development — the dev-time fallback when VITE_ENVIRONMENT is unset.
     //
-    // `production` and `sandbox` are deliberately absent rather than guessed.
-    // A wrong hostname fails exactly as silently as a missing one, so leaving
-    // them out at least keeps the gap visible here. Both values live in the
-    // VITE_API_URL GitHub Actions secret for their environment.
+    // TWO THINGS OUTSIDE THIS REPO STILL BREAK TERMINOLOGY IN PRODUCTION.
+    // Setting the URL below is necessary but not sufficient:
     //
-    // NOTE: even once these are filled in, terminology stays broken until the
-    // backend has Terminology rows of type=DOCS. TerminologyDocsView filters on
-    // that type and returns {} when there is none, and as of 2026-08-14 no
-    // organisation had one — only a type=frontend row.
+    //   1. No organisation has a Terminology row of type=DOCS.
+    //      TerminologyDocsView filters on that type and returns {} when there
+    //      is none, so the endpoint answers every reader with an empty object.
+    //   2. CORS on the production backend does not allow this site. Verified
+    //      2026-08-14: the endpoint returns 200 to any origin, but only echoes
+    //      access-control-allow-origin for https://manaakicentral.npo.org.nz.
+    //      With no such header a browser blocks the read, and we fall back to
+    //      English. Fix is adding https://docs.manaakitech.com to
+    //      CORS_ALLOWED_ORIGINS on the backend App Service.
     terminologyApiUrls: {
       local: 'http://localhost:8000',
       development: 'http://localhost:8000',
       sit: 'https://api.manaakitech.com',
+      // Recovered from the deployed NPO production bundle, where it is the
+      // configured SDK baseUrl, rather than from the runbook — the runbook
+      // still names api.manaakitech.com here, which is SIT.
+      production: 'https://api.manaakicentral.npo.org.nz',
       // UNVERIFIED. The deployed UAT bundle references
       // manaakicentral-uat-backend.azurewebsites.net and never mentions
       // api-uat.manaakicentral.com, and the two resolve to different hosts.
