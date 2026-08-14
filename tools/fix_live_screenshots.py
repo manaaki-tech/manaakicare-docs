@@ -88,7 +88,22 @@ CHROME = {
 }
 
 
+# Redactions applied AFTER cropping, so coordinates are in the cropped image.
+# path relative to static/ -> (list of boxes, why)
+REDACT = {
+	'supervisor/dashboard/pending_referral_service_request.png': (
+		[(368, 397, 90, 20)],
+		'A real-format phone number printed under a client name.',
+	),
+	'supervisor/dashboard/service_needing_contact_and_pending_service_dispatch.png': (
+		[(368, 66, 90, 20), (368, 584, 90, 20)],
+		'The same phone number, twice.',
+	),
+}
+
+
 def main():
+	# Crop first — REDACT coordinates are measured on the cropped image.
 	for rel, (expected_height, chrome, reason) in CHROME.items():
 		path = os.path.join(ROOT, 'static', rel)
 		if not os.path.exists(path):
@@ -103,6 +118,18 @@ def main():
 		cropped = pngkit.crop(img, (0, chrome, img.width, img.height - chrome))
 		pngkit.write(path, cropped)
 		print(f'  {rel}: {img.width}x{img.height} -> {cropped.width}x{cropped.height}')
+		print(f'      removed: {reason}')
+
+	for rel, (boxes, reason) in REDACT.items():
+		path = os.path.join(ROOT, 'static', rel)
+		if not os.path.exists(path):
+			print(f'  ! {rel} not found')
+			continue
+		img = pngkit.read(path)
+		for box in boxes:
+			pngkit.redact(img, box)
+		pngkit.write(path, img)
+		print(f'  {rel}: {len(boxes)} redacted')
 		print(f'      removed: {reason}')
 
 
