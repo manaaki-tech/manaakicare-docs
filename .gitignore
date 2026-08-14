@@ -42,3 +42,7 @@ yarn-error.log*
 
 # Generated single-file read-through (tools/build_manual_preview.py)
 /manual-preview.html
+
+# Python bytecode from tools/
+__pycache__/
+*.pyc
