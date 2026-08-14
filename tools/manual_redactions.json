@@ -1,0 +1,101 @@
+{
+  "_readme": [
+    "Pixel redactions applied by tools/build_manual_images.py before the manual's",
+    "screenshots are written to static/. This repository is public, so these are",
+    "painted into the image data rather than overlaid in CSS — an overlay would",
+    "leave the original bytes one right-click away.",
+    "",
+    "Each box is [x, y, width, height] in the SOURCE image's pixels, origin",
+    "top-left, applied before any downscaling. A box may carry two extra numbers,",
+    "[x, y, w, h, sampleX, sampleY], naming where to take the fill colour from.",
+    "Without them the colour is sampled just left of the box, which is usually",
+    "panel background but occasionally lands on highlighted text.",
+    "",
+    "Every box below was applied and then visually re-checked on the output.",
+    "The test is both directions: the sensitive text must be gone, and no label,",
+    "badge or value the manual relies on may be swallowed with it."
+  ],
+
+  "intake-11": {
+    "boxes": [
+      [445, 170, 90, 20, 700, 180],
+      [157, 245, 121, 20, 700, 180],
+      [132, 396, 100, 20, 700, 180]
+    ],
+    "notes": "Customer organisation named three times inside the consent wording itself — 'offered by <org>', 'enhance <org> services', 'The <org> Rights & Responsibilities document'. Removed mid-sentence, which leaves gaps; that is the intended result, since the checklist item names are what the manual needs and the exact wording belongs to the customer. Fill sampled from the pink block background rather than beside the box."
+  },
+
+  "intake-14": {
+    "boxes": [
+      [27, 143, 130, 22],
+      [27, 166, 340, 20],
+      [440, 348, 138, 34]
+    ],
+    "notes": "Staff first name in the dropdown, the role-and-email line beneath it, and the same name repeated in the 'Send to ...' button label. The document's author had already white-boxed part of this one, which is what first confirmed the name was real. Button keeps 'Send to'."
+  },
+
+  "intake-16": {
+    "boxes": [
+      [928, 317, 78, 18],
+      [988, 416, 92, 20],
+      [988, 439, 178, 18],
+      [14, 820, 262, 50]
+    ],
+    "notes": "Assigned staff name under the stat, then the name and work email on the staff card, then the signed-in user block bottom-left with the organisation name under it. The 'Primary' badge and the '· since 14 Aug' that follow are deliberately preserved."
+  },
+
+  "intake-22": {
+    "boxes": [
+      [214, 172, 102, 24]
+    ],
+    "notes": "Phone number left exposed by the author's own partial redaction of this image — the name beside it was white-boxed and the number was not. The phone chip and its icon are kept so the layout still reads."
+  },
+
+  "cm-1": {
+    "boxes": [
+      [453, 218, 62, 22],
+      [499, 316, 72, 16],
+      [499, 335, 138, 15]
+    ],
+    "notes": "Same staff name and work email as intake-16, on the smaller capture of the overview page. Keeps the 'Primary' badge and '· since 14 Aug'."
+  },
+
+  "cm-4": {
+    "boxes": [
+      [93, 156, 78, 17],
+      [93, 174, 138, 15]
+    ],
+    "notes": "Staff name and work email in the Manage Kaimahi dialog. The 'Primary' badge and the overflow menu are kept, since the page describes them."
+  },
+
+  "act-1": {
+    "boxes": [
+      [50, 678, 195, 38, 150, 660],
+      [533, 676, 216, 20, 780, 700],
+      [506, 729, 222, 20, 780, 752]
+    ],
+    "notes": "Signed-in user and organisation bottom-left, then the parenthesised organisation repeated on every visible table row. Family names before the bracket are kept — they are test data and the column would look broken without them. Explicit sample points: this screenshot was taken with text selected, so the default sample beside the box picked up selection highlight instead of row background, and the rows alternate shade."
+  },
+
+  "act-3": {
+    "boxes": [
+      [134, 295, 60, 18]
+    ],
+    "notes": "Author name on the logged activity. Stops short of the ' · Note / Admin' that follows, which the page refers to."
+  },
+
+  "act-4": {
+    "boxes": [
+      [128, 286, 64, 18],
+      [128, 361, 60, 18]
+    ],
+    "notes": "Two author names on the activity timeline. Both stop before the badge or label that follows them."
+  },
+
+  "act-8": {
+    "boxes": [
+      [534, 434, 253, 32]
+    ],
+    "notes": "Customer organisation printed as the value of an ORGANISATION group label in the template picker — the most explicit naming of the customer in the whole set. The word ORGANISATION is kept so the grouping still makes sense."
+  }
+}

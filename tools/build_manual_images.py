@@ -134,7 +134,8 @@ def main():
 		if key and not boxes:
 			print(f'! {dest}: expected redactions under "{key}" but none found')
 		for box in boxes:
-			pngkit.redact(img, tuple(box))
+			# [x, y, w, h] or [x, y, w, h, sampleX, sampleY]
+			pngkit.redact(img, tuple(box[:4]), sample=tuple(box[4:6]) if len(box) >= 6 else None)
 		if boxes:
 			redacted += 1
 			notes.append(f'{len(boxes)} redacted')
