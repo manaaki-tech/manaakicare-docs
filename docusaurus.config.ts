@@ -42,18 +42,26 @@ const config: Config = {
     //   sit         — believed correct.
     //   development — the dev-time fallback when VITE_ENVIRONMENT is unset.
     //
-    // TWO THINGS OUTSIDE THIS REPO STILL BREAK TERMINOLOGY IN PRODUCTION.
-    // Setting the URL below is necessary but not sufficient:
+    // ONE THING OUTSIDE THIS REPO STILL BREAKS TERMINOLOGY IN PRODUCTION.
     //
-    //   1. No organisation has a Terminology row of type=DOCS.
-    //      TerminologyDocsView filters on that type and returns {} when there
-    //      is none, so the endpoint answers every reader with an empty object.
-    //   2. CORS on the production backend does not allow this site. Verified
-    //      2026-08-14: the endpoint returns 200 to any origin, but only echoes
-    //      access-control-allow-origin for https://manaakicentral.npo.org.nz.
-    //      With no such header a browser blocks the read, and we fall back to
-    //      English. Fix is adding https://docs.manaakitech.com to
-    //      CORS_ALLOWED_ORIGINS on the backend App Service.
+    // CORS on the production backend does not allow this site. Verified
+    // 2026-08-15 against the live NPO endpoint: it returns 200 to any origin,
+    // but only echoes access-control-allow-origin for
+    // https://manaakicentral.npo.org.nz. Sent from docs.manaakitech.com it
+    // carries no access-control-* headers at all, so a browser blocks the read
+    // and we silently fall back to English. `vary: origin` is present, so the
+    // middleware is active and simply does not list us. Fix is adding
+    // https://docs.manaakitech.com to CORS_ALLOWED_ORIGINS on the backend App
+    // Service.
+    //
+    // The data itself is fine in production, contrary to an earlier note here.
+    // NPO's docs-type Terminology row exists and returns:
+    //   referral       Entry|Entries
+    //   caseWorker     Kaiāwhina|Kaiāwhina
+    //   serviceUser    Whānau|Whānau
+    //   serviceEpisode Care Journey|Care Journeys
+    // The "no organisation has a docs row" finding came from querying SIT, and
+    // does not hold for production.
     terminologyApiUrls: {
       local: 'http://localhost:8000',
       development: 'http://localhost:8000',
