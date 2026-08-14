@@ -52,43 +52,78 @@ Choose the exit option.
   narrow
 />
 
+<Callout color="terracotta" title="You cannot undo this">
+Once the work is closed, its status is final. There is no button anywhere in
+the system to reopen it or change it afterwards.
+
+That is not a reason to avoid closing things — it is a reason to check the
+reason and the date before you click.
+</Callout>
+
 ### Why it ended
 
-Pick the reason that is actually true. This is what gets reported, and
-"completed successfully" against work that stopped because the whānau
-disengaged makes the numbers meaningless.
+Pick the reason that is actually true.
+
+Only **Service completed** records the work as genuinely finished. Every other
+reason — moved out of area, left without notice, consent withdrawn, and the
+rest — closes it without counting as a completion. Choosing "service completed"
+for work that stopped because a whānau disengaged makes your organisation's
+numbers meaningless.
+
+Your organisation sets the list of reasons, so yours may differ from someone
+else's.
 
 ### When it ended
 
-Put the real end date. If your last contact was three weeks ago, use that date
-rather than today.
+Put the real end date. If your last contact was three weeks ago, use that date.
+
+It cannot be in the future.
 
 ### Anything still outstanding
 
-If required paperwork is missing, the form says so and offers to let you close
-anyway.
+If required paperwork is missing, it is listed as a blocker, and you must
+**write a justification** before the closure button becomes available.
 
-<Callout color="amber" title="Overriding is a decision, not a shortcut">
-You can close with paperwork missing, and sometimes that is the right call —
-a whānau who has moved on is not going to come back and sign an evaluation
-form.
+<Callout color="amber" title="The justification is not a formality">
+Sometimes closing with paperwork missing is the right call — a whānau who has
+moved on is not coming back to sign an evaluation form.
 
-But it is recorded as an override, and someone will see it. If there is a
-reason, write it down.
+But what you type is kept, and someone will read it. Write the actual reason,
+not "n/a".
 </Callout>
+
+### If you are ticking "consent withdrawn"
+
+<Callout color="terracotta" title="This reaches further than the work you are closing">
+Consent is withdrawn at the <Term path="referral" /> level, not just for this
+piece of work. If the person has **other open
+<Term path="serviceEpisode" plural /> under the same
+<Term path="referral" />, those are closed too.**
+
+The dialog will ask you for a reason and a confirmation that the person
+actually requested it. Both are required, and the button changes to **Complete
+& Withdraw Consent** so you know it is happening.
+
+If you did not intend to end their other services, stop and choose a different
+reason.
+</Callout>
+
+### Follow-up
+
+If you tick **Follow-up required**, you must give a follow-up date. It can be
+up to three months out.
 
 ## What closing does
 
-- The <Term path="serviceEpisode" /> is marked as ended.
-- The linked <Term path="referral" /> is closed with it.
-- The person stops appearing in your active list.
-- Everything recorded stays. Nothing is deleted.
+- The <Term path="serviceEpisode" /> is marked **Completed** or **Closed**, with
+  your end date and reason recorded on it.
+- The linked <Term path="referral" /> is set to match.
+- An "Exit Episode" activity is written automatically, holding the reason and
+  your closure notes.
+- The record moves from **Active Care** to **Completed Care**.
 
-<Callout color="teal" title="They can come back">
-Closing does not remove anyone. If they return, a new
-<Term path="referral" /> is created and their history is still there — you are
-not starting from nothing.
-</Callout>
+Everything recorded stays. You can still open it and read the history — you
+just cannot change it.
 
 ## If it does not look like this
 
@@ -98,8 +133,9 @@ not starting from nothing.
   deliberate. If the start date is wrong, fix that first.
 - **The closure documents are still locked** — they unlock once closure has
   begun. Start the closure, then upload them.
-- **You closed it by mistake** — stop and ask a supervisor rather than creating
-  a new record. Reopening is cleaner than a duplicate.
+- **You closed it by mistake** — it cannot be reopened. Tell your supervisor
+  straight away rather than quietly creating a duplicate record; how to handle
+  it is their call.
 
 ## What next
 
