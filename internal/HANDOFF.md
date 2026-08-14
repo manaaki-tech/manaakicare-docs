@@ -54,6 +54,33 @@ role-relevant, so each role reads one sequence entirely theirs. That also fits
 because the readability audit ranked those four pages among the worst for this
 audience — permission tables and ASCII diagrams, no procedures.
 
+**First-pass mapping — the unit of migration is the SECTION, not the page.**
+Two manual pages split across roles internally, so a page-level move misfiles
+content. Evidence is `file:line`; rows without it are marked as guesses.
+
+| Content | Primary | Secondary | Varies? | Evidence |
+|---|---|---|---|---|
+| Start here, Signing in, Finding your way around, When something looks wrong | all roles | — | no | orientation, no permission gate |
+| Your day at a glance | each role, own dashboard | — | no | `docs/dashboards/*` already split this way |
+| **Taking on someone new** | **intake officer** | supervisor, programme manager | no | `referrals/creating-a-referral.mdx:24-26` — **+ New Entry** is intake/supervisor/PM only; `user-roles/case-worker.mdx:63` *Allocate: No* |
+| ↳ its *"Filling in the rest"* section | **contested** | — | **yes** | intake info, whānau background and support network can be completed by intake officer or case worker depending how the team divides it |
+| **Working with someone** | **case worker** | — | no | `service-episodes/starting-an-episode.mdx:13` — commencing is "something a <Term caseWorker /> does deliberately" |
+| ↳ its *"Changing who works with them"* section | **supervisor / programme manager** | — | no | `user-roles/supervisor.mdx:50`, `program-manager.mdx:50` *Allocate: Yes*; `case-worker.mdx:63` *No* |
+| **Writing up what you did** | **case worker** | supervisor, PM (view only) | no | `case-worker.mdx:55` *Create activities/case notes: Yes*; `program-manager.mdx:54` *View all team activities* — everyone reads, one role writes |
+| Staying on top of deadlines | case worker | supervisor (oversight) | mild | `case-worker.mdx:60` *Upload documents: Yes* |
+| **Finishing up** | **supervisor / manager (by practice)** | case worker initiates | **yes** | **Reported by a case worker, not verified in code:** episodes are taken to the supervisor or manager to be closed. No role page states who *may* close — absent from all four permission tables, and `service-episodes/closing-an-episode.mdx` never names a role. |
+
+**Resolve the Finishing up gap before filing it.** There are two different
+answers and they need different wording: does the system *permit* only
+supervisors to close, or does it permit case workers and the organisation's
+practice is to escalate? Check the frontend or backend for the permission, then
+write the practice as practice. Do not present a convention as a system rule.
+
+**On content that spans roles**, e.g. writing up activities: prefer one shared
+page owned by the case worker, with supervisor and programme manager pages
+linking *into* it under "what you'll see from your team", rather than three
+copies that drift apart.
+
 Trade-offs to settle before moving files:
 
 - **Genuinely shared content.** Recording an activity spans roles. Copying it
@@ -230,6 +257,25 @@ mapped during this session" there rather than repeating it here.
   when `journey/01-overview.png` plainly shows "1 days active" / "1 activities".
 
 ---
+
+## Reminders for MJ — not Claude's to action
+
+- **Replace `static/img/manual/closure/01-close-the-journey.png`.** The dialog in
+  that screenshot reads **"Complete Episode"** — default English — even though
+  the action that opens it reads "Exit Care Journey" in the same tenant. The
+  frontend is not applying terminology to that modal. MJ is replacing the
+  screenshot once the app side is fixed; until then the manual names both labels
+  rather than pretending to know which the reader will see.
+
+  This is the same half-migration the launch session recorded elsewhere: one
+  caseload screen showing "In-progress Journeys", "My Caseload", "Service
+  episodes currently in progress" and "My Service Episodes" at once, and a
+  journey overview using "Kaiāwhina" in one panel and "Kaimahi" in another. Worth
+  raising with whoever owns the frontend as a single terminology-coverage pass
+  rather than one modal at a time.
+
+- **Confirm who is permitted to close an episode** (see item 0's mapping table) —
+  needed before "Finishing up" can be filed under a role.
 
 ## Key reference docs
 
