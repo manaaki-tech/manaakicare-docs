@@ -27,13 +27,63 @@ import pngkit
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Every one of these shows the internal Azure Static Web Apps staging hostname
+# in the address bar. Beyond that, two different people's browsers were used,
+# and both had their bookmarks bar visible; several also show a profile
+# photograph and the extensions they have installed.
+#
+# Three of the thirteen live screenshots are clean and are deliberately absent:
+# intake_dashboard_overview.png, new_referrals_detail.png and
+# tab_navigation.png were captured as the application only.
+#
 # path relative to static/ -> (original height, pixels of chrome to remove, why)
 CHROME = {
 	'case_worker/dashboard/my_active_cases.png': (
-		862,
-		97,
-		'Address bar showing an internal Azure staging host, plus a personal '
-		'bookmarks bar with private mail and banking links.',
+		862, 97,
+		'Address bar with the staging host, plus a personal bookmarks bar '
+		'reading as private mail and banking.',
+	),
+	'case_worker/dashboard/activites_needs_followup.png': (
+		932, 110,
+		'Same browser and same bookmarks bar as my_active_cases.',
+	),
+	'case_worker/dashboard/analytic.png': (
+		473, 41,
+		'Lower edge of the same bookmarks bar, already partly cropped by the '
+		'original author.',
+	),
+	'intake_officer/dashboard/Analytic.png': (
+		698, 68,
+		'Address bar with the staging host; profile avatar.',
+	),
+	'intake_officer/dashboard/in_review_referral.png': (
+		826, 69,
+		'Address bar with the staging host; profile avatar.',
+	),
+	'intake_officer/dashboard/new_intake.png': (
+		931, 68,
+		'Address bar with the staging host; profile avatar.',
+	),
+	'intake_officer/dashboard/pending_service_review_referral.png': (
+		715, 110,
+		'Address bar with the staging host; profile avatar.',
+	),
+	'intake_officer/dashboard/post_dispatch_referral.png': (
+		952, 66,
+		'Address bar with the staging host; profile avatar.',
+	),
+	'supervisor/dashboard/analytic.png': (
+		571, 104,
+		'A second person\'s browser — address bar with the staging host, their '
+		'bookmarks bar, their profile photograph and their installed extensions.',
+	),
+	'supervisor/dashboard/pending_referral_service_request.png': (
+		642, 102,
+		'Same second browser, same bookmarks bar and profile photograph.',
+	),
+	'supervisor/dashboard/service_needing_contact_and_pending_service_dispatch.png': (
+		947, 109,
+		'Same second browser, same bookmarks bar and profile photograph.',
 	),
 }
 
