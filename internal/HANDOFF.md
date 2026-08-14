@@ -140,7 +140,28 @@ Sweep all 36 under `static/img/manual/`, then fix the prose. The clearest
 current mismatch is `docs/manual/working-with-someone.mdx`, which lists the
 overview regions as bullets beside a screenshot numbered 1–7.
 
-### 5. Embedded screenshots look soft; the clicked-through version is sharp
+### 5. Screenshot presentation — sharpness, and how enlarging behaves
+
+Two related problems in `src/components/Screen.tsx` and its stylesheet.
+
+**5a. Enlarging dumps the reader into a new browser tab.** `Screen.tsx:32` uses
+`<a href={src} target="_blank">`, so clicking a screenshot opens the raw PNG on
+its own, losing the page entirely. On a phone that means backing out of a tab to
+get home — bad for a reader who is mid-task and not a confident computer user.
+
+Wanted: show the image **above** the current page, dismissed easily to return to
+where they were. Requirements if it is built: Escape closes it, clicking the
+backdrop closes it, a visible close control (not just a gesture), focus moves
+into the overlay and returns to the triggering image on close, background scroll
+locked while open, and `prefers-reduced-motion` respected. No external library —
+the site is self-contained.
+
+Note this interacts with 5b: once images render at natural size, the 18 that are
+narrower than the column gain nothing from enlarging. Consider offering the
+overlay only where the natural width genuinely exceeds the display width, so the
+affordance means something rather than appearing on every image.
+
+### 5b. Embedded screenshots look soft; the clicked-through version is sharp
 
 Lower priority, but already diagnosed — **this is a CSS bug, not an image
 problem, and it needs no image manipulation.**
