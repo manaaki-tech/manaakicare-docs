@@ -14,23 +14,30 @@ const TerminologyContext = createContext<TerminologyContextValue>({
 const SESSION_KEY_ENV = 'mc_docs_env';
 const SESSION_KEY_ORG = 'mc_docs_org_id';
 
+/** Env keys that mean "the machine serving these docs", not a fixed hostname. */
+const LOCAL_ENVS = ['local', 'development'];
+
 /**
  * Resolves the API base URL for an env key.
  *
- * `local` is resolved against whatever host the docs are being served from,
- * rather than the literal hostname in the config. Serving the docs over the
- * LAN (http://192.168.100.10:3000) and pointing at `http://localhost:8000`
+ * Local envs are resolved against whatever host the docs are being served
+ * from, rather than the literal hostname in the config. Serving the docs over
+ * the LAN (http://192.168.100.10:3000) and pointing at `http://localhost:8000`
  * would send the request to the *viewer's* machine, not the server running
  * the backend. The port still comes from the config entry, so it stays
  * configurable in one place.
  *
  * Browsing at http://localhost:3000 is unaffected — the hostname resolves
  * back to `localhost`.
+ *
+ * `development` is in that list because it is what the application actually
+ * sends outside a deployed environment; `local` is kept because it is what
+ * anyone testing this by hand has been typing.
  */
 function resolveBaseUrl(env: string, apiUrls: Record<string, string>): string | undefined {
 	const configured = apiUrls[env];
 	if (!configured) return undefined;
-	if (env !== 'local') return configured;
+	if (!LOCAL_ENVS.includes(env)) return configured;
 
 	try {
 		const url = new URL(configured);

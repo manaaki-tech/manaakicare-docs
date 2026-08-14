@@ -26,9 +26,38 @@ const config: Config = {
   projectName: REPO_NAME,
 
   customFields: {
+    // Keyed by the `env` query parameter the application appends when it links
+    // here. The application builds that link in AppHeader.tsx from
+    // `import.meta.env.VITE_ENVIRONMENT`, which its deploy workflows hardcode.
+    // The keys below must match those strings exactly — an unrecognised `env`
+    // falls through to default English with only a console warning, which no
+    // reader will ever see.
+    //
+    // What the application actually sends:
+    //
+    //   production  — the NPO production deployment. HOSTNAME UNKNOWN, see below.
+    //   sandbox     — HOSTNAME UNKNOWN.
+    //   uat         — see the warning on the uat entry.
+    //   sit         — believed correct.
+    //   development — the dev-time fallback when VITE_ENVIRONMENT is unset.
+    //
+    // `production` and `sandbox` are deliberately absent rather than guessed.
+    // A wrong hostname fails exactly as silently as a missing one, so leaving
+    // them out at least keeps the gap visible here. Both values live in the
+    // VITE_API_URL GitHub Actions secret for their environment.
+    //
+    // NOTE: even once these are filled in, terminology stays broken until the
+    // backend has Terminology rows of type=DOCS. TerminologyDocsView filters on
+    // that type and returns {} when there is none, and as of 2026-08-14 no
+    // organisation had one — only a type=frontend row.
     terminologyApiUrls: {
       local: 'http://localhost:8000',
+      development: 'http://localhost:8000',
       sit: 'https://api.manaakitech.com',
+      // UNVERIFIED. The deployed UAT bundle references
+      // manaakicentral-uat-backend.azurewebsites.net and never mentions
+      // api-uat.manaakicentral.com, and the two resolve to different hosts.
+      // Confirm before relying on this.
       uat: 'https://api-uat.manaakicentral.com',
     },
   },
