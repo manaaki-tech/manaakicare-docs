@@ -111,35 +111,55 @@ Non-negotiable, because they are what makes it usable for this reader:
 
 Ranked by how badly each one hurts on Monday.
 
-### 4.1 BLOCKER — there is no `prod` terminology environment
+### 4.1 BLOCKER — terminology is broken three separate ways
 
-`docusaurus.config.ts` configures terminology API URLs for `local`, `sit`
-and `uat`. There is no `prod`.
+**Revised after checking with the frontend repo.** My first reading of this was
+wrong in a way worth recording: I had it as "the config is missing a production
+entry", a one-line fix. There are three independent faults, and fixing any one
+or two of them still leaves every reader on default English.
 
-Terminology only loads when the reader arrives with `?env=…&org_id=…` in the
-URL; the site then fetches
-`{baseUrl}/api/v1/organisations/terminologies/{org}/docs/`. With no `prod`
-entry, a production deep link falls into the "unknown env" branch, logs a
-console warning nobody will ever see, and silently renders **default English
-terminology** — Service Episode, Client, Case Worker, Referral.
+**Fault 1 — there is no terminology data, for any organisation.** The backend
+`TerminologyDocsView` filters on a separate `type='docs'` row. In SIT the whole
+terminologies table is a single row, of type `frontend`. No organisation has a
+docs-type row, so the endpoint returns `{}` to everyone regardless of config or
+parameters. Somebody has to author those rows; it is backend work and nobody
+owns it today.
 
-So on Monday, every user at a tenant that renames things reads a manual in
-vocabulary their software does not use. Silently. This is the single highest
--value fix on the list and it is roughly one line, once we know the
-production API hostname.
+**Fault 2 — our env keys never matched what the app sends.** *Fixed.* The good
+news is the app does link here and does append both parameters —
+`AppHeader.tsx` builds `https://docs.manaakitech.com/?env=…&org_id=…`. But its
+deploy workflows hardcode `VITE_ENVIRONMENT` to `production` and `sandbox`,
+while our map held `local`, `sit`, `uat`. Production sent `?env=production` and
+matched nothing. Adding a key called `prod`, as originally proposed, would not
+have worked either.
 
-Three things must all be true for terminology to work in production:
+Now fixed: `production` is `https://api.manaakicentral.npo.org.nz`, recovered
+from the deployed NPO bundle where it is the configured SDK base — not from the
+runbook, which still names `api.manaakitech.com` for production. That host is
+SIT. `development` was also added, since that is the app's dev-time fallback,
+and `local` was never reachable at all.
 
-1. `prod` added to `terminologyApiUrls` with the real hostname.
-2. That endpoint publicly readable and CORS-enabled for
-   `https://docs.manaakitech.com` — it is fetched from the browser, with no
-   credentials.
-3. The application links to the docs **with `env` and `org_id` attached**.
-   This is a change in the app repo, not here. Needs confirming.
+**Fault 3 — production CORS does not allow this origin.** Verified against the
+live endpoint on 2026-08-14. It is public and needs no auth, correctly. But
+called with `Origin: https://manaakicentral.npo.org.nz` it returns
+`access-control-allow-origin`; called with `Origin: https://docs.manaakitech.com`
+it returns no CORS headers at all. Both get HTTP 200, which is what makes this
+easy to miss — `curl` does not enforce CORS and a browser does. Fix is adding
+`https://docs.manaakitech.com` to `CORS_ALLOWED_ORIGINS` on the backend App
+Service. Note the fail-open branch in `common.py` only triggers when both origin
+lists are empty, so a populated list that omits us hard-blocks the fetch.
 
-Related, and worth knowing: the org is remembered in `sessionStorage`, which
-is per-tab. A user who opens the manual in a second tab, or reopens it
-tomorrow from a bookmark, silently drops back to default terminology.
+Two further facts worth carrying:
+
+- Only the **NPO** production deployment exists. The `manaakicentral-prod`
+  environment and branch were never created, so "production" means NPO.
+- `helpId` frontmatter has **zero consumers** in the app. The link goes to the
+  docs root; there is no per-page deep linking. Someone planned contextual help
+  and it was not built. The IDs here are stable and ready if it ever is.
+
+Related: the org is remembered in `sessionStorage`, which is per-tab. A user who
+opens the manual in a second tab, or from tomorrow's bookmark, drops back to
+default terminology.
 
 ### 4.2 The screenshots and the prose cannot agree
 
@@ -196,6 +216,31 @@ not cover it" and they stop looking.
 Cheap mitigation for Monday: seed each Manual page's frontmatter with
 `keywords` covering the common tenant vocabulary, so those words are in the
 index even when the visible prose says otherwise. Not elegant. Works.
+
+### 4.4a The repository is public, and the history keeps what the crop removed
+
+Confirmed: `manaaki-tech/manaakicare-docs`, visibility PUBLIC.
+
+Two consequences that were not obvious at the start.
+
+**The leaked screenshot is still in published history.** Cropping the browser
+chrome out of `case_worker/dashboard/my_active_cases.png` fixed what the site
+serves. It did not remove the original, which is still reachable on
+`origin/main` — the commit that added it is `8046051`. Anyone who knows to look
+can still download a colleague's bookmarks bar.
+
+Removing it properly means rewriting published history with `git filter-repo` or
+BFG and force-pushing over branches other people are working on. That is a
+decision for a person, not something to do unannounced.
+
+Recommendation: do it, but on Monday **after** the launch. It is a colleague's
+personal bookmarks rather than customer data, and a botched force-push on
+launch morning is the worse outcome. Tell the colleague either way.
+
+**The source `.docx` files must not be committed.** They hold the unredacted
+screenshots. They are now gitignored; only the redacted output under
+`static/img/manual/` belongs in the repo. Anyone re-running
+`tools/build_manual_images.py` needs to fetch them from the shared drive first.
 
 ### 4.4 We would be publishing a named customer's data on a public site
 
