@@ -464,3 +464,93 @@ hr {
     font-size: 1.35rem;
   }
 }
+
+/* ============================================
+   PRINT
+   ============================================
+
+   Organisations put printed walkthroughs into induction packs, and some of
+   the people using this system would rather work from paper than from a
+   second browser tab. Without this, printing gives you the sidebar, the
+   navbar, the search box and a footer full of links, wrapped around a narrow
+   column of content.
+
+   The screenshots are the reason this manual exists, so they are kept — but
+   they must not be split across a page break, and neither must a step from
+   its heading.
+   ============================================ */
+
+@media print {
+  /* Chrome that means nothing on paper. */
+  .navbar,
+  .theme-doc-sidebar-container,
+  .theme-doc-toc-desktop,
+  .theme-doc-toc-mobile,
+  .theme-doc-breadcrumbs,
+  .pagination-nav,
+  .theme-doc-footer-edit-meta-row,
+  .footer,
+  .DocSearch,
+  .clean-btn {
+    display: none !important;
+  }
+
+  /* Reclaim the full page width the sidebar was holding. */
+  main,
+  .docMainContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocRoot-Layout-Main-styles-module,
+  .container,
+  .col {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+  }
+
+  /* Keep a screenshot with its caption, and both off a page boundary. */
+  figure,
+  img,
+  table,
+  pre {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Never orphan a heading at the foot of a page. */
+  h1, h2, h3, h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+    color: #000 !important;
+  }
+
+  /* Callouts carry the warnings; keep them visible without their fill, which
+     prints as muddy grey on most office printers. */
+  [class*='callout'] {
+    border: 1px solid #999 !important;
+    background: transparent !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Underlining every link is noise when none of them are clickable. */
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  /* Each manual page starts a fresh sheet. */
+  article {
+    page-break-before: auto;
+  }
+}

@@ -19,6 +19,18 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Source screenshots for the user manual.
+#
+# This repository is PUBLIC. The supplied .docx files contain unredacted
+# screenshots carrying a named customer organisation, staff names and a work
+# email address, so they must not be committed — the published images under
+# static/img/manual/ are the redacted output, and those are the only versions
+# that belong here.
+#
+# tools/build_manual_images.py reads these files. To re-run it, obtain the
+# .docx from the shared drive and put them back in this folder.
+/ScreenshotsForUserManual
+
 # IDE
 .idea/
 .vscode/
@@ -27,3 +39,6 @@ yarn-error.log*
 
 # TypeScript
 *.tsbuildinfo
+
+# Generated single-file read-through (tools/build_manual_preview.py)
+/manual-preview.html

@@ -9,6 +9,8 @@ import MDXComponents from '@theme-original/MDXComponents';
 // Import our custom components
 import Callout from '@site/src/components/Callout';
 import Term from '@site/src/components/Term';
+import Screen from '@site/src/components/Screen';
+import PictureWords from '@site/src/components/PictureWords';
 
 export default {
   // Spread the default components
@@ -16,4 +18,6 @@ export default {
   // Add our custom components
   Callout,
   Term,
+  Screen,
+  PictureWords,
 };

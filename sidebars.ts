@@ -13,6 +13,31 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   docsSidebar: [
     'intro',
+    // The task-oriented layer, pinned above the entity-organised reference
+    // below it. Someone who has just been handed a login is looking for "how
+    // do I write up a visit", not for the Activities section.
+    {
+      type: 'category',
+      label: 'User Manual',
+      link: {
+        type: 'generated-index',
+        title: 'User Manual',
+        description:
+          'Step-by-step walkthroughs of the everyday jobs, with pictures. Start here if you are new.',
+      },
+      items: [
+        'manual/start-here',
+        'manual/signing-in',
+        'manual/finding-your-way-around',
+        'manual/your-day-at-a-glance',
+        'manual/taking-on-someone-new',
+        'manual/working-with-someone',
+        'manual/writing-up-what-you-did',
+        'manual/staying-on-top-of-deadlines',
+        'manual/finishing-up',
+        'manual/when-something-looks-wrong',
+      ],
+    },
     {
       type: 'category',
       label: 'Getting Started',
