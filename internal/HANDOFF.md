@@ -14,14 +14,22 @@
 ## Where we are
 
 - **2026-08-15 — User Manual shipped for the Monday launch, and production
-  terminology fixed.** Ten task-oriented walkthroughs added above the reference
-  section; 36 screenshots extracted, redacted and published; ten leaking live
-  screenshots cropped. Terminology now resolves in production for NPO. Merged as
-  `ae8ade7`, deployed successfully.
-  → [`internal/sessions/2026-08-15-user-manual-launch-closeout.md`](sessions/2026-08-15-user-manual-launch-closeout.md)
+  terminology fixed.** Ten task-oriented walkthroughs, 36 screenshots redacted
+  and published, ten leaking live screenshots cropped. Merged as `ae8ade7`.
+  → [`sessions/2026-08-15-user-manual-launch-closeout.md`](sessions/2026-08-15-user-manual-launch-closeout.md)
 
-**Branch:** `main` at `ae8ade7` (plus `chore/session-close-2026-08-15` for this
-closeout). **Live:** bundle `main.96c8af79.js` on docs.manaakitech.com.
+- **2026-08-15 — Manual reorganised by job, three factual errors corrected.**
+  The manual now reads as one sequence per role rather than one lifecycle across
+  all roles; the four `user-roles/*` pages moved in as each role's "what you can
+  do". Also: the activity edit window was wrong on three pages (10 days, not 24
+  hours), closing an episode is not permission-gated, and screenshots no longer
+  open in a new tab or get upscaled.
+  → [`sessions/2026-08-15-role-restructure-closeout.md`](sessions/2026-08-15-role-restructure-closeout.md)
+
+**Branch:** `docs/role-restructure`, pushed, **PR
+[#9](https://github.com/manaaki-tech/manaakicare-docs/pull/9) open and not
+merged.** It also carries the previously-stranded `internal/` docs and
+`.claude/agents/` definitions, merged in from `chore/session-close-2026-08-15`.
 
 **Verification gate:** no test suite. Use `npm run build` — meaningful because
 `onBrokenLinks: 'throw'`.
@@ -30,257 +38,139 @@ closeout). **Live:** bundle `main.96c8af79.js` on docs.manaakitech.com.
 
 ## Next session
 
-**Mandate: six items. Item 0 restructures what items 1 and 4 operate on, so
-settle it first.**
+### 1. Readability pass on the four "what you can do" pages
 
-### 0. Fold the manual into the user-role pages
+The restructure moved `docs/user-roles/*.mdx` into the manual as
+`docs/manual/<role>/what-you-can-do.mdx`. Their titles and openers were
+rewritten, but **the bodies are still reference-register prose inside a manual
+written for non-confident readers.** The launch session's readability audit
+ranked these four among the worst pages on the site, and they now sit in the
+manual's first screen for every role.
 
-**The founder's judgement after reading the shipped manual**, and it is a
-correction to the architecture the launch session chose:
+What is still wrong, with line numbers from the moved files:
 
-- **It duplicates docs that already existed.** `manual/signing-in` over
-  `getting-started/logging-in`; `manual/finding-your-way-around` over
-  `getting-started/navigating-the-system`; `manual/your-day-at-a-glance` over
-  `dashboards/*`.
-- **Read in sequence it mixes roles, which is confusing.** The ten pages follow
-  the *lifecycle*, not one person's job. `manual/taking-on-someone-new` is intake
-  officer and supervisor work — a <Term caseWorker /> cannot even see the
-  **+ New Entry** button, which that very page says out loud. So a case worker
-  reading start-to-finish hits a long page that is not their job at all.
+- **ASCII arrow diagrams** — `case-worker/what-you-can-do.mdx:103-111` (Daily
+  Workflow) and `:115-119` (episode lifecycle); `supervisor/…:82-86` and
+  `:90-96`; `program-manager/…:100-105` and `:109-116`. Plain-text arrow chains
+  in code fences. Prose or an ordered list will read better, and they do not
+  reflow on a phone.
+- **"Key Responsibilities"** sections — third-person HR register ("Case Workers
+  are front-line staff who manage direct relationships") in a manual that
+  otherwise says "you".
+- **"Best Practices"** — four H3s per page of generic advice. Much of it
+  duplicates the task pages now sitting directly beneath it in the same
+  category. Candidate for deletion rather than rewriting.
+- **`case-worker/what-you-can-do.mdx:116`** still shows `awaiting_commencement`
+  inside an ASCII lifecycle diagram — the same raw-status problem already fixed
+  in `docs/dashboards/case-worker.mdx`.
 
-Wanted instead: integrate the manual's content into
-`docs/user-roles/{case-worker,intake-officer,supervisor,program-manager}.mdx`,
-role-relevant, so each role reads one sequence entirely theirs. That also fits
-because the readability audit ranked those four pages among the worst for this
-audience — permission tables and ASCII diagrams, no procedures.
+**Keep the permission tables.** They are the reason these pages exist and the
+one thing a reader cannot get elsewhere. `intake-officer/what-you-can-do.mdx`
+has no Data Visibility section at all, unlike the other three — a real gap, not
+a formatting one.
 
-**First-pass mapping — the unit of migration is the SECTION, not the page.**
-Two manual pages split across roles internally, so a page-level move misfiles
-content. Evidence is `file:line`; rows without it are marked as guesses.
+### 2. Screenshots — four captures, five crops
 
-| Content | Primary | Secondary | Varies? | Evidence |
-|---|---|---|---|---|
-| Start here, Signing in, Finding your way around, When something looks wrong | all roles | — | no | orientation, no permission gate |
-| Your day at a glance | each role, own dashboard | — | no | `docs/dashboards/*` already split this way |
-| **Taking on someone new** | **intake officer** | supervisor, programme manager | no | `referrals/creating-a-referral.mdx:24-26` — **+ New Entry** is intake/supervisor/PM only; `user-roles/case-worker.mdx:63` *Allocate: No* |
-| ↳ its *"Filling in the rest"* section | **contested** | — | **yes** | intake info, whānau background and support network can be completed by intake officer or case worker depending how the team divides it |
-| **Working with someone** | **case worker** | — | no | `service-episodes/starting-an-episode.mdx:13` — commencing is "something a <Term caseWorker /> does deliberately" |
-| ↳ its *"Changing who works with them"* section | **supervisor / programme manager** | — | no | `user-roles/supervisor.mdx:50`, `program-manager.mdx:50` *Allocate: Yes*; `case-worker.mdx:63` *No* |
-| **Writing up what you did** | **case worker** | supervisor, PM (view only) | no | `case-worker.mdx:55` *Create activities/case notes: Yes*; `program-manager.mdx:54` *View all team activities* — everyone reads, one role writes |
-| Staying on top of deadlines | case worker | supervisor (oversight) | mild | `case-worker.mdx:60` *Upload documents: Yes* |
-| **Finishing up** | **supervisor / manager (by practice)** | case worker initiates | **yes** | **Reported by a case worker, not verified in code:** episodes are taken to the supervisor or manager to be closed. No role page states who *may* close — absent from all four permission tables, and `service-episodes/closing-an-episode.mdx` never names a role. |
+MJ is capturing. **Four are genuinely needed:** the case-worker *Activities
+Needing Follow-up* table, and all three supervisor dashboard images (nothing in
+the repo covers the supervisor dashboard).
 
-**Resolve the Finishing up gap before filing it.** There are two different
-answers and they need different wording: does the system *permit* only
-supervisors to close, or does it permit case workers and the organisation's
-practice is to escalate? Check the frontend or backend for the permission, then
-write the practice as practice. Do not present a convention as a system rule.
+**Five can be cropped from existing current-build images** with `tools/pngkit.py`
+— `static/img/manual/dashboard/intake-dashboard.png` holds the intake overview,
+the New Referrals drill-down and the tab strip; `dashboard/my-caseload.png` holds
+the analytics tiles and the active-cases table.
 
-**On content that spans roles**, e.g. writing up activities: prefer one shared
-page owned by the case worker, with supervisor and programme manager pages
-linking *into* it under "what you'll see from your team", rather than three
-copies that drift apart.
+Destination paths already exist and are referenced, so a file can be dropped in
+without touching prose: `static/img/dashboards/{case-worker,supervisor,intake-officer}/`.
+The outdated images sit there now as placeholders.
 
-Trade-offs to settle before moving files:
+**If the crops are used**, add `<PictureWords />` to `docs/dashboards/*.mdx` —
+those pages do not render it, so NPO vocabulary in the pixels would go
+unexplained for a default-config reader.
 
-- **Genuinely shared content.** Recording an activity spans roles. Copying it
-  into each role page trades one duplication for another. Shared pages roles
-  link into, or accept repetition?
-- **URLs change**, and `onBrokenLinks: 'throw'` — every internal link must move
-  in the same pass, including `docs/intro.mdx`, pointed at `/manual/start-here`.
-- **What happens to the Manual category?** Could disappear, or become a short
-  "which role are you?" chooser.
-- Screenshots and the `<Screen>` / `<PictureWords>` components carry over
-  unchanged — this re-organises prose, not assets.
+### 3. Unverified on this machine
 
-### 1. Verify the vocabulary tables against a real tenant
-
-`src/components/PictureWords.tsx` renders a "Where a picture says / Your screen
-says" table, filtered to rows where the reader's configured word differs from
-the word visible in the screenshots.
-
-Now that terminology loads in production, NPO's four configured terms match
-`PICTURE_WORDS` exactly, so the component should render **nothing at all** for
-them. That is the designed behaviour, but it has never been seen in a browser.
-
-Confirm what actually renders, for NPO and for a default-config reader, before
-changing anything. Live check:
-
-```
-https://docs.manaakitech.com/manual/start-here?env=production&org_id=90040e7a-ada0-4dc2-baaf-816713abf209
-```
-
-Only then decide whether the table is still the right shape, whether it belongs
-on every page or once, and whether `PICTURE_WORDS` (4 keys) should cover more of
-`default.json` (9 keys).
-
-### 2. Audit and replace outdated screenshots in the non-manual sections
-
-The Dashboards, Referrals, Clients, Service Episodes and User Roles sections
-still use the older screenshot set. Known problems in those images:
-
-- superseded **"Manaaki Care"** branding (product is now "Manaaki Central")
-- raw database statuses shown as labels — `awaiting_commencement`, `completed`
-- an older UI that predates the compliance panel and the current layout
-- scratch data: "ma red", "bed red", "fsd afs", "Emer gent", "Crisis Dude"
-
-Do a full pass to identify every outdated image, then replace. Note the
-surrounding prose often describes these screenshots closely (column names,
-example reference numbers), so a replacement usually needs a prose edit too —
-that is why the launch session cropped rather than replaced.
-
-### 3. Terminology does not reach category "switchboard" pages
-
-Clicking a parent sidebar item (e.g. "Entries") opens a `generated-index` page
-whose labels are **not** terminology-swapped. Confirmed live on
-`/category/referrals/` — the sidebar reads "Entries" while the page reads
-"Referral Management" and lists cards titled "Creating a Referral" and "Finding
-or Creating the Client".
-
-Four untermed surfaces on every category page:
-
-1. the page `<h1>` — from `generated-index.title` in `sidebars.ts`
-2. the page description — from `generated-index.description`
-3. each card title — from the target doc's frontmatter `title`
-4. each card description — from the target doc's frontmatter `description`
-
-Only `DocSidebarItem/Link` and `DocSidebarItem/Category` are swizzled. `DocCard`
-and the generated-index page are not. Follow the existing pattern at
-`src/theme/DocSidebarItem/Category/index.tsx:17,23`.
-
-### 4. Match instruction lists to red numbers in the screenshots
-
-Several screenshots carry pre-drawn red numbered callouts from the source
-documents. Where an image has them, the accompanying instructions should be an
-**ordered list keyed to those numbers**, not bullets, so the reader can map
-number to step.
-
-Directly confirmed as carrying red numbers: `journey/03-overview-tour.png`
-(1–7), `intake/04-entry-details.png` (1–7), `activities/06-templates.png` (1–4).
-Reported but unverified: `intake/05-referrer-and-risk.png`,
-`intake/15-family-background.png`, `intake/17-add-a-contact.png`,
-`journey/02-person-header.png`, `activities/02-activity-log.png`,
-`activities/03-essentials.png`, `activities/04-remote.png`,
-`navigation/left-menu.png`.
-
-Sweep all 36 under `static/img/manual/`, then fix the prose. The clearest
-current mismatch is `docs/manual/working-with-someone.mdx`, which lists the
-overview regions as bullets beside a screenshot numbered 1–7.
-
-### 5. Screenshot presentation — sharpness, and how enlarging behaves
-
-Two related problems in `src/components/Screen.tsx` and its stylesheet.
-
-**5a. Enlarging dumps the reader into a new browser tab.** `Screen.tsx:32` uses
-`<a href={src} target="_blank">`, so clicking a screenshot opens the raw PNG on
-its own, losing the page entirely. On a phone that means backing out of a tab to
-get home — bad for a reader who is mid-task and not a confident computer user.
-
-Wanted: show the image **above** the current page, dismissed easily to return to
-where they were. Requirements if it is built: Escape closes it, clicking the
-backdrop closes it, a visible close control (not just a gesture), focus moves
-into the overlay and returns to the triggering image on close, background scroll
-locked while open, and `prefers-reduced-motion` respected. No external library —
-the site is self-contained.
-
-Note this interacts with 5b: once images render at natural size, the 18 that are
-narrower than the column gain nothing from enlarging. Consider offering the
-overlay only where the natural width genuinely exceeds the display width, so the
-affordance means something rather than appearing on every image.
-
-### 5b. Embedded screenshots look soft; the clicked-through version is sharp
-
-Lower priority, but already diagnosed — **this is a CSS bug, not an image
-problem, and it needs no image manipulation.**
-
-`src/components/Screen.module.css:27-31` sets `.frame img { width: 100% }`,
-which forces every screenshot to fill the ~800px content column. **Exactly half
-of them — 18 of 36 — are narrower than that**, so they are being upscaled by the
-browser. `compliance/01-compliance-panel.png` is 301px stretched to ~800px, a
-2.65× blow-up. Clicking opens the file at natural size, which is why it looks
-sharp: that is the same pixels, undistorted.
-
-Likely fix, one line: `max-width: 100%` instead of `width: 100%`, so images only
-ever scale *down*. Then decide how mixed widths should sit in the flow.
-
-`journey/01-overview.png` is the one that already looks right — captured at
-1917px, downscaled to 1600px, so it renders at ~800px as a true 2× image. That
-is the eventual standard: re-shoot at twice the display width. The CSS change is
-the cheap fix that stops making things worse meanwhile.
+- **The enlarge overlay has never been exercised.** No browser here. Escape,
+  backdrop click, focus return, scroll lock, and the resize recompute all
+  compile and the markup is right, but nobody has clicked one.
+- **Terminology on category pages** is verified only as a pure function.
+  Confirm live: `/category/referrals/?env=production&org_id=90040e7a-ada0-4dc2-baaf-816713abf209`
+  should read "Entry Management" with a card titled "Creating an Entry".
 
 ### Project context already mapped (don't re-explore)
 
-- **`PictureWords`** — `src/components/PictureWords.tsx`; `PICTURE_WORDS` at
-  line 26 records the screenshots' vocabulary; rows matching the reader's own
-  word are filtered; returns `null` when none remain.
-- **`TerminologyProvider`** — `src/lib/terminology/TerminologyContext.tsx:45`.
-  Needs `?env=…&org_id=…`; persists to `sessionStorage` (`mc_docs_env`,
-  `mc_docs_org_id`) which is **per-tab**; silently defaults if `env` is unknown.
-- **`resolveBaseUrl`** — same file, line 64. `LOCAL_ENVS` resolve against the
-  serving hostname.
-- **`applyTerminology`** — `src/lib/terminology/applyTerminology.ts:57`. For
-  places `<Term>` cannot reach: sidebar labels, mermaid source. Handles aliases
-  ("Episode", "Episode of Care", "Client") and indefinite articles.
-- **Swizzles** — `src/theme/DocSidebarItem/{Category,Link}/index.tsx`.
-- **`Screen`** — `src/components/Screen.tsx`, styles at
-  `src/components/Screen.module.css:27` (the `width: 100%` in item 5).
-- **NPO production terminology** — endpoint
-  `https://api.manaakicentral.npo.org.nz/api/v1/organisations/terminologies/90040e7a-ada0-4dc2-baaf-816713abf209/docs/`
-  returns `referral: Entry|Entries`, `caseWorker: Kaiāwhina|Kaiāwhina`,
-  `serviceUser: Whānau|Whānau`, `serviceEpisode: Care Journey|Care Journeys`.
-
-Screenshot tooling (`pngkit`, `build_manual_images`, `fix_live_screenshots`,
-`build_manual_preview`) is documented in the closeout — see "Project context
-mapped during this session" there rather than repeating it here.
+- **`Screen`** — `src/components/Screen.tsx`. `WORTH_ENLARGING` ratio `:49`,
+  runtime measurement `:64`, overlay effect `:80`. The affordance is computed
+  from `naturalWidth` vs `clientWidth` **at runtime**, not from a build-time
+  table, because it depends on the viewport. 13 of 38 usages pass `narrow`,
+  which caps display at 26rem ≈ 416px (`Screen.module.css:47`).
+- **Swizzles** — `src/theme/DocSidebarItem/{Category,Link}/`, plus new
+  `src/theme/DocCard/index.tsx` (resolves the description via `useDocById`,
+  because the original's fallback happens internally) and
+  `src/theme/DocCategoryGeneratedIndexPage/index.tsx`.
+- **`applyTerminology`** — `src/lib/terminology/applyTerminology.ts:57`. Pipe
+  keys and aliases both go through `replaceAlias` (case-insensitive, corrects
+  indefinite articles). **`simpleKeys` deliberately still uses the literal
+  replace** — they have no stored plural, so word-boundary matching would break
+  "dashboards".
+- **`PictureWords`** — `src/components/PictureWords.tsx`, `PICTURE_WORDS` at
+  `:29`. Covers 4 of `default.json`'s 9 keys; uncovered are `activity`,
+  `caseload`, `cases`, `dashboard`, `supervisorDashboard`.
+- **Backend answers** (repo `manaakicare-backend`) — activity edit window
+  `apps/case_managements/permissions.py:36` (`timedelta(days=10)`), creator-only
+  check `:32`. Closing an episode: `apps/case_managements/views.py:225`,
+  `IsAuthenticated` only, organisation check at `:265-273`, **no role gate**.
+- **Preview tool** — `tools/build_manual_preview.py`; `PAGES` list at `:29` must
+  be updated by hand whenever manual pages move.
 
 ---
 
 ## Carry-forward gotchas
 
 - **`docs/` is published.** Never put internal notes, specs or handoffs there.
-- **The repo is public** (`manaaki-tech/manaakicare-docs`). Anything committed to
-  `static/` is world-readable, and history is permanent.
-- **Unresolved:** the pre-crop screenshots exposing two colleagues' personal
-  bookmark bars are still in published history at commit `8046051`. Cropping
-  fixed what the site serves, not what the repo remembers. Needs a history
-  rewrite — a human decision, deliberately deferred past launch.
+- **The repo is public** (`manaaki-tech/manaakicare-docs`). Anything in
+  `static/` is world-readable and permanent in history.
+- **Unresolved:** pre-crop screenshots exposing two colleagues' bookmark bars
+  are still in published history at commit `8046051`. Needs a history rewrite —
+  a human decision, deliberately deferred.
 - **Direct commits to `main` are blocked** by a pre-commit guard. Branch first.
 - **`npm run build` wipes `build/`.** Never write generated artefacts there.
 - **Testing terminology locally will fail.** CORS allows
-  `https://docs.manaakitech.com` only, so a page served from localhost or the
-  LAN IP falls back to default English. That is expected, not a bug.
-- **Unresolved product/docs contradictions**, both detailed in the closeout: the
-  reference pages have drifted from the current build (Commence Episode vs Start
-  working with…, Exit vs Close Episode), and two of them disagree on whether an
-  activity is editable for 24 hours or 10 days.
-- **Verify subagent output.** A catalogue agent asserted no plural bug existed
-  when `journey/01-overview.png` plainly shows "1 days active" / "1 activities".
+  `https://docs.manaakitech.com` only.
+- **Checking out a branch changes which subagents exist.** `.claude/agents/`
+  defines `docs-sweeper`, `docs-writer`, `docs-critic`, `role-mapper`. They
+  vanish on a branch that lacks the directory.
+- **Verify subagent output, especially negative claims.** Across two sessions:
+  one agent asserted no plural bug where `journey/01-overview.png` plainly shows
+  "1 activities"; another generalised a data finding from SIT to production. A
+  third ignored a stand-down and produced a full report after being told to stop.
+- **Subagent reports may arrive late or need asking for.** All three agents this
+  session signalled idle without delivering; two responded to an explicit
+  request, one delivered spontaneously minutes later.
 
 ---
 
 ## Reminders for MJ — not Claude's to action
 
-- **Replace `static/img/manual/closure/01-close-the-journey.png`.** The dialog in
-  that screenshot reads **"Complete Episode"** — default English — even though
-  the action that opens it reads "Exit Care Journey" in the same tenant. The
-  frontend is not applying terminology to that modal. MJ is replacing the
-  screenshot once the app side is fixed; until then the manual names both labels
-  rather than pretending to know which the reader will see.
+- **Replace `static/img/manual/closure/01-close-the-journey.png`.** Its dialog
+  reads "Complete Episode" — default English — while the action that opens it
+  reads "Exit Care Journey" in the same tenant. The frontend is not applying
+  terminology to that modal.
 
-  This is the same half-migration the launch session recorded elsewhere: one
-  caseload screen showing "In-progress Journeys", "My Caseload", "Service
-  episodes currently in progress" and "My Service Episodes" at once, and a
-  journey overview using "Kaiāwhina" in one panel and "Kaimahi" in another. Worth
-  raising with whoever owns the frontend as a single terminology-coverage pass
-  rather than one modal at a time.
+  Same half-migration elsewhere: one caseload screen showing "In-progress
+  Journeys", "My Caseload", "Service episodes currently in progress" and "My
+  Service Episodes" at once; a journey overview using "Kaiāwhina" in one panel
+  and "Kaimahi" in another. Worth raising as a single terminology-coverage pass.
+  **This also blocks per-org screenshot variants** — see the closeout.
 
-- **Confirm who is permitted to close an episode** (see item 0's mapping table) —
-  needed before "Finishing up" can be filed under a role.
+- **An unredacted phone number is published and you chose to leave it:**
+  `static/img/manual/intake/05-referrer-and-risk.png` shows an ACC office number
+  and a contact's number. Recorded here so it is a decision, not an oversight.
 
 ## Key reference docs
 
-- `internal/specs/2026-08-14-user-manual-launch-design.md` — design and the full
+- `internal/sessions/2026-08-15-role-restructure-closeout.md` — this session.
+- `internal/sessions/2026-08-15-user-manual-launch-closeout.md` — the launch.
+- `internal/specs/2026-08-14-user-manual-launch-design.md` — design and the
   technical-challenge briefing.
-- `internal/sessions/2026-08-15-user-manual-launch-closeout.md` — launch session
-  record.
 - `tools/manual_redactions.json` — what was redacted from which image, and why.
