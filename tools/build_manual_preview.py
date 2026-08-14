@@ -25,18 +25,25 @@ STATIC = os.path.join(ROOT, 'static')
 # a preview written there disappears the next time anyone builds.
 OUT = os.path.join(ROOT, 'manual-preview.html')
 
-# Sidebar order, which is the reading order.
+# Sidebar order, which is the reading order. Grouped by role, so a reviewer
+# reads each role's sequence the way that role will.
 PAGES = [
 	'start-here',
-	'signing-in',
-	'finding-your-way-around',
-	'your-day-at-a-glance',
-	'taking-on-someone-new',
-	'working-with-someone',
-	'writing-up-what-you-did',
-	'staying-on-top-of-deadlines',
-	'finishing-up',
-	'when-something-looks-wrong',
+	'everyone/signing-in',
+	'everyone/finding-your-way-around',
+	'everyone/when-something-looks-wrong',
+	'case-worker/what-you-can-do',
+	'case-worker/your-day-at-a-glance',
+	'case-worker/working-with-someone',
+	'case-worker/writing-up-what-you-did',
+	'case-worker/staying-on-top-of-deadlines',
+	'case-worker/finishing-up',
+	'intake-officer/what-you-can-do',
+	'intake-officer/your-day-at-a-glance',
+	'intake-officer/taking-on-someone-new',
+	'supervisor/what-you-can-do',
+	'supervisor/moving-work-between-staff',
+	'program-manager/what-you-can-do',
 ]
 
 
