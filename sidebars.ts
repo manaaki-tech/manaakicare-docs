@@ -16,6 +16,12 @@ const sidebars: SidebarsConfig = {
     // The task-oriented layer, pinned above the entity-organised reference
     // below it. Someone who has just been handed a login is looking for "how
     // do I write up a visit", not for the Activities section.
+    //
+    // Grouped by job rather than by the lifecycle, because the lifecycle order
+    // mixes roles: taking on someone new is intake work, and a case worker
+    // reading start to finish used to hit a long page describing a button they
+    // cannot see. Each role now reads one sequence that is entirely theirs, and
+    // anything genuinely universal sits once under Everyone.
     {
       type: 'category',
       label: 'User Manual',
@@ -27,15 +33,76 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'manual/start-here',
-        'manual/signing-in',
-        'manual/finding-your-way-around',
-        'manual/your-day-at-a-glance',
-        'manual/taking-on-someone-new',
-        'manual/working-with-someone',
-        'manual/writing-up-what-you-did',
-        'manual/staying-on-top-of-deadlines',
-        'manual/finishing-up',
-        'manual/when-something-looks-wrong',
+        {
+          type: 'category',
+          label: 'Everyone',
+          link: {
+            type: 'generated-index',
+            title: 'Everyone',
+            description:
+              'The parts that are the same whatever your job — signing in, finding your way around, and what to do when something looks wrong.',
+          },
+          items: [
+            'manual/everyone/signing-in',
+            'manual/everyone/finding-your-way-around',
+            'manual/everyone/when-something-looks-wrong',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Case Worker',
+          link: {
+            type: 'generated-index',
+            title: 'Case Worker',
+            description:
+              'Your day, from opening your dashboard to closing a piece of work.',
+          },
+          items: [
+            'manual/case-worker/what-you-can-do',
+            'manual/case-worker/your-day-at-a-glance',
+            'manual/case-worker/working-with-someone',
+            'manual/case-worker/writing-up-what-you-did',
+            'manual/case-worker/staying-on-top-of-deadlines',
+            'manual/case-worker/finishing-up',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Intake Officer',
+          link: {
+            type: 'generated-index',
+            title: 'Intake Officer',
+            description: 'Taking an enquiry from arrival through to somebody being assigned.',
+          },
+          items: [
+            'manual/intake-officer/what-you-can-do',
+            'manual/intake-officer/your-day-at-a-glance',
+            'manual/intake-officer/taking-on-someone-new',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Supervisor',
+          link: {
+            type: 'generated-index',
+            title: 'Supervisor',
+            description: 'Overseeing a team, and moving work between the people in it.',
+          },
+          items: [
+            'manual/supervisor/what-you-can-do',
+            'manual/supervisor/moving-work-between-staff',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Program Manager',
+          link: {
+            type: 'generated-index',
+            title: 'Program Manager',
+            description: 'Oversight across the whole organisation.',
+          },
+          items: ['manual/program-manager/what-you-can-do'],
+        },
       ],
     },
     {
@@ -153,21 +220,6 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'organisation-documents/overview',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'User Roles',
-      link: {
-        type: 'generated-index',
-        title: 'User Roles',
-        description: 'Learn about different user roles and permissions',
-      },
-      items: [
-        'user-roles/case-worker',
-        'user-roles/supervisor',
-        'user-roles/program-manager',
-        'user-roles/intake-officer',
       ],
     },
     'glossary',

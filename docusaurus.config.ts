@@ -178,7 +178,7 @@ const config: Config = {
             },
             {
               label: 'User Roles',
-              to: '/user-roles/case-worker',
+              to: '/manual/case-worker/what-you-can-do',
             },
           ],
         },
