@@ -14,7 +14,7 @@ This page provides visual diagrams to help you understand how <Term path="referr
 
 ---
 
-## <Term path="referral" /> Lifecycle
+## <Term path="referral" /> Lifecycle {#referral-lifecycle}
 
 The complete journey of a <Term path="referral" /> from client search to service completion, showing the <Term path="referral" /> and <Term path="serviceEpisode" /> statuses.
 
@@ -109,7 +109,7 @@ flowchart TB
 
 ```
 
-### <Term path="referral" /> Intake Steps
+### <Term path="referral" /> Intake Steps {#referral-intake-steps}
 
 The intake form is a three-step wizard. Each step must be completed before the next unlocks:
 
@@ -184,7 +184,7 @@ flowchart TB
 | **Intake Officer** | Search/create clients, complete 3-step intake, dispatch to services, can directly assign <Term path="caseWorker" plural /> | New <Term path="referral" plural />, review queue, service dispatch |
 | **Head of Intake / Intake Officer** | Review all <Term path="referral" /> information and submit review | Review queue, pending reviews |
 | **Supervisor / Program Manager** | Approve/reject service requests, select <Term path="caseWorker" plural /> on approval, monitor team | Pending service reviews, team <Term path="activity" /> |
-| **<Term path="caseWorker" />** | Activate service episodes, deliver services, record activities, close episodes | Active <Term path="cases" />, follow-ups due, client interactions |
+| **<Term path="caseWorker" />** | Activate <Term path="serviceEpisode" plural />, deliver services, record activities, close <Term path="serviceEpisode" plural /> | Active <Term path="cases" />, follow-ups due, client interactions |
 
 ---
 
@@ -296,7 +296,7 @@ flowchart TB
 
 <div>
 
-### <Term path="caseWorker" />
+### <Term path="caseWorker" /> {#case-worker}
 
 ```mermaid
 flowchart TB
@@ -336,7 +336,7 @@ flowchart TB
 
 All status values used across the system, grouped by lifecycle. These are the values you will see in badges, filters, and reports.
 
-### <Term path="referral" /> statuses
+### <Term path="referral" /> statuses {#referral-statuses}
 
 These statuses track where an entry is in the intake-to-allocation pipeline.
 
@@ -355,7 +355,7 @@ These statuses track where an entry is in the intake-to-allocation pipeline.
 
 **Completed** and **Closed** are the only final statuses. There is no separate "Cancelled" or "Withdrawn" status — an entry that is cancelled, or whose consent is withdrawn, ends up as **Closed** with a recorded reason.
 
-### <Term path="serviceEpisode" /> statuses
+### <Term path="serviceEpisode" /> statuses {#service-episode-statuses}
 
 Once a <Term path="referral" /> is allocated, a <Term path="serviceEpisode" /> is created and moves through its own lifecycle.
 

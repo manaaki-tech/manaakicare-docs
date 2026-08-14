@@ -1,46 +1,66 @@
 ---
 title: Activities Overview
-description: Understanding activity types and when to use them
+description: Understanding activity types and the fields every activity shares
 sidebar_position: 1
 helpId: activities-overview
-keywords: [activities, case notes, interactions, documentation]
+keywords: [activities, case notes, visits, telehealth, coordination, incident]
 ---
+
+import Callout from '@site/src/components/Callout';
 
 # <Term path="activity" plural /> Overview
 
-Learn about different <Term path="activity" /> types in Manaaki Central and when to use each one.
+An <Term path="activity" /> is a record of a single piece of work done on a <Term path="serviceEpisode" /> — a visit, a phone call, a coordination task, an administrative note, or an incident. <Term path="activity" plural /> live inside a <Term path="serviceEpisode" />'s **Care Journey** workspace, on its **Activities** tab, and are only ever attached to one <Term path="serviceEpisode" /> at a time.
 
-:::note Work in Progress
-This documentation is being developed. Check back soon for updates.
-:::
+## Where to find them
 
-## What are <Term path="activity" plural />?
+Open a client's Care Journey, then go to the **Activities** tab (or follow **View All Activities** from the Recent Activities card on the Care Journey overview). From there you can browse the activity timeline and open **+ New Activity** to record one.
 
-<Term path="activity" plural /> are records of interactions and work performed with or on behalf of <Term path="serviceUser" plural /> during <Term path="serviceEpisode" plural />.
+## Activity types
 
-## <Term path="activity" /> Types
+When you create an <Term path="activity" />, the first thing you choose is its type. There are five:
 
-Manaaki Central supports various <Term path="activity" /> types:
+| Type | What it's for | What it needs |
+|------|----------------|----------------|
+| **<Term path="serviceUser" /> Visit** | In-person contact with the <Term path="serviceUser" />, at their home, your office, or elsewhere | A location and at least one participant |
+| **Remote** | Contact that isn't in person — phone, video, email, SMS, or social media | A contact type |
+| **Coordination** | Liaison or coordination work relating to the case that isn't direct contact | — |
+| **Note / Admin** | Administrative work on the case | — |
+| **Incident** | Recording a safety or other incident | Incident notes |
 
-- **Home Visits** - In-person visits at <Term path="serviceUser" /> location
-- **Office Visits** - <Term path="serviceUser" /> visits to your office
-- **Phone Calls** - Telephone conversations
-- **Emails** - Email correspondence
-- **Case Notes** - General documentation
-- **Assessments** - Formal assessments
-- **<Term path="referral" plural /> Out** - External <Term path="referral" plural />
+<Callout color="amber" title="The chip label follows your terminology">
+The button you click for this type reads "<Term path="serviceUser" /> Visit" — it always uses whatever word your organisation has configured for "client", not a fixed label. The underlying record is the same either way.
+</Callout>
 
-## When to Record <Term path="activity" plural />
+Choosing a type sets which extra fields appear on the Essentials tab — see [Recording Visits](/activities/recording-visits) for the Visit walkthrough and [Phone Calls and Emails](/activities/phone-calls-and-emails) for Remote contact.
 
-Best practices for <Term path="activity" /> documentation will be covered here.
+## Fields every activity has
 
-## <Term path="activity" /> Components
+Regardless of type, every <Term path="activity" /> has:
 
-Details on common fields across <Term path="activity" /> types will be added here.
+| Field | Notes |
+|-------|-------|
+| **Title** | Free text, shown in the timeline |
+| **Date & time** | Cannot be in the future, and cannot be more than 7 days in the past |
+| **Duration** | Optional, in minutes |
+| **Priority** | A risk-level rating on the <Term path="activity" /> itself — None, Low, Medium, High, or Critical. This is separate from the <Term path="referral" />'s urgency level |
+| **Status (outcome)** | Completed, or a reason it didn't happen — see below |
+| **Notes** | Rich-text notes, with optional templates — see [Case Notes](/activities/case-notes) |
+| **Follow-up** | An optional required-follow-up flag with a date, up to three months out |
 
-## Related Topics
+## When it didn't happen
 
-- [Recording Visits](/activities/recording-visits)
-- [Phone Calls and Emails](/activities/phone-calls-and-emails)
-- [Case Notes](/activities/case-notes)
-- [Viewing Activity History](/activities/viewing-activity-history)
+If the <Term path="activity" /> didn't go ahead as planned, toggle **Didn't happen** on the Essentials tab and pick a reason: No-show, Unavailable, Not fit, Rescheduled, Client cancelled, or Staff cancelled.
+
+## Saving
+
+**Save Draft** stores what you have so far without requiring every field — useful if you're interrupted partway through. **Complete Activity** validates the form and saves it as a completed record. Both are available from the footer at any point after you've given the <Term path="activity" /> a title and a type.
+
+Only the person who created an <Term path="activity" /> can edit it, and only within 24 hours of creating it — after that, the Edit option no longer appears. See [Viewing Activity History](/activities/viewing-activity-history) for how to find and open past activities.
+
+## Related topics
+
+- [Recording Visits](/activities/recording-visits) — the full walkthrough for in-person visits
+- [Phone Calls and Emails](/activities/phone-calls-and-emails) — remote contact (phone, video, email, SMS, social media)
+- [Case Notes](/activities/case-notes) — writing notes and using templates
+- [Viewing Activity History](/activities/viewing-activity-history) — the activity timeline, filters, and editing window

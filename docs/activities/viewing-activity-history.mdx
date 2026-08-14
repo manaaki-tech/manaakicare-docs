@@ -1,32 +1,52 @@
 ---
 title: Viewing Activity History
-description: How to view and search activity records
+description: Browsing, searching, and filtering the activity timeline, and who can edit an activity
 sidebar_position: 5
 helpId: activity-history
-keywords: [activities, history, timeline, search]
+keywords: [activities, history, timeline, search, filter, edit]
 ---
 
-# Viewing <Term path="activity" /> History
+import Callout from '@site/src/components/Callout';
 
-Learn how to view, search, and filter <Term path="activity" /> records for <Term path="serviceUser" plural />.
+# Viewing Activity History
 
-:::note Work in Progress
-This documentation is being developed. Check back soon for updates.
-:::
+Every <Term path="activity" /> recorded against a <Term path="serviceEpisode" /> appears in that Care Journey's activity timeline.
 
-## Overview
+## Opening the timeline
 
-The <Term path="activity" /> history provides a complete timeline of all interactions and case work.
+From the Care Journey's **Activities** tab, click **Show timeline** to open the timeline panel alongside the <Term path="activity" /> you're viewing or editing. It's collapsed by default so the form has more room; click **Hide timeline** to close it again.
 
-## Viewing the Timeline
+<Term path="activity" plural /> are grouped by date, newest first, and show the title, time, author, type, duration, and outcome (if it didn't happen as planned) at a glance.
 
-Instructions for navigating <Term path="activity" /> history will be added here.
+## Searching and filtering
 
-## Filtering and Searching
+At the top of the timeline:
 
-Details on search and filter capabilities will be documented here.
+- **Search** matches against the <Term path="activity" /> title
+- **Type** filters to one of four values: Direct, Coordination, Administrative, or Incident
+- **Status** filters to Draft, Saved, or Archived
 
-## Related Topics
+<Callout color="amber" title="Type filter is broader than it looks">
+Both <Term path="serviceUser" /> Visit and Remote activities are stored as type **Direct** — the Type filter can't tell them apart. Filtering by "Direct" returns visits and remote contact together.
+</Callout>
 
-- [Activities Overview](/activities/overview)
-- [Case Notes](/activities/case-notes)
+Search and filters apply only to activities already loaded into the timeline for this <Term path="serviceEpisode" />.
+
+## Opening an activity
+
+Click any <Term path="activity" /> card to open it in the right-hand panel. This is a read-only view showing the notes, outcome, priority, visit or telehealth details, and follow-up information (if any), along with who created it and when.
+
+## Editing an activity
+
+An **Edit** button appears only if both of these are true:
+
+- You created the <Term path="activity" />
+- It was created within the last 24 hours
+
+Past that window, or for activities someone else created, there's no Edit option — the record is read-only from then on.
+
+## Related topics
+
+- [Activities Overview](/activities/overview) — the five activity types and shared fields
+- [Recording Visits](/activities/recording-visits) — the full activity form walkthrough
+- [Case Notes](/activities/case-notes) — writing notes and using templates

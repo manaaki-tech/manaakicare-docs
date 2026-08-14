@@ -6,24 +6,61 @@ helpId: client-details
 keywords: [client, details, profile, information]
 ---
 
-# Viewing <Term path="serviceUser" plural /> Details
+import Callout from '@site/src/components/Callout';
 
-Understand the <Term path="serviceUser" /> details page and how to navigate <Term path="serviceUser" /> information.
+# Viewing <Term path="serviceUser" /> Details
 
-:::note Work in Progress
-This documentation is being developed. Check back soon for updates.
-:::
+Every <Term path="serviceUser" /> has a details page bringing together their personal information, contact details, <Term path="referral" plural />, whānau, and identity documents. Open it by clicking a result on the [Clients page](/clients/searching-for-clients), or the eye icon next to any <Term path="serviceUser" /> in a list.
 
-## Overview
+## The header
 
-The <Term path="serviceUser" /> details page provides a comprehensive view of <Term path="serviceUser" /> information, including personal details, contact information, and service history.
+The top of the page stays visible as you scroll and shows:
 
-## Information Sections
+- Name, with an **Active**/**Inactive** badge
+- The <Term path="serviceUser" />'s reference number — click it to copy
+- Age and date of birth
+- Gender
+- A **New Entry** button, which opens the <Term path="referral" /> wizard with this <Term path="serviceUser" /> already selected
 
-Details on different sections of the <Term path="serviceUser" /> profile will be added here.
+## Tabs
 
-## Related Topics
+The page is organised into four tabs: **Overview**, **Referrals**, **Whānau**, and **Documents**.
+
+### Overview
+
+The Overview tab has three cards:
+
+**Personal Information** — first name, last name, date of birth, gender.
+
+**Contact Information** — phone, secondary phone, email, and address. Phone and email are shown partially masked (for example, only the last few digits or characters are visible) to limit exposure of personal information on screen.
+
+**Identity Documents** — a table of identity numbers on file (for example an NHI or NSN), each with its issuing authority, issue date, expiry date, and a **Primary** badge for the main identifier. Numbers are masked by default with a reveal toggle next to each one.
+
+<Callout color="amber" title="Two different things are both called 'Identity Documents'">
+The **Identity Documents** card on the Overview tab records *identity numbers* — structured fields like an NHI or IRD number. The **Documents** tab (see below) is for uploading the actual *files* — a scan of the driver's licence or passport itself. They share a name but are separate records. See [Client Documents](/clients/client-documents) for the file-upload version.
+</Callout>
+
+Each card can be edited in place — click into it to change a field and save. Editing is not currently restricted by role: anyone who can open the <Term path="serviceUser" />'s record can also edit these fields.
+
+### Referrals
+
+Lists every <Term path="referral" /> attached to this <Term path="serviceUser" />, with reference number, status, urgency, date, the linked <Term path="serviceEpisode" /> (if one has been created), and the reason for referral. Click a row to open that <Term path="referral" />'s [details page](/referrals/referral-details). If there are none yet, a **New Entry** button starts one.
+
+### Whānau
+
+Shows everyone linked to this <Term path="serviceUser" />'s whānau group. See [Family Relationships](/clients/family-relationships) for the full picture.
+
+### Documents
+
+Upload and manage identity document files — driver's licence, passport, and similar — for this <Term path="serviceUser" />. See [Client Documents](/clients/client-documents).
+
+## Quick Stats and Recent Activity
+
+On wider screens, a sidebar alongside the tabs shows a count of active <Term path="referral" plural />/<Term path="serviceEpisode" plural /> and a short feed of recent activity for this <Term path="serviceUser" />. This sidebar is hidden on narrower windows — the tab content above is available regardless of screen size.
+
+## Related topics
 
 - [Searching for Clients](/clients/searching-for-clients)
 - [Client Documents](/clients/client-documents)
 - [Family Relationships](/clients/family-relationships)
+- [Referral Details](/referrals/referral-details)
