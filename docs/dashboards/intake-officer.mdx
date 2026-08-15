@@ -7,10 +7,13 @@ keywords: [dashboard, intake officer, referrals, intake processing, service disp
 ---
 
 import Callout from '@site/src/components/Callout';
+import PictureWords from '@site/src/components/PictureWords';
 
 # Intake Officer <Term path="dashboard" />
 
 The Intake Officer <Term path="dashboard" /> is your central hub for managing the <Term path="referral" /> intake process. It provides a comprehensive view of all <Term path="referral" plural /> at different stages, from new submissions through to service dispatch.
+
+<PictureWords />
 
 ## Overview
 
@@ -75,10 +78,12 @@ The dashboard uses tabs to organise <Term path="referral" plural /> by their cur
 
 | Tab | Description | Badge |
 |-----|-------------|-------|
-| **Intake Processing** | New <Term path="referral" plural /> requiring initial processing | Shows count of <Term path="referral" plural /> in intake |
+| **Intake** | New <Term path="referral" plural /> requiring initial processing | Shows count of <Term path="referral" plural /> in intake |
 | **In Review** | <Term path="referral" plural /> submitted and awaiting review | Shows count pending review |
 | **Service Review** | Approved <Term path="referral" plural /> ready for service allocation | Shows count pending service review |
-| **Awaiting Service Delivery** | Dispatched <Term path="referral" plural /> waiting for service to begin | Shows count awaiting delivery |
+| **With <Term path="caseWorker" />** | Dispatched <Term path="referral" plural /> waiting for the service to begin | Shows count awaiting delivery |
+
+The last tab is named after whoever the work has gone to, so it carries your organisation's own word for that role rather than a generic one.
 
 Click any tab to switch the table view to show <Term path="referral" plural /> at that stage.
 

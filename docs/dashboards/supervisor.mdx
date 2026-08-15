@@ -7,22 +7,24 @@ keywords: [dashboard, supervisor, program manager, referral requests, service di
 ---
 
 import Callout from '@site/src/components/Callout';
+import PictureWords from '@site/src/components/PictureWords';
 
 # Supervisor / Program Manager <Term path="dashboard" />
 
 The <Term path="supervisorDashboard" /> is your central hub for managing <Term path="referral" /> requests, monitoring team <Term path="activity" />, and ensuring timely service delivery. Both Supervisors and Program Managers share the same dashboard experience.
 
+<PictureWords />
+
 ## Overview
 
 ![Supervisor Dashboard Analytics](/img/dashboards/supervisor/analytics.png)
 
-The <Term path="supervisorDashboard" /> displays:
-- **Real-time analytics** showing pending requests, active <Term path="serviceEpisode" plural />, and <Term path="referral" /> volumes
+On screen this page is headed **Team Overview**, described as *"Monitor team workload, pending dispatches, and whānau outcomes."* It displays:
+- **Three count tiles** with month-to-date figures beneath them
 - **Pending <Term path="referral" plural /> Requests** queue for accepting or rejecting incoming <Term path="referral" plural />
-- **<Term path="serviceUser" plural /> Needing Contact** to flag clients not contacted recently
-- **Pending Service Dispatch** for <Term path="referral" plural /> awaiting service assignment
+- **<Term path="serviceUser" plural /> Needing Contact** to flag people nobody has been in touch with recently
 
-The dashboard description reads: *"Review <Term path="referral" plural />, allocate to team members, and monitor <Term path="serviceUser" /> engagement."*
+A **Filter by service** control sits above the tiles. If you oversee more than one service, everything below it reflects the service you have chosen — a figure that looks wrong is often a filter left set.
 
 ---
 
@@ -32,18 +34,18 @@ The top section displays four key metric cards that give you an at-a-glance view
 
 ### Statistics Cards
 
-| Card | Icon | Description | What It Shows |
-|------|------|-------------|---------------|
-| **Pending Requests** | Document | <Term path="referral" /> requests awaiting your action | Count of incoming requests needing accept/reject |
-| **Active <Term path="serviceEpisode" plural />** | People | Active <Term path="serviceEpisode" plural /> under your oversight | Total active service delivery <Term path="serviceEpisode" plural /> |
-| **<Term path="activity" plural /> / <Term path="serviceEpisode" plural />** | Activity | <Term path="activity" /> engagement ratio | Format: "X/Y" (total <Term path="activity" plural /> / unique <Term path="serviceEpisode" plural /> with <Term path="activity" plural />) |
-| **<Term path="referral" plural /> (This Month)** | Clock | <Term path="referral" plural /> created in the current month | Monthly <Term path="referral" /> volume |
+| Card | Description |
+|------|-------------|
+| **Awaiting Commencement** | <Term path="serviceEpisode" plural /> that have been assigned but not started — *"Episodes pending start"* |
+| **High Priority <Term path="referral" plural />** | Urgent, crisis and emergency <Term path="referral" plural /> combined |
+| **Active <Term path="serviceEpisode" plural />** | <Term path="serviceEpisode" plural /> currently in progress under your oversight |
+
+Beneath them, three running figures: **Pending Requests**, **<Term path="activity" plural /> This Month**, and **<Term path="referral" plural /> This Month**.
 
 ### Understanding the Cards
 
-- **Orange highlight** on "Pending Requests" indicates items requiring your immediate attention
-- The **<Term path="activity" plural /> / <Term path="serviceEpisode" plural />** ratio helps you gauge team engagement - a higher ratio means more <Term path="activity" plural /> per <Term path="serviceEpisode" />
-- Numbers update in real-time as your team processes <Term path="referral" plural /> and records <Term path="activity" plural />
+- **Awaiting Commencement** is the one that quietly grows. Work sitting there is assigned to somebody who has not begun it, and the compliance clock has not started either.
+- The monthly figures are month-to-date, not a rolling window, so they reset rather than dip.
 
 ---
 
@@ -59,10 +61,12 @@ This full-width section displays all incoming <Term path="referral" /> requests 
 
 | Column | Description |
 |--------|-------------|
-| **Client** | Client name and phone number |
-| **Service** | The service being requested (displayed as a badge) |
-| **Reference** | <Term path="referral" /> reference number (e.g., REF-2026-DEFAULT-00045) |
-| **Start Date** | Requested service start date |
+| **Reference** | <Term path="referral" /> reference number (e.g., REF-2026-NPOWO-00025) |
+| **Client Name** | Who the request is for |
+| **Service** | The service being requested |
+| **Urgency** | Priority badge — routine through to emergency |
+| **Status** | Where the request has got to, e.g. **Pending** |
+| **Date** | When the request was made |
 | **Actions** | Accept and Reject buttons |
 
 ### Accepting a <Term path="referral" /> {#accepting-a-referral}
@@ -122,25 +126,21 @@ When there are no pending requests, you will see a green checkmark with the mess
 
 ![Service Users Needing Contact and Pending Service Dispatch](/img/dashboards/supervisor/needing-contact.png)
 
-This section (left column) flags <Term path="serviceUser" plural /> who have not been contacted by their assigned <Term path="caseWorker" /> in **5 or more days**. It helps supervisors ensure <Term path="serviceUser" plural /> receive timely follow-up.
-
-**Section description:** *"Clients not contacted in 5+ days"*
+This section flags <Term path="serviceUser" plural /> who have not been contacted by their assigned <Term path="caseWorker" /> recently. It helps supervisors ensure <Term path="serviceUser" plural /> receive timely follow-up.
 
 ### Table Columns
 
 | Column | Description |
 |--------|-------------|
-| **Client** | Client name and phone number |
-| **<Term path="caseWorker" />** | The <Term path="caseWorker" /> assigned to this client |
-| **Days** | Number of days since last contact (displayed as a badge) |
+| **Name** | Who has not been contacted |
+| **Phone** | Their contact number, hidden until you click the eye icon beside it |
+| **Email** | Their email address, or `--` if none is recorded |
+| **<Term path="caseWorker" />** | Who the work is assigned to |
+| **Last Contacted** | How long ago the last recorded contact was, e.g. *"5 days ago"* |
 
-### Days Badge Colours
-
-| Colour | Condition | Meaning |
-|--------|-----------|---------|
-| **Red** | More than 7 days | Overdue - requires immediate follow-up |
-| **Grey** | 5-7 days | Approaching overdue - monitor closely |
-| **--** | No contact recorded | No contact history available |
+<Callout color="teal" title="The phone number is deliberately hidden">
+Contact numbers are masked until you reveal them. That keeps them off a screen that may be shared or projected in a team meeting — reveal one when you need it, not by default.
+</Callout>
 
 ### How Contact Is Tracked
 

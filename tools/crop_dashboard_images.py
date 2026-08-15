@@ -1,20 +1,26 @@
 #!/usr/bin/env python3
-"""Cut the reference sections' dashboard images out of the manual screenshots.
+"""Cut the Dashboards pages' screenshots out of full-screen captures.
 
 The Dashboards pages carried a pre-launch screenshot set: superseded "Manaaki
-Care" branding, raw database statuses shown as labels, and scratch data. Most of
-what they need is already visible in two current-build screenshots captured for
-the manual, so those regions are cropped out rather than re-captured.
+Care" branding, raw database statuses shown as labels, and scratch data. Rather
+than one capture per image, a handful of full-screen captures are cropped into
+the regions each page actually talks about — so re-shooting one screen refreshes
+several images at once.
 
-Not everything can come from here. The case worker's "Activities Needing
-Follow-up" table and all three supervisor dashboard images appear in no current
-screenshot, and still need fresh captures.
+SOURCES ARE NOT IN THIS REPO. They are full-screen captures that contain staff
+names, and this repository is public. They live outside it:
+
+    /home/amj/dev/.manaakicare-docs-screenshot-originals/2026-08-15/new-captures
+
+Override with SCREENSHOT_SOURCES=/path if they are somewhere else. Same
+arrangement as tools/build_manual_images.py, which reads .docx files that are
+likewise not committed.
 
     python3 tools/crop_dashboard_images.py
 
 Boxes are [x, y, width, height] in the SOURCE image's pixels, origin top-left.
-Re-run after replacing a source image; every output is regenerated from scratch,
-so this is idempotent.
+REDACT boxes are applied before cropping, in the same coordinate space. Every
+output is regenerated from scratch, so this is idempotent.
 """
 
 import os
@@ -25,51 +31,101 @@ import pngkit
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC = os.path.join(ROOT, 'static')
+SOURCES = os.environ.get(
+	'SCREENSHOT_SOURCES',
+	'/home/amj/dev/.manaakicare-docs-screenshot-originals/2026-08-15/new-captures',
+)
 
-INTAKE = 'img/manual/dashboard/intake-dashboard.png'   # 800 x 833
-CASELOAD = 'img/manual/dashboard/my-caseload.png'      # 1360 x 763
+CASELOAD = 'cw-dash-1.png'                    # 1391 x 550
+ACTIVE = 'cw-dash-active-cases.png'           # 1099 x 727
+FOLLOWUP = 'cw-dash-act-need-follow-up.png'   # 1097 x 222
+INTAKE = 'intake-dash-clean.png'              #  957 x 916
+TEAM = 'manager-dash-multiservice..png'       # 1653 x 854
 
-# (source, box, destination, what it is)
-# NOTHING FROM intake-dashboard.png YET.
-#
-# It would supply all three intake images — the overview, the drill-down list
-# and the tab strip — except that it carries hand-drawn red annotations from the
-# manual: a ring around the "Entry Processing" tile and a box around the first
-# two tabs. Those mean something beside the manual's prose and nothing beside
-# the reference page's, where an unexplained red ring reads as a mistake. They
-# also cannot be painted out, since the ring crosses a gradient-filled tile.
-#
-# One clean re-capture of the intake dashboard unblocks all three. Until then
-# the intake page keeps its outdated images.
-#
+# Painted out before cropping, because the repo is public and these are real
+# colleagues rather than client fixtures. Boxes are in source coordinates;
+# `sample` names where to take the fill colour from when the default (just left
+# of the box) would land on something other than the row background.
+REDACT = {
+	TEAM: [
+		# "Keriana Fox" in the Case Worker column of Service Users Needing Contact.
+		([1100, 818, 110, 26], None),
+	],
+}
+
 # (source, box, destination, what it is)
 CROPS = [
 	(
 		# The left-hand nav is cropped off: it is the whole application's menu,
-		# documented elsewhere, and it drags the dark sidebar into an image the
-		# page uses to talk about tiles. The last few pixels go too — they catch
-		# the window's scrollbar.
-		CASELOAD, [265, 148, 1078, 170],
+		# documented elsewhere, and it drags a dark sidebar into an image the
+		# page uses to talk about tiles.
+		CASELOAD, [285, 152, 1092, 144],
 		'img/dashboards/case-worker/analytics.png',
 		'The four count tiles.',
 	),
 	(
-		# Height stops at the second row's lower border rather than running to
-		# the foot of the source, which would end on a half-drawn third row.
-		CASELOAD, [265, 520, 1078, 230],
+		ACTIVE, [60, 14, 1039, 713],
 		'img/dashboards/case-worker/my-active-cases.png',
-		'The assigned-work table with its column headings.',
+		'The assigned-work table, all ten rows, with its column headings.',
+	),
+	(
+		FOLLOWUP, [45, 0, 1052, 222],
+		'img/dashboards/case-worker/activities-needing-follow-up.png',
+		'The follow-up table, including the Priority and Risk columns.',
+	),
+	(
+		INTAKE, [60, 66, 880, 232],
+		'img/dashboards/intake-officer/overview.png',
+		'Title, subtitle and the three status tiles.',
+	),
+	(
+		INTAKE, [75, 338, 865, 60],
+		'img/dashboards/intake-officer/tabs.png',
+		'The tab strip, which the reference page documents tab by tab.',
+	),
+	(
+		INTAKE, [75, 398, 865, 470],
+		'img/dashboards/intake-officer/new-referrals.png',
+		'Filters, columns and the list of entries at the selected stage.',
+	),
+	(
+		TEAM, [28, 228, 1600, 200],
+		'img/dashboards/supervisor/analytics.png',
+		'The three count tiles and the month-to-date figures beneath them.',
+	),
+	(
+		TEAM, [28, 440, 1600, 228],
+		'img/dashboards/supervisor/pending-requests.png',
+		'Referral requests waiting on an accept or reject decision.',
+	),
+	(
+		TEAM, [28, 680, 1600, 172],
+		'img/dashboards/supervisor/needing-contact.png',
+		'Service users nobody has been in touch with recently.',
 	),
 ]
 
 
 def main():
-	for source, box, dest, what in CROPS:
-		src_path = os.path.join(STATIC, source)
-		if not os.path.exists(src_path):
-			raise SystemExit(f'missing source: {src_path}')
+	if not os.path.isdir(SOURCES):
+		raise SystemExit(
+			f'source captures not found at {SOURCES}\n'
+			f'set SCREENSHOT_SOURCES=/path/to/captures'
+		)
 
-		img = pngkit.read(src_path)
+	cache = {}
+	for name in {c[0] for c in CROPS}:
+		path = os.path.join(SOURCES, name)
+		if not os.path.exists(path):
+			raise SystemExit(f'missing source: {path}')
+		img = pngkit.read(path)
+		for box, sample in REDACT.get(name, []):
+			pngkit.redact(img, box, sample=sample)
+			print(f'  redacted {box} in {name}')
+		cache[name] = img
+
+	for source, box, dest, what in CROPS:
+		img = cache[source]
 		x, y, w, h = box
 		if x + w > img.width or y + h > img.height:
 			raise SystemExit(
