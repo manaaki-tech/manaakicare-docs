@@ -38,7 +38,22 @@ function singular(raw: string | undefined): string | undefined {
 }
 
 export default function PictureWords() {
-	const { t } = useTerminology();
+	const { t, orgId } = useTerminology();
+
+	// Say nothing unless we actually know who is reading.
+	//
+	// Terminology only resolves when the reader arrives with ?env=&org_id= (or
+	// has them in sessionStorage, which is per-tab). Without them `t` falls back
+	// to default English — and comparing the screenshots against a *default* is
+	// not evidence that this reader's screen differs, it is a guess.
+	//
+	// It was a wrong guess for most people. The screenshots were taken on the
+	// launch tenant, so the majority of readers arriving at the docs with no
+	// query string were being shown a table telling them their screen says
+	// "Service Episode" when it says "Care Journey", exactly as pictured.
+	if (!orgId) {
+		return null;
+	}
 
 	const rows = Object.entries(PICTURE_WORDS)
 		.map(([key, pictureWord]) => ({
