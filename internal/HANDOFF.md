@@ -61,29 +61,19 @@ one thing a reader cannot get elsewhere. `intake-officer/what-you-can-do.mdx`
 has no Data Visibility section at all, unlike the other three — a real gap, not
 a formatting one.
 
-### 2. Screenshots — all nine replaced, but they have a shelf life
+### 2. Screenshots — done, but with a shelf life
 
-**Done.** All nine Dashboards images now come from current-build captures, and
-five sections of prose were corrected because the new images contradicted them.
-`tools/crop_dashboard_images.py` holds the boxes; raw captures stay outside the
-repo at `/home/amj/dev/.manaakicare-docs-screenshot-originals/2026-08-15/` because
-they are full screens containing staff names.
+All nine Dashboards images plus four new reference images come from current-build
+captures; `tools/crop_dashboard_images.py` holds the boxes and redactions and is
+idempotent. Raw captures stay outside the repo (they contain staff names) at
+`/home/amj/dev/.manaakicare-docs-screenshot-originals/2026-08-15/`.
 
-**The frontend is running a full sweep for remaining hardcoded strings like
-"Episode" (MJ, 2026-08-15), on `fix/terminology-sweep`.** Several images still
-show hardcoded English — the case worker and supervisor tiles ("Active Cases",
-"Episodes pending start", "Active Episodes"), the table heading "My Service
-Episodes", and the column headings on the four new reference images. The intake
-images are already migrated. Full list in the closeout.
-
-**Re-shoot after the sweep, not before.** The crop tool makes that cheap: replace
-the source captures and re-run it. Prose will need another pass at the same time,
-since these headings appear in the tables above.
-
-**When the sweep lands, per-org screenshot variants become worth reconsidering.**
-The argument against them was that the app renders one tenant's vocabulary
-inconsistently, so a per-org capture would reproduce the inconsistency. That
-objection expires with the sweep. See the closeout for the rest of the reasoning.
+**The frontend terminology sweep (`fix/terminology-sweep`) will move several of
+them** — the case worker and supervisor tiles, the "My Service Episodes" heading,
+and the column headings on the new reference images all still show hardcoded
+English. The intake images are already migrated. Re-shoot after it merges: swap
+the source captures and re-run the tool. Prose will need another pass with it,
+since those headings appear in the tables. Full list in the closeout.
 
 ### 3. Open questions the audit raised but could not settle
 
