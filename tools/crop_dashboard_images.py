@@ -41,6 +41,10 @@ ACTIVE = 'cw-dash-active-cases.png'           # 1099 x 727
 FOLLOWUP = 'cw-dash-act-need-follow-up.png'   # 1097 x 222
 INTAKE = 'intake-dash-clean.png'              #  957 x 916
 TEAM = 'manager-dash-multiservice..png'       # 1653 x 854
+ENTRIES = 'referrals-list.png'                # 1454 x 840
+JOURNEYS = 'care-journey-list.png'            # 1454 x 861
+CLIENT = 'client-page.png'                    # 1454 x 755
+WHANAU = 'whanau-members.png'                 #  840 x 549
 
 # Painted out before cropping, because the repo is public and these are real
 # colleagues rather than client fixtures. Boxes are in source coordinates;
@@ -50,6 +54,19 @@ REDACT = {
 	TEAM: [
 		# "Keriana Fox" in the Case Worker column of Service Users Needing Contact.
 		([1100, 818, 110, 26], None),
+	],
+	JOURNEYS: [
+		# The whole Assigned Staff column: three colleagues' names down ten rows.
+		# The column heading above it is deliberately left in place, so the page
+		# can still say what the column is for.
+		([898, 262, 178, 516], None),
+	],
+	CLIENT: [
+		# Street address. The phone, email and licence number on this screen are
+		# already masked by the application; the address is not, and a real
+		# address beside a name and a date of birth is the most identifying
+		# combination on any of these screens.
+		([706, 482, 292, 26], None),
 	],
 }
 
@@ -102,6 +119,29 @@ CROPS = [
 		TEAM, [28, 680, 1600, 172],
 		'img/dashboards/supervisor/needing-contact.png',
 		'Service users nobody has been in touch with recently.',
+	),
+	# The list and record pages below keep the left-hand nav, unlike the
+	# dashboard crops: these images are partly about where in the menu you are,
+	# and the highlighted item is the point.
+	(
+		ENTRIES, [0, 0, 1446, 838],
+		'img/referrals/entries-list.png',
+		'The entries list, with its draft/active/closed tabs.',
+	),
+	(
+		JOURNEYS, [0, 0, 1446, 858],
+		'img/service-episodes/care-journeys-list.png',
+		'Care journeys in progress, filtered by state.',
+	),
+	(
+		CLIENT, [0, 0, 1446, 753],
+		'img/clients/client-record.png',
+		"A person's record: personal details, contact details and identity documents.",
+	),
+	(
+		WHANAU, [0, 0, 832, 547],
+		'img/clients/whanau-members.png',
+		'The whanau tab, listing family members and their roles.',
 	),
 ]
 
