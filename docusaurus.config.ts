@@ -161,7 +161,7 @@ const config: Config = {
             },
             {
               label: 'Referrals',
-              to: '/referrals/overview',
+              to: '/entries/overview',
             },
             {
               label: 'Activities',
@@ -174,7 +174,7 @@ const config: Config = {
           items: [
             {
               label: 'Glossary',
-              to: '/concepts/glossary',
+              to: '/glossary',
             },
             {
               label: 'User Roles',

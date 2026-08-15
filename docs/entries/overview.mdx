@@ -1,6 +1,6 @@
 ---
-title: Entries and Care Journeys
-sidebar_label: Entries
+title: Entries
+sidebar_label: Overview
 description: What an entry is, what a care journey is, and why they are two different records
 sidebar_position: 2
 helpId: concept-entries
@@ -8,6 +8,7 @@ keywords: [referral, entry, intake, care journey, service episode, two records, 
 ---
 
 import Callout from '@site/src/components/Callout';
+import Screen from '@site/src/components/Screen';
 
 # <Term path="referral" plural /> and <Term path="serviceEpisode" plural />
 
@@ -17,6 +18,12 @@ are, who referred them, what they need, and what consent is on file.
 Once it is dispatched to a service and somebody is assigned, a
 <Term path="serviceEpisode" /> is created alongside it. That is the record of the
 work itself.
+
+<Screen
+  src="/img/entries/entries-list.png"
+  alt="The entries list, with draft, active and closed tabs above a table of referrals"
+  caption={<>Every <Term path="referral" /> your organisation has taken, grouped by whether it is still being drafted, live, or finished.</>}
+/>
 
 <Callout color="teal" title="Two different records, not two names for one">
 The <Term path="referral" /> is the **intake** record — the request for service.
@@ -40,11 +47,25 @@ the two records* they mean.
 Each of those steps has its own how-to page. This page is only about what the
 things *are*.
 
+## The shape of the form
+
+The <Term path="referral" /> form is a **three-step wizard**:
+
+| Step | Name | Covers |
+|------|------|--------|
+| 1 | **Intake** | Client & referral |
+| 2 | **Consent** | Permissions on file |
+| 3 | **Review & Submit** | Confirm & dispatch |
+
+<Callout color="sage" title="The record is created at the end of Step 1">
+Finish the first step and click **Continue**, and the <Term path="referral" /> exists — a part-finished one is never lost. Before that point, leaving the page loses what you typed.
+</Callout>
+
 ## Ways a <Term path="referral" /> can start {#ways-a-referral-can-start}
 
 | Route | How |
 |-------|-----|
-| **New <Term path="referral" />** | The **+ New Entry** button in the header, or `/referrals/new` |
+| **New <Term path="referral" />** | The **+ New Entry** button in the header, or `/entries/new` |
 | **From a client** | The **New Entry** link on a client's whānau tab, which preselects that person |
 
 ## <Term path="referral" /> types {#referral-types}
@@ -85,11 +106,21 @@ A <Term path="referral" /> moves through intake statuses, then into allocation a
 delivery. Consent is tracked separately and can change at any point.
 
 For the complete list with definitions, and the lifecycle diagrams, see [how the
-work flows](/concepts/how-the-work-flows#status-reference).
+work flows](/how-the-work-flows#status-reference).
+
+## The pages in this section
+
+| Page | Covers |
+|------|--------|
+| [Creating an entry](/entries/creating-a-referral) | The full three-step walkthrough |
+| [Finding or creating the client](/entries/client-information) | Searching for someone, or adding them |
+| [Entry details](/entries/referral-details) | Every field on step 1, and what it is for |
+| [Uploading documents](/entries/uploading-documents) | Attaching files and consent forms |
+| [Submitting for review](/entries/submitting-for-review) | Dispatch, approval and allocation |
 
 ## Where to go next
 
-- [How the work flows](/concepts/how-the-work-flows) — the diagrams and the full status reference
-- [<Term path="serviceEpisode" plural />](/concepts/care-journeys) — what happens once delivery starts
-- [Creating a Referral](/referrals/creating-a-referral) — the actual how-to
-- [Glossary](/concepts/glossary) — every term in one list
+- [How the work flows](/how-the-work-flows) — the diagrams and the full status reference
+- [<Term path="serviceEpisode" plural />](/care-journeys/overview) — what happens once delivery starts
+- [Creating a Referral](/entries/creating-a-referral) — the actual how-to
+- [Glossary](/glossary) — every term in one list

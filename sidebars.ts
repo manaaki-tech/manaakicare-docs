@@ -64,6 +64,7 @@ const sidebars: SidebarsConfig = {
             'manual/case-worker/writing-up-what-you-did',
             'manual/case-worker/staying-on-top-of-deadlines',
             'manual/case-worker/finishing-up',
+            'manual/case-worker/dashboard',
           ],
         },
         {
@@ -78,6 +79,7 @@ const sidebars: SidebarsConfig = {
             'manual/intake-officer/what-you-can-do',
             'manual/intake-officer/your-day-at-a-glance',
             'manual/intake-officer/taking-on-someone-new',
+            'manual/intake-officer/dashboard',
           ],
         },
         {
@@ -95,103 +97,53 @@ const sidebars: SidebarsConfig = {
           items: [
             'manual/supervisor/what-you-can-do',
             'manual/supervisor/moving-work-between-staff',
+            'manual/supervisor/dashboard',
           ],
         },
       ],
     },
-    // The explanation layer. The manual says how to do things and the sections
-    // below are reference; this answers "what is this thing, and how does it
-    // relate to that one" — which was previously scattered across three
-    // sections and a glossary nobody linked to.
+    'how-the-work-flows',
     {
+      // The concept page IS the landing page, rather than a generated index
+      // above it: an organisation's word for this is the section name, and a
+      // reader arriving here wants to know what the thing is before the how-tos.
       type: 'category',
-      label: 'Concepts & Definitions',
-      link: {
-        type: 'generated-index',
-        title: 'Concepts & Definitions',
-        description:
-          'What the words mean and how the pieces fit together. Read these once; the rest of the site assumes them.',
-      },
+      label: 'Entries',
+      link: { type: 'doc', id: 'entries/overview' },
       items: [
-        'concepts/how-the-work-flows',
-        'concepts/entries',
-        'concepts/care-journeys',
-        'concepts/whanau-groups',
-        'concepts/finding-your-way-around-the-system',
-        'concepts/glossary',
+        'entries/creating-a-referral',
+        'entries/client-information',
+        'entries/referral-details',
+        'entries/uploading-documents',
+        'entries/submitting-for-review',
       ],
     },
     {
       type: 'category',
-      label: 'Dashboards',
-      link: {
-        type: 'generated-index',
-        title: 'Dashboards',
-        description: 'Learn about the different dashboards in Manaaki Central based on your role',
-      },
+      label: 'Care Journeys',
+      link: { type: 'doc', id: 'care-journeys/overview' },
       items: [
-        'dashboards/which-dashboard',
-        'dashboards/intake-officer',
-        'dashboards/supervisor',
-        'dashboards/case-worker',
+        'care-journeys/starting-an-episode',
+        'care-journeys/managing-episodes',
+        'care-journeys/closing-an-episode',
       ],
     },
     {
       type: 'category',
-      label: 'Referrals',
-      link: {
-        type: 'generated-index',
-        title: 'Referral Management',
-        description: 'Learn how to create and manage referrals',
-      },
+      label: 'Whānau',
+      link: { type: 'doc', id: 'whanau/overview' },
       items: [
-        'referrals/overview',
-        'referrals/creating-a-referral',
-        'referrals/client-information',
-        'referrals/referral-details',
-        'referrals/uploading-documents',
-        'referrals/submitting-for-review',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Clients',
-      link: {
-        type: 'generated-index',
-        title: 'Client Management',
-        description: 'Learn how to manage clients in Manaaki Central',
-      },
-      items: [
-        'clients/searching-for-clients',
-        'clients/viewing-client-details',
-        'clients/client-documents',
-        'clients/family-relationships',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Service Episodes',
-      link: {
-        type: 'generated-index',
-        title: 'Service Episodes',
-        description: 'Learn about service episode management',
-      },
-      items: [
-        'service-episodes/starting-an-episode',
-        'service-episodes/managing-episodes',
-        'service-episodes/closing-an-episode',
+        'whanau/searching-for-clients',
+        'whanau/viewing-client-details',
+        'whanau/client-documents',
+        'whanau/family-relationships',
       ],
     },
     {
       type: 'category',
       label: 'Activities',
-      link: {
-        type: 'generated-index',
-        title: 'Activities & Case Notes',
-        description: 'Learn how to record and manage activities',
-      },
+      link: { type: 'doc', id: 'activities/overview' },
       items: [
-        'activities/overview',
         'activities/recording-visits',
         'activities/phone-calls-and-emails',
         'activities/case-notes',
@@ -206,10 +158,7 @@ const sidebars: SidebarsConfig = {
         title: 'External Organisations',
         description: 'Manage partner and referrer organisations and their contacts.',
       },
-      items: [
-        'external-organisations/overview',
-        'external-organisations/managing-contacts',
-      ],
+      items: ['external-organisations/overview', 'external-organisations/managing-contacts'],
     },
     {
       type: 'category',
@@ -219,10 +168,10 @@ const sidebars: SidebarsConfig = {
         title: 'Document Library',
         description: 'Manage shared templates and documents for your organisation.',
       },
-      items: [
-        'organisation-documents/overview',
-      ],
+      items: ['organisation-documents/overview'],
     },
+    'finding-your-way-around-the-system',
+    'glossary',
   ],
 };
 
