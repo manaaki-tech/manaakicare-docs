@@ -47,22 +47,14 @@ written for non-confident readers.** The launch session's readability audit
 ranked these four among the worst pages on the site, and they now sit in the
 manual's first screen for every role.
 
-What is still wrong, with line numbers from the moved files:
-
-- **ASCII arrow diagrams** — `case-worker/what-you-can-do.mdx:103-111` (Daily
-  Workflow) and `:115-119` (episode lifecycle); `supervisor/…:82-86` and
-  `:90-96`; `program-manager/…:100-105` and `:109-116`. Plain-text arrow chains
-  in code fences. Prose or an ordered list will read better, and they do not
-  reflow on a phone.
-- **"Key Responsibilities"** sections — third-person HR register ("Case Workers
-  are front-line staff who manage direct relationships") in a manual that
-  otherwise says "you".
-- **"Best Practices"** — four H3s per page of generic advice. Much of it
-  duplicates the task pages now sitting directly beneath it in the same
-  category. Candidate for deletion rather than rewriting.
-- **`case-worker/what-you-can-do.mdx:116`** still shows `awaiting_commencement`
-  inside an ASCII lifecycle diagram — the same raw-status problem already fixed
-  in `docs/dashboards/case-worker.mdx`.
+Still wrong, with line numbers: ASCII arrow diagrams at
+`case-worker/what-you-can-do.mdx:103-111,115-119`, `supervisor/…:82-86,90-96`,
+`program-manager/…:100-105,109-116` — plain-text chains in code fences that do
+not reflow on a phone. "Key Responsibilities" is third-person HR register in a
+manual that otherwise says "you". "Best Practices" is four H3s of generic advice
+per page, much of it duplicating the task pages directly beneath it — a deletion
+candidate rather than a rewrite. And `case-worker/what-you-can-do.mdx:116` still
+shows raw `awaiting_commencement` in a lifecycle diagram.
 
 **Keep the permission tables.** They are the reason these pages exist and the
 one thing a reader cannot get elsewhere. `intake-officer/what-you-can-do.mdx`
@@ -93,14 +85,38 @@ The argument against them was that the app renders one tenant's vocabulary
 inconsistently, so a per-org capture would reproduce the inconsistency. That
 objection expires with the sweep. See the closeout for the rest of the reasoning.
 
-### 3. Unverified on this machine
+### 3. Open questions the audit raised but could not settle
 
-- **The enlarge overlay has never been exercised.** No browser here. Escape,
-  backdrop click, focus return, scroll lock, and the resize recompute all
-  compile and the markup is right, but nobody has clicked one.
-- **Terminology on category pages** is verified only as a pure function.
-  Confirm live: `/category/referrals/?env=production&org_id=90040e7a-ada0-4dc2-baaf-816713abf209`
-  should read "Entry Management" with a card titled "Creating an Entry".
+- **Is `entry`/`entries` staying hardcoded?** `resolve.ts:74-75` takes them from
+  defaults, not from the org's concepts, so the button reads "+ New Entry" for
+  every tenant while the docs write `<Term path="referral" />`. Invisible for NPO
+  (whose referral term *is* "Entry"), wrong for a default-config tenant. Left
+  alone deliberately: if the terminology sweep makes it org-driven, hardcoding it
+  in the docs now would have to be undone. **Ask the frontend team.**
+- **`With Kaiāwhina` is hardcoded** (`dashboard/types.ts:96`) — a te reo label
+  fixed in software for every organisation. Documented as such, but worth
+  confirming that is intended rather than an oversight.
+- **Sidebar order.** `referrals-list.png` shows Clients in the bottom group;
+  `cw-dash-1.png` and `AppSidebar.tsx:50-58` both put it second. Unreconciled —
+  possibly a stale capture or a role variant. Docs left matching source.
+- **Three referral statuses are undocumented**: `pending_associated_contact`,
+  `pending_assessment`, `pending_cultural_soco` exist in
+  `apps/referral/constants.py:79-129` but not in `workflow-overview.mdx`. Unknown
+  whether they are reachable or vestigial.
+- **A frontend bug worth passing on:** `src/types/api.ts:74-87` declares a
+  `withdrawn` referral status that no backend enum has, and it is offered as a
+  filter (`ReferralFilters.tsx:44`). A reader filtering by it will find nothing.
+- **`supervisor.mdx` claims an episode is always created on accept**, even with
+  no staff chosen. The frontend only fires that call when staff *is* selected
+  (`AcceptRejectDialog.tsx:107-120`). Not traced through the backend; the claim
+  is left standing pending that check.
+
+### 4. Unverified on this machine
+
+- **The enlarge overlay has never been exercised.** No browser here.
+- **Terminology on category pages** is verified as a pure function only. Check
+  live: `/category/referrals/?env=production&org_id=90040e7a-…` should read
+  "Entry Management" with a card titled "Creating an Entry".
 
 ### Project context already mapped (don't re-explore)
 
