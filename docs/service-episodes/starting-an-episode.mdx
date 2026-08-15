@@ -25,7 +25,13 @@ See [Submitting for Review](/referrals/submitting-for-review) for the dispatch a
 
 ## If the episode is Awaiting Staff Assignment
 
-Open the episode and add a <Term path="caseWorker" /> from the **Assigned Staff** card. The first staff member assigned automatically becomes primary responsible, and the episode moves to **Awaiting Commencement** on its own — there's no separate step to advance it.
+Open the episode and add a <Term path="caseWorker" /> from the **Assigned Staff** card.
+
+<Callout color="amber" title="Tick 'Set as primary responsible' — it is not automatic">
+The checkbox in the Add Staff Member dialog starts **unticked**, and nothing sets a primary for you, not even for the very first person you assign.
+
+An episode with staff but no primary cannot be commenced: the button stays disabled. If you have assigned somebody and still cannot start the work, this is almost certainly why — open the dialog again and tick the box.
+</Callout>
 
 <Callout color="teal" title="Adding staff later works the same way">
 This is the same **Add Staff Member** action described in [Managing Episodes](/service-episodes/managing-episodes) — assigning the first person to an unstaffed episode is what advances its status.
@@ -35,7 +41,7 @@ This is the same **Add Staff Member** action described in [Managing Episodes](/s
 
 Once a <Term path="caseWorker" /> is assigned, the episode sits in **Awaiting Commencement** until someone commences it. This is the actual "start" — it's what marks the beginning of active service delivery.
 
-You'll see a **Commence Episode** prompt on the episode's Overview tab, and the same action is available from the compact record preview. It's enabled once a primary responsible staff member is set; before that it stays disabled with a note that staff need to be assigned first.
+A banner on the episode's Overview tab says the service has not started yet, with a button reading **Start working with…** followed by the person's name. It is enabled once a primary responsible staff member is set; before that it stays disabled with a note that staff need to be assigned first.
 
 Clicking it moves the episode to **Active** and:
 
