@@ -78,24 +78,11 @@ repo at `/home/amj/dev/.manaakicare-docs-screenshot-originals/2026-08-15/` becau
 they are full screens containing staff names.
 
 **The frontend is running a full sweep for remaining hardcoded strings like
-"Episode" (MJ, 2026-08-15).** That will change several of these images the day it
-lands. Specifically, these still show hardcoded English rather than NPO's words:
-
-- `case-worker/analytics.png` and `my-active-cases.png` — "Active Cases",
-  "Service episodes currently in progress", and the table heading "My Service
-  Episodes" (should read "My Care Journeys" for NPO).
-- `supervisor/analytics.png` — "Awaiting Commencement", "Episodes pending start",
-  "Active Episodes".
-- `supervisor/pending-requests.png` and `needing-contact.png` — "Pending Referral
-  Requests", "Client Name", "Service Users Needing Contact", "Case Worker".
-
-The intake images are largely already migrated ("Entry Processing", "With
-Kaiāwhina"), so they should survive.
-
-The four new reference images are partly migrated and will also shift: the
-headings are termed ("Entries", "Care Journeys", "Whānau") but the table columns
-are not — "Client", "Referral #", "Assigned Staff" — and the client record's tab
-strip still reads "Referrals" beside a "Whānau" tab.
+"Episode" (MJ, 2026-08-15), on `fix/terminology-sweep`.** Several images still
+show hardcoded English — the case worker and supervisor tiles ("Active Cases",
+"Episodes pending start", "Active Episodes"), the table heading "My Service
+Episodes", and the column headings on the four new reference images. The intake
+images are already migrated. Full list in the closeout.
 
 **Re-shoot after the sweep, not before.** The crop tool makes that cheap: replace
 the source captures and re-run it. Prose will need another pass at the same time,
