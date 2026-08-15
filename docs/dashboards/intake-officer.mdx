@@ -62,9 +62,11 @@ The dashboard uses tabs to organise <Term path="referral" plural /> by their cur
 | **Intake** | New <Term path="referral" plural /> requiring initial processing | Shows count of <Term path="referral" plural /> in intake |
 | **In Review** | <Term path="referral" plural /> submitted and awaiting review | Shows count pending review |
 | **Service Review** | Approved <Term path="referral" plural /> ready for service allocation | Shows count pending service review |
-| **With <Term path="caseWorker" />** | Dispatched <Term path="referral" plural /> waiting for the service to begin | Shows count awaiting delivery |
+| **With Kaiāwhina** | Dispatched <Term path="referral" plural /> waiting for the service to begin, including any on hold | Shows count awaiting delivery |
 
-The last tab is named after whoever the work has gone to, so it carries your organisation's own word for that role rather than a generic one.
+<Callout color="teal" title="That last tab says Kaiāwhina whoever you are">
+Unlike most labels, this one is fixed in the software rather than drawn from your organisation's terminology, so it reads **With Kaiāwhina** even for organisations that use a different word for the role.
+</Callout>
 
 Click any tab to switch the table view to show <Term path="referral" plural /> at that stage.
 
@@ -96,10 +98,10 @@ All tabs share a consistent table layout with the following columns:
 | Column | Description |
 |--------|-------------|
 | **Priority** | Priority level badge (Emergency, Crisis, Urgent, Priority, or Routine) |
-| **Client** | Client name and reference number (e.g., REF-2026-DEFAULT-00002) |
-| **Age** | How long since the <Term path="referral" /> was created (e.g., 0d, 1d, 3d) |
+| **Person** | Who the <Term path="referral" /> is for, with its reference number underneath |
 | **Status** | Current status of the <Term path="referral" /> |
-| **Referrer** | The person or organisation who made the <Term path="referral" /> |
+| **Reason** | Why they were referred, truncated to fit |
+| **Age** | How long since the <Term path="referral" /> was created (e.g., 0d, 1d) |
 | **Actions** | View (eye icon) and Edit (pencil icon) buttons |
 
 ### Priority Badges
@@ -212,11 +214,12 @@ This tab shows <Term path="referral" plural /> that have been dispatched to serv
 ### What You'll See
 
 <Term path="referral" plural /> with the following statuses:
-- **Accepted Pending Allocation** — accepted by a service, awaiting <Term path="caseWorker" /> allocation
-- **Allocated Awaiting Service** — allocated to a <Term path="caseWorker" />, service has not started yet
-- **Service In Progress** — service delivery is underway
-- **Completed** — service delivery concluded successfully
-- **Closed** — closed without completing, including cancellations and consent withdrawals
+- **Pending Allocation** — accepted by a service, awaiting <Term path="caseWorker" /> allocation
+- **Awaiting Service** — allocated to a <Term path="caseWorker" />, service has not started yet
+- **On Hold** — started, then paused
+- **Active** — service delivery is underway
+
+Completed and closed work is not in this tab. Once it finishes it leaves the intake dashboard altogether.
 
 ### Status Filter Dropdown
 
@@ -257,17 +260,9 @@ When there are many <Term path="referral" plural />, use pagination to navigate:
 - **Page X of Y** - Current page number
 - **< >** arrows - Navigate between pages
 
-### Refreshing Data
+### Refreshing data
 
-To refresh the dashboard data:
-1. Click the **refresh icon** (circular arrow) in the top-right corner
-2. The dashboard reloads with the latest data
-
-### Switching Themes
-
-Click the **sun/moon icon** in the top-right corner to toggle between light and dark modes.
-
----
+Reload the page. The counts on the cards are worked out when the page loads, so a number that looks stale usually is.
 
 ## Workflow and Status Reference
 
@@ -282,7 +277,7 @@ For priority handling guidelines and expected response times, see [Priority Hand
 ### Dashboard Not Loading
 
 1. Check your internet connection
-2. Click the refresh button
+2. Reload the page
 3. Try logging out and back in
 4. Clear your browser cache
 
@@ -296,7 +291,7 @@ If you can't find a <Term path="referral" />:
 
 ### Data Not Updating
 
-1. Click the refresh button
+1. Reload the page
 2. Check if filters are affecting the view
 3. Wait a few moments and try again
 4. Contact support if the issue persists

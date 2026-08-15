@@ -99,7 +99,7 @@ Along the bottom of the table:
 
 ### Empty State
 
-When you have no active <Term path="cases" />, you will see a green checkmark with the message: *"No active cases assigned to you."*
+When you have no active <Term path="cases" />, the table is replaced by **"No active episodes"** and the line *"You have no service episodes assigned right now."*
 
 ---
 
@@ -129,7 +129,7 @@ The follow-up date is the column that tells you what is late. Sort by it and wor
 
 ### Actions
 
-Click the **link icon** on any row to navigate directly to the <Term path="activity" /> detail page within its <Term path="serviceEpisode" />.
+Rows in this table are not clickable. Note the reference, then open that <Term path="serviceEpisode" /> from **My Active <Term path="cases" />** above to reach the <Term path="activity" />.
 
 ### Sorting and columns
 
@@ -141,7 +141,7 @@ Same pattern as My Active <Term path="cases" /> — a rows-per-page selector and
 
 ### Empty State
 
-When you have no follow-ups scheduled, you will see a green checkmark with the message: *"No follow-ups scheduled"*
+When you have no follow-ups scheduled, you get **"No follow-ups due"** and the line *"All your activities are up to date — nice work!"*
 
 ---
 
@@ -163,9 +163,11 @@ Reload the page. The counts on the tiles are worked out when the page loads, so 
 
 ### Navigating to an <Term path="activity" /> {#navigating-to-an-activity}
 
-1. Find the <Term path="activity" /> in the **<Term path="activity" plural /> Needing Follow-up** table
-2. Click the **link icon** in the Actions column
-3. You will be taken to the <Term path="activity" /> detail page within its <Term path="serviceEpisode" />
+1. Find the <Term path="activity" /> in the **<Term path="activity" plural /> Needing Follow-up** table and note its reference
+2. Find the matching <Term path="serviceEpisode" /> in **My Active <Term path="cases" />** and click **View**
+3. Open the **Activities** tab on that record
+
+There is no direct link from the follow-up table itself — its rows are for reading, not for clicking through.
 
 ---
 
@@ -212,14 +214,6 @@ Your supervisor can see all your records plus records of other <Term path="caseW
 | **Awaiting commencement <Term path="serviceEpisode" plural />** | Plan service start |
 | **Routine follow-ups** | Process in order |
 
-### Keyboard Shortcuts
-
-| Shortcut | Action |
-|----------|--------|
-| `Ctrl + F` | Open search |
-| `Enter` | Submit search |
-| `Esc` | Close dialogs |
-
 ---
 
 ## Troubleshooting
@@ -227,15 +221,15 @@ Your supervisor can see all your records plus records of other <Term path="caseW
 ### Dashboard Not Loading
 
 1. Check your internet connection
-2. Click the refresh button
+2. Reload the page
 3. Try logging out and back in
 4. Clear your browser cache
 
 ### Missing <Term path="serviceEpisode" plural /> {#missing-service-episodes}
 
 If you cannot find an assigned <Term path="serviceEpisode" />:
-1. Check all pages using pagination
-2. Use the search bar with the client name or reference number
+1. Check all pages using pagination — the table shows ten at a time
+2. Sort by <Term path="serviceUser" /> or Start Date to narrow down where it should be
 3. The <Term path="serviceEpisode" /> may have been closed or reassigned — check with your supervisor
 
 ### Follow-up Dates Not Showing
@@ -247,7 +241,7 @@ If you cannot find an assigned <Term path="serviceEpisode" />:
 
 ### Data Not Updating
 
-1. Click the refresh button
+1. Reload the page
 2. Wait a few moments and try again
 3. Check if search filters are narrowing your view
 4. Contact support if the issue persists

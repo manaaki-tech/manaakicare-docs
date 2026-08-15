@@ -75,8 +75,8 @@ When you click **Accept**, a dialog appears with the following options:
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| **Allocate to Team Member** | Optional | Dropdown to assign the <Term path="referral" /> to a specific staff member from your team |
-| **Notes for Team Member** | Optional | Free-text instructions or context for the allocated worker |
+| **Assign to Staff (optional)** | Optional | Dropdown to assign the <Term path="referral" /> to a specific staff member from your team |
+| **Notes (optional)** | Optional | Free-text instructions or context for the allocated worker |
 
 After accepting:
 1. The <Term path="referral" /> service request status changes to **Accepted**
@@ -98,12 +98,12 @@ When you click **Reject**, a dialog requires:
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| **Reason for Rejection** | **Yes** | You must provide an explanation for the rejection |
+| **Rejection Reason** | **Yes** | You must provide an explanation for the rejection |
 
 After rejecting:
 1. The <Term path="referral" /> service request status changes to **Rejected** with the reason recorded
 2. The <Term path="referral" /> status reverts to **Pending Service Dispatch**
-3. The <Term path="referral" /> reappears in the [Pending Service Dispatch](#pending-service-dispatch) section (on the intake officer's or dispatching user's view)
+3. The <Term path="referral" /> returns to the intake officer's dashboard to be dispatched again
 4. A new service must be selected and a new service request created before the <Term path="referral" /> can proceed again
 
 <Callout color="amber" title="Rejection Reason Required">
@@ -124,7 +124,7 @@ When there are no pending requests, you will see a green checkmark with the mess
 
 ## <Term path="serviceUser" plural /> Needing Contact {#service-users-needing-contact}
 
-![Service Users Needing Contact and Pending Service Dispatch](/img/dashboards/supervisor/needing-contact.png)
+![Service Users Needing Contact](/img/dashboards/supervisor/needing-contact.png)
 
 This section flags <Term path="serviceUser" plural /> who have not been contacted by their assigned <Term path="caseWorker" /> recently. It helps supervisors ensure <Term path="serviceUser" plural /> receive timely follow-up.
 
@@ -161,49 +161,6 @@ Check this section daily to ensure your team maintains regular contact with all 
 
 ---
 
-## Pending Service Dispatch
-
-This section (right column) shows <Term path="referral" plural /> where the **service request has been accepted** by a supervisor/manager but **no <Term path="caseWorker" /> has been assigned yet**. A <Term path="serviceEpisode" /> has been created, but it still needs a <Term path="caseWorker" /> allocated to begin service delivery.
-
-**Section description:** *"<Term path="referral" plural /> awaiting service assignment"*
-
-### Why <Term path="referral" plural /> Appear Here {#why-referrals-appear-here}
-
-A <Term path="referral" /> appears in this section when:
-- The service request was **accepted** by a supervisor/manager
-- **No <Term path="caseWorker" /> was selected** during the acceptance step (the "Allocate to Team Member" field was left empty)
-- The <Term path="serviceEpisode" /> exists but has no staff assigned
-
-### Table Columns
-
-| Column | Description |
-|--------|-------------|
-| **Client** | Client name and <Term path="referral" /> reference number |
-| **Priority** | Priority level badge |
-| **Date** | <Term path="referral" /> date |
-
-### Priority Badges
-
-| Badge | Colour | Meaning |
-|-------|--------|---------|
-| **Routine** | Green | Standard processing timeline |
-| **Priority** | Amber/Orange | Requires prompt attention |
-| **Urgent** | Orange | Requires immediate action |
-| **Critical** | Red | Crisis situation - highest urgency |
-
-### Search
-
-Use the search bar to filter by **client name** or **priority level**.
-
-### What You Can Do
-
-1. Identify accepted <Term path="referral" plural /> that still need a <Term path="caseWorker" /> assigned
-2. Prioritise urgent and critical <Term path="referral" plural /> for faster allocation
-3. Assign a <Term path="caseWorker" /> to the <Term path="serviceEpisode" /> to begin service delivery
-4. Track any <Term path="referral" plural /> that have been waiting too long without staff assignment
-
----
-
 ## Common Tasks
 
 ### Searching Within Sections
@@ -214,7 +171,6 @@ Each section includes its own search bar:
 |---------|--------------------|-------------------|
 | **Pending <Term path="referral" plural /> Requests** | "Search by client or service..." | Client name, service name |
 | **<Term path="serviceUser" plural /> Needing Contact** | "Search by client or <Term path="caseWorker" />..." | Client name, <Term path="caseWorker" /> name |
-| **Pending Service Dispatch** | "Search by client or priority..." | Client name, priority level |
 
 ### Pagination
 
@@ -226,15 +182,9 @@ When there are many records, pagination controls appear at the bottom of each se
 | **Page X of Y** | Current page number and total pages |
 | **< >** arrows | Navigate to previous/next page |
 
-### Refreshing Data
+### Refreshing data
 
-Click the **refresh icon** (circular arrow) in the top-right header to reload all dashboard data.
-
-### Switching Themes
-
-Click the **sun/moon icon** in the top-right header to toggle between light and dark modes.
-
----
+Reload the page. The counts are worked out when the page loads, so a figure that looks stale usually is.
 
 ## <Term path="referral" /> Request Workflow {#referral-request-workflow}
 
@@ -303,27 +253,18 @@ Supervisors and Program Managers have different data scopes:
 
 | Priority | Expected Response | Action |
 |----------|-------------------|--------|
-| **Critical** | Immediate | Accept and allocate immediately |
-| **Urgent** | Same day | Process as soon as possible |
-| **Priority** | Within 24 hours | Process promptly |
-| **Routine** | Within 48 hours | Process in order received |
-
-### Keyboard Shortcuts
-
-| Shortcut | Action |
-|----------|--------|
-| `Ctrl + F` | Open search |
-| `Enter` | Submit search |
-| `Esc` | Close dialogs |
-
----
+| **Emergency** | Now | Accept and allocate immediately |
+| **Crisis** | Within 4 hours | Accept and allocate immediately |
+| **Urgent** | Within 24 hours | Process as soon as possible |
+| **Priority** | Within 3 days | Process promptly |
+| **Routine** | Within 5 days | Process in order received |
 
 ## Troubleshooting
 
 ### Dashboard Not Loading
 
 1. Check your internet connection
-2. Click the refresh button
+2. Reload the page
 3. Try logging out and back in
 4. Clear your browser cache
 
@@ -335,7 +276,7 @@ Supervisors and Program Managers have different data scopes:
 
 ### Data Not Updating
 
-1. Click the refresh button
+1. Reload the page
 2. Wait a few moments and try again
 3. Check if search filters are affecting the view
 4. Contact support if the issue persists
