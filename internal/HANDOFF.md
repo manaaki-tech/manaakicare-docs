@@ -69,40 +69,37 @@ one thing a reader cannot get elsewhere. `intake-officer/what-you-can-do.mdx`
 has no Data Visibility section at all, unlike the other three — a real gap, not
 a formatting one.
 
-### 2. Screenshots — five captures still needed from MJ
+### 2. Screenshots — all nine replaced, but they have a shelf life
 
-**Done:** the two case-worker images are cropped from the current build and
-committed. `tools/crop_dashboard_images.py` records the boxes and is idempotent —
-re-run it after replacing a source image.
+**Done.** All nine Dashboards images now come from current-build captures, and
+five sections of prose were corrected because the new images contradicted them.
+`tools/crop_dashboard_images.py` holds the boxes; raw captures stay outside the
+repo at `/home/amj/dev/.manaakicare-docs-screenshot-originals/2026-08-15/` because
+they are full screens containing staff names.
 
-**Still needed, all requiring a running app:**
+**The frontend is running a full sweep for remaining hardcoded strings like
+"Episode" (MJ, 2026-08-15).** That will change several of these images the day it
+lands. Specifically, these still show hardcoded English rather than NPO's words:
 
-1. Case worker — **Activities Needing Follow-up** table. In no current screenshot.
-2. Supervisor — analytics cards.
-3. Supervisor — pending referral/service requests.
-4. Supervisor — service users needing contact / pending dispatch.
-5. **A clean re-capture of the intake dashboard.** This one is not for a page
-   directly: `static/img/manual/dashboard/intake-dashboard.png` contains all
-   three intake reference images, but carries hand-drawn red annotations from
-   the manual (a ring on the "Entry Processing" tile, a box on the first two
-   tabs). They cannot be painted out — the ring crosses a gradient. One clean
-   capture and `crop_dashboard_images.py` yields overview, new-referrals and
-   tabs; add the three boxes back to the `CROPS` list, which documents them in
-   its header comment.
+- `case-worker/analytics.png` and `my-active-cases.png` — "Active Cases",
+  "Service episodes currently in progress", and the table heading "My Service
+  Episodes" (should read "My Care Journeys" for NPO).
+- `supervisor/analytics.png` — "Awaiting Commencement", "Episodes pending start",
+  "Active Episodes".
+- `supervisor/pending-requests.png` and `needing-contact.png` — "Pending Referral
+  Requests", "Client Name", "Service Users Needing Contact", "Case Worker".
 
-Destinations already exist and are referenced, so a file can be dropped over a
-path without touching prose:
-`static/img/dashboards/{case-worker,supervisor,intake-officer}/`. Outdated
-images sit at the remaining seven paths as placeholders.
+The intake images are largely already migrated ("Entry Processing", "With
+Kaiāwhina"), so they should survive.
 
-Originals are backed up outside the repo at
-`/home/amj/dev/.manaakicare-docs-screenshot-originals/2026-08-15/`, and in git at
-`712175b`.
+**Re-shoot after the sweep, not before.** The crop tool makes that cheap: replace
+the source captures and re-run it. Prose will need another pass at the same time,
+since these headings appear in the tables above.
 
-**When a dashboard page gets current-build images, add `<PictureWords />` to it.**
-`docs/dashboards/case-worker.mdx` now has it; supervisor and intake-officer do
-not, and will need it, because the pixels carry NPO's vocabulary and nothing
-else on a reference page explains that.
+**When the sweep lands, per-org screenshot variants become worth reconsidering.**
+The argument against them was that the app renders one tenant's vocabulary
+inconsistently, so a per-org capture would reproduce the inconsistency. That
+objection expires with the sweep. See the closeout for the rest of the reasoning.
 
 ### 3. Unverified on this machine
 
