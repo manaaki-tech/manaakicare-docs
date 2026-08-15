@@ -157,7 +157,7 @@ const config: Config = {
           items: [
             {
               label: 'Getting Started',
-              to: '/getting-started/logging-in',
+              to: '/manual/everyone/signing-in',
             },
             {
               label: 'Referrals',
@@ -174,11 +174,11 @@ const config: Config = {
           items: [
             {
               label: 'Glossary',
-              to: '/glossary',
+              to: '/concepts/glossary',
             },
             {
               label: 'User Roles',
-              to: '/user-roles/case-worker',
+              to: '/manual/case-worker/what-you-can-do',
             },
           ],
         },

@@ -1,0 +1,164 @@
+---
+title: Finishing up
+description: Closing the work properly when it comes to an end
+sidebar_position: 9
+keywords:
+  [
+    close, closing, exit, exit care journey, complete episode, closure,
+    exit summary, closure checklist, evaluation form, end date, closure reason,
+    finish, discharge,
+  ]
+---
+
+import Callout from '@site/src/components/Callout';
+import Screen from '@site/src/components/Screen';
+import PictureWords from '@site/src/components/PictureWords';
+
+# Finishing up
+
+**By the end of this page** you will be able to close someone's work properly,
+with the right reason and date recorded.
+
+<PictureWords />
+
+## Before you close anything
+
+Closing is not the same as pausing. If you expect to pick the work back up —
+they are in hospital, away, or out of contact for now — use **Put on Hold**
+instead.
+
+Close only when the work has genuinely ended.
+
+<Callout color="teal" title="Check who does this in your team">
+The system does not restrict closing to supervisors — if you can open the
+<Term path="serviceEpisode" />, you can close it.
+
+Many organisations still expect the work to be taken to a supervisor or manager
+first, and treat closing as their decision rather than yours. That is a rule
+your organisation sets, not one the system enforces, so ask what is expected
+where you work before closing something for the first time.
+</Callout>
+
+## Starting the closure
+
+Open the person, find the <Term path="serviceEpisode" /> card, and open its
+actions menu.
+
+<Screen
+  src="/img/manual/journey/04-actions-menu.png"
+  alt="The actions menu open, showing Put on Hold and Exit options"
+  caption="Two options, and they are not alike. Putting the work on hold is easy to undo. Ending it is not."
+  narrow
+/>
+
+Choose the option that ends the work. It is named after whatever your
+organisation calls a <Term path="serviceEpisode" />, so it may read **Exit**,
+**Complete**, or something else — but it is the one that is not **Put on Hold**.
+
+## The closure form
+
+<Screen
+  src="/img/manual/closure/01-close-the-journey.png"
+  alt="The closure dialog, with a reason, an end date, and a list of outstanding requirements"
+  caption="Three things to get right: why it ended, when it ended, and what to do about anything still outstanding."
+  narrow
+/>
+
+The **Closure Reason** and the **End Date** are both required — the button at
+the bottom stays greyed out until you have filled them in, and it tells you
+which one is missing.
+
+<Callout color="terracotta" title="You cannot undo this">
+Once the work is closed, its status is final. There is no button anywhere in
+the system to reopen it or change it afterwards.
+
+That is not a reason to avoid closing things — it is a reason to check the
+reason and the date before you click.
+</Callout>
+
+### Why it ended
+
+Pick the reason that is actually true.
+
+Only **Service completed** records the work as genuinely finished. Every other
+reason — moved out of area, left without notice, consent withdrawn, and the
+rest — closes it without counting as a completion. Choosing "service completed"
+for work that stopped because a whānau disengaged makes your organisation's
+numbers meaningless.
+
+Your organisation sets the list of reasons, so yours may differ from someone
+else's.
+
+### When it ended
+
+Put the real end date. If your last contact was three weeks ago, use that date.
+
+It cannot be in the future.
+
+### Anything still outstanding
+
+If required paperwork is missing, the dialog says so in red and names each item —
+*"3 requirements must be completed before closure"*, then the list: exit summary,
+closure checklist, evaluation form.
+
+Going ahead anyway means turning on **Override** and **writing a justification**
+before the closure button becomes available.
+
+<Callout color="amber" title="The justification is not a formality">
+Sometimes closing with paperwork missing is the right call — a whānau who has
+moved on is not coming back to sign an evaluation form.
+
+But what you type is kept, and someone will read it. Write the actual reason,
+not "n/a".
+</Callout>
+
+### If you are ticking "consent withdrawn"
+
+<Callout color="terracotta" title="This reaches further than the work you are closing">
+Consent is withdrawn at the <Term path="referral" /> level, not just for this
+piece of work. If the person has **other open
+<Term path="serviceEpisode" plural /> under the same
+<Term path="referral" />, those are closed too.**
+
+The dialog will ask you for a reason and a confirmation that the person
+actually requested it. Both are required, and the button changes to **Complete
+& Withdraw Consent** so you know it is happening.
+
+If you did not intend to end their other services, stop and choose a different
+reason.
+</Callout>
+
+### Follow-up
+
+If you tick **Follow-up required**, you must give a follow-up date. It can be
+up to three months out.
+
+## What closing does
+
+- The <Term path="serviceEpisode" /> is marked **Completed** or **Closed**, with
+  your end date and reason recorded on it.
+- The linked <Term path="referral" /> is set to match.
+- An "Exit Episode" activity is written automatically, holding the reason and
+  your closure notes.
+- The record moves off your in-progress list and onto **Completed Care**.
+
+Everything recorded stays. You can still open it and read the history — you
+just cannot change it.
+
+## If it does not look like this
+
+- **There is no exit option** — the most likely reason is that the work has
+  already been closed; the option disappears once it has. Check the status on
+  the <Term path="serviceEpisode" /> card before assuming something is broken.
+- **It will not let you pick an end date before the start date** — that is
+  deliberate. If the start date is wrong, fix that first.
+- **The closure documents are still locked** — they unlock once closure has
+  begun. Start the closure, then upload them.
+- **You closed it by mistake** — it cannot be reopened. Tell your supervisor
+  straight away rather than quietly creating a duplicate record; how to handle
+  it is their call.
+
+## What next
+
+There is more detail on what closure means for reporting on the [closing an
+episode](/service-episodes/closing-an-episode) reference page.
