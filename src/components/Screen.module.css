@@ -24,10 +24,17 @@
 	border-color: var(--sage-500);
 }
 
+/* max-width, not width: these screenshots were captured at whatever size the
+   underlying dialog happened to be, and half of them are narrower than the
+   content column. Forcing width:100% upscaled those — one of them by 2.65x —
+   which is why embedded images looked soft while the opened file looked sharp.
+   At natural size a screenshot's text is exactly as big as it is in the real
+   application, which is the size the reader is trying to recognise. */
 .frame img {
-	width: 100%;
+	max-width: 100%;
 	height: auto;
 	display: block;
+	margin-inline: auto;
 }
 
 .caption {
@@ -54,4 +61,123 @@
 
 [data-theme='dark'] .caption {
 	color: var(--stone-200);
+}
+
+/* --- Enlarging -------------------------------------------------------------
+   Only images actually being displayed smaller than they were captured get the
+   affordance, so a click always does something. That is measured at runtime
+   rather than baked in, because it depends on the viewport: on a phone almost
+   every screenshot is squeezed and worth enlarging, on a wide desktop only the
+   genuinely large ones are. */
+
+.frame {
+	/* the frame is a <button> when zoomable, a <div> otherwise */
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	font: inherit;
+	color: inherit;
+	text-align: left;
+	appearance: none;
+}
+
+.zoomable {
+	cursor: zoom-in;
+}
+
+.hint {
+	display: flex;
+	align-items: center;
+	gap: 0.3rem;
+	font-size: 0.8rem;
+	color: var(--stone-600);
+}
+
+[data-theme='dark'] .hint {
+	color: var(--stone-200);
+}
+
+.backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1.5rem;
+	background: rgba(0, 0, 0, 0.82);
+	animation: fade 120ms ease;
+}
+
+.dialog {
+	position: relative;
+	max-width: 100%;
+	max-height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+/* The point of the overlay is to see the image bigger, so it is allowed to
+   exceed the content column — but never the viewport, or it cannot be read
+   without panning. */
+.dialog img {
+	max-width: 100%;
+	max-height: calc(100vh - 8rem);
+	width: auto;
+	height: auto;
+	object-fit: contain;
+	border-radius: 6px;
+	background: var(--ifm-background-surface-color);
+}
+
+.dialogCaption {
+	color: #fff;
+	font-size: 0.9rem;
+	line-height: 1.5;
+	max-width: 46rem;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.close {
+	position: absolute;
+	top: -0.75rem;
+	right: -0.75rem;
+	width: 2.25rem;
+	height: 2.25rem;
+	border-radius: 999px;
+	border: 1px solid var(--stone-700);
+	background: #fff;
+	color: #000;
+	font-size: 1.1rem;
+	line-height: 1;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.close:hover,
+.close:focus-visible {
+	border-color: var(--sage-500);
+}
+
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.backdrop {
+		animation: none;
+	}
+
+	.frame {
+		transition: none;
+	}
 }

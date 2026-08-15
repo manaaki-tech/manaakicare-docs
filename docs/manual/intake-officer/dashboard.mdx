@@ -7,10 +7,13 @@ keywords: [dashboard, intake officer, referrals, intake processing, service disp
 ---
 
 import Callout from '@site/src/components/Callout';
+import PictureWords from '@site/src/components/PictureWords';
 
 # Intake Officer <Term path="dashboard" />
 
 The Intake Officer <Term path="dashboard" /> is your central hub for managing the <Term path="referral" /> intake process. It provides a comprehensive view of all <Term path="referral" plural /> at different stages, from new submissions through to service dispatch.
+
+<PictureWords />
 
 ## Overview
 
@@ -32,34 +35,15 @@ The top section of the dashboard displays three key metric cards that give you a
 
 ### Statistics Cards
 
-<table style={{borderCollapse: 'collapse', width: '100%'}}>
-  <thead>
-    <tr>
-      <th style={{padding: '10px 14px', textAlign: 'left', borderBottom: '2px solid var(--ifm-table-border-color)'}}>Card</th>
-      <th style={{padding: '10px 14px', textAlign: 'left', borderBottom: '2px solid var(--ifm-table-border-color)'}}>Description</th>
-      <th style={{padding: '10px 14px', textAlign: 'left', borderBottom: '2px solid var(--ifm-table-border-color)'}}>What It Shows</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style={{borderLeft: '4px solid #0f766e', background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px', fontWeight: 600}}>Active Pipeline</td>
-      <td style={{background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px'}}>All active <Term path="referral" plural /> across every stage</td>
-      <td style={{background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px'}}>Sum of <Term path="referral" plural /> in Intake Processing + In Review + Service Review + Awaiting Service Delivery. A secondary label shows the total <Term path="referral" /> count in the system.</td>
-    </tr>
-    <tr>
-      <td style={{borderLeft: '4px solid #b45309', background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px', fontWeight: 600}}>New <Term path="referral" plural /></td>
-      <td style={{background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px'}}><Term path="referral" plural /> not yet dispatched to a service</td>
-      <td style={{background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px'}}>Sum of <Term path="referral" plural /> in Intake Processing + In Review + Service Review. Clicking opens an expanded panel listing all of these <Term path="referral" plural />.</td>
-    </tr>
-    <tr>
-      <td style={{borderLeft: '4px solid #c2410c', background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px', fontWeight: 600}}>Needs Attention</td>
-      <td style={{background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px'}}>High-priority <Term path="referral" plural /> needing immediate action</td>
-      <td style={{background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px'}}>Count of <Term path="referral" plural /> with <strong>Urgent</strong>, <strong>Crisis</strong>, or <strong>Emergency</strong> priority, filtered to Intake Processing and In Review stages only. Clicking opens a panel sorted by priority rank (Emergency first).</td>
-    </tr>
-  </tbody>
-</table>
+| Card | What it counts |
+|------|----------------|
+| **Entry Processing** | <Term path="referral" plural /> still being worked on — the card reads *"Intake & review stages"* |
+| **Awaiting Service** | <Term path="referral" plural /> dispatched and waiting to be allocated to somebody — *"Dispatched & pending allocation"* |
+| **High Priority** | Urgent, crisis and emergency <Term path="referral" plural /> — *"Urgent, crisis & emergency"* |
 
-Numbers update in real-time as <Term path="referral" plural /> progress through the workflow. Clicking any card opens an expanded panel — for example, clicking **New <Term path="referral" plural />** shows all pre-dispatch <Term path="referral" plural /> in one list:
+The first two cards name the stage rather than the record, so they follow your organisation's own word for a <Term path="referral" />.
+
+Clicking any card opens an expanded panel beneath it, listing the <Term path="referral" plural /> behind that number:
 
 ![New Referrals Detail](/img/dashboards/intake-officer/new-referrals.png)
 
@@ -75,10 +59,14 @@ The dashboard uses tabs to organise <Term path="referral" plural /> by their cur
 
 | Tab | Description | Badge |
 |-----|-------------|-------|
-| **Intake Processing** | New <Term path="referral" plural /> requiring initial processing | Shows count of <Term path="referral" plural /> in intake |
+| **Intake** | New <Term path="referral" plural /> requiring initial processing | Shows count of <Term path="referral" plural /> in intake |
 | **In Review** | <Term path="referral" plural /> submitted and awaiting review | Shows count pending review |
 | **Service Review** | Approved <Term path="referral" plural /> ready for service allocation | Shows count pending service review |
-| **Awaiting Service Delivery** | Dispatched <Term path="referral" plural /> waiting for service to begin | Shows count awaiting delivery |
+| **With Kaiāwhina** | Dispatched <Term path="referral" plural /> waiting for the service to begin, including any on hold | Shows count awaiting delivery |
+
+<Callout color="teal" title="That last tab says Kaiāwhina whoever you are">
+Unlike most labels, this one is fixed in the software rather than drawn from your organisation's terminology, so it reads **With Kaiāwhina** even for organisations that use a different word for the role.
+</Callout>
 
 Click any tab to switch the table view to show <Term path="referral" plural /> at that stage.
 
@@ -110,10 +98,10 @@ All tabs share a consistent table layout with the following columns:
 | Column | Description |
 |--------|-------------|
 | **Priority** | Priority level badge (Emergency, Crisis, Urgent, Priority, or Routine) |
-| **Client** | Client name and reference number (e.g., REF-2026-DEFAULT-00002) |
-| **Age** | How long since the <Term path="referral" /> was created (e.g., 0d, 1d, 3d) |
+| **Person** | Who the <Term path="referral" /> is for, with its reference number underneath |
 | **Status** | Current status of the <Term path="referral" /> |
-| **Referrer** | The person or organisation who made the <Term path="referral" /> |
+| **Reason** | Why they were referred, truncated to fit |
+| **Age** | How long since the <Term path="referral" /> was created (e.g., 0d, 1d) |
 | **Actions** | View (eye icon) and Edit (pencil icon) buttons |
 
 ### Priority Badges
@@ -226,11 +214,12 @@ This tab shows <Term path="referral" plural /> that have been dispatched to serv
 ### What You'll See
 
 <Term path="referral" plural /> with the following statuses:
-- **Accepted Pending Allocation** — accepted by a service, awaiting <Term path="caseWorker" /> allocation
-- **Allocated Awaiting Service** — allocated to a <Term path="caseWorker" />, service has not started yet
-- **Service In Progress** — service delivery is underway
-- **Completed** — service delivery concluded successfully
-- **Closed** — closed without completing, including cancellations and consent withdrawals
+- **Pending Allocation** — accepted by a service, awaiting <Term path="caseWorker" /> allocation
+- **Awaiting Service** — allocated to a <Term path="caseWorker" />, service has not started yet
+- **On Hold** — started, then paused
+- **Active** — service delivery is underway
+
+Completed and closed work is not in this tab. Once it finishes it leaves the intake dashboard altogether.
 
 ### Status Filter Dropdown
 
@@ -255,9 +244,9 @@ Click the **+ New <Term path="referral" />** button in the top-right corner of t
 
 Clicking any analytics card opens an expanded panel below it. Click the **X** button to close.
 
-- **Active Pipeline** — Shows all <Term path="referral" plural /> across every tab.
-- **New <Term path="referral" plural />** — Combines <Term path="referral" plural /> from the Intake Processing, In Review, and Service Review tabs into one list.
-- **Needs Attention** — Shows only Intake Processing and In Review <Term path="referral" plural />, filtered to Urgent/Crisis/Emergency priority and sorted with Emergency first.
+- **Entry Processing** — the <Term path="referral" plural /> still in the intake and review stages.
+- **Awaiting Service** — those already dispatched, waiting on allocation.
+- **High Priority** — urgent, crisis and emergency <Term path="referral" plural />, whichever stage they are at.
 
 ---
 
@@ -271,17 +260,9 @@ When there are many <Term path="referral" plural />, use pagination to navigate:
 - **Page X of Y** - Current page number
 - **< >** arrows - Navigate between pages
 
-### Refreshing Data
+### Refreshing data
 
-To refresh the dashboard data:
-1. Click the **refresh icon** (circular arrow) in the top-right corner
-2. The dashboard reloads with the latest data
-
-### Switching Themes
-
-Click the **sun/moon icon** in the top-right corner to toggle between light and dark modes.
-
----
+Reload the page. The counts on the cards are worked out when the page loads, so a number that looks stale usually is.
 
 ## Workflow and Status Reference
 
@@ -296,7 +277,7 @@ For priority handling guidelines and expected response times, see [Priority Hand
 ### Dashboard Not Loading
 
 1. Check your internet connection
-2. Click the refresh button
+2. Reload the page
 3. Try logging out and back in
 4. Clear your browser cache
 
@@ -310,7 +291,7 @@ If you can't find a <Term path="referral" />:
 
 ### Data Not Updating
 
-1. Click the refresh button
+1. Reload the page
 2. Check if filters are affecting the view
 3. Wait a few moments and try again
 4. Contact support if the issue persists
