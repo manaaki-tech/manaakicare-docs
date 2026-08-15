@@ -175,11 +175,21 @@ objection expires with the sweep. See the closeout for the rest of the reasoning
 
 ## Reminders for MJ — not Claude's to action
 
-- **The closure modal is fixed — thank you.** `complete-care-journey.png` shows
-  it reading "Complete Care Journey" throughout, so the frontend is applying
-  terminology there now. The screenshot is replaced and the manual no longer
-  names two possible labels. The wider half-migration is what your current sweep
-  addresses.
+- **The manual's closure screenshot shows UI that is not shipped — decide before
+  merging PR #9.** `complete-care-journey.png` shows the dialog titled "Complete
+  Care Journey". That string exists in **no commit on any branch**;
+  `origin/main` still reads "Complete Episode"
+  (`ExitEpisodeDialog.tsx:184,403`). The capture is uncommitted local work on top
+  of `fix/terminology-sweep`.
+
+  It is now `static/img/manual/closure/01-close-the-journey.png`, so the manual
+  shows a label readers will not see until that branch merges. Options: hold the
+  merge until it ships, or restore the previous image from
+  `/home/amj/dev/.manaakicare-docs-screenshot-originals/2026-08-15/manual-closure-original/`.
+  The surrounding prose is already label-agnostic either way.
+
+  **An earlier note here claimed the modal was fixed. That was wrong** — inferred
+  from the screenshot rather than from source.
 
 - **An unredacted phone number is published and you chose to leave it:**
   `static/img/manual/intake/05-referrer-and-risk.png` shows an ACC office number
