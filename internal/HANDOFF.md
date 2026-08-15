@@ -153,8 +153,13 @@ objection expires with the sweep. See the closeout for the rest of the reasoning
   a human decision, deliberately deferred.
 - **Direct commits to `main` are blocked** by a pre-commit guard. Branch first.
 - **`npm run build` wipes `build/`.** Never write generated artefacts there.
-- **Testing terminology locally will fail.** CORS allows
-  `https://docs.manaakitech.com` only.
+- **Terminology CAN be tested locally — against UAT, not production.**
+  `https://api-uat.manaakicentral.com` returns
+  `access-control-allow-origin` for a LAN origin such as
+  `http://192.168.100.10:3000`; production allows `https://docs.manaakitech.com`
+  only. So a local `?env=uat&org_id=…` genuinely resolves, while `env=production`
+  silently falls back to default English. The older note saying local testing
+  always fails was drawn from production alone.
 - **Checking out a branch changes which subagents exist.** `.claude/agents/`
   defines `docs-sweeper`, `docs-writer`, `docs-critic`, `role-mapper`. They
   vanish on a branch that lacks the directory.

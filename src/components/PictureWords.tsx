@@ -37,21 +37,44 @@ function singular(raw: string | undefined): string | undefined {
 	return raw?.split('|')[0];
 }
 
-export default function PictureWords() {
-	const { t, orgId } = useTerminology();
+/**
+ * Folds a word down to what actually distinguishes it from another: case, and
+ * the macrons.
+ *
+ * An organisation whose configuration says "Kaiawhina" where the screenshots
+ * say "Kaiāwhina" has not chosen a different word — someone typed it without
+ * the macron. Showing that as a row tells the reader their screen says
+ * something different when it plainly does not, and buries the row that is a
+ * real difference underneath it.
+ *
+ * Comparing folded does NOT change what is displayed. Where a genuine
+ * difference remains, both words are still shown exactly as each is written,
+ * macrons and all.
+ */
+function fold(value: string): string {
+	return value
+		.normalize('NFD')
+		.replace(/\p{Mn}/gu, '')
+		.toLowerCase();
+}
 
-	// Say nothing unless we actually know who is reading.
+export default function PictureWords() {
+	const { t, resolved } = useTerminology();
+
+	// Say nothing unless this reader's own vocabulary was actually loaded.
 	//
-	// Terminology only resolves when the reader arrives with ?env=&org_id= (or
-	// has them in sessionStorage, which is per-tab). Without them `t` falls back
-	// to default English — and comparing the screenshots against a *default* is
-	// not evidence that this reader's screen differs, it is a guess.
+	// Comparing the screenshots against *default* English is not evidence that
+	// this reader's screen differs — it is a guess, and for most people it was a
+	// wrong one. The screenshots were taken on the launch tenant, so anyone
+	// whose terminology had not loaded was shown a table claiming their screen
+	// says "Service Episode" when it says "Care Journey", exactly as pictured.
 	//
-	// It was a wrong guess for most people. The screenshots were taken on the
-	// launch tenant, so the majority of readers arriving at the docs with no
-	// query string were being shown a table telling them their screen says
-	// "Service Episode" when it says "Care Journey", exactly as pictured.
-	if (!orgId) {
+	// Guarding on `resolved` rather than `orgId` matters: `orgId` is set from the
+	// query string before the request is made, so it stays set when the fetch is
+	// blocked by CORS, fails, or returns no overrides — all of which leave `t`
+	// on defaults. Serving the docs from localhost or a LAN address hits exactly
+	// that case, since the API only allows the production docs origin.
+	if (!resolved) {
 		return null;
 	}
 
@@ -60,7 +83,7 @@ export default function PictureWords() {
 			pictureWord,
 			yourWord: singular(t[key]) ?? singular(defaultTerminology[key]) ?? key,
 		}))
-		.filter((row) => row.yourWord.toLowerCase() !== row.pictureWord.toLowerCase());
+		.filter((row) => fold(row.yourWord) !== fold(row.pictureWord));
 
 	if (rows.length === 0) {
 		return null;

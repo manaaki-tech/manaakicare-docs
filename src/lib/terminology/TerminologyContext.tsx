@@ -9,6 +9,7 @@ const TerminologyContext = createContext<TerminologyContextValue>({
 	t: defaultTerminology as Terminology,
 	orgId: null,
 	isLoading: false,
+	resolved: false,
 });
 
 const SESSION_KEY_ENV = 'mc_docs_env';
@@ -60,6 +61,7 @@ export function TerminologyProvider({ children }: { children: React.ReactNode })
 	const [terminology, setTerminology] = useState<Terminology>(defaultTerminology as Terminology);
 	const [orgId, setOrgId] = useState<string | null>(null);
 	const [isLoading, setIsLoading] = useState(false);
+	const [resolved, setResolved] = useState(false);
 	const fetchedRef = useRef(false);
 
 	// Fetch terminology once on initial load
@@ -103,6 +105,7 @@ export function TerminologyProvider({ children }: { children: React.ReactNode })
 			.then((data: TerminologyOverrides) => {
 				if (data && typeof data === 'object' && Object.keys(data).length > 0) {
 					setTerminology({ ...defaultTerminology, ...data });
+					setResolved(true);
 				} else {
 					// An org with no docs-type terminology row returns {}. That is
 					// indistinguishable from a working fetch unless we say so.
@@ -145,7 +148,7 @@ export function TerminologyProvider({ children }: { children: React.ReactNode })
 	}, [isBrowser, location]);
 
 	return (
-		<TerminologyContext.Provider value={{ t: terminology, orgId, isLoading }}>
+		<TerminologyContext.Provider value={{ t: terminology, orgId, isLoading, resolved }}>
 			{children}
 		</TerminologyContext.Provider>
 	);
