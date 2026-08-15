@@ -69,24 +69,40 @@ one thing a reader cannot get elsewhere. `intake-officer/what-you-can-do.mdx`
 has no Data Visibility section at all, unlike the other three — a real gap, not
 a formatting one.
 
-### 2. Screenshots — four captures, five crops
+### 2. Screenshots — five captures still needed from MJ
 
-MJ is capturing. **Four are genuinely needed:** the case-worker *Activities
-Needing Follow-up* table, and all three supervisor dashboard images (nothing in
-the repo covers the supervisor dashboard).
+**Done:** the two case-worker images are cropped from the current build and
+committed. `tools/crop_dashboard_images.py` records the boxes and is idempotent —
+re-run it after replacing a source image.
 
-**Five can be cropped from existing current-build images** with `tools/pngkit.py`
-— `static/img/manual/dashboard/intake-dashboard.png` holds the intake overview,
-the New Referrals drill-down and the tab strip; `dashboard/my-caseload.png` holds
-the analytics tiles and the active-cases table.
+**Still needed, all requiring a running app:**
 
-Destination paths already exist and are referenced, so a file can be dropped in
-without touching prose: `static/img/dashboards/{case-worker,supervisor,intake-officer}/`.
-The outdated images sit there now as placeholders.
+1. Case worker — **Activities Needing Follow-up** table. In no current screenshot.
+2. Supervisor — analytics cards.
+3. Supervisor — pending referral/service requests.
+4. Supervisor — service users needing contact / pending dispatch.
+5. **A clean re-capture of the intake dashboard.** This one is not for a page
+   directly: `static/img/manual/dashboard/intake-dashboard.png` contains all
+   three intake reference images, but carries hand-drawn red annotations from
+   the manual (a ring on the "Entry Processing" tile, a box on the first two
+   tabs). They cannot be painted out — the ring crosses a gradient. One clean
+   capture and `crop_dashboard_images.py` yields overview, new-referrals and
+   tabs; add the three boxes back to the `CROPS` list, which documents them in
+   its header comment.
 
-**If the crops are used**, add `<PictureWords />` to `docs/dashboards/*.mdx` —
-those pages do not render it, so NPO vocabulary in the pixels would go
-unexplained for a default-config reader.
+Destinations already exist and are referenced, so a file can be dropped over a
+path without touching prose:
+`static/img/dashboards/{case-worker,supervisor,intake-officer}/`. Outdated
+images sit at the remaining seven paths as placeholders.
+
+Originals are backed up outside the repo at
+`/home/amj/dev/.manaakicare-docs-screenshot-originals/2026-08-15/`, and in git at
+`712175b`.
+
+**When a dashboard page gets current-build images, add `<PictureWords />` to it.**
+`docs/dashboards/case-worker.mdx` now has it; supervisor and intake-officer do
+not, and will need it, because the pixels carry NPO's vocabulary and nothing
+else on a reference page explains that.
 
 ### 3. Unverified on this machine
 
