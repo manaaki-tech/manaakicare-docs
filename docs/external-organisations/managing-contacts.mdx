@@ -6,30 +6,37 @@ helpId: external-organisations-contacts
 keywords: [contacts, external organisations, referrer, contact person, entry, new entry, entry processing, entry details, awareness and entry]
 ---
 
+import Callout from '@site/src/components/Callout';
+
 # Managing Contacts
 
 Each external organisation can have one or more contact people — the individuals at that organisation who are your actual points of contact for <Term path="referral" plural /> and co-ordination.
 
 ## Contacts tab
 
-Open an organisation's detail page. The **Contacts** tab shows all contacts linked to that organisation, including their name, role or title, phone number, and email address.
+Open an organisation's detail page. The **Contacts** tab lists everyone linked to that organisation, in three columns — **Name**, **Phone** and **Email**. Their role or job title sits in smaller text under the name rather than in a column of its own.
 
 ## Adding a contact
 
 Click **Add Contact** in the Contacts tab. Fill in the following details:
 
-- **Full name** (required)
+- **First name** (required)
+- **Last name** (required)
 - **Role or job title** — for example, Social Worker, Principal, or GP
 - **Phone number**
 - **Email address**
 
-Click **Save** to add the contact. They will appear immediately as a selectable referrer source when creating entries.
+Click **Add Contact** to save them. They will appear immediately as a selectable referrer source when creating entries.
 
-## Editing and removing contacts
+## Editing contacts
 
-Use the **edit icon** on any contact row to update their details.
+Use the **edit icon** — the pencil on any contact row — to update their details. **Save changes** commits them.
 
-Contacts can be removed if they are no longer at the organisation. Removing a contact will not affect historical records where they were previously referenced — those records keep the name and details as they were at the time.
+<Callout color="amber" title="There is no way to remove a contact">
+The contacts list has no delete action. If somebody has left the organisation, edit their entry to say so, or add their replacement alongside them.
+
+This is deliberate as far as records go: entries that named that person keep the name and details as they were at the time, so removing them would not tidy the history anyway.
+</Callout>
 
 ## Using contacts in entries
 
