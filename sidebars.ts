@@ -81,42 +81,44 @@ const sidebars: SidebarsConfig = {
           ],
         },
         {
+          // One section, not two: the roles do the same things at different
+          // scope, so two sequences meant two near-identical pages drifting
+          // apart. The difference is a column in the permissions table.
           type: 'category',
-          label: 'Supervisor',
+          label: 'Supervisor & Program Manager',
           link: {
             type: 'generated-index',
-            title: 'Supervisor',
-            description: 'Overseeing a team, and moving work between the people in it.',
+            title: 'Supervisor & Program Manager',
+            description:
+              'Overseeing work and moving it between people. Both roles do the same things — a supervisor over their team, a programme manager over the organisation.',
           },
           items: [
             'manual/supervisor/what-you-can-do',
             'manual/supervisor/moving-work-between-staff',
           ],
         },
-        {
-          type: 'category',
-          label: 'Program Manager',
-          link: {
-            type: 'generated-index',
-            title: 'Program Manager',
-            description: 'Oversight across the whole organisation.',
-          },
-          items: ['manual/program-manager/what-you-can-do'],
-        },
       ],
     },
+    // The explanation layer. The manual says how to do things and the sections
+    // below are reference; this answers "what is this thing, and how does it
+    // relate to that one" — which was previously scattered across three
+    // sections and a glossary nobody linked to.
     {
       type: 'category',
-      label: 'Getting Started',
+      label: 'Concepts & Definitions',
       link: {
         type: 'generated-index',
-        title: 'Getting Started',
-        description: 'Learn how to get started with Manaaki Central',
+        title: 'Concepts & Definitions',
+        description:
+          'What the words mean and how the pieces fit together. Read these once; the rest of the site assumes them.',
       },
       items: [
-        'getting-started/workflow-overview',
-        'getting-started/understanding-your-dashboard',
-        'getting-started/navigating-the-system',
+        'concepts/how-the-work-flows',
+        'concepts/entries',
+        'concepts/care-journeys',
+        'concepts/whanau-groups',
+        'concepts/finding-your-way-around-the-system',
+        'concepts/glossary',
       ],
     },
     {
@@ -128,6 +130,7 @@ const sidebars: SidebarsConfig = {
         description: 'Learn about the different dashboards in Manaaki Central based on your role',
       },
       items: [
+        'dashboards/which-dashboard',
         'dashboards/intake-officer',
         'dashboards/supervisor',
         'dashboards/case-worker',
@@ -174,7 +177,6 @@ const sidebars: SidebarsConfig = {
         description: 'Learn about service episode management',
       },
       items: [
-        'service-episodes/what-are-service-episodes',
         'service-episodes/starting-an-episode',
         'service-episodes/managing-episodes',
         'service-episodes/closing-an-episode',
@@ -221,7 +223,6 @@ const sidebars: SidebarsConfig = {
         'organisation-documents/overview',
       ],
     },
-    'glossary',
   ],
 };
 

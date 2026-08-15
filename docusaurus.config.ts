@@ -174,7 +174,7 @@ const config: Config = {
           items: [
             {
               label: 'Glossary',
-              to: '/glossary',
+              to: '/concepts/glossary',
             },
             {
               label: 'User Roles',

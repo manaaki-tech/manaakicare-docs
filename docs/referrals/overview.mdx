@@ -1,6 +1,6 @@
 ---
 title: Referral Overview
-description: Understanding the referral process in Manaaki Central
+description: Where the entry pages are, and how the intake form is shaped
 sidebar_position: 1
 helpId: referral-overview
 keywords: [referral, intake, workflow, process, entry, new entry, entry processing, entry details, awareness and entry, care journey, journey, in-progress journeys, kaiawhina, kaiāwhina, kaimahi]
@@ -11,7 +11,10 @@ import Screen from '@site/src/components/Screen';
 
 # <Term path="referral" plural /> Overview
 
-A <Term path="referral" /> is how a client enters service in Manaaki Central. It records who the client is, who referred them, what they need, and what consent is on file — and once dispatched to a service it becomes a <Term path="serviceEpisode" /> that a <Term path="caseWorker" /> delivers against.
+This section is the how-to for taking an enquiry and getting it to a service.
+For what a <Term path="referral" /> actually *is*, and how it differs from a
+<Term path="serviceEpisode" />, see [<Term path="referral" plural /> and
+<Term path="serviceEpisode" plural />](/concepts/entries).
 
 <Screen
   src="/img/referrals/entries-list.png"
@@ -19,19 +22,7 @@ A <Term path="referral" /> is how a client enters service in Manaaki Central. It
   caption={<>Every <Term path="referral" /> your organisation has taken, grouped by whether it is still being drafted, live, or finished.</>}
 />
 
-## The journey end to end
-
-1. **Intake** — a staff member completes the three-step <Term path="referral" /> form
-2. **Dispatch** — the <Term path="referral" /> is sent to a service, either accepted directly or sent to a manager for approval
-3. **Allocation** — a <Term path="caseWorker" /> is assigned and a <Term path="serviceEpisode" /> is created
-4. **Delivery** — the <Term path="caseWorker" /> commences the <Term path="serviceEpisode" /> and records <Term path="activity" plural />
-5. **Closure** — the <Term path="serviceEpisode" /> is completed or closed
-
-<Callout color="teal" title="Two different records">
-The <Term path="referral" /> is the intake record — the request for service. The <Term path="serviceEpisode" /> is the delivery record created once a <Term path="caseWorker" /> is allocated. They have separate statuses and separate lifecycles, and both remain linked to the client.
-</Callout>
-
-## Creating a <Term path="referral" /> {#creating-a-referral}
+## The shape of the form
 
 The <Term path="referral" /> form is a **three-step wizard**:
 
@@ -41,48 +32,21 @@ The <Term path="referral" /> form is a **three-step wizard**:
 | 2 | **Consent** | Permissions on file |
 | 3 | **Review & Submit** | Confirm & dispatch |
 
-The record is created at the end of Step 1, so a part-finished <Term path="referral" /> is never lost.
-
-See [Creating a Referral](/referrals/creating-a-referral) for the full walkthrough.
-
-## Who can create one
-
-The **+ New <Term path="referral" />** button appears for staff in an **intake** position, and for **supervisors and programme managers**. If you are in a <Term path="caseWorker" /> position you will not see it — <Term path="referral" plural /> come to you already allocated.
-
-What happens after dispatch is also role-dependent: approving a service request and allocating a <Term path="caseWorker" /> are supervisor and programme manager actions.
-
-<Callout color="teal" title="Based on your position, not just your role">
-Visibility of the button is worked out from the **positions you hold on your assigned services**, falling back to your role if you have no service assignments. So two people with the same role title can see different things if their service positions differ. If you think you should be able to create a <Term path="referral" /> and cannot, ask your administrator to check your service positions.
+<Callout color="sage" title="The record is created at the end of Step 1">
+Finish the first step and click **Continue**, and the <Term path="referral" /> exists — a part-finished one is never lost. Before that point, leaving the page loses what you typed.
 </Callout>
 
-## Ways a <Term path="referral" /> can start {#ways-a-referral-can-start}
+## The pages in this section
 
-| Route | How |
-|-------|-----|
-| **New <Term path="referral" />** | The **+ New <Term path="referral" />** button on your dashboard, or `/referrals/new` |
-| **From a client** | The **New Entry** link on a client's whānau tab, which preselects that client |
-
-## <Term path="referral" /> types {#referral-types}
-
-The **referral type** you choose determines who is recorded as the referrer:
-
-| Type | Referrer is |
-|------|-------------|
-| **Self** | The client themselves |
-| **Whānau** | A whānau member |
-| **Educational** | A contact at a school or educational organisation |
-| **Professional** | A contact at another organisation |
-
-## Statuses
-
-A <Term path="referral" /> moves through intake statuses (Draft through to Pending Service Dispatch), then into allocation and delivery. Consent is tracked separately and can change at any point.
-
-For the complete list of statuses with definitions, and the lifecycle diagram, see the [Workflow Overview](/getting-started/workflow-overview#status-reference).
+| Page | Covers |
+|------|--------|
+| [Creating a Referral](/referrals/creating-a-referral) | The full three-step walkthrough |
+| [Finding or Creating the Client](/referrals/client-information) | Searching for someone, or adding them |
+| [Entry Details](/referrals/referral-details) | Every field on step 1, and what it is for |
+| [Uploading Documents](/referrals/uploading-documents) | Attaching files and consent forms |
+| [Submitting for Review](/referrals/submitting-for-review) | Dispatch, approval and allocation |
 
 ## Related topics
 
-- [Creating a Referral](/referrals/creating-a-referral) — the three-step walkthrough
-- [Submitting for Review](/referrals/submitting-for-review) — dispatch and approval
-- [Uploading Documents](/referrals/uploading-documents) — attaching files
-- [Workflow Overview](/getting-started/workflow-overview) — lifecycle diagrams and status reference
+- [How the work flows](/concepts/how-the-work-flows) — lifecycle diagrams and the status reference
 - [Intake Officer Dashboard](/dashboards/intake-officer) — managing the intake queue
