@@ -92,6 +92,11 @@ lands. Specifically, these still show hardcoded English rather than NPO's words:
 The intake images are largely already migrated ("Entry Processing", "With
 Kaiāwhina"), so they should survive.
 
+The four new reference images are partly migrated and will also shift: the
+headings are termed ("Entries", "Care Journeys", "Whānau") but the table columns
+are not — "Client", "Referral #", "Assigned Staff" — and the client record's tab
+strip still reads "Referrals" beside a "Whānau" tab.
+
 **Re-shoot after the sweep, not before.** The crop tool makes that cheap: replace
 the source captures and re-run it. Prose will need another pass at the same time,
 since these headings appear in the tables above.
@@ -165,16 +170,11 @@ objection expires with the sweep. See the closeout for the rest of the reasoning
 
 ## Reminders for MJ — not Claude's to action
 
-- **Replace `static/img/manual/closure/01-close-the-journey.png`.** Its dialog
-  reads "Complete Episode" — default English — while the action that opens it
-  reads "Exit Care Journey" in the same tenant. The frontend is not applying
-  terminology to that modal.
-
-  Same half-migration elsewhere: one caseload screen showing "In-progress
-  Journeys", "My Caseload", "Service episodes currently in progress" and "My
-  Service Episodes" at once; a journey overview using "Kaiāwhina" in one panel
-  and "Kaimahi" in another. Worth raising as a single terminology-coverage pass.
-  **This also blocks per-org screenshot variants** — see the closeout.
+- **The closure modal is fixed — thank you.** `complete-care-journey.png` shows
+  it reading "Complete Care Journey" throughout, so the frontend is applying
+  terminology there now. The screenshot is replaced and the manual no longer
+  names two possible labels. The wider half-migration is what your current sweep
+  addresses.
 
 - **An unredacted phone number is published and you chose to leave it:**
   `static/img/manual/intake/05-referrer-and-risk.png` shows an ACC office number
