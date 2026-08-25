@@ -1,0 +1,53 @@
+---
+title: Starting a Service Episode
+description: How to initiate a new service episode
+sidebar_position: 2
+helpId: start-episode
+keywords: [service episode, start, initiate, begin, care journey, journey, in-progress journeys, kaiawhina, kaiāwhina, kaimahi]
+---
+
+import Callout from '@site/src/components/Callout';
+
+# Starting a <Term path="serviceEpisode" />
+
+"Starting" a <Term path="serviceEpisode" /> is really two separate things: the episode being **created** (which happens automatically) and the episode being **commenced** (which is something a <Term path="caseWorker" /> does deliberately, once they're ready to begin). This page covers both.
+
+## Creation is automatic
+
+A <Term path="serviceEpisode" /> is created the moment a <Term path="referral" /> is accepted into a service — there's nothing to fill in beyond what's already been done in the dispatch or approval step. Which status it's created in depends on whether staff were assigned at that point:
+
+| How the episode was created | Starting status |
+|------------------------------|------------------|
+| **Accept & assign kaimahi** at dispatch, or a supervisor approves and assigns a <Term path="caseWorker" /> in one step | **Awaiting Commencement** — staff is already assigned |
+| **Accept entry** at dispatch, with no <Term path="caseWorker" /> chosen yet | **Awaiting Staff Assignment** |
+
+See [Submitting for Review](/entries/submitting-for-review) for the dispatch and approval steps that trigger this.
+
+## If the episode is Awaiting Staff Assignment
+
+Open the episode and add a <Term path="caseWorker" /> from the **Assigned Staff** card. The first staff member assigned automatically becomes primary responsible, and the episode moves to **Awaiting Commencement** on its own — there's no separate step to advance it.
+
+<Callout color="teal" title="Adding staff later works the same way">
+This is the same **Add Staff Member** action described in [Managing Episodes](/care-journeys/managing-episodes) — assigning the first person to an unstaffed episode is what advances its status.
+</Callout>
+
+## Commencing the episode
+
+Once a <Term path="caseWorker" /> is assigned, the episode sits in **Awaiting Commencement** until someone commences it. This is the actual "start" — it's what marks the beginning of active service delivery.
+
+You'll see a **Commence Episode** prompt on the episode's Overview tab, and the same action is available from the compact record preview. It's enabled once a primary responsible staff member is set; before that it stays disabled with a note that staff need to be assigned first.
+
+Clicking it moves the episode to **Active** and:
+
+- Sets the <Term path="referral" />'s status to **Service In Progress**
+- Anchors the episode's compliance due dates to its start date
+
+<Callout color="amber" title="Who can commence it">
+There's no separate approval step — whoever can open the episode (typically the assigned <Term path="caseWorker" />, or a supervisor/programme manager for services they oversee) can commence it, provided a primary staff member is set.
+</Callout>
+
+## Related Topics
+
+- [What are Service Episodes?](/care-journeys/overview)
+- [Managing Episodes](/care-journeys/managing-episodes) — assigning and changing staff, putting an episode on hold
+- [Submitting for Review](/entries/submitting-for-review) — how a referral becomes an episode

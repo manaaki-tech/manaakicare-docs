@@ -1,0 +1,84 @@
+---
+title: Referral Details
+description: Completing the referral details, referrer and service fields on the intake step
+sidebar_position: 4
+helpId: referral-details
+keywords: [referral, details, urgency, channel, referrer, service, dynamic fields, entry, new entry, entry processing, entry details, awareness and entry]
+---
+
+import Callout from '@site/src/components/Callout';
+
+# <Term path="referral" /> Details
+
+These fields make up the rest of **Step 1 (Intake)**, alongside [selecting the client](/entries/client-information).
+
+## Service
+
+Select the **service contract** the <Term path="referral" /> is for. Do this early — it determines which service-specific questions appear further down the page, and which team will pick the <Term path="referral" /> up.
+
+## The core fields
+
+| Field | Required | Notes |
+|-------|----------|-------|
+| **Referral type** | Yes | Self, Whānau, Educational or Professional. Changes which referrer fields you are asked for. |
+| **Urgency level** | Yes | Routine, Priority, Urgent, Crisis or Emergency. |
+| **Date of referral** | Yes | Cannot be in the future. |
+| **Channel** | Yes | How the <Term path="referral" /> reached you. |
+| **Reason for referral** | Yes | Minimum 10 characters, maximum 2000. |
+| **Additional referral details** | No | Free text, in the collapsible section below the reason. |
+
+### Channel options
+
+Channel records how the <Term path="referral" /> arrived:
+
+Internal · Face to Face · Walk-in · Email · Electronic · Event · Network
+
+### Urgency levels
+
+The form shows the expected response time beside each level as you choose it:
+
+| Level | Response time | Use when |
+|-------|---------------|----------|
+| **Emergency** | Now | Immediate safety concern requiring emergency response |
+| **Crisis** | 4 hours | Crisis situation, handle urgently |
+| **Urgent** | 24 hours | Needs attention within a day |
+| **Priority** | 3 days | Important but not an emergency |
+| **Routine** | 5 days | Standard processing |
+
+Urgency drives the priority badge on dashboards and the **Needs Attention** count on the Intake Officer dashboard, so it has a direct effect on whether the <Term path="referral" /> gets picked up quickly.
+
+## Who made the <Term path="referral" /> {#who-made-the-referral}
+
+The referrer fields appear once you choose a **referral type**:
+
+| Referral type | What you provide |
+|---------------|------------------|
+| **Self** | Nothing — the client referred themselves |
+| **Whānau** | Select the whānau member making the <Term path="referral" />. If the client is under 16, a contact phone number is also required. |
+| **Educational** | Search for the school or organisation, then select or add the contact person there |
+| **Professional** | Search for the organisation, then select or add the contact person there |
+
+For Educational and Professional <Term path="referral" plural />, if the contact you need is not listed you can add them without leaving the wizard.
+
+<Callout color="teal" title="School name fills itself in">
+On an **Educational** <Term path="referral" />, selecting the organisation automatically fills in the school name field for you.
+</Callout>
+
+## Service-specific questions
+
+Below the standard fields you may see an **Entry Details** panel containing extra questions belonging to the service you selected — for example child safety concerns or risk ratings. These vary by service.
+
+<Callout color="amber" title="These will not stop you continuing">
+Service-specific questions are advisory at intake. Complete as much as you can — you can come back and finish them later, and leaving them blank does not block the **Continue** button.
+</Callout>
+
+## Continuing
+
+**Continue** becomes available once you have selected a client and a service. Clicking it creates the <Term path="referral" /> and moves you to the Consent step.
+
+## Related topics
+
+- [Creating a Referral](/entries/creating-a-referral) — the three-step walkthrough
+- [Finding or Creating the Client](/entries/client-information) — the first half of Step 1
+- [Submitting and Dispatching](/entries/submitting-for-review) — what happens after Consent
+- [Workflow Overview](/how-the-work-flows#priority-handling) — priority handling and expected response times

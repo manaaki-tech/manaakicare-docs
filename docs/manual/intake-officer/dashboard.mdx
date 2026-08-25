@@ -1,0 +1,327 @@
+---
+title: Intake Officer Dashboard
+description: Complete guide to the Intake Officer Dashboard in Manaaki Central
+sidebar_position: 1
+helpId: dashboard-intake-officer
+keywords: [dashboard, intake officer, referrals, intake processing, service dispatch, entry, new entry, entry processing, entry details, awareness and entry]
+---
+
+import Callout from '@site/src/components/Callout';
+
+# Intake Officer <Term path="dashboard" />
+
+The Intake Officer <Term path="dashboard" /> is your central hub for managing the <Term path="referral" /> intake process. It provides a comprehensive view of all <Term path="referral" plural /> at different stages, from new submissions through to service dispatch.
+
+## Overview
+
+![Intake Dashboard Overview](/img/dashboards/intake-officer/overview.png)
+
+The Intake <Term path="dashboard" /> displays:
+- **Real-time analytics cards** showing active pipeline, new <Term path="referral" plural />, and items needing attention
+- **Tab-based navigation** to view <Term path="referral" plural /> at each stage of the intake process
+- **Inline filters** for priority and date
+- **Quick actions** to view and edit <Term path="referral" plural />
+- **Search functionality** to find specific <Term path="referral" plural />
+- **+ New <Term path="referral" />** button to create <Term path="referral" plural /> directly from the dashboard
+
+---
+
+## Analytics Cards
+
+The top section of the dashboard displays three key metric cards that give you an at-a-glance view of your workload.
+
+### Statistics Cards
+
+<table style={{borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{padding: '10px 14px', textAlign: 'left', borderBottom: '2px solid var(--ifm-table-border-color)'}}>Card</th>
+      <th style={{padding: '10px 14px', textAlign: 'left', borderBottom: '2px solid var(--ifm-table-border-color)'}}>Description</th>
+      <th style={{padding: '10px 14px', textAlign: 'left', borderBottom: '2px solid var(--ifm-table-border-color)'}}>What It Shows</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{borderLeft: '4px solid #0f766e', background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px', fontWeight: 600}}>Active Pipeline</td>
+      <td style={{background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px'}}>All active <Term path="referral" plural /> across every stage</td>
+      <td style={{background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px'}}>Sum of <Term path="referral" plural /> in Intake Processing + In Review + Service Review + Awaiting Service Delivery. A secondary label shows the total <Term path="referral" /> count in the system.</td>
+    </tr>
+    <tr>
+      <td style={{borderLeft: '4px solid #b45309', background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px', fontWeight: 600}}>New <Term path="referral" plural /></td>
+      <td style={{background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px'}}><Term path="referral" plural /> not yet dispatched to a service</td>
+      <td style={{background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px'}}>Sum of <Term path="referral" plural /> in Intake Processing + In Review + Service Review. Clicking opens an expanded panel listing all of these <Term path="referral" plural />.</td>
+    </tr>
+    <tr>
+      <td style={{borderLeft: '4px solid #c2410c', background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px', fontWeight: 600}}>Needs Attention</td>
+      <td style={{background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px'}}>High-priority <Term path="referral" plural /> needing immediate action</td>
+      <td style={{background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px'}}>Count of <Term path="referral" plural /> with <strong>Urgent</strong>, <strong>Crisis</strong>, or <strong>Emergency</strong> priority, filtered to Intake Processing and In Review stages only. Clicking opens a panel sorted by priority rank (Emergency first).</td>
+    </tr>
+  </tbody>
+</table>
+
+Numbers update in real-time as <Term path="referral" plural /> progress through the workflow. Clicking any card opens an expanded panel — for example, clicking **New <Term path="referral" plural />** shows all pre-dispatch <Term path="referral" plural /> in one list:
+
+![New Referrals Detail](/img/dashboards/intake-officer/new-referrals.png)
+
+---
+
+## Tab Navigation
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/dashboards/intake-officer/tabs.png" alt="Tab Navigation" />
+</div>
+
+The dashboard uses tabs to organise <Term path="referral" plural /> by their current stage. Each tab displays a count badge showing the number of <Term path="referral" plural /> in that stage.
+
+| Tab | Description | Badge |
+|-----|-------------|-------|
+| **Intake Processing** | New <Term path="referral" plural /> requiring initial processing | Shows count of <Term path="referral" plural /> in intake |
+| **In Review** | <Term path="referral" plural /> submitted and awaiting review | Shows count pending review |
+| **Service Review** | Approved <Term path="referral" plural /> ready for service allocation | Shows count pending service review |
+| **Awaiting Service Delivery** | Dispatched <Term path="referral" plural /> waiting for service to begin | Shows count awaiting delivery |
+
+Click any tab to switch the table view to show <Term path="referral" plural /> at that stage.
+
+---
+
+## Filters
+
+Use the inline filters to narrow down your view:
+
+| Filter | Options | Use Case |
+|--------|---------|----------|
+| **Search** | Free text search by client, referrer, or status | Find specific <Term path="referral" plural /> quickly |
+| **Priority** | All Priorities, Emergency, Crisis, Urgent, Priority, Routine | Focus on high-priority <Term path="referral" plural /> |
+| **<Term path="referral" /> Date** | All dates, Custom date range | View <Term path="referral" plural /> from specific time periods |
+
+#### How to Use Filters
+
+1. Type in the **search bar** to filter by client name, referrer, or status
+2. Click the **Priority** dropdown to select a priority level
+3. Click the **date** field to open the date picker and select a date range
+4. The table updates automatically to show filtered results
+
+---
+
+## Table Columns
+
+All tabs share a consistent table layout with the following columns:
+
+| Column | Description |
+|--------|-------------|
+| **Priority** | Priority level badge (Emergency, Crisis, Urgent, Priority, or Routine) |
+| **Client** | Client name and reference number (e.g., REF-2026-DEFAULT-00002) |
+| **Age** | How long since the <Term path="referral" /> was created (e.g., 0d, 1d, 3d) |
+| **Status** | Current status of the <Term path="referral" /> |
+| **Referrer** | The person or organisation who made the <Term path="referral" /> |
+| **Actions** | View (eye icon) and Edit (pencil icon) buttons |
+
+### Priority Badges
+
+<table style={{borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{padding: '10px 14px', textAlign: 'left', borderBottom: '2px solid var(--ifm-table-border-color)'}}>Badge</th>
+      <th style={{padding: '10px 14px', textAlign: 'left', borderBottom: '2px solid var(--ifm-table-border-color)'}}>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#f8d4c4', color: '#7c2d12', border: '1px solid #f0a888', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Emergency</span></td>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}>Requires immediate emergency response</td>
+    </tr>
+    <tr>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#fed7aa', color: '#9a3412', border: '1px solid #fdba74', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Crisis</span></td>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}>Crisis situation, handle urgently</td>
+    </tr>
+    <tr>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#fef3c7', color: '#92400e', border: '1px solid #fde68a', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Urgent</span></td>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}>Requires immediate attention</td>
+    </tr>
+    <tr>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#ecfccb', color: '#3f6212', border: '1px solid #d9f99d', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Priority</span></td>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}>High priority, process promptly</td>
+    </tr>
+    <tr>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#f5f5f4', color: '#57534e', border: '1px solid #d6d3d1', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Routine</span></td>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}>Standard priority</td>
+    </tr>
+  </tbody>
+</table>
+
+### Action Icons
+
+| Icon | Action | Description |
+|------|--------|-------------|
+| 👁 Eye | **View** | Open the <Term path="referral" /> details in read-only mode |
+| ✏ Pencil | **Edit** | Open the <Term path="referral" /> for editing |
+
+---
+
+## Intake Processing Tab
+
+This is the default tab showing all <Term path="referral" plural /> that are new or in the initial intake processing stage.
+
+### What You'll See
+
+<Term path="referral" plural /> with the following statuses:
+- **Draft** — intake has been started but consent is not yet recorded
+- **Pending Consent** — awaiting client consent before proceeding
+
+### How to Process New <Term path="referral" plural /> {#how-to-process-new-referrals}
+
+1. Review the list - check priority levels and age
+2. Process Emergency and Crisis items first
+3. Click the **eye icon** to view a <Term path="referral" />, or the **pencil icon** to edit
+4. Complete the intake assessment
+5. Submit for review when ready
+
+<Callout color="teal" title="Reference Numbers">
+Each <Term path="referral" /> has a unique reference number (e.g., REF-2026-DEFAULT-00047) that you can use to track and search for <Term path="referral" plural />.
+</Callout>
+
+---
+
+## In Review Tab
+
+This tab shows <Term path="referral" plural /> that have been submitted and are awaiting review by a supervisor or manager.
+
+### What You'll See
+
+<Term path="referral" plural /> with status:
+- **Pending Review** - Submitted <Term path="referral" plural /> awaiting approval
+
+A supervisor or manager must approve before the <Term path="referral" /> can proceed to service dispatch.
+
+<Callout color="amber" title="Review Delays">
+Use the **Age** column to monitor how long <Term path="referral" plural /> have been pending. If items stay in "Pending Review" for too long, follow up with your supervisor.
+</Callout>
+
+---
+
+## Service Review Tab
+
+This tab displays <Term path="referral" plural /> that have been approved and are ready to be allocated to services.
+
+### What You'll See
+
+<Term path="referral" plural /> with the following statuses:
+- **Pending Service Dispatch** — Approved <Term path="referral" plural /> ready to be dispatched to a service
+- **Pending Service Review** — <Term path="referral" plural /> awaiting service allocation review
+
+### How to Dispatch a <Term path="referral" /> {#how-to-dispatch-a-referral}
+
+1. Click the **eye icon** on a <Term path="referral" /> to view details
+2. Review the client's needs and service requirements
+3. Select the appropriate service
+4. Assign to a <Term path="caseWorker" /> or team
+5. Confirm the dispatch
+
+---
+
+## Awaiting Service Delivery Tab
+
+This tab shows <Term path="referral" plural /> that have been dispatched to services and are in various stages of service delivery.
+
+### What You'll See
+
+<Term path="referral" plural /> with the following statuses:
+- **Accepted Pending Allocation** — accepted by a service, awaiting <Term path="caseWorker" /> allocation
+- **Allocated Awaiting Service** — allocated to a <Term path="caseWorker" />, service has not started yet
+- **Service In Progress** — service delivery is underway
+- **Completed** — service delivery concluded successfully
+- **Closed** — closed without completing, including cancellations and consent withdrawals
+
+### Status Filter Dropdown
+
+This tab includes an additional **status filter dropdown** that lets you narrow the list to a specific post-dispatch status (any of the statuses listed above, or "All Statuses").
+
+### Monitoring Post-Dispatch <Term path="referral" plural /> {#monitoring-post-dispatch-referrals}
+
+- Track <Term path="referral" plural /> that are awaiting service start using the Age column
+- Use the status filter dropdown to focus on a specific stage
+- Follow up on delayed service initiations
+- Review completed <Term path="referral" plural /> for closure
+
+---
+
+## Creating a New <Term path="referral" /> {#creating-a-new-referral}
+
+Click the **+ New <Term path="referral" />** button in the top-right corner of the dashboard. See [Creating a Referral](/entries/creating-a-referral) for a step-by-step guide.
+
+---
+
+## Expanded Card Panels
+
+Clicking any analytics card opens an expanded panel below it. Click the **X** button to close.
+
+- **Active Pipeline** — Shows all <Term path="referral" plural /> across every tab.
+- **New <Term path="referral" plural />** — Combines <Term path="referral" plural /> from the Intake Processing, In Review, and Service Review tabs into one list.
+- **Needs Attention** — Shows only Intake Processing and In Review <Term path="referral" plural />, filtered to Urgent/Crisis/Emergency priority and sorted with Emergency first.
+
+---
+
+## Common Tasks
+
+### Pagination
+
+When there are many <Term path="referral" plural />, use pagination to navigate:
+
+- **Showing X-Y of Z** - Indicates which records are displayed
+- **Page X of Y** - Current page number
+- **< >** arrows - Navigate between pages
+
+### Refreshing Data
+
+To refresh the dashboard data:
+1. Click the **refresh icon** (circular arrow) in the top-right corner
+2. The dashboard reloads with the latest data
+
+### Switching Themes
+
+Click the **sun/moon icon** in the top-right corner to toggle between light and dark modes.
+
+---
+
+## Workflow and Status Reference
+
+For the complete <Term path="referral" /> lifecycle diagram, all status definitions, and role responsibilities, see the [Workflow Overview](/how-the-work-flows).
+
+For priority handling guidelines and expected response times, see [Priority Handling](/how-the-work-flows#priority-handling).
+
+---
+
+## Troubleshooting
+
+### Dashboard Not Loading
+
+1. Check your internet connection
+2. Click the refresh button
+3. Try logging out and back in
+4. Clear your browser cache
+
+### Missing <Term path="referral" plural /> {#missing-referrals}
+
+If you can't find a <Term path="referral" />:
+1. Check all tabs (it may have moved to a different status)
+2. Use the search function with the reference number
+3. Check the filters - you may have a filter active
+4. Go to the full <Term path="referral" plural /> page for advanced search
+
+### Data Not Updating
+
+1. Click the refresh button
+2. Check if filters are affecting the view
+3. Wait a few moments and try again
+4. Contact support if the issue persists
+
+---
+
+## Related Documentation
+
+- [Workflow Overview](/how-the-work-flows) - <Term path="referral" /> lifecycle, status definitions, and daily workflows
+- [Intake Officer Role](/manual/intake-officer/what-you-can-do) - Role overview, permissions, and best practices
+- [Creating a Referral](/entries/creating-a-referral) - Step-by-step guide
+- [Referral Overview](/entries/overview) - Understanding the <Term path="referral" /> process
+- [Submitting for Review](/entries/submitting-for-review) - How to submit <Term path="referral" plural />
+- [Searching for Clients](/whanau/searching-for-clients) - Finding client records

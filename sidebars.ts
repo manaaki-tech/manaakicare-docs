@@ -16,6 +16,12 @@ const sidebars: SidebarsConfig = {
     // The task-oriented layer, pinned above the entity-organised reference
     // below it. Someone who has just been handed a login is looking for "how
     // do I write up a visit", not for the Activities section.
+    //
+    // Grouped by job rather than by the lifecycle, because the lifecycle order
+    // mixes roles: taking on someone new is intake work, and a case worker
+    // reading start to finish used to hit a long page describing a button they
+    // cannot see. Each role now reads one sequence that is entirely theirs, and
+    // anything genuinely universal sits once under Everyone.
     {
       type: 'category',
       label: 'User Manual',
@@ -27,103 +33,117 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'manual/start-here',
-        'manual/signing-in',
-        'manual/finding-your-way-around',
-        'manual/your-day-at-a-glance',
-        'manual/taking-on-someone-new',
-        'manual/working-with-someone',
-        'manual/writing-up-what-you-did',
-        'manual/staying-on-top-of-deadlines',
-        'manual/finishing-up',
-        'manual/when-something-looks-wrong',
+        {
+          type: 'category',
+          label: 'Everyone',
+          link: {
+            type: 'generated-index',
+            title: 'Everyone',
+            description:
+              'The parts that are the same whatever your job — signing in, finding your way around, and what to do when something looks wrong.',
+          },
+          items: [
+            'manual/everyone/signing-in',
+            'manual/everyone/finding-your-way-around',
+            'manual/everyone/when-something-looks-wrong',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Case Worker',
+          link: {
+            type: 'generated-index',
+            title: 'Case Worker',
+            description:
+              'Your day, from opening your dashboard to closing a piece of work.',
+          },
+          items: [
+            'manual/case-worker/what-you-can-do',
+            'manual/case-worker/your-day-at-a-glance',
+            'manual/case-worker/working-with-someone',
+            'manual/case-worker/writing-up-what-you-did',
+            'manual/case-worker/staying-on-top-of-deadlines',
+            'manual/case-worker/finishing-up',
+            'manual/case-worker/dashboard',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Intake Officer',
+          link: {
+            type: 'generated-index',
+            title: 'Intake Officer',
+            description: 'Taking an enquiry from arrival through to somebody being assigned.',
+          },
+          items: [
+            'manual/intake-officer/what-you-can-do',
+            'manual/intake-officer/your-day-at-a-glance',
+            'manual/intake-officer/taking-on-someone-new',
+            'manual/intake-officer/dashboard',
+          ],
+        },
+        {
+          // One section, not two: the roles do the same things at different
+          // scope, so two sequences meant two near-identical pages drifting
+          // apart. The difference is a column in the permissions table.
+          type: 'category',
+          label: 'Supervisor & Program Manager',
+          link: {
+            type: 'generated-index',
+            title: 'Supervisor & Program Manager',
+            description:
+              'Overseeing work and moving it between people. Both roles do the same things — a supervisor over their team, a programme manager over the organisation.',
+          },
+          items: [
+            'manual/supervisor/what-you-can-do',
+            'manual/supervisor/moving-work-between-staff',
+            'manual/supervisor/dashboard',
+          ],
+        },
+      ],
+    },
+    'how-the-work-flows',
+    {
+      // The concept page IS the landing page, rather than a generated index
+      // above it: an organisation's word for this is the section name, and a
+      // reader arriving here wants to know what the thing is before the how-tos.
+      type: 'category',
+      label: 'Entries',
+      link: { type: 'doc', id: 'entries/overview' },
+      items: [
+        'entries/creating-a-referral',
+        'entries/client-information',
+        'entries/referral-details',
+        'entries/uploading-documents',
+        'entries/submitting-for-review',
       ],
     },
     {
       type: 'category',
-      label: 'Getting Started',
-      link: {
-        type: 'generated-index',
-        title: 'Getting Started',
-        description: 'Learn how to get started with Manaaki Central',
-      },
+      label: 'Care Journeys',
+      link: { type: 'doc', id: 'care-journeys/overview' },
       items: [
-        'getting-started/workflow-overview',
-        'getting-started/logging-in',
-        'getting-started/understanding-your-dashboard',
-        'getting-started/navigating-the-system',
+        'care-journeys/starting-an-episode',
+        'care-journeys/managing-episodes',
+        'care-journeys/closing-an-episode',
       ],
     },
     {
       type: 'category',
-      label: 'Dashboards',
-      link: {
-        type: 'generated-index',
-        title: 'Dashboards',
-        description: 'Learn about the different dashboards in Manaaki Central based on your role',
-      },
+      label: 'Whānau',
+      link: { type: 'doc', id: 'whanau/overview' },
       items: [
-        'dashboards/intake-officer',
-        'dashboards/supervisor',
-        'dashboards/case-worker',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Referrals',
-      link: {
-        type: 'generated-index',
-        title: 'Referral Management',
-        description: 'Learn how to create and manage referrals',
-      },
-      items: [
-        'referrals/overview',
-        'referrals/creating-a-referral',
-        'referrals/client-information',
-        'referrals/referral-details',
-        'referrals/uploading-documents',
-        'referrals/submitting-for-review',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Clients',
-      link: {
-        type: 'generated-index',
-        title: 'Client Management',
-        description: 'Learn how to manage clients in Manaaki Central',
-      },
-      items: [
-        'clients/searching-for-clients',
-        'clients/viewing-client-details',
-        'clients/client-documents',
-        'clients/family-relationships',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Service Episodes',
-      link: {
-        type: 'generated-index',
-        title: 'Service Episodes',
-        description: 'Learn about service episode management',
-      },
-      items: [
-        'service-episodes/what-are-service-episodes',
-        'service-episodes/starting-an-episode',
-        'service-episodes/managing-episodes',
-        'service-episodes/closing-an-episode',
+        'whanau/searching-for-clients',
+        'whanau/viewing-client-details',
+        'whanau/client-documents',
+        'whanau/family-relationships',
       ],
     },
     {
       type: 'category',
       label: 'Activities',
-      link: {
-        type: 'generated-index',
-        title: 'Activities & Case Notes',
-        description: 'Learn how to record and manage activities',
-      },
+      link: { type: 'doc', id: 'activities/overview' },
       items: [
-        'activities/overview',
         'activities/recording-visits',
         'activities/phone-calls-and-emails',
         'activities/case-notes',
@@ -138,10 +158,7 @@ const sidebars: SidebarsConfig = {
         title: 'External Organisations',
         description: 'Manage partner and referrer organisations and their contacts.',
       },
-      items: [
-        'external-organisations/overview',
-        'external-organisations/managing-contacts',
-      ],
+      items: ['external-organisations/overview', 'external-organisations/managing-contacts'],
     },
     {
       type: 'category',
@@ -151,25 +168,9 @@ const sidebars: SidebarsConfig = {
         title: 'Document Library',
         description: 'Manage shared templates and documents for your organisation.',
       },
-      items: [
-        'organisation-documents/overview',
-      ],
+      items: ['organisation-documents/overview'],
     },
-    {
-      type: 'category',
-      label: 'User Roles',
-      link: {
-        type: 'generated-index',
-        title: 'User Roles',
-        description: 'Learn about different user roles and permissions',
-      },
-      items: [
-        'user-roles/case-worker',
-        'user-roles/supervisor',
-        'user-roles/program-manager',
-        'user-roles/intake-officer',
-      ],
-    },
+    'finding-your-way-around-the-system',
     'glossary',
   ],
 };

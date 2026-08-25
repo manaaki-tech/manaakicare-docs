@@ -1,0 +1,126 @@
+---
+title: Entries
+sidebar_label: Overview
+description: What an entry is, what a care journey is, and why they are two different records
+sidebar_position: 2
+helpId: concept-entries
+keywords: [referral, entry, intake, care journey, service episode, two records, lifecycle, referral types, statuses, awareness and entry, kaiawhina, kaiāwhina, whanau, whānau]
+---
+
+import Callout from '@site/src/components/Callout';
+import Screen from '@site/src/components/Screen';
+
+# <Term path="referral" plural /> and <Term path="serviceEpisode" plural />
+
+A <Term path="referral" /> is how somebody enters service. It records who they
+are, who referred them, what they need, and what consent is on file.
+
+Once it is dispatched to a service and somebody is assigned, a
+<Term path="serviceEpisode" /> is created alongside it. That is the record of the
+work itself.
+
+<Screen
+  src="/img/entries/entries-list.png"
+  alt="The entries list, with draft, active and closed tabs above a table of referrals"
+  caption={<>Every <Term path="referral" /> your organisation has taken, grouped by whether it is still being drafted, live, or finished.</>}
+/>
+
+<Callout color="teal" title="Two different records, not two names for one">
+The <Term path="referral" /> is the **intake** record — the request for service.
+The <Term path="serviceEpisode" /> is the **delivery** record, created once a
+<Term path="caseWorker" /> is allocated.
+
+They have separate statuses and separate lifecycles, and both stay linked to the
+person. This is the single most useful thing to understand about the system: when
+somebody says "it's still showing as pending", the first question is *which of
+the two records* they mean.
+</Callout>
+
+## The journey end to end
+
+1. **Intake** — a staff member completes the three-step <Term path="referral" /> form
+2. **Dispatch** — the <Term path="referral" /> is sent to a service, either accepted directly or sent to a manager for approval
+3. **Allocation** — a <Term path="caseWorker" /> is assigned and a <Term path="serviceEpisode" /> is created
+4. **Delivery** — the <Term path="caseWorker" /> starts the <Term path="serviceEpisode" /> and records <Term path="activity" plural />
+5. **Closure** — the <Term path="serviceEpisode" /> is completed or closed
+
+Each of those steps has its own how-to page. This page is only about what the
+things *are*.
+
+## The shape of the form
+
+The <Term path="referral" /> form is a **three-step wizard**:
+
+| Step | Name | Covers |
+|------|------|--------|
+| 1 | **Intake** | Client & referral |
+| 2 | **Consent** | Permissions on file |
+| 3 | **Review & Submit** | Confirm & dispatch |
+
+<Callout color="sage" title="The record is created at the end of Step 1">
+Finish the first step and click **Continue**, and the <Term path="referral" /> exists — a part-finished one is never lost. Before that point, leaving the page loses what you typed.
+</Callout>
+
+## Ways a <Term path="referral" /> can start {#ways-a-referral-can-start}
+
+| Route | How |
+|-------|-----|
+| **New <Term path="referral" />** | The **+ New Entry** button in the header, or `/entries/new` |
+| **From a client** | The **New Entry** link on a client's whānau tab, which preselects that person |
+
+## <Term path="referral" /> types {#referral-types}
+
+The **referral type** determines who is recorded as the referrer:
+
+| Type | Referrer is |
+|------|-------------|
+| **Self** | The person themselves |
+| **Whānau** | A whānau member |
+| **Educational** | A contact at a school or educational organisation |
+| **Professional** | A contact at another organisation |
+
+## Who can create one
+
+The **+ New Entry** button appears for staff in an **intake** position, and for
+**supervisors and programme managers**. If you are in a <Term path="caseWorker" />
+position you will not see it — <Term path="referral" plural /> come to you already
+allocated.
+
+What happens after dispatch is also role-dependent: approving a service request
+and allocating a <Term path="caseWorker" /> are supervisor and programme manager
+actions.
+
+<Callout color="teal" title="Based on your position, not just your role">
+Visibility is worked out from the **positions you hold on your assigned
+services**, falling back to your role if you have no service assignments. So two
+people with the same job title can see different things if their service
+positions differ.
+
+If you think you should be able to create one and cannot, ask your administrator
+to check your service positions — it is rarely a fault.
+</Callout>
+
+## Statuses
+
+A <Term path="referral" /> moves through intake statuses, then into allocation and
+delivery. Consent is tracked separately and can change at any point.
+
+For the complete list with definitions, and the lifecycle diagrams, see [how the
+work flows](/how-the-work-flows#status-reference).
+
+## The pages in this section
+
+| Page | Covers |
+|------|--------|
+| [Creating an entry](/entries/creating-a-referral) | The full three-step walkthrough |
+| [Finding or creating the client](/entries/client-information) | Searching for someone, or adding them |
+| [Entry details](/entries/referral-details) | Every field on step 1, and what it is for |
+| [Uploading documents](/entries/uploading-documents) | Attaching files and consent forms |
+| [Submitting for review](/entries/submitting-for-review) | Dispatch, approval and allocation |
+
+## Where to go next
+
+- [How the work flows](/how-the-work-flows) — the diagrams and the full status reference
+- [<Term path="serviceEpisode" plural />](/care-journeys/overview) — what happens once delivery starts
+- [Creating a Referral](/entries/creating-a-referral) — the actual how-to
+- [Glossary](/glossary) — every term in one list

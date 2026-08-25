@@ -157,11 +157,11 @@ const config: Config = {
           items: [
             {
               label: 'Getting Started',
-              to: '/getting-started/logging-in',
+              to: '/manual/everyone/signing-in',
             },
             {
               label: 'Referrals',
-              to: '/referrals/overview',
+              to: '/entries/overview',
             },
             {
               label: 'Activities',
@@ -178,7 +178,7 @@ const config: Config = {
             },
             {
               label: 'User Roles',
-              to: '/user-roles/case-worker',
+              to: '/manual/case-worker/what-you-can-do',
             },
           ],
         },

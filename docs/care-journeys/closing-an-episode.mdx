@@ -1,0 +1,65 @@
+---
+title: Closing a Service Episode
+description: How to close a completed service episode
+sidebar_position: 4
+helpId: close-episode
+keywords: [service episode, close, complete, end, care journey, journey, in-progress journeys]
+---
+
+import Callout from '@site/src/components/Callout';
+
+# Closing a <Term path="serviceEpisode" />
+
+Ending a <Term path="serviceEpisode" /> — whether service was completed successfully or ended for another reason — is done through the **Complete Episode** dialog. Open it from the **Actions** menu on the episode's Overview tab and choose **Close Episode**.
+
+<Callout color="amber" title="This cannot be undone">
+Once an episode is Completed or Closed, its status is final — there's no action in the app to reopen it or change it further.
+</Callout>
+
+## Completion vs closure
+
+The dialog uses a single **Closure Reason** field, but the reason you pick decides whether the episode ends as **Completed** or **Closed**:
+
+| Closure Reason | Resulting status |
+|-----------------|-------------------|
+| **Service completed** | **Completed** |
+| Anything else — released from prison, transferred to another service, moved out of area, left against advice, left without notice, left involuntarily, imprisoned, sanctioned by drug court, consent withdrawn, died, other, not stated | **Closed** |
+
+Only "Service completed" counts as a true completion; every other reason closes the episode without it. Your organisation's administrator configures the exact list of reasons available, so yours may differ slightly from the list above.
+
+## What you provide
+
+| Field | Required | Notes |
+|-------|----------|-------|
+| **Closure Reason** | Yes | Selects Completed vs Closed as above |
+| **End Date** | Yes | Cannot be after today |
+| **Please specify** | Only if reason is "Other" | Free text |
+| **Closure Notes** | No | Free text |
+| **Follow-up required** | No | If ticked, a **Follow-up date** is required (up to three months out) |
+
+If any compliance requirements for the episode are still outstanding, they're listed as blockers and you'll need to enter a justification before **Complete Episode** becomes available.
+
+## Withdrawing consent as part of closure
+
+If you select **Consent Withdrawn** as the closure reason, the dialog adds a dedicated section: a reason for the withdrawal, and a checkbox confirming the client has requested it. Both are required before you can proceed, and the button changes to **Complete & Withdraw Consent**.
+
+<Callout color="amber" title="Withdrawing consent affects more than this episode">
+Consent is withdrawn at the <Term path="referral" /> level, not just this episode. If the client has other open <Term path="serviceEpisode" plural /> under the same <Term path="referral" />, those are closed too — not just the one you're closing here.
+</Callout>
+
+## What happens automatically
+
+Completing this dialog:
+
+- Sets the episode's status to **Completed** or **Closed**, and records the end date and closure reason on it
+- Sets the linked <Term path="referral" />'s status to match (**Completed** or **Closed**)
+- Creates an "Exit Episode" activity recording the reason and any closure notes, visible on the episode's Activities tab
+
+## After closing
+
+Closed and completed episodes move off the **Active Care** page and onto **Completed Care**, where you can still open them to review their history — you just can't change them further.
+
+## Related Topics
+
+- [Managing Episodes](/care-journeys/managing-episodes)
+- [What are Service Episodes?](/care-journeys/overview)

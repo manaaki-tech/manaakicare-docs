@@ -1,0 +1,67 @@
+---
+title: Searching for Clients
+description: How to search and find clients in Manaaki Central
+sidebar_position: 1
+helpId: client-search
+keywords: [client, search, find, lookup, whanau, whānau, kiritaki]
+---
+
+import Callout from '@site/src/components/Callout';
+
+# Searching for <Term path="serviceUser" plural />
+
+The **Clients** page lists every <Term path="serviceUser" /> in your organisation and gives you a single search box to narrow it down.
+
+## Opening the list
+
+Select **Clients** in the sidebar. The page loads with all <Term path="serviceUser" plural />, most recently added first, ten to a page.
+
+## Searching
+
+Type into the **Search clients...** box at the top of the page. Results filter automatically a moment after you stop typing — there is no need to press Enter.
+
+The search matches:
+
+- First name
+- Last name
+- Email address
+- Phone number
+
+<Callout color="amber" title="Reference numbers and dates of birth do not match">
+The search box does not match against a <Term path="serviceUser" />'s reference number or date of birth, even though both appear as columns in the results. To find someone by reference number, browse the list or ask them (or their referral) for their name instead.
+</Callout>
+
+## Results table
+
+| Column | Shows |
+|--------|-------|
+| **ID** | The <Term path="serviceUser" />'s reference number |
+| **Name** | First and last name |
+| **Alias** | An alternative name on file, if any |
+| **Age** | Calculated from date of birth |
+| **Whānau** | A link to the family group this person belongs to, if they're linked to one |
+| **External Ref** | A reference number from an external system, if recorded |
+| **Actions** | View profile and start a new entry |
+
+Click anywhere on a row to open that <Term path="serviceUser" />'s [details page](/whanau/viewing-client-details). The **Actions** column offers the same view action plus a shortcut to start a new <Term path="referral" /> for that person, which takes you straight into the <Term path="referral" /> wizard with them pre-selected.
+
+## Pagination
+
+Results are paged 10, 20, or 50 at a time — choose a page size from the control at the bottom of the table. The footer shows how many records you're viewing (for example "Showing 1–10 of 47") and Previous/Next buttons to move between pages.
+
+## Creating a new client from here
+
+There is no **New Client** button on this page. New <Term path="serviceUser" plural /> are created from wherever they're needed:
+
+- While [creating a Referral](/entries/creating-a-referral), if a search for the person turns up nothing
+- From an existing <Term path="serviceUser" />'s [Whānau tab](/whanau/family-relationships), when adding a new family member who isn't already in the system
+
+<Callout color="teal" title="Search before you create">
+Both of those creation flows search first. If you're not sure whether someone is already in the system, try a couple of name spellings before creating a new record — duplicates fragment a person's history and are not simple to merge afterwards.
+</Callout>
+
+## Related topics
+
+- [Viewing Client Details](/whanau/viewing-client-details)
+- [Family Relationships](/whanau/family-relationships)
+- [Finding or Creating the Client](/entries/client-information) — the same search, used while starting a referral

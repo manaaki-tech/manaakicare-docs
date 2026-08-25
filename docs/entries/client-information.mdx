@@ -1,0 +1,62 @@
+---
+title: Finding or Creating the Client
+description: Selecting an existing client or creating a new one during referral intake
+sidebar_position: 3
+helpId: referral-client-info
+keywords: [referral, client, search, create, duplicate, whanau, entry, new entry, entry processing, entry details, awareness and entry, whānau, kiritaki]
+---
+
+import Callout from '@site/src/components/Callout';
+
+# Finding or Creating the <Term path="serviceUser" />
+
+Every <Term path="referral" /> must be attached to a client. This is done on **Step 1 (Intake)** of the <Term path="referral" /> wizard, and it is the first thing to get right — the rest of the form depends on it.
+
+## Search first
+
+Click the client search box and start typing a name. Matching clients appear as you type.
+
+If you find the person, select them. The <Term path="referral" /> is attached to their existing record, and their history stays in one place.
+
+<Callout color="amber" title="Always search before creating">
+Creating a new client here also creates a **new whānau group**. A duplicate client record therefore fragments both the person's history and their whānau relationships, and merging them afterwards is not a self-service fix. Try more than one spelling before concluding someone is new.
+</Callout>
+
+## Creating a new client
+
+If the person genuinely is not in the system, click **Create new client** and complete the inline form:
+
+| Field | Notes |
+|-------|-------|
+| First name | |
+| Last name | |
+| Date of birth | Also determines whether guardian consent is required at Step 2 |
+| Gender | |
+| Phone | |
+| Email | |
+
+Submit the form and the new client is selected on the <Term path="referral" /> automatically. You do not leave the wizard.
+
+## Existing active <Term path="referral" plural /> {#existing-active-referrals}
+
+Once a client is selected, a warning appears if that client already has other **active** <Term path="referral" plural />. If a service is already selected, the warning is narrowed to that service.
+
+This is informational, not a block. Check it before continuing — it usually means either the person is already being helped and this <Term path="referral" /> is a duplicate, or they are being referred to a second service, which is legitimate.
+
+## Referring from a client record
+
+You can also start a <Term path="referral" /> from a client's whānau tab using the **New Entry** link. This opens the wizard with that client already selected, which avoids the search step entirely and is the safest way to avoid creating a duplicate.
+
+## Why date of birth matters
+
+Date of birth drives two things later in the form:
+
+- Whether **guardian consent** is required on the Consent step
+- For whānau <Term path="referral" plural />, whether a referrer phone number is required — it is if the client is under 16
+
+## Related topics
+
+- [Creating a Referral](/entries/creating-a-referral) — the three-step walkthrough
+- [Referral Details](/entries/referral-details) — the rest of Step 1
+- [Searching for Clients](/whanau/searching-for-clients) — searching outside the <Term path="referral" /> form
+- [Family Relationships](/whanau/family-relationships) — how whānau groups work
