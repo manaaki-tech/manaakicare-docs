@@ -7,14 +7,21 @@ keywords: [family, relationships, connections, household, whanau, whānau, kirit
 ---
 
 import Callout from '@site/src/components/Callout';
+import Screen from '@site/src/components/Screen';
 
 # Family Relationships
 
-Manaaki Central groups people into **whānau groups** so you can see who belongs together and move between their records. A whānau group is a membership list rather than a family tree — it does not currently record *how* people are related to one another (parent, sibling, and so on), only *who* is in the group and two role flags described below.
+This page covers working with a whānau group's membership. For what a whānau group is, and what the **Primary contact** and **Service user** flags mean, see [whānau groups](/whanau/overview).
 
 ## Viewing a whānau group
 
 The **Whānau** tab on a <Term path="serviceUser" />'s [details page](/whanau/viewing-client-details) lists everyone linked to their whānau group:
+
+<Screen
+  src="/img/clients/whanau-members.png"
+  alt="The whanau tab listing family members with their phone, email and role"
+  caption="One member is marked Primary. Phone and email are hidden until you click the eye beside them."
+/>
 
 | Column | Shows |
 |--------|-------|
@@ -24,15 +31,6 @@ The **Whānau** tab on a <Term path="serviceUser" />'s [details page](/whanau/vi
 | **Actions** | New Referral, Remove, Edit |
 
 Click **View Family Page** to open the whānau group on its own page, outside the context of any one member.
-
-## Primary contact and service user
-
-Two flags describe a member's role in the group:
-
-- **Primary contact** — marks the main point of contact for the whānau group.
-- **Service user** — whether this person is themself receiving services, with their own <Term path="serviceUser" /> record and <Term path="referral" /> history. Members who are not service users appear in the list as plain text (not a link), since they don't have a details page of their own yet.
-
-A third toggle, **Keep in sync with Support Contacts**, is available for non-service-user members — turning it on also lists that person in the <Term path="serviceUser" />'s Support Contacts.
 
 ## Adding a member
 
