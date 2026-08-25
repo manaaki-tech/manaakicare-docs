@@ -18,18 +18,27 @@
   and published, ten leaking live screenshots cropped. Merged as `ae8ade7`.
   → [`sessions/2026-08-15-user-manual-launch-closeout.md`](sessions/2026-08-15-user-manual-launch-closeout.md)
 
-- **2026-08-15 — Manual reorganised by job, three factual errors corrected.**
-  The manual now reads as one sequence per role rather than one lifecycle across
-  all roles; the four `user-roles/*` pages moved in as each role's "what you can
-  do". Also: the activity edit window was wrong on three pages (10 days, not 24
-  hours), closing an episode is not permission-gated, and screenshots no longer
-  open in a new tab or get upscaled.
+- **2026-08-15 — Site reorganised, and the reference set corrected against
+  source.** The manual now reads as one sequence per job; each entity (Entries,
+  Care Journeys, Whānau, Activities) is a top-level section whose landing page
+  explains what the thing is; each role's dashboard sits with that role. Four
+  parallel audits against the frontend and backend found the reference pages
+  documented a header bar, a dashboard widget and a table column that do not
+  exist, and got the activity edit window wrong by a factor of ten.
   → [`sessions/2026-08-15-role-restructure-closeout.md`](sessions/2026-08-15-role-restructure-closeout.md)
 
-**Branch:** `docs/role-restructure`, pushed, **PR
-[#9](https://github.com/manaaki-tech/manaakicare-docs/pull/9) open and not
-merged.** It also carries the previously-stranded `internal/` docs and
-`.claude/agents/` definitions, merged in from `chore/session-close-2026-08-15`.
+**Two stacked PRs, both open, neither merged as of 2026-08-26. `main` has not
+moved since `ae8ade7`; both are MERGEABLE / CLEAN with no reviews.**
+
+| PR | Base | Size | What |
+|---|---|---|---|
+| [#10](https://github.com/manaaki-tech/manaakicare-docs/pull/10) `docs/structure` | `main` | 88 files | The reorganisation — every page that moved, was split, or was deleted |
+| [#11](https://github.com/manaaki-tech/manaakicare-docs/pull/11) `docs/corrections` | `#10` | 33 files | The content corrections — every page that stayed put |
+
+**Merge #10 first.** #9 is closed as superseded; branch `docs/role-restructure`
+stays pushed as the 35-commit detailed history the two PRs summarise. Both
+branches also carry the previously-stranded `internal/` docs and
+`.claude/agents/` definitions from `chore/session-close-2026-08-15`.
 
 **Verification gate:** no test suite. Use `npm run build` — meaningful because
 `onBrokenLinks: 'throw'`.
@@ -61,19 +70,17 @@ one thing a reader cannot get elsewhere. `intake-officer/what-you-can-do.mdx`
 has no Data Visibility section at all, unlike the other three — a real gap, not
 a formatting one.
 
-### 2. Screenshots — done, but with a shelf life
+### 2. Screenshots — done, with a shelf life
 
-All nine Dashboards images plus four new reference images come from current-build
+All nine Dashboards images plus four reference images come from current-build
 captures; `tools/crop_dashboard_images.py` holds the boxes and redactions and is
 idempotent. Raw captures stay outside the repo (they contain staff names) at
 `/home/amj/dev/.manaakicare-docs-screenshot-originals/2026-08-15/`.
 
-**The frontend terminology sweep (`fix/terminology-sweep`) will move several of
-them** — the case worker and supervisor tiles, the "My Service Episodes" heading,
-and the column headings on the new reference images all still show hardcoded
-English. The intake images are already migrated. Re-shoot after it merges: swap
-the source captures and re-run the tool. Prose will need another pass with it,
-since those headings appear in the tables. Full list in the closeout.
+**The frontend sweep on `fix/terminology-sweep` has still not merged** (checked
+2026-08-26). Several images show hardcoded English that will change when it does
+— re-shoot then by swapping the source captures and re-running the tool. Full
+list in the closeout.
 
 ### 3. Open questions the audit raised but could not settle
 
@@ -103,36 +110,33 @@ since those headings appear in the tables. Full list in the closeout.
 
 ### 4. Unverified on this machine
 
-- **The enlarge overlay has never been exercised.** No browser here.
-- **Terminology on category pages** is verified as a pure function only. Check
-  live: `/category/referrals/?env=production&org_id=90040e7a-…` should read
-  "Entry Management" with a card titled "Creating an Entry".
+No browser here, so the enlarge overlay has never been exercised (Escape,
+backdrop, focus return, scroll lock, resize). Terminology on category pages is
+verified as a pure function only — check live at
+`/category/referrals/?env=production&org_id=90040e7a-…`, which should read
+"Entry Management" with a card titled "Creating an Entry".
 
 ### Project context already mapped (don't re-explore)
 
-- **`Screen`** — `src/components/Screen.tsx`. `WORTH_ENLARGING` ratio `:49`,
-  runtime measurement `:64`, overlay effect `:80`. The affordance is computed
-  from `naturalWidth` vs `clientWidth` **at runtime**, not from a build-time
-  table, because it depends on the viewport. 13 of 38 usages pass `narrow`,
-  which caps display at 26rem ≈ 416px (`Screen.module.css:47`).
-- **Swizzles** — `src/theme/DocSidebarItem/{Category,Link}/`, plus new
-  `src/theme/DocCard/index.tsx` (resolves the description via `useDocById`,
-  because the original's fallback happens internally) and
-  `src/theme/DocCategoryGeneratedIndexPage/index.tsx`.
+- **`Screen`** — `src/components/Screen.tsx`; the enlarge affordance is measured
+  at runtime (`naturalWidth` vs `clientWidth`, `:64`) rather than from a
+  build-time table, because it depends on the viewport. `narrow` caps display at
+  26rem (`Screen.module.css:47`).
 - **`applyTerminology`** — `src/lib/terminology/applyTerminology.ts:57`. Pipe
-  keys and aliases both go through `replaceAlias` (case-insensitive, corrects
-  indefinite articles). **`simpleKeys` deliberately still uses the literal
-  replace** — they have no stored plural, so word-boundary matching would break
-  "dashboards".
-- **`PictureWords`** — `src/components/PictureWords.tsx`, `PICTURE_WORDS` at
-  `:29`. Covers 4 of `default.json`'s 9 keys; uncovered are `activity`,
-  `caseload`, `cases`, `dashboard`, `supervisorDashboard`.
-- **Backend answers** (repo `manaakicare-backend`) — activity edit window
-  `apps/case_managements/permissions.py:36` (`timedelta(days=10)`), creator-only
-  check `:32`. Closing an episode: `apps/case_managements/views.py:225`,
-  `IsAuthenticated` only, organisation check at `:265-273`, **no role gate**.
-- **Preview tool** — `tools/build_manual_preview.py`; `PAGES` list at `:29` must
-  be updated by hand whenever manual pages move.
+  keys and aliases both go through `replaceAlias`. **`simpleKeys` deliberately
+  still uses the literal replace** — no stored plural, so word-boundary matching
+  would break "dashboards".
+- **`PictureWords`** — guards on `resolved`, not `orgId`: the latter is set from
+  the query string before the fetch, so it stays set when the request fails.
+  `PICTURE_WORDS` covers 4 of `default.json`'s 9 keys.
+- **Swizzles** — `src/theme/DocSidebarItem/{Category,Link}/`, `DocCard`
+  (resolves description via `useDocById`), `DocCategoryGeneratedIndexPage`.
+- **Backend answers** (`manaakicare-backend`) — activity edit window
+  `apps/case_managements/permissions.py:36` (10 days), creator-only `:32`.
+  Closing an episode `apps/case_managements/views.py:225` — `IsAuthenticated`
+  only, **no role gate**. Docs terminology `apps/organisations/views.py:280`.
+- **`tools/build_manual_preview.py`** — `PAGES` at `:29` is hand-maintained and
+  must be updated whenever manual pages move.
 
 ---
 
@@ -153,36 +157,41 @@ since those headings appear in the tables. Full list in the closeout.
   only. So a local `?env=uat&org_id=…` genuinely resolves, while `env=production`
   silently falls back to default English. The older note saying local testing
   always fails was drawn from production alone.
+- **Terminology silently returning `{}` is almost always `type`, not the API.**
+  `TerminologyDocsView` (backend `apps/organisations/views.py:280`) filters on
+  organisation + `type=DOCS` + `is_active`. The `Terminology.type` field
+  **defaults to FRONTEND**, so a row created in Django admin without explicitly
+  choosing "Docs" is invisible to the docs site while the app reads it happily.
+  The endpoint returns `{}` for wrong-type, inactive and no-such-org alike, which
+  is what makes it hard to diagnose.
+- **`?env=` must match a configured key.** An unknown value makes the provider
+  return *before* fetching, so there is no network call at all — which reads as
+  a terminology bug rather than a typo. `prod`, `prd`, `dev` and `test` are now
+  aliased, but anything else still silently falls back.
 - **Checking out a branch changes which subagents exist.** `.claude/agents/`
   defines `docs-sweeper`, `docs-writer`, `docs-critic`, `role-mapper`. They
   vanish on a branch that lacks the directory.
-- **Verify subagent output, especially negative claims.** Across two sessions:
-  one agent asserted no plural bug where `journey/01-overview.png` plainly shows
-  "1 activities"; another generalised a data finding from SIT to production. A
-  third ignored a stand-down and produced a full report after being told to stop.
-- **Subagent reports may arrive late or need asking for.** All three agents this
-  session signalled idle without delivering; two responded to an explicit
-  request, one delivered spontaneously minutes later.
+- **Verify subagent output, especially negative claims and anything about
+  permissions.** Across two sessions: one agent asserted no plural bug where a
+  screenshot plainly showed one; one generalised a SIT finding to production;
+  one ignored a stand-down and reported anyway; two of four died without
+  delivering until asked. Their best contributions were their *refusals* — one
+  correctly told me not to "fix" wording that matched `main`. Treat reports as
+  evidence to check.
 
 ---
 
 ## Reminders for MJ — not Claude's to action
 
 - **The manual's closure screenshot shows UI that is not shipped — decide before
-  merging PR #9.** `complete-care-journey.png` shows the dialog titled "Complete
-  Care Journey". That string exists in **no commit on any branch**;
-  `origin/main` still reads "Complete Episode"
-  (`ExitEpisodeDialog.tsx:184,403`). The capture is uncommitted local work on top
-  of `fix/terminology-sweep`.
-
-  It is now `static/img/manual/closure/01-close-the-journey.png`, so the manual
-  shows a label readers will not see until that branch merges. Options: hold the
-  merge until it ships, or restore the previous image from
-  `/home/amj/dev/.manaakicare-docs-screenshot-originals/2026-08-15/manual-closure-original/`.
-  The surrounding prose is already label-agnostic either way.
-
-  **An earlier note here claimed the modal was fixed. That was wrong** — inferred
-  from the screenshot rather than from source.
+  merging PR #11.** `static/img/manual/closure/01-close-the-journey.png` shows a
+  dialog titled "Complete Care Journey". That string is in **no commit on any
+  branch**; `origin/main` still reads "Complete Episode"
+  (`ExitEpisodeDialog.tsx:184,403`), and `fix/terminology-sweep` was still
+  unmerged on 2026-08-26. Either hold the merge, or restore the previous image
+  from `…/2026-08-15/manual-closure-original/`. The prose is label-agnostic
+  either way. *(An earlier note here claimed the modal was fixed — that was
+  wrong, inferred from the screenshot rather than from source.)*
 
 - **An unredacted phone number is published and you chose to leave it:**
   `static/img/manual/intake/05-referrer-and-risk.png` shows an ACC office number
