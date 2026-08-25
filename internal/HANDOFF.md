@@ -47,28 +47,26 @@ branches also carry the previously-stranded `internal/` docs and
 
 ## Next session
 
-### 1. Readability pass on the four "what you can do" pages
+### 1. Readability pass on the "what you can do" pages
 
-The restructure moved `docs/user-roles/*.mdx` into the manual as
-`docs/manual/<role>/what-you-can-do.mdx`. Their titles and openers were
-rewritten, but **the bodies are still reference-register prose inside a manual
-written for non-confident readers.** The launch session's readability audit
-ranked these four among the worst pages on the site, and they now sit in the
-manual's first screen for every role.
+`docs/manual/{case-worker,intake-officer,supervisor}/what-you-can-do.mdx` were
+`user-roles/*` reference pages until this session. Titles and openers were
+rewritten; **the bodies are still reference-register prose inside a manual
+written for non-confident readers**, and they now sit on the first screen of
+every role's section. The launch session's readability audit ranked them among
+the worst pages on the site.
 
-Still wrong, with line numbers: ASCII arrow diagrams at
-`case-worker/what-you-can-do.mdx:103-111,115-119`, `supervisor/…:82-86,90-96`,
-`program-manager/…:100-105,109-116` — plain-text chains in code fences that do
-not reflow on a phone. "Key Responsibilities" is third-person HR register in a
-manual that otherwise says "you". "Best Practices" is four H3s of generic advice
-per page, much of it duplicating the task pages directly beneath it — a deletion
-candidate rather than a rewrite. And `case-worker/what-you-can-do.mdx:116` still
-shows raw `awaiting_commencement` in a lifecycle diagram.
+What is left: four fenced ASCII arrow-chain diagrams that do not reflow on a
+phone; "Key Responsibilities" written in third-person HR register in a manual
+that otherwise says "you"; and "Best Practices", four H3s per page of generic
+advice that largely duplicates the task pages directly beneath it — a deletion
+candidate rather than a rewrite.
 
-**Keep the permission tables.** They are the reason these pages exist and the
-one thing a reader cannot get elsewhere. `intake-officer/what-you-can-do.mdx`
-has no Data Visibility section at all, unlike the other three — a real gap, not
-a formatting one.
+**Keep the permission tables.** They are why these pages exist and the one thing
+a reader cannot get elsewhere. `intake-officer/what-you-can-do.mdx` has no Data
+Visibility section at all, unlike the others — a real content gap, not a
+formatting one. Fill it from the backend or say plainly that it is unspecified;
+do not invent permissions.
 
 ### 2. Screenshots — done, with a shelf life
 
