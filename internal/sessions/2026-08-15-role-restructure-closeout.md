@@ -1,11 +1,13 @@
-# 2026-08-15 — Manual restructured by role, and three factual corrections
+# 2026-08-15 — Site reorganised, and the reference set corrected against source
 
-**Status:** Complete and pushed, not merged. Blocked on nine screenshots the
-founder is capturing. Build green throughout.
-**Branch:** `docs/role-restructure` at `7aa3604` (plus the merge of
-`chore/session-close-2026-08-15`)
-**Merge commit:** not merged yet
-**PR:** [#9](https://github.com/manaaki-tech/manaakicare-docs/pull/9)
+**Status:** Complete and pushed as two stacked PRs. Neither merged; `main`
+unmoved as of 2026-08-26.
+**Branches:** `docs/structure` (PR #10, base `main`) and `docs/corrections`
+(PR #11, base `docs/structure`). `docs/role-restructure` stays pushed as the
+35-commit detailed history the two PRs summarise; PR #9 closed as superseded.
+**Merge commit:** not merged
+**PR:** [#10](https://github.com/manaaki-tech/manaakicare-docs/pull/10),
+[#11](https://github.com/manaaki-tech/manaakicare-docs/pull/11)
 **CI run:** none — not merged
 
 > Durable snapshot of what this session did. Living state lives in
@@ -119,8 +121,12 @@ Two verifications ran outside the build:
   images the handoff did *not* list do carry numbers
   (`intake/15-family-background` 1–5, `intake/17-add-a-contact` 1–3).
 
-- **Item 2 needs four fresh captures, not nine — and the difference came from
-  the founder questioning the list.** Five of the fourteen reference screenshots
+- **Item 2 ended up needing no fresh captures at all.** The founder supplied
+  fifteen, and five of those covered every outstanding need. The earlier count
+  below is kept because the reasoning still holds — check the pixels, not the
+  filenames — but the number was wrong twice before it was right.
+
+- **Item 2 was first estimated at nine captures, then four.** Five of the fourteen reference screenshots
   were referenced by no page at all and are deleted. Of the nine referenced, the
   first count assumed each needed its own capture. Checking the pixels instead of
   the filenames showed that **five are crops of screenshots that already exist at
@@ -190,6 +196,43 @@ Two verifications ran outside the build:
   `Tony ACC / 045453425`. `tools/build_manual_images.py:52` maps it with `None`
   — the redaction pass covered only ten images and never considered it. Raised;
   the decision was to leave it as is.
+
+---
+
+## The second half — audits, a second restructure, and a split
+
+The closeout above covers the work up to the first restructure. What followed:
+
+- **Four parallel audits** of the reference pages against the frontend and
+  backend source. They found documented UI that does not exist (a header theme
+  toggle and refresh button, in six places; a removed "Pending Service Dispatch"
+  widget; a link icon in a column with no actions; a Ctrl+F shortcut for a table
+  with no search), and documented behaviour that is wrong (client search said NOT
+  to match reference numbers when that is the first entry in `search_fields`; the
+  new-client form listed as six fields when it has thirteen). Two findings could
+  strand a user: staff assignment does not set a primary responsible, and an
+  episode without one cannot be commenced; and the closure justification field
+  does not appear until an Override toggle is switched on.
+
+- **A second restructure**, on the founder's reading of the result. Entries had
+  ended up existing twice — once as a section of how-tos, once as a concept page
+  — so each entity became one top-level section whose landing page *is* the
+  concept page. Supervisor and Program Manager merged into one section after
+  their permission tables turned out to differ only by scope. Getting Started was
+  retired. Eleven top-level items became nine.
+
+- **The PRs were split** into structure and content on request. Cherry-picking
+  did not work (moved files were heavily edited; some renames score 57%
+  similarity), so the split is by file class: pages that moved go in #10, pages
+  that stayed in #11. Verified by tree hash that applying both reproduces the
+  combined branch exactly.
+
+- **Three of my own errors were caught by the audits**, all the same shape —
+  inferring product behaviour from a screenshot instead of checking source. A
+  caption claiming contact details could be revealed (they are statically
+  masked); a claim that the closure modal had been fixed (the string is in no
+  commit on any branch); and a claim that an intake tab followed the reader's
+  terminology (it is a hardcoded literal).
 
 ---
 
