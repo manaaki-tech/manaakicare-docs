@@ -170,6 +170,16 @@ const sidebars: SidebarsConfig = {
       },
       items: ['organisation-documents/overview'],
     },
+    {
+      type: 'category',
+      label: 'Releases',
+      link: {
+        type: 'generated-index',
+        title: 'Releases',
+        description: 'What changed, and when — new features and behaviour changes as they ship.',
+      },
+      items: ['releases/2026-09-01-follow-up-resolution'],
+    },
     'finding-your-way-around-the-system',
     'glossary',
   ],

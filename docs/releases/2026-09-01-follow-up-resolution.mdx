@@ -1,0 +1,101 @@
+---
+title: Resolving a follow-up
+sidebar_label: Follow-up resolution
+description: Resolve or clear a follow-up straight from the dashboard, without opening a new activity.
+sidebar_position: 1
+helpId: release-2026-09-01-follow-up-resolution
+keywords: [follow-up, resolve, dashboard, activity, care journey, timeline, completed, didn't happen, rescheduled, no longer needed, kaiawhina, kaiāwhina]
+---
+
+import Callout from '@site/src/components/Callout';
+import Screen from '@site/src/components/Screen';
+
+# Resolving a follow-up
+
+*1 September 2026*
+
+On the dashboard's **Activities Needing Follow-up** table, you can now resolve a
+follow-up directly from the row — recording what happened without opening a new
+<Term path="activity" />.
+
+## Resolving from the dashboard
+
+<Screen
+  src="/img/releases/2026-09-01-follow-up-resolution/01-dashboard-tick-and-menu.png"
+  alt="The Activities Needing Follow-up table on the dashboard, with the tick button and the 3-dot menu highlighted at the right of a row"
+  caption="Each row in the follow-up table has two actions on the right: a tick to resolve it, and a 3-dot menu for other options."
+/>
+
+Selecting the tick opens a panel asking for the title of the completion
+<Term path="activity" />, prefilled for you:
+
+<Screen
+  src="/img/releases/2026-09-01-follow-up-resolution/02-resolve-panel-completed.png"
+  alt="The resolve panel open under a follow-up row, showing an editable title, Completed and Didn't happen buttons, a Needs another follow-up checkbox, and Save & resolve"
+  caption={<>1&nbsp;— the title, editable and prefilled. 2&nbsp;— Completed or Didn't happen. 3&nbsp;— Needs another follow-up. 4&nbsp;— Save &amp; resolve.</>}
+/>
+
+<Callout color="amber" title="This creates an activity">
+Resolving or closing a follow-up uses the details in the resolution panel to
+create an <Term path="activity" />, which you'll see on the <Term path="serviceEpisode" />'s
+Care Journey timeline.
+</Callout>
+
+The title is prefilled with a prefix of **Completed** or **Didn't happen**, and you
+can edit it before saving. In Manaaki Central, a **Completed** follow-up is like
+saying "resolved", whereas **Didn't happen** means "closed".
+
+## Didn't happen, and rescheduling
+
+Choosing **Didn't happen** asks why it didn't happen, and lets you set a new
+follow-up date in the same step:
+
+<Screen
+  src="/img/releases/2026-09-01-follow-up-resolution/03-resolve-panel-didnt-happen.png"
+  alt="The resolve panel with Didn't happen selected, showing reason buttons (No-show, Unavailable, Not fit, Rescheduled, Client cancelled, Staff cancelled) and a Needs another follow-up date field"
+  caption={<>1&nbsp;— Didn't happen. 2&nbsp;— the reason, here Rescheduled. 3&nbsp;— Needs another follow-up, with a new date.</>}
+/>
+
+Check **Needs another follow-up** and set a date to create the next one at the same
+time — this is how you reschedule.
+
+Here's what that looks like afterwards, from the <Term path="activity" /> timeline —
+a follow-up closed as **Didn't happen**, with **Not fit** as the reason and no
+further follow-up:
+
+<Screen
+  src="/img/releases/2026-09-01-follow-up-resolution/04-timeline-didnt-happen.png"
+  alt="The activity timeline showing a Didn't happen — Update from Medical Centre entry, with a banner reading 'Activity recorded as: Client Not Fit'"
+/>
+
+**Completed** and **Didn't happen** should cover most of what you need — even
+something like "follow-up created by accident" is worth documenting this way.
+
+## Clearing a follow-up with nothing left to add
+
+Sometimes the case notes have moved on far enough that there's no useful follow-up
+detail left to record. For those, clear the follow-up instead: open the 3-dot menu
+on the row and choose **No longer needed**.
+
+<Screen
+  src="/img/releases/2026-09-01-follow-up-resolution/05-menu-log-activity-no-longer-needed.png"
+  alt="The 3-dot menu open on a follow-up row, showing Log activity and No longer needed options"
+/>
+
+A confirmation lets you back out before it's cleared:
+
+<Screen
+  src="/img/releases/2026-09-01-follow-up-resolution/06-cancel-follow-up-confirm.png"
+  alt="A confirmation dialog: 'Cancel Follow-up? Are you sure this follow-up is no longer needed? This will mark it as canceled and remove it from your follow-up list.' with Keep Follow-up and Yes, Cancel Follow-up buttons"
+  narrow
+/>
+
+Unlike **Completed** or **Didn't happen**, this does not create an <Term path="activity" /> —
+it just removes the follow-up.
+
+## Logging a full activity instead
+
+The **Log activity** option, just above **No longer needed** in the same menu, closes
+the follow-up too — but by capturing the full set of details you'd normally use when
+creating an <Term path="activity" />: the familiar **Essentials**, **Notes**, and
+**Follow-up** tabs.
