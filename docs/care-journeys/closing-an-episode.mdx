@@ -7,10 +7,15 @@ keywords: [service episode, close, complete, end, care journey, journey, in-prog
 ---
 
 import Callout from '@site/src/components/Callout';
+import Screen from '@site/src/components/Screen';
 
 # Closing a <Term path="serviceEpisode" />
 
-Ending a <Term path="serviceEpisode" /> — whether service was completed successfully or ended for another reason — is done through the **Complete Episode** dialog. Open it from the **Actions** menu on the episode's Overview tab and choose **Close Episode**.
+Ending a <Term path="serviceEpisode" /> — whether service was completed successfully or ended for another reason — starts from the **Actions** menu on the episode's Overview tab: choose **Exit <Term path="serviceEpisode" />**.
+
+<Callout color="teal" title="You may be requesting rather than closing">
+Each service lists the positions allowed to close directly — by default supervisors and managers. If yours isn't on that list, exiting submits a request for a manager to approve instead of closing the <Term path="serviceEpisode" /> immediately, the dialog is titled **Request <Term path="serviceEpisode" /> Exit**, and you'll also pick an approver. The fields below are the same either way. See [Manager approval for <Term path="serviceEpisode" /> exits](/releases/2026-09-12-exit-approval).
+</Callout>
 
 <Callout color="amber" title="This cannot be undone">
 Once an episode is Completed or Closed, its status is final — there's no action in the app to reopen it or change it further.
@@ -27,18 +32,27 @@ The dialog uses a single **Closure Reason** field, but the reason you pick decid
 
 Only "Service completed" counts as a true completion; every other reason closes the episode without it. Your organisation's administrator configures the exact list of reasons available, so yours may differ slightly from the list above.
 
+Where a reason has an explanation attached to it, a small **i** icon sits beside its name in the dropdown — hover or focus it to read what that reason means. Not every reason has one; that's up to how your organisation has set them up.
+
+<Screen
+  src="/img/care-journeys/closure-reason-explanation.png"
+  alt="The closure reason dropdown open, with an i icon beside several reasons and a tooltip open on 'Left without notice' explaining when to use it"
+  caption="Reasons that carry an explanation show an i icon. Here, 'Left without notice' explains it's for a client who stopped engaging without saying why — and not for withdrawn consent or goals achieved."
+/>
+
+These explanations are worth reading when two reasons sound similar. Picking the right one is what keeps your organisation's closure figures meaningful.
+
 ## What you provide
 
 | Field | Required | Notes |
 |-------|----------|-------|
 | **Closure Reason** | Yes | Selects Completed vs Closed as above |
-| **Exit Summary** | Yes | Free text, minimum 10 characters. Replaces the old Exit Summary Document upload. |
+| **Exit Summary** | Yes | Free text. The form won't let you submit until you've written at least 10 characters. Replaces the old Exit Summary Document upload. |
 | **End Date** | Yes | Cannot be after today |
 | **Please specify** | Only if reason is "Other" | Free text |
-| **Closure Notes** | No | Free text |
-| **Follow-up required** | No | If ticked, a **Follow-up date** is required (up to three months out) |
+| **Follow-up required** | No | If ticked, a **Follow-up date** is required (up to six months out) |
 
-If any compliance requirements for the episode are still outstanding, they're listed as blockers and you'll need to enter a justification before **Complete Episode** becomes available.
+If any compliance requirements for the episode are still outstanding, they're listed as blockers and you'll need to enter a justification before the button at the bottom becomes available.
 
 ## Withdrawing consent as part of closure
 
@@ -54,7 +68,7 @@ Completing this dialog:
 
 - Sets the episode's status to **Completed** or **Closed**, and records the end date and closure reason on it
 - Sets the linked <Term path="referral" />'s status to match (**Completed** or **Closed**)
-- Creates an "Exit Episode" activity recording the reason and any closure notes, visible on the episode's Activities tab
+- Creates an "Exit Episode" activity recording the reason and what you wrote in the Exit Summary, visible on the episode's Activities tab. In that activity the summary is labelled **Closure Notes**, which is the field's older name
 
 ## After closing
 

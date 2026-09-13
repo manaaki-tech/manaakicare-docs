@@ -30,12 +30,14 @@ instead.
 Close only when the work has genuinely ended.
 
 <Callout color="teal" title="Check who does this in your team">
-The system does not restrict closing to supervisors — if you can open the
-<Term path="serviceEpisode" />, you can close it.
+Whether you can close the work yourself, or only ask a manager to, depends on
+your position on that particular service. Out of the box only supervisors and
+managers close directly and everyone else requests approval — but each service
+can be set up differently, so you may find you can close on one service and have
+to ask on another.
 
-Many organisations still expect the work to be taken to a supervisor or manager
-first, and treat closing as their decision rather than yours. That is a rule
-your organisation sets, not one the system enforces, so ask what is expected
+Beyond that, many organisations expect the work to be taken to a supervisor
+first as a matter of practice, whatever the system allows. Ask what is expected
 where you work before closing something for the first time.
 </Callout>
 
@@ -56,6 +58,14 @@ organisation calls a <Term path="serviceEpisode" />, so it may read **Exit**,
 **Complete**, or something else — but it is the one that is not **Put on Hold**.
 
 ## The closure form
+
+<Callout color="teal" title="You may be asking, not closing">
+On some services, ending the work sends a request to a manager instead of
+closing it straight away. If that applies to you, this form is headed **Request
+<Term path="serviceEpisode" /> Exit**, it asks you to pick an approver, and the
+button reads **Submit for Approval**. Everything else on this page still
+applies. See [Manager approval for <Term path="serviceEpisode" /> exits](/releases/2026-09-12-exit-approval).
+</Callout>
 
 <Screen
   src="/img/manual/closure/01-close-the-journey.png"
@@ -87,13 +97,15 @@ for work that stopped because a whānau disengaged makes your organisation's
 numbers meaningless.
 
 Your organisation sets the list of reasons, so yours may differ from someone
-else's.
+else's. If a reason has a small **i** icon next to it, hover over it to read an
+explanation of what that reason is for — useful when two of them sound similar.
 
 ### Exit summary
 
-Right below the closure reason, write a short summary of how the work ended —
-at least 10 characters. This replaces the old Exit Summary Document upload; you
-no longer attach a separate file for it.
+Right below the closure reason, write a short summary of how the work ended. The
+form won't let you submit until you've written at least 10 characters, and a
+counter under the box shows how you're doing. This replaces the old Exit Summary
+Document upload; you no longer attach a separate file for it.
 
 ### When it ended
 
@@ -137,7 +149,7 @@ reason.
 ### Follow-up
 
 If you tick **Follow-up required**, you must give a follow-up date. It can be
-up to three months out.
+up to six months out.
 
 ## What closing does
 
@@ -145,7 +157,8 @@ up to three months out.
   your end date and reason recorded on it.
 - The linked <Term path="referral" /> is set to match.
 - An "Exit Episode" activity is written automatically, holding the reason and
-  your closure notes.
+  your exit summary. In that activity the summary appears under the heading
+  **Closure Notes**, which is what the field used to be called.
 - The record moves off your in-progress list and onto **Completed Care**.
 
 Everything recorded stays. You can still open it and read the history — you
@@ -153,9 +166,10 @@ just cannot change it.
 
 ## If it does not look like this
 
-- **There is no exit option** — the most likely reason is that the work has
-  already been closed; the option disappears once it has. Check the status on
-  the <Term path="serviceEpisode" /> card before assuming something is broken.
+- **There is no exit option** — either the work has already been closed, or you
+  have an exit request waiting on a manager. The option disappears in both
+  cases. Check the status on the <Term path="serviceEpisode" /> card: **Awaiting
+  Exit Review** means it's with your approver.
 - **It will not let you pick an end date before the start date** — that is
   deliberate. If the start date is wrong, fix that first.
 - **The closure documents are still locked** — they unlock once closure has

@@ -178,7 +178,13 @@ const sidebars: SidebarsConfig = {
         title: 'Releases',
         description: 'What changed, and when — new features and behaviour changes as they ship.',
       },
-      items: ['releases/2026-09-01-follow-up-resolution'],
+      // Newest first. This array is explicit, so order here is what renders —
+      // the sidebar_position in each page's frontmatter does not affect it.
+      items: [
+        'releases/2026-09-12-exit-approval',
+        'releases/2026-09-09-care-journey-sorting',
+        'releases/2026-09-01-follow-up-resolution',
+      ],
     },
     'finding-your-way-around-the-system',
     'glossary',
