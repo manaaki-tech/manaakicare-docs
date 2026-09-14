@@ -43,9 +43,17 @@
 }
 
 /* The whole figure is narrower than the column for tight crops, so a small
-   dialog does not stretch to full width and look like a full page. */
+   dialog does not stretch to full width and look like a full page.
+   `.screen` is a flex column with the default `align-items: stretch`, so a
+   frame that cannot stretch to full width would otherwise pin to the left. */
 .narrow .frame {
 	max-width: 26rem;
+	margin-inline: auto;
+}
+
+.narrow .caption {
+	max-width: 26rem;
+	margin-inline: auto;
 }
 
 [data-theme='dark'] .frame {
