@@ -7,6 +7,7 @@ keywords: [dashboard, supervisor, program manager, referral requests, service di
 ---
 
 import Callout from '@site/src/components/Callout';
+import Screen from '@site/src/components/Screen';
 
 # Supervisor / Program Manager <Term path="dashboard" />
 
@@ -115,6 +116,43 @@ You cannot submit a rejection without providing a reason. This ensures transpare
 ### Empty State
 
 When there are no pending requests, you will see a green checkmark with the message: *"All caught up! No pending <Term path="referral" plural /> to allocate."*
+
+---
+
+## Pending Exit Approvals {#pending-exit-approvals}
+
+<Screen
+  src="/img/releases/2026-09-12-exit-approval/04-pending-exit-approvals.png"
+  alt="The Pending Exit Approvals table listing client, service, who submitted the request, the end date, when it was submitted, and Approve and Reject buttons on each row"
+/>
+
+Where a service is configured to require approval before a <Term path="serviceEpisode" /> can be closed, the requests waiting on you collect here.
+
+### Table Columns
+
+| Column | Description |
+|--------|-------------|
+| **Client** | Who the <Term path="serviceEpisode" /> is for |
+| **Service** | The service being exited |
+| **Submitted By** | The staff member asking to close it |
+| **End Date** | The end date they've requested |
+| **Submitted** | When the request was made |
+| **Actions** | **Approve** and **Reject** |
+
+### What You Can Do
+
+- **Approve** straight from the row, without opening anything
+- Select a row to read the full request first — client, service, reference, requested end date and who submitted it — then **Approve** or **Reject** from there
+- **View Care Journey** in that dialog opens the full record if you need more context
+- **Reject** requires a reason. It's recorded on the <Term path="serviceEpisode" />'s <Term path="activity" /> timeline as an **Exit Rejected** entry — but nobody is notified, and nothing points the requester to it, so message them as well
+
+Approving closes the <Term path="serviceEpisode" /> using the details in the request. Rejecting leaves it open so the work can be finished and resubmitted.
+
+### Empty State
+
+When nothing is waiting, the table reads *"No pending exit requests — All exit requests have been reviewed."*
+
+See [Manager approval for <Term path="serviceEpisode" /> exits](/releases/2026-09-12-exit-approval) for the full workflow, including what the person requesting the exit sees.
 
 ---
 

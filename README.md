@@ -21,6 +21,23 @@ npm start
 
 This command starts a local development server and opens up a browser window at `http://localhost:3000`. Most changes are reflected live without having to restart the server.
 
+**Browsing from another machine** — over SSH, from a laptop, or from a phone —
+needs the host flag, because `npm start` listens on `127.0.0.1` only and
+`localhost:3000` will simply not load from anywhere else:
+
+```bash
+npm start -- --host 0.0.0.0
+```
+
+Then open `http://<this machine's LAN IP>:3000`, e.g. `http://192.168.100.10:3000`.
+
+This is also what the [terminology](#previewing-a-customers-terminology) section
+below assumes when it talks about serving over the LAN — testing against `uat`
+only works from a LAN address, because `api-uat.manaakicentral.com` sends CORS
+headers for that origin and not for `localhost`. On `localhost` a `?env=uat`
+request is refused and the site silently falls back to default English, which
+reads like a terminology bug rather than a networking one.
+
 ### Build
 
 ```bash
@@ -79,6 +96,10 @@ the port from the config entry. Serving the docs over the LAN at
 `http://192.168.100.10:3000` therefore fetches from
 `http://192.168.100.10:8000`, not from the viewer's own machine. Browsing at
 `localhost:3000` behaves as before.
+
+Serving over the LAN at all needs `npm start -- --host 0.0.0.0` — see [Local
+Development](#local-development). Plain `npm start` binds to `127.0.0.1`, so a
+LAN address won't respond and `uat` can't be tested.
 
 The pair is cached in `sessionStorage` and re-appended on every client-side
 navigation, so you only pass it once — the whole site stays in that

@@ -59,11 +59,24 @@ This section lists all <Term path="serviceEpisode" plural /> currently assigned 
 
 | Column | Description |
 |--------|-------------|
-| **Client** | Client name and <Term path="serviceEpisode" /> reference number (e.g., SEP-2026-DEFAULT-00009) |
+| **Reference** | The <Term path="serviceEpisode" /> reference number (e.g., SEP-2026-DEFAULT-00009) |
+| **Client** | Client name |
 | **Service** | The service being delivered (displayed as a badge, e.g., "Whakaora Koti", "Social Workers in Schools") |
-| **Start Date** | When the <Term path="serviceEpisode" /> started |
 | **Status** | Current status of the <Term path="serviceEpisode" /> |
+| **Start Date** | When the <Term path="serviceEpisode" /> started |
+| **Last Activity** | When an <Term path="activity" /> under this <Term path="serviceEpisode" /> was last created or edited |
+| **Last Entry Change** | When Consent, Cultural Profile, Intake Assessment or Service Delivery Preferences were last saved on the <Term path="referral" /> |
 | **Actions** | View button to open the <Term path="serviceEpisode" /> details |
+
+**Last Activity** and **Last Entry Change** only appear on wide displays; on a
+smaller screen the table leaves them out.
+
+The list opens sorted by **Last Activity**, newest first, so whoever you worked
+on most recently is at the top. Select a header to sort by it instead — **Client**,
+**Service**, **Status**, **Start Date**, **Last Activity** and **Last Entry Change**
+can all be sorted on. See
+[Sorting <Term path="serviceEpisode" plural /> by recent activity](/releases/2026-09-09-care-journey-sorting)
+for what the two date columns mean.
 
 ### Status Badges
 

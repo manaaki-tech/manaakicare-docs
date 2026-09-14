@@ -1,0 +1,119 @@
+---
+title: Sorting Care Journeys by recent activity
+sidebar_label: Care Journey sorting
+description: Your list now opens with the most recently worked-on care journeys at the top, and two new date columns you can sort by.
+sidebar_position: 0
+helpId: release-2026-09-09-care-journey-sorting
+keywords: [care journey, service episode, sort, sorting, last activity, last entry change, dashboard, column, order, newest first, kaiawhina, kaiāwhina]
+---
+
+import Callout from '@site/src/components/Callout';
+import Screen from '@site/src/components/Screen';
+
+# Sorting <Term path="serviceEpisode" plural /> by recent activity
+
+*9 September 2026*
+
+Your list of <Term path="serviceEpisode" plural /> now opens with the ones you
+worked on most recently at the top, instead of the oldest or the most recently
+created. There are also two new date columns you can sort by.
+
+## What you'll notice first
+
+Open either the <Term path="serviceEpisode" plural /> page or **My <Term path="serviceEpisode" plural />**
+on your <Term path="dashboard" />, and the list is sorted by **Last Activity**,
+newest first — the journey you last recorded something against sits at the top.
+
+{/* SCREENSHOT NEEDED — 01-default-sort-last-activity.png
+    The Care Journeys listing page on first load, wide enough (1280px+) that the
+    Last Activity column is visible. Show the Last Activity header carrying its
+    down-chevron sort indicator, and the rows in newest-first order.
+    Highlight: the Last Activity header + its chevron. */}
+
+Before this change, the <Term path="serviceEpisode" plural /> page opened sorted
+by **Last Updated** and your <Term path="dashboard" /> list by when each
+<Term path="serviceEpisode" /> was created — and **no column was marked as the
+one being sorted on**, so there was no way to tell. Now the **Last Activity**
+header carries a chevron on first load.
+
+## Two new columns
+
+| Column | What the date means |
+|--------|---------------------|
+| **Last Activity** | When an <Term path="activity" /> under this <Term path="serviceEpisode" /> was last created or edited |
+| **Last Entry Change** | When particular <Term path="referral" /> details behind this <Term path="serviceEpisode" /> were last saved |
+
+{/* SCREENSHOT NEEDED — 02-new-columns.png
+    The right-hand end of the Care Journeys table showing the Last Activity and
+    Last Entry Change columns side by side, with real dates in both and at least
+    one row where they differ.
+    Highlight: the two column headers. */}
+
+<Callout color="amber" title="Last Entry Change is narrower than it sounds">
+It does not move for every edit you make to the <Term path="referral" />. It is
+updated when you save **Consent**, **Cultural Profile**, **Intake Assessment**, or
+**Service Delivery Preferences** — and nothing else. Editing other parts of the
+<Term path="referral" /> leaves this date where it was.
+</Callout>
+
+<Callout color="amber" title="Deleting an activity doesn't move the date back">
+**Last Activity** is stamped when an <Term path="activity" /> is created or
+edited. Deleting one afterwards leaves the date as it was, so a journey can show
+a Last Activity date with nothing on its timeline to match.
+</Callout>
+
+## Sorting the list yourself
+
+On the <Term path="serviceEpisode" plural /> page you can sort by **Client**,
+**Start Date**, **Last Updated**, **Last Activity** and **Last Entry Change**.
+Select a header once to sort by it, and again to reverse the direction.
+
+**Service**, **Status**, **Assigned Staff** and **Actions** are not sortable —
+selecting those headers does nothing.
+
+While the re-sorted list loads, the rows you're already looking at stay on
+screen, a thin progress line runs along the top of the table, and the arrow on
+the column you selected spins. Previously the whole table — headers included —
+was replaced by a fixed-height placeholder, so it visibly jumped as the real
+rows arrived and the headers briefly stopped responding to clicks.
+
+{/* SCREENSHOT NEEDED — 03-sorted-ascending.png
+    The same table after selecting the Last Activity header a second time, so the
+    order is reversed and the chevron points the other way. Only needed if the
+    reversed state is visually clear; otherwise drop this one. */}
+
+## Filtering by a date range
+
+The same two dates are also available as filters on the
+<Term path="serviceEpisode" plural /> page. Next to the search box is a dropdown
+offering **Last Updated**, **Last Activity** and **Last Entry Change** — pick
+which date you want to filter on, and a date-range picker appears beside it for
+that date.
+
+{/* SCREENSHOT NEEDED — 04-timestamp-filter.png
+    The filter row on the Care Journeys page: the search box, the dropdown open
+    showing its three options, and the date-range picker beside it.
+    Highlight: the dropdown and the date-range picker together. */}
+
+So "everything I haven't touched since August" is a date range on **Last
+Activity**, and "everyone whose consent or assessment details changed last week"
+is a date range on **Last Entry Change**.
+
+## Where this doesn't apply
+
+- **Completed Care** doesn't get the new columns and still opens in its previous
+  order, by **Last Updated**. Sorting there did get the same fixes, though —
+  selecting a header a second time now reverses the order properly, which it
+  didn't before.
+- If you do both intake and casework, your <Term path="dashboard" />'s
+  **My <Term path="serviceEpisode" plural />** table gets the new Last Activity
+  order, but **its headers are not selectable** — you can read the order, not
+  change it. Use the <Term path="serviceEpisode" plural /> page to sort.
+- Supervisors and programme managers don't have this table on their
+  <Term path="dashboard" /> at all, so nothing changes there.
+
+<Callout color="teal" title="On a narrow screen the new columns are hidden">
+**Last Activity** and **Last Entry Change** only appear on wide displays. On a
+smaller laptop screen or a tablet the list is still *sorted* by Last Activity —
+you just can't see the column it's sorting on.
+</Callout>

@@ -1,0 +1,182 @@
+---
+title: Manager approval for Care Journey exits
+sidebar_label: Exit approval
+description: Closing a care journey can now go to a manager for approval first, depending on how your organisation has set up the service.
+sidebar_position: 0
+helpId: release-2026-09-12-exit-approval
+keywords: [exit, closure, close, complete, approval, approve, reject, manager, exit request, awaiting exit review, pending exit approval, care journey, service episode, kaiawhina, kaiāwhina]
+---
+
+import Callout from '@site/src/components/Callout';
+import Screen from '@site/src/components/Screen';
+
+# Manager approval for <Term path="serviceEpisode" /> exits
+
+*12 September 2026*
+
+Closing a <Term path="serviceEpisode" /> can now go to a manager for approval
+before it takes effect. Instead of completing straight away, you submit an exit
+request; a manager approves or rejects it, and only an approved request closes
+the <Term path="serviceEpisode" />.
+
+<Callout color="amber" title="Out of the box, this affects most people">
+Each service decides which positions may exit without approval, and the default
+is **supervisors and managers**. So unless your organisation has changed it for
+a service, everyone else — <Term path="caseWorker" plural /> included — now has
+to request approval to close a <Term path="serviceEpisode" /> on that service.
+</Callout>
+
+## Which version you get
+
+You still start the same way — the **Actions** menu on the
+<Term path="serviceEpisode" />'s Overview tab, then **Exit <Term path="serviceEpisode" />**.
+What opens depends on your position *in that particular service*:
+
+| If your position | The dialog is titled | What you can do |
+|--------|----------------------|-----------------|
+| Isn't on the service's list | **Request <Term path="serviceEpisode" /> Exit** | Fill in the details and send them to a manager |
+| Is on the service's list | **Exit <Term path="serviceEpisode" />** | Choose: complete it now, or send it to another manager |
+
+The list belongs to the **service contract**, not to you and not to your
+organisation as a whole. Two consequences worth knowing: the same person can
+close directly on one service and have to ask on another, and two contracts for
+the same service can have different rules.
+
+## Requesting an exit
+
+<Screen
+  src="/img/releases/2026-09-12-exit-approval/01-request-exit-dialog.png"
+  alt="The Request Care Journey Exit dialog, with Closure Reason, End Date, Select Approver, Exit Summary with a character counter, Return options discussed and Follow-up required checkboxes, and a Submit for Approval button"
+  caption="The familiar exit fields, plus one new required field — Select Approver — and a Submit for Approval button in place of Complete."
+/>
+
+The fields you already know are unchanged: **Closure Reason**, **End Date**,
+**Please specify** when the reason is "Other", the required **Exit Summary**
+with its ten-character minimum, **Return options discussed**, and
+**Follow-up required** with a date.
+
+What's new is **Select Approver**, which is required. Pick the manager who
+should review this exit:
+
+<Screen
+  src="/img/releases/2026-09-12-exit-approval/02-select-approver.png"
+  alt="The Select Approver dropdown open, listing managers available to approve the exit"
+  caption="Only managers set up to approve exits for this service appear here."
+/>
+
+You can't pick yourself, so if you're the only person on the service who could
+approve it, you won't appear in your own list.
+
+<Callout color="amber" title="An empty list is a dead end">
+If nobody is available you'll see **No other managers available for this
+service** in place of the list. The request can't be submitted without an
+approver, and there's no way to bypass it — so you won't be able to close that
+<Term path="serviceEpisode" /> at all until someone suitable is added to the
+service. Ask your administrator rather than working around it.
+</Callout>
+
+Then choose **Submit for Approval**.
+
+## While it's waiting
+
+The <Term path="serviceEpisode" /> stays open and picks up an **Awaiting Exit
+Review** badge, with a banner showing who submitted the request, who's
+reviewing it, and the requested end date.
+
+<Screen
+  src="/img/releases/2026-09-12-exit-approval/03-pending-exit-approval.png"
+  alt="A care journey showing an amber Pending Exit Approval banner with Submitted by, Approver and End Date, a status badge reading Awaiting Exit Review, and the note 'This exit request is pending manager approval'"
+/>
+
+<Callout color="amber" title="You can't change or withdraw a request">
+While a request is pending, **Exit <Term path="serviceEpisode" />** disappears
+from the Actions menu, and there's no way to cancel or edit what you sent. If
+something's wrong with it, ask your approver to reject it — then you can submit
+a corrected one.
+</Callout>
+
+## Reviewing a request
+
+If you approve exits, pending requests collect in **Pending Exit Approvals** on
+your <Term path="dashboard" />:
+
+<Screen
+  src="/img/releases/2026-09-12-exit-approval/04-pending-exit-approvals.png"
+  alt="The Pending Exit Approvals table listing client, service, who submitted it, the end date, when it was submitted, and Approve and Reject buttons on each row"
+  caption="Approve straight from the row, or select the row to read the full request first."
+/>
+
+Selecting a row opens the full request:
+
+<Screen
+  src="/img/releases/2026-09-12-exit-approval/05-exit-request-review.png"
+  alt="The Exit Request Review dialog showing Care Journey Information — client, service and reference — and Request Details including requested end date, when it was submitted, who submitted it and the assigned approver, with View Care Journey, Close, Reject and Approve actions"
+/>
+
+**View Care Journey** opens the full record if you want more context before
+deciding. You can't amend a request — approve it as submitted, or reject it.
+
+Approving confirms with **Exit request approved for** the client's name, and
+closes the <Term path="serviceEpisode" /> using exactly what was submitted:
+
+- The end date, closure reason and Exit Summary from the request are written to
+  the <Term path="serviceEpisode" />
+- Whether it ends as **Completed** or **Closed** follows the closure reason the
+  requester chose — it isn't a second decision you make
+- The linked <Term path="referral" /> is closed to match
+- An **Exit Episode** <Term path="activity" /> is written, titled after **you**
+  as the approver rather than the person who asked
+
+### Rejecting
+
+Rejecting needs a reason, which is stored against the <Term path="serviceEpisode" />:
+
+<Screen
+  src="/img/releases/2026-09-12-exit-approval/06-reject-exit-request.png"
+  alt="The Reject Exit Request panel, reading 'Provide a detailed reason for rejecting this request. This will be shared with the submitting staff member', with a required Rejection Reason box and a Confirm Rejection button"
+  caption="The reason is shared with the staff member, so write something they can act on."
+/>
+
+The placeholder suggests the kind of thing that belongs here — *missing required
+documentation, incomplete assessment*. A rejection puts the
+<Term path="serviceEpisode" /> back exactly as it was, **Active** or **On Hold**,
+with no end date or closure reason recorded, so the work can be finished and
+resubmitted.
+
+<Callout color="amber" title="Tell them yourself — the system won't">
+Nobody is notified of a rejection. The person who asked gets no email, no
+alert and no badge; the next time they open the <Term path="serviceEpisode" />
+the amber banner is simply gone. Your reason is written to the timeline as an
+**Exit Rejected** <Term path="activity" />, and nothing points them to it. If
+you reject a request, message the person as well.
+</Callout>
+
+If a request of yours disappears without explanation, that's what happened —
+check the <Term path="serviceEpisode" />'s <Term path="activity" /> list for an
+**Exit Rejected** entry and you'll find the reason there.
+
+When there's nothing waiting, the table says so:
+
+<Screen
+  src="/img/releases/2026-09-12-exit-approval/07-no-pending-requests.png"
+  alt="The Pending Exit Approvals table empty, reading 'No pending exit requests — All exit requests have been reviewed'"
+/>
+
+## If you can approve your own exits
+
+If your position is on the service's list, an **Approval Mode** section appears
+at the top of the dialog — two tiles you select between, above the closure
+reason:
+
+| Tile | What it does |
+|--------|--------------|
+| **Complete now** | *"You will complete this exit immediately with your authority"* — closes the <Term path="serviceEpisode" /> there and then, as before |
+| **Send for approval** | *"This exit will be sent to another manager for approval"* — hands it to a colleague to review |
+
+**Complete now** is selected for you, so if you do nothing the behaviour is the
+same as it has always been.
+
+Choosing **Send for approval** reveals the same **Select Approver** field, with
+the note *"You are delegating this approval to another manager"*. The button at
+the bottom changes to match: **Complete <Term path="serviceEpisode" />** if
+you're finishing it yourself, **Submit for Approval** if you're delegating.
