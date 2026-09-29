@@ -45,6 +45,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'manual/everyone/signing-in',
             'manual/everyone/finding-your-way-around',
+            'manual/everyone/safety-alerts',
             'manual/everyone/when-something-looks-wrong',
           ],
         },
