@@ -1,23 +1,26 @@
 ---
 title: Safety alerts
-description: Short videos on raising, approving, seeing and ending a safety alert
+description: Raising, approving, seeing and ending a safety alert, and asking another service for access
 sidebar_position: 5
 keywords:
   [
     safety alert, alert, risk, hazard, precaution, precautions, level, low,
     medium, high, raise, request approval, approve, approve with changes,
     decline, end alert, banner, pending safety alert confirmations, manager,
-    kaiawhina, kaiāwhina, video,
+    kaiawhina, kaiāwhina, video, request access, access request,
+    safety alert access requests, other service, cross-service, share,
   ]
 ---
 
 import Callout from '@site/src/components/Callout';
+import Screen from '@site/src/components/Screen';
 import Video from '@site/src/components/Video';
 
 # Safety alerts
 
 **By the end of this page** you will know how to raise a safety alert, how a
-manager decides on one, where alerts show, and who can see them.
+manager decides on one, where alerts show, who can see them, and how to ask
+another service to share theirs.
 
 Each video is under a minute. Watch the ones that match your job.
 
@@ -43,6 +46,24 @@ A manager of the service must approve it. Until then, staff on the
 
 <Video id="QZmo80LkDdY" title="Raise an alert" />
 
+<Screen
+  src="/img/manual/safety-alerts/01-raise-an-alert.png"
+  alt="The Raise a safety alert form: the concern, precautions, level and reason on the left, and a preview of what colleagues will see on the right"
+  caption="The right-hand side shows what colleagues will see once the alert is approved, and who approves it."
+/>
+
+<Screen
+  src="/img/manual/safety-alerts/02-awaiting-approval-banner.png"
+  alt="The top of a person's page with a Safety alert bar reading 1 awaiting"
+  caption="Until a manager decides, the alert waits at the top of the page."
+/>
+
+<Screen
+  src="/img/manual/safety-alerts/03-awaiting-approval-details.png"
+  alt="A safety alert opened in full: level High, one precaution, and the reason it was raised, marked Awaiting approval"
+  caption="Open it to see the details. It stays marked Awaiting approval until a manager decides."
+/>
+
 ## 3. Raise an alert as a manager
 
 A manager of the service can raise and approve an alert straight away, or ask
@@ -56,6 +77,12 @@ Alerts waiting for you are on your dashboard, under **Pending Safety Alert
 Confirmations**. Only a manager of that service can approve.
 
 <Video id="lzlyIuEffzs" title="Approve an alert" />
+
+<Screen
+  src="/img/manual/safety-alerts/04-pending-confirmations.png"
+  alt="The Pending Safety Alert Confirmations table on the dashboard, with one alert at level High and a Review button"
+  caption="Press Review to decide."
+/>
 
 ## 5. Approve with changes
 
@@ -74,7 +101,8 @@ declined alert.
 
 If you are allocated to the <Term path="serviceEpisode" />, you see the full
 alert: the level, the precautions, and why it was raised. Other services only
-see that an alert exists, and which service holds it.
+see that an alert exists, and which service holds it. They can
+[ask for access](#10-ask-another-service-for-access).
 
 <Video id="2XOiFNaOpYY" title="Who sees what" />
 
@@ -92,3 +120,64 @@ reason. Only an active alert can be ended. An alert still waiting for approval
 is declined instead.
 
 <Video id="kY5oC5mqddk" title="End an alert" />
+
+## 10. Ask another service for access
+
+When another service has an approved alert for the person, a notice at the top
+of your <Term path="serviceEpisode" /> names that service. It does not say what
+the alert is about.
+
+<Screen
+  src="/img/manual/safety-alerts/05-other-service-notice.png"
+  alt="A notice saying another service has a safety alert for this person, with a Request access button"
+  caption="The notice names the service, nothing more."
+/>
+
+If you can raise alerts on this <Term path="serviceEpisode" />, the notice has a
+**Request access** button. If you can't, it asks you to contact that service.
+
+1. Press **Request access**.
+2. Add a short note on why you need it. This is optional.
+3. Press **Request access**.
+
+<Screen
+  src="/img/manual/safety-alerts/06-request-access-dialog.png"
+  alt="The Request access to safety alert window, with an optional notes box"
+  caption="Your note is shown to the manager who decides."
+  narrow
+/>
+
+A manager of the service that raised the alert decides. The notice changes to
+**Access requested · Pending**. If more than one service has an alert for the
+person, one request goes to all of them, and each decides on its own alerts.
+
+- **If they approve**, the full alert appears on your
+  <Term path="serviceEpisode" />: the level, the precautions, and why it was
+  raised.
+- **If they decline**, you still see only the notice. You can ask again.
+
+## 11. Decide on an access request
+
+Requests for alerts your service raised are on your dashboard, under **Safety
+Alert Access Requests**. The table only appears when a request is waiting. Only
+a manager of the service that raised the alert can decide.
+
+1. Press **Review** next to the request.
+2. Check who is asking, their note, and the precautions. Open **Individual alert
+   details** to see each alert in full.
+3. Press **Approve** or **Decline**. Your decision is saved straight away.
+
+<Screen
+  src="/img/manual/safety-alerts/07-review-access-request.png"
+  alt="The access request review window: who asked, when, their note and the precautions on the left; Approve and Decline on the right"
+  caption="Approve shares the alert details. Decline keeps the alert private."
+/>
+
+One request can cover several alerts. **Approve** or **Decline** answers all of
+them at once. If you decline, the other service can ask again.
+
+<Callout color="amber" title="Approving cannot be undone">
+Once you approve, the other service sees the full alert on their
+<Term path="serviceEpisode" /> for this person. There is no way to take access
+back.
+</Callout>
