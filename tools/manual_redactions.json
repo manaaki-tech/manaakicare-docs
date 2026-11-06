@@ -97,5 +97,15 @@
       [534, 434, 253, 32]
     ],
     "notes": "Customer organisation printed as the value of an ORGANISATION group label in the template picker — the most explicit naming of the customer in the whole set. The word ORGANISATION is kept so the grouping still makes sense."
-  }
+  },
+
+  "vc-list": {"boxes": [[226, 64, 196, 32, 440, 80], [226, 96, 150, 18, 440, 104]], "notes": "Customer name and subtitle in the /virtuals heading (hard-coded in the app, GitHub #549). Items 11 and 29. Fill sampled from the page background to the right."},
+
+  "vc-card": {"boxes": [[809, 184, 118, 20, 1195, 193]], "notes": "Customer name in the Virtual Client card text on New Entry (GitHub #549). Items 37, 38, 41."},
+
+  "vc-card-40": {"boxes": [[809, 116, 118, 18, 1195, 125]], "notes": "Same card text, scrolled higher in the capture. Item 40."},
+
+  "vc-chosen-39": {"boxes": [[695, 213, 98, 18, 1000, 222]], "notes": "Customer name under the VC number on the chosen card. Item 39."},
+
+  "vc-approver-14": {"boxes": [[599, 445, 134, 37, 728, 450], [596, 485, 142, 36, 725, 503], [596, 604, 142, 36, 725, 622]], "notes": "Approver list: 'Manager E2E-WK' (highlighted row, teal fill), 'Manager2 E2E-WK' and a third account that is a real person's name (test accounts carrying a customer abbreviation, and a real staff name). Maia Sample and Moana Sample stay. Item 14."}
 }

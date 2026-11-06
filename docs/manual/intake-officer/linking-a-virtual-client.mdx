@@ -1,0 +1,301 @@
+---
+title: Linking a virtual client when someone agrees to work with you
+description: Link a Police-referral placeholder (a virtual client) to a new entry, check the details against the Police record, and know what changes after you submit
+sidebar_position: 6
+keywords:
+  [
+    virtual client, link virtual client, Police referral, PO number, PO case,
+    VC number, pre-consent, consent, new entry, intake, referral, family harm,
+    police-record differences, resolve, save to person record, linking rules,
+    whanau, whānau, agrees to work with us, placeholder, intake officer,
+  ]
+---
+
+import Callout from '@site/src/components/Callout';
+
+# Linking a virtual client when someone agrees to work with you
+
+**By the end of this page** you will have linked the right virtual client to a
+new <Term path="referral" />, checked its details against the Police record, and
+know what will and will not change once you submit.
+
+This page picks up from [Taking on someone new](/manual/intake-officer/taking-on-someone-new).
+It only covers the extra card you may see in step 1. Everything else in New
+Entry works as that page describes.
+
+## What a virtual client is
+
+A **virtual client** is a placeholder for someone named in a Police referral
+email, before they have agreed to work with the service. It holds only a date of
+birth, a gender and an address. **It never holds a name.**
+
+Names stay in the Police email. To find the right person, you search the inbox
+for the PO number.
+
+When the person agrees, you link their virtual client to the new
+<Term path="referral" /> in New Entry. For the full picture, see the
+[virtual clients overview](/virtual-clients/overview).
+
+## Before you start
+
+Have these to hand:
+
+- The person's agreement to work with the service. Record it in step 2 of New
+  Entry as you normally would.
+- The **PO number** (or numbers) from the Police email. A PO number is the
+  Police number for one incident.
+- The date of birth, gender and address the Police gave for this person. You will
+  compare them with what you hold.
+
+<Callout color="teal" title="Can't open New Entry?">
+This page assumes you can already start a new entry. If you can't, see the note
+at the top of
+[Taking on someone new](/manual/intake-officer/taking-on-someone-new).
+</Callout>
+
+## When the Virtual Client card shows
+
+Start the new entry as usual. In step 1, choose the **service** and select the
+person (the real name, not the virtual client).
+
+The **Virtual Client (Optional)** card appears only when both are true:
+
+- You have selected a person.
+- The service has virtual clients switched on.
+
+If you have not selected a person yet, the card is not there. Select the person
+first.
+
+<Screen
+  src="/img/manual/virtual-clients/linking-a-virtual-client/01-virtual-client-card.png"
+  alt="The Virtual Client (Optional) card in step 1 of New Entry, with the Linking Rules listed underneath"
+  caption="The card only shows once you have chosen a person and a service that uses virtual clients."
+/>
+
+The card lists the **Linking Rules**. They are:
+
+- Only open, non-consented virtual clients can be linked.
+- One virtual client can only be linked to one <Term path="referral" />.
+- Once consent is recorded, the virtual client becomes locked.
+
+## Find and choose the virtual client
+
+You search with the same form used in the Virtual Clients area.
+
+1. In the **Virtual Client (Optional)** card, type the **PO number**, the Police
+   person number or the VC number into the first box. The search matches any of
+   them.
+2. Add a date of birth, an address or a gender if you want to narrow the list.
+3. Click **Search**.
+
+A few things help:
+
+- The search needs at least two characters in the text or address box, or a date
+  of birth.
+- A gender on its own is not enough. You will be asked to add a date of birth, a
+  Police person number or an address.
+- The search matches part of a number. Typing only the last digits works, for
+  example 00008.
+
+<Screen
+  src="/img/manual/virtual-clients/linking-a-virtual-client/02-search-and-results.png"
+  alt="The Virtual Client card showing search results, each with a VC number and a Choose button"
+  caption="Search by PO number. The date of birth, gender and address on each row help you pick the right person."
+/>
+
+4. Look at each result row. Check the date of birth, gender and address against
+   the Police email.
+5. Click **Choose** on the row that matches.
+
+The card now shows the virtual client you chose, and the details it holds are
+used to fill in the rest.
+
+<Screen
+  src="/img/manual/virtual-clients/linking-a-virtual-client/03-virtual-client-chosen.png"
+  alt="The Virtual Client card after choosing one, showing its VC number and how to change it"
+  caption="Once chosen, the card shows which virtual client is linked. You can change it until consent is recorded."
+/>
+
+### What the message on a result row means
+
+Some rows carry a short message. Each one means that virtual client cannot be
+linked to this <Term path="referral" />.
+
+When you search, the rows you see are usually ones you can choose, plus any
+that are already on another referral. A virtual client that is already
+consented does not show in this list at all.
+
+| The row says | What it means |
+| --- | --- |
+| Already on another referral. A person can only be on one referral. | Someone has already linked it to a different <Term path="referral" />. |
+| Already consented. Only open, non-consented virtual clients can be linked to a referral. | This virtual client has already been consented. You may not see this one, because consented virtual clients usually drop out of the list. |
+| Not open. Only open, non-consented virtual clients can be linked to a referral. | It has been closed. You may not see this one either. |
+
+<Screen
+  src="/img/manual/virtual-clients/linking-a-virtual-client/04-result-row-messages.png"
+  alt="Search results where some rows carry a message explaining why they cannot be linked"
+  caption="A message under a row tells you why it cannot be linked. Rows without a message can be chosen."
+/>
+
+If the person you want is not in the list at all, it may have been closed. A
+closed virtual client that never consented no longer shows in this search.
+
+### Why you cannot create a new virtual client here
+
+New Entry has no way to create a virtual client. If you search for a number that
+does not exist, the card only says **No matches for** that number, and suggests
+you try the last digits only. It does not offer to create one.
+
+If the virtual client does not exist yet, ask someone who has the **Virtual
+Clients** menu to register the PO case and add the person first. Then come back
+and search again.
+
+<Screen
+  src="/img/manual/virtual-clients/linking-a-virtual-client/05-cannot-create-new.png"
+  alt="The Virtual Client card after a search for a PO number that does not exist, showing No matches for that number"
+  caption="A search with no result only says No matches. You can only link an existing virtual client here. New ones are made in the Virtual Clients area."
+/>
+
+## Check the details against the Police record
+
+As soon as you link a virtual client, the system compares its date of birth,
+gender and address with the person you selected.
+
+You will see one of two things:
+
+- **Matches the Police record** — nothing to do. Carry on.
+- **A table of differences** — it lists each detail that does not match.
+
+{/* SCREENSHOT NEEDED — 06-police-record-differences.png
+    Path when added: static/img/manual/virtual-clients/linking-a-virtual-client/06-police-record-differences.png
+    Show: the Police-record differences area under the linked virtual client, with a table listing a made-up date of birth difference and a made-up address difference, and a Resolve... button.
+    Highlight: the table of differences and the Resolve... button.
+    Alt: A table listing details that differ between the Police record and the person's record, with a Resolve button
+    Caption: Each row is a detail that is different. Resolve... opens a window to deal with them. */}
+
+A difference is something to look at. The Police record and the person's record
+each hold their own version of the detail.
+
+To deal with the differences:
+
+1. Click **Resolve...**.
+2. In the window that opens (it starts with "Check" and the person's name), read
+   each difference.
+3. Choose one of the two ways to finish.
+
+The two ways to finish:
+
+- **Save to Person record** — saves to the person's record.
+- Tick **I have checked these differences and want to keep the Person record as
+  it is.** — use this when you have checked and are keeping the record you
+  already hold.
+
+{/* SCREENSHOT NEEDED — 07-check-details-dialog.png
+    Path when added: static/img/manual/virtual-clients/linking-a-virtual-client/07-check-details-dialog.png
+    Show: the "Check ..." window for a made-up person ("Test Person"), with the differences listed, the Save to Person record button, and the acknowledgement checkbox.
+    Highlight: the Save to Person record button, and the checkbox beside "I have checked these differences and want to keep the Person record as it is."
+    Alt: The Check details window with a Save to Person record button and a checkbox to keep the Person record as it is
+    Caption: Either save the Police details to the person's record, or tick the box to say you have checked and are keeping what you hold. */}
+
+### Why you are stopped
+
+You cannot move on until every difference is resolved. If you try, you will see
+**Check the differences from the Police record first**.
+
+Resolve the differences, then continue.
+
+{/* SCREENSHOT NEEDED — 08-resolve-before-continuing.png
+    Path when added: static/img/manual/virtual-clients/linking-a-virtual-client/08-resolve-before-continuing.png
+    Show: the New Entry screen after trying to continue with unresolved differences, with the message "Check the differences from the Police record first" visible.
+    Highlight: the message "Check the differences from the Police record first".
+    Alt: The message Check the differences from the Police record first, shown when differences have not been resolved
+    Caption: The form will not move on until the differences are resolved. */}
+
+<Callout color="amber" title="Your tick is remembered in this browser only">
+If you tick the box to keep the Person record as it is, the system remembers
+that only in the browser you are using. If you carry on in a different browser
+or on another computer, check the card again.
+</Callout>
+
+## Review before you submit
+
+The review step shows a **Virtual client** section. It lists the virtual client's
+reference, its status, date of birth and gender, the PO cases on it, and whether
+you checked the differences.
+
+Click a PO case to open it in a read-only side panel. You can read it but not
+change it there.
+
+<Screen
+  src="/img/manual/virtual-clients/linking-a-virtual-client/09-review-step-virtual-client.png"
+  alt="The review step with a Virtual client section and a read-only side panel showing one PO case"
+  caption="Review shows what you linked. Click a PO case to read it. Nothing here can be edited."
+/>
+
+If the system cannot load the virtual client, it says **Could not load this
+virtual client.** It also says **You can still submit the referral.**
+
+## Submit the entry
+
+On the last step, press **Submit Entry**. A **Send to team** window opens with
+three choices:
+
+- **Accept & assign Case Worker** — accepts the entry and gives it straight to
+  the case worker you choose. This is the normal way. The paper referral form has
+  already been approved by a manager, and it names the case worker, so you do not
+  need to ask anyone again.
+- **Accept entry** — accepts it now and leaves the case worker for later.
+- **Send for approval** — sends it to a manager or supervisor to decide first.
+  Use this only when you are not sure the person meets the service's criteria.
+
+The three choices are explained, with pictures, in
+[Taking on someone new](/manual/intake-officer/taking-on-someone-new#step-3--what-happens-to-it).
+
+## Changing or clearing the link
+
+You can change the virtual client, or clear it, any time before consent is
+recorded. Once the <Term path="referral" /> is accepted, it is locked.
+
+Linked the wrong one by mistake? Change it now, while you can.
+
+## What you will not see change after you submit
+
+When you submit, nothing changes on the virtual client yet. It stays marked
+**Pre-consent**.
+
+It changes only when the <Term path="referral" /> is accepted. If you chose
+**Accept & assign Case Worker**, that is when you submit. If you chose **Send for
+approval**, it is when a manager accepts. Then it becomes **Consented**, a care journey starts, and the notes and follow-ups move
+across. That part is covered in
+[Virtual clients: closures and consent](/manual/supervisor/virtual-clients-closures-and-consent).
+
+If the <Term path="referral" /> is rejected instead, the virtual client goes back
+to **Open**. It can then be linked to a different <Term path="referral" />.
+
+## If your screen does not match this page
+
+- **There is no Virtual Client (Optional) card** — you may not have selected a
+  person yet. Select one. If it is still missing, the service may not have
+  virtual clients switched on. Ask your administrator. Your service may also work
+  differently.
+- **A result row has a message and cannot be linked** — read the message. It says
+  whether the virtual client is on another <Term path="referral" />, already
+  consented, or closed.
+- **You cannot find the virtual client at all** — it may have been closed, or it
+  may not have been registered yet. Ask someone with the **Virtual Clients**
+  menu to check.
+- **You cannot create a virtual client** — that is correct. New Entry only links
+  existing ones. A search with no result only says **No matches for** your number.
+- **You cannot move on after linking** — there are differences from the Police
+  record still to resolve. See the section above.
+- **The virtual client still shows Pre-consent after the entry was accepted** — tell
+  your administrator.
+
+## What next
+
+- [Virtual clients overview](/virtual-clients/overview) — what virtual clients
+  are and how the whole process fits together
+- [Virtual clients: closures and consent](/manual/supervisor/virtual-clients-closures-and-consent)
+  — what a manager does after you submit
+- [Taking on someone new](/manual/intake-officer/taking-on-someone-new) — the
+  rest of New Entry

@@ -3,32 +3,39 @@ title: Intake Officer Dashboard
 description: Complete guide to the Intake Officer Dashboard in Manaaki Central
 sidebar_position: 1
 helpId: dashboard-intake-officer
-keywords: [dashboard, intake officer, referrals, intake processing, service dispatch, entry, new entry, entry processing, entry details, awareness and entry]
+keywords: [dashboard, intake officer, referrals, intake processing, service dispatch, entry, new entry, entry processing, entry details, awareness and entry, awaiting service, high priority, with kaiawhina, kaiāwhina, ready to send, activities needing follow-up, follow-up, virtual client follow-ups, pending closure requests, 0 entries]
 ---
 
 import Callout from '@site/src/components/Callout';
 
 # Intake Officer <Term path="dashboard" />
 
-The Intake Officer <Term path="dashboard" /> is your central hub for managing the <Term path="referral" /> intake process. It provides a comprehensive view of all <Term path="referral" plural /> at different stages, from new submissions through to service dispatch.
+The Intake Officer <Term path="dashboard" /> is your central hub for managing the <Term path="referral" /> intake process. It shows <Term path="referral" plural /> at each stage, from new submissions until they are sent to a team.
 
 ## Overview
 
-![Intake Dashboard Overview](/img/dashboards/intake-officer/overview.png)
+<Screen
+  src="/img/dashboards/intake-officer/overview.png"
+  alt="The Intake Dashboard with three cards: Entry Processing, Awaiting Service and High Priority"
+  caption="Three coloured cards. Click a card to open its list underneath."
+/>
+
 
 The Intake <Term path="dashboard" /> displays:
-- **Real-time analytics cards** showing active pipeline, new <Term path="referral" plural />, and items needing attention
-- **Tab-based navigation** to view <Term path="referral" plural /> at each stage of the intake process
-- **Inline filters** for priority and date
-- **Quick actions** to view and edit <Term path="referral" plural />
-- **Search functionality** to find specific <Term path="referral" plural />
-- **+ New <Term path="referral" />** button to create <Term path="referral" plural /> directly from the dashboard
+- **Three cards** — **Entry Processing**, **Awaiting Service** and **High Priority** — each showing a count
+- **Four tabs** — **Intake**, **In Review**, **Service Review** and **With Kaiāwhina** — each with a count badge
+- A **search box** and filters for priority and <Term path="referral" /> date
+- **Click any row** to open a summary of that <Term path="referral" />
+- An **Activities Needing Follow-up** table below the tabs
+- For some users, extra cards at the bottom (see [Cards you may see below the table](#cards-you-may-see-below-the-table))
+
+The **New Entry** button is not on the dashboard itself. It sits in the top bar. See [Creating a New Referral](#creating-a-new-referral).
 
 ---
 
 ## Analytics Cards
 
-The top section of the dashboard displays three key metric cards that give you an at-a-glance view of your workload.
+The top of the dashboard shows three cards that give you an at-a-glance view of your workload. Hover over the small **i** icon on a card to read a short explanation.
 
 ### Statistics Cards
 
@@ -42,26 +49,31 @@ The top section of the dashboard displays three key metric cards that give you a
   </thead>
   <tbody>
     <tr>
-      <td style={{borderLeft: '4px solid #0f766e', background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px', fontWeight: 600}}>Active Pipeline</td>
-      <td style={{background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px'}}>All active <Term path="referral" plural /> across every stage</td>
-      <td style={{background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px'}}>Sum of <Term path="referral" plural /> in Intake Processing + In Review + Service Review + Awaiting Service Delivery. A secondary label shows the total <Term path="referral" /> count in the system.</td>
+      <td style={{borderLeft: '4px solid #0f766e', background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px', fontWeight: 600}}>Entry Processing</td>
+      <td style={{background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px'}}><Term path="referral" plural /> in the intake and review stages, not yet sent to a team</td>
+      <td style={{background: 'linear-gradient(180deg, #ccfbf1, #f0fdfa)', padding: '14px 16px'}}>The <strong>Intake</strong> and <strong>In Review</strong> tab counts added together. The small line under the number reads <strong>Intake &amp; review stages</strong>. Clicking opens an expanded panel titled <strong>Entry Processing</strong>.</td>
     </tr>
     <tr>
-      <td style={{borderLeft: '4px solid #b45309', background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px', fontWeight: 600}}>New <Term path="referral" plural /></td>
-      <td style={{background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px'}}><Term path="referral" plural /> not yet dispatched to a service</td>
-      <td style={{background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px'}}>Sum of <Term path="referral" plural /> in Intake Processing + In Review + Service Review. Clicking opens an expanded panel listing all of these <Term path="referral" plural />.</td>
+      <td style={{borderLeft: '4px solid #b45309', background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px', fontWeight: 600}}>Awaiting Service</td>
+      <td style={{background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px'}}><Term path="referral" plural /> sent to a team and waiting for service to begin</td>
+      <td style={{background: 'linear-gradient(180deg, #fef3c7, #fffbeb)', padding: '14px 16px'}}>The number of <Term path="referral" plural /> with status <strong>Service Review</strong>, <strong>Pending Allocation</strong> or <strong>Awaiting Service</strong>. <strong>Service In Progress</strong> is not counted. The small line under the number reads <strong>Sent — awaiting allocation</strong>. Clicking opens an expanded panel titled <strong>Awaiting Service Delivery</strong>.</td>
     </tr>
     <tr>
-      <td style={{borderLeft: '4px solid #c2410c', background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px', fontWeight: 600}}>Needs Attention</td>
-      <td style={{background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px'}}>High-priority <Term path="referral" plural /> needing immediate action</td>
-      <td style={{background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px'}}>Count of <Term path="referral" plural /> with <strong>Urgent</strong>, <strong>Crisis</strong>, or <strong>Emergency</strong> priority, filtered to Intake Processing and In Review stages only. Clicking opens a panel sorted by priority rank (Emergency first).</td>
+      <td style={{borderLeft: '4px solid #c2410c', background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px', fontWeight: 600}}>High Priority</td>
+      <td style={{background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px'}}>High-priority <Term path="referral" plural /> needing immediate attention</td>
+      <td style={{background: 'linear-gradient(180deg, #fed7aa, #fff7ed)', padding: '14px 16px'}}>The number of <Term path="referral" plural /> with <strong>Urgent</strong>, <strong>Crisis</strong>, or <strong>Emergency</strong> priority that sit on any of the four tabs. The small line under the number reads <strong>Urgent, crisis &amp; emergency</strong>. Clicking opens an expanded panel titled <strong>High Priority</strong>.</td>
     </tr>
   </tbody>
 </table>
 
-Numbers update in real-time as <Term path="referral" plural /> progress through the workflow. Clicking any card opens an expanded panel — for example, clicking **New <Term path="referral" plural />** shows all pre-dispatch <Term path="referral" plural /> in one list:
+Clicking any card opens an expanded panel below the cards. For example, clicking **Entry Processing** shows the <Term path="referral" plural /> that are still in the intake and review stages:
 
-![New Referrals Detail](/img/dashboards/intake-officer/new-referrals.png)
+<Screen
+  src="/img/dashboards/intake-officer/new-referrals.png"
+  alt="The Entry Processing panel opened below the cards, with a search box, Priority and Status filters and a table of referrals"
+  caption="Clicking Entry Processing opens this panel under the cards. The X closes it."
+/>
+
 
 ---
 
@@ -71,16 +83,18 @@ Numbers update in real-time as <Term path="referral" plural /> progress through 
   <img src="/img/dashboards/intake-officer/tabs.png" alt="Tab Navigation" />
 </div>
 
-The dashboard uses tabs to organise <Term path="referral" plural /> by their current stage. Each tab displays a count badge showing the number of <Term path="referral" plural /> in that stage.
+The dashboard uses tabs to organise <Term path="referral" plural /> by their current stage. Each tab shows a count badge with the number of <Term path="referral" plural /> in that stage. **Intake** is the tab that opens first.
 
 | Tab | Description | Badge |
 |-----|-------------|-------|
-| **Intake Processing** | New <Term path="referral" plural /> requiring initial processing | Shows count of <Term path="referral" plural /> in intake |
-| **In Review** | <Term path="referral" plural /> submitted and awaiting review | Shows count pending review |
-| **Service Review** | Approved <Term path="referral" plural /> ready for service allocation | Shows count pending service review |
-| **Awaiting Service Delivery** | Dispatched <Term path="referral" plural /> waiting for service to begin | Shows count awaiting delivery |
+| **Intake** | New <Term path="referral" plural /> requiring initial processing | Shows count of <Term path="referral" plural /> in intake |
+| **In Review** | <Term path="referral" plural /> submitted and awaiting review, and <Term path="referral" plural /> ready to be sent to a team | Shows count in review |
+| **Service Review** | <Term path="referral" plural /> already sent to a team, waiting for the team to respond | Shows count pending service review |
+| **With Kaiāwhina** | <Term path="referral" plural /> a team has accepted, up to and including service in progress | Shows count in this tab |
 
-Click any tab to switch the table view to show <Term path="referral" plural /> at that stage.
+Click any tab to switch the table to show <Term path="referral" plural /> at that stage. Switching tabs clears the search box. Completed and closed <Term path="referral" plural /> are not on any tab.
+
+If a tab has nothing to show, the table is replaced by the words **(0 entries)**.
 
 ---
 
@@ -90,31 +104,36 @@ Use the inline filters to narrow down your view:
 
 | Filter | Options | Use Case |
 |--------|---------|----------|
-| **Search** | Free text search by client, referrer, or status | Find specific <Term path="referral" plural /> quickly |
-| **Priority** | All Priorities, Emergency, Crisis, Urgent, Priority, Routine | Focus on high-priority <Term path="referral" plural /> |
-| **<Term path="referral" /> Date** | All dates, Custom date range | View <Term path="referral" plural /> from specific time periods |
+| **Search** | Free text. The box says **Search by name or reference...** | Find specific <Term path="referral" plural /> quickly |
+| **Priority** | All Priorities, Routine, Priority, Urgent, Crisis, Emergency | Focus on high-priority <Term path="referral" plural /> |
+| **All dates** | A start and end date, matched against the <Term path="referral" /> date | View <Term path="referral" plural /> from specific time periods |
+
+A **Clear** button appears beside the filters once you choose a priority or a date range. It resets both. It does not empty the search box.
 
 #### How to Use Filters
 
-1. Type in the **search bar** to filter by client name, referrer, or status
+1. Type a name or reference number in the **search bar**
 2. Click the **Priority** dropdown to select a priority level
-3. Click the **date** field to open the date picker and select a date range
+3. Click the **All dates** field to open the date picker and select a date range
 4. The table updates automatically to show filtered results
 
 ---
 
 ## Table Columns
 
-All tabs share a consistent table layout with the following columns:
+All tabs share the same table layout with the following columns, in this order:
 
 | Column | Description |
 |--------|-------------|
 | **Priority** | Priority level badge (Emergency, Crisis, Urgent, Priority, or Routine) |
-| **Client** | Client name and reference number (e.g., REF-2026-DEFAULT-00002) |
-| **Age** | How long since the <Term path="referral" /> was created (e.g., 0d, 1d, 3d) |
+| **Person** | The person's name, with the reference number underneath (e.g., REF-2026-DEFAULT-00002) |
 | **Status** | Current status of the <Term path="referral" /> |
-| **Referrer** | The person or organisation who made the <Term path="referral" /> |
-| **Actions** | View (eye icon) and Edit (pencil icon) buttons |
+| **Reason** | The reason for the <Term path="referral" />. Shows **--** if none was entered. |
+| **Age** | How long since the <Term path="referral" /> was created (e.g., 0d, 1d, 3d) |
+
+Click a column heading to sort by it. The **Columns** button above the table lets you hide or show columns.
+
+The **Age** badge changes colour: green under 3 days, amber from 3 to 7 days, and red over 7 days. Hover over it to see the number of days.
 
 ### Priority Badges
 
@@ -127,19 +146,19 @@ All tabs share a consistent table layout with the following columns:
   </thead>
   <tbody>
     <tr>
-      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#f8d4c4', color: '#7c2d12', border: '1px solid #f0a888', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Emergency</span></td>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#f6d0c0', color: '#7e2c10', border: '1px solid #eec0ad', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Emergency</span></td>
       <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}>Requires immediate emergency response</td>
     </tr>
     <tr>
-      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#fed7aa', color: '#9a3412', border: '1px solid #fdba74', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Crisis</span></td>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#fbe8e1', color: '#a53b17', border: '1px solid #f3d5c9', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Crisis</span></td>
       <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}>Crisis situation, handle urgently</td>
     </tr>
     <tr>
-      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#fef3c7', color: '#92400e', border: '1px solid #fde68a', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Urgent</span></td>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#f8e2a8', color: '#5f4600', border: '1px solid #efd48c', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Urgent</span></td>
       <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}>Requires immediate attention</td>
     </tr>
     <tr>
-      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#ecfccb', color: '#3f6212', border: '1px solid #d9f99d', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Priority</span></td>
+      <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}><span style={{background: '#fcf1d6', color: '#8a6200', border: '1px solid #f3e3b6', borderRadius: '9999px', padding: '3px 12px', fontSize: '0.85em', fontWeight: 600, whiteSpace: 'nowrap'}}>Priority</span></td>
       <td style={{padding: '10px 14px', borderBottom: '1px solid var(--ifm-table-border-color)'}}>High priority, process promptly</td>
     </tr>
     <tr>
@@ -149,18 +168,23 @@ All tabs share a consistent table layout with the following columns:
   </tbody>
 </table>
 
-### Action Icons
+### Opening a referral
 
-| Icon | Action | Description |
-|------|--------|-------------|
-| 👁 Eye | **View** | Open the <Term path="referral" /> details in read-only mode |
-| ✏ Pencil | **Edit** | Open the <Term path="referral" /> for editing |
+Click anywhere on a row. A window opens with the person's name at the top and the reference number under it, followed by a summary of the <Term path="referral" />.
+
+At the bottom of the window:
+
+| Button | When you see it | What it does |
+|--------|-----------------|--------------|
+| **Close** | Always | Closes the window |
+| **Edit in Wizard** | Status is Draft, Pending Consent, Pending Review or Ready to Send | Opens the intake form with this <Term path="referral" /> loaded, so you can carry on |
+| **View Details** | Any other status | Opens the <Term path="referral" />'s full page |
 
 ---
 
-## Intake Processing Tab
+## Intake Tab
 
-This is the default tab showing all <Term path="referral" plural /> that are new or in the initial intake processing stage.
+This is the tab that opens first. It shows all <Term path="referral" plural /> that are new or in the initial intake processing stage.
 
 ### What You'll See
 
@@ -172,7 +196,7 @@ This is the default tab showing all <Term path="referral" plural /> that are new
 
 1. Review the list - check priority levels and age
 2. Process Emergency and Crisis items first
-3. Click the **eye icon** to view a <Term path="referral" />, or the **pencil icon** to edit
+3. Click a row to open a summary of the <Term path="referral" />, then press **Edit in Wizard** to carry on with it
 4. Complete the intake assessment
 5. Submit for review when ready
 
@@ -188,10 +212,21 @@ This tab shows <Term path="referral" plural /> that have been submitted and are 
 
 ### What You'll See
 
-<Term path="referral" plural /> with status:
+<Term path="referral" plural /> with the following statuses:
 - **Pending Review** - Submitted <Term path="referral" plural /> awaiting approval
+- **Ready to Send** - <Term path="referral" plural /> ready for you to send to a team. A <Term path="referral" /> that a team rejects also comes back here.
 
 A supervisor or manager must approve before the <Term path="referral" /> can proceed to service dispatch.
+
+### How to Dispatch a <Term path="referral" /> {#how-to-dispatch-a-referral}
+
+Look for **Ready to Send** in the **Status** column of this tab.
+
+1. Click the row of a <Term path="referral" /> to open its summary
+2. Review the client's needs and service requirements
+3. Select the appropriate service
+4. Assign to a <Term path="caseWorker" /> or team
+5. Confirm the dispatch
 
 <Callout color="amber" title="Review Delays">
 Use the **Age** column to monitor how long <Term path="referral" plural /> have been pending. If items stay in "Pending Review" for too long, follow up with your supervisor.
@@ -201,63 +236,132 @@ Use the **Age** column to monitor how long <Term path="referral" plural /> have 
 
 ## Service Review Tab
 
-This tab displays <Term path="referral" plural /> that have been approved and are ready to be allocated to services.
+This tab displays <Term path="referral" plural /> that have been sent to a team and are waiting for the team to respond.
 
 ### What You'll See
 
-<Term path="referral" plural /> with the following statuses:
-- **Pending Service Dispatch** — Approved <Term path="referral" plural /> ready to be dispatched to a service
-- **Pending Service Review** — <Term path="referral" plural /> awaiting service allocation review
+<Term path="referral" plural /> with status:
+- **Service Review** — sent to a team, which has not yet accepted or rejected it
 
-### How to Dispatch a <Term path="referral" /> {#how-to-dispatch-a-referral}
-
-1. Click the **eye icon** on a <Term path="referral" /> to view details
-2. Review the client's needs and service requirements
-3. Select the appropriate service
-4. Assign to a <Term path="caseWorker" /> or team
-5. Confirm the dispatch
+<Term path="referral" plural /> that are ready for you to send are on the **In Review** tab, not here.
 
 ---
 
-## Awaiting Service Delivery Tab
+## With Kaiāwhina Tab
 
-This tab shows <Term path="referral" plural /> that have been dispatched to services and are in various stages of service delivery.
+This tab shows <Term path="referral" plural /> that a team has accepted, up to and including service in progress.
 
 ### What You'll See
 
 <Term path="referral" plural /> with the following statuses:
-- **Accepted Pending Allocation** — accepted by a service, awaiting <Term path="caseWorker" /> allocation
-- **Allocated Awaiting Service** — allocated to a <Term path="caseWorker" />, service has not started yet
+- **Pending Allocation** — accepted by a service, awaiting <Term path="caseWorker" /> allocation
+- **Awaiting Service** — allocated to a <Term path="caseWorker" />, service has not started yet
 - **Service In Progress** — service delivery is underway
-- **Completed** — service delivery concluded successfully
-- **Closed** — closed without completing, including cancellations and consent withdrawals
 
-### Status Filter Dropdown
-
-This tab includes an additional **status filter dropdown** that lets you narrow the list to a specific post-dispatch status (any of the statuses listed above, or "All Statuses").
+Completed and closed <Term path="referral" plural /> do not appear on this tab.
 
 ### Monitoring Post-Dispatch <Term path="referral" plural /> {#monitoring-post-dispatch-referrals}
 
-- Track <Term path="referral" plural /> that are awaiting service start using the Age column
-- Use the status filter dropdown to focus on a specific stage
+- Track <Term path="referral" plural /> that are awaiting service start using the **Age** column
+- Use the **Priority** filter to focus on urgent ones
 - Follow up on delayed service initiations
-- Review completed <Term path="referral" plural /> for closure
+
+---
+
+## Activities Needing Follow-up
+
+This table sits below the tabs. It lists follow-ups that are still pending.
+
+| Column | What it shows |
+|--------|---------------|
+| **Reference** | The reference number |
+| **Client** | The client's name |
+| **Service** | The service |
+| **Follow-up Date** | **Overdue —** and the date, **Due today**, or the date |
+| **Priority** | A priority badge |
+
+The last column has no heading. It holds a tick button and a three-dot menu.
+
+<Screen
+  src="/img/dashboards/intake-officer/activities-needing-follow-up.png"
+  alt="The Activities Needing Follow-up table with Reference, Client, Service, Follow-up Date and Priority columns, and one row opened to show the resolve panel"
+  caption="The tick button opens the resolve panel inside the row."
+/>
+
+### How to Resolve a Follow-up
+
+1. Find the row in the table
+2. Press the tick button at the end of the row. Its hover text is **Resolve follow-up**.
+3. Check the title in **Completed activity**. It starts with the word Completed.
+4. Leave **Completed** selected, or press **Didn't happen**
+5. If you chose **Didn't happen**, press a reason under **Why didn't it happen?**: **No-show**, **Unavailable**, **Not fit**, **Rescheduled**, **Client cancelled** or **Staff cancelled**
+6. Tick **Needs another follow-up** if one is needed, then choose its date
+7. Press **Save & resolve**
+
+The panel closes and the row turns pale green. The panel says it creates an activity on the client's care journey and closes the follow-up. It also says closing can't be undone. If you chose **Didn't happen**, **Save & resolve** stays greyed out until you pick a reason. Press **Cancel** to close the panel without saving.
+
+Press the three-dot menu (hover text **More options**) for two other choices:
+
+- **Log activity** — opens the activity form for that care journey
+- **No longer needed** — asks **Cancel Follow-up?**. Press **Yes, Cancel Follow-up** to remove it from your list, or **Keep Follow-up** to leave it.
+
+The table shows **Showing X–Y of Z**, a **Rows** choice of 10, 20 or 50, and **Page X of Y** arrows. For the full steps, see [Resolving a follow-up](/releases/2026-09-01-follow-up-resolution).
+
+When no follow-up is pending, the table is hidden. You see only the heading, **Activities Needing Follow-up (0 entries)**.
+
+---
+
+## Cards you may see below the table
+
+These cards appear only for some users.
+
+### Virtual client follow-ups
+
+You see this card only if you are assigned to a service that uses virtual clients. It lists your own pending follow-ups.
+
+| Column | What it shows |
+|--------|---------------|
+| **Note** | The title of the note the follow-up came from |
+| **Due Date** | The date, with **(overdue)** in red if it has passed |
+| **Case / Client** | A link to the case or the virtual client |
+
+Each row has **Resolve** and **Cancel** buttons. Both ask for a **Closing note**. A closed row stays on screen showing **Resolved** or **Cancelled** until you change page. When nothing is pending, the card shows **Virtual client follow-ups (0 entries)**. See [Virtual clients](/releases/2026-11-09-virtual-clients).
+
+### Pending Closure Requests
+
+You see this card only if you can approve closure requests. Its columns are **PO Case**, **Virtual Client**, **Requested By**, **Reason**, **End Date** and **Status**. Rows you can approve have a **Review** button.
 
 ---
 
 ## Creating a New <Term path="referral" /> {#creating-a-new-referral}
 
-Click the **+ New <Term path="referral" />** button in the top-right corner of the dashboard. See [Creating a Referral](/entries/creating-a-referral) for a step-by-step guide.
+Click the **New Entry** button with the plus sign in the top bar, on the right. See [Creating a Referral](/entries/creating-a-referral) for a step-by-step guide. If you cannot see the button, your position may not allow you to create <Term path="referral" plural />.
 
 ---
 
 ## Expanded Card Panels
 
-Clicking any analytics card opens an expanded panel below it. Click the **X** button to close.
+Clicking any card opens an expanded panel below the cards. Click the **X** button, or click the same card again, to close it.
 
-- **Active Pipeline** — Shows all <Term path="referral" plural /> across every tab.
-- **New <Term path="referral" plural />** — Combines <Term path="referral" plural /> from the Intake Processing, In Review, and Service Review tabs into one list.
-- **Needs Attention** — Shows only Intake Processing and In Review <Term path="referral" plural />, filtered to Urgent/Crisis/Emergency priority and sorted with Emergency first.
+- **Entry Processing** — Shows <Term path="referral" plural /> from the **Intake** and **In Review** tabs in one list.
+- **Awaiting Service** — The panel is titled **Awaiting Service Delivery**. It shows <Term path="referral" plural /> with status Service Review, Pending Allocation or Awaiting Service.
+- **High Priority** — Shows <Term path="referral" plural /> with Urgent, Crisis or Emergency priority.
+
+Each panel has its own **Search name or reference...** box, an **All Statuses** dropdown, and a **Clear** button once a filter is set. **Entry Processing** and **Awaiting Service** also have an **All Priorities** dropdown. **High Priority** does not, because it is already limited to high priorities.
+
+The list is sorted with the newest first. Click a column heading to change that. Clicking a row opens the same summary window as on the tabs.
+
+<Screen
+  src="/img/dashboards/intake-officer/awaiting-service.png"
+  alt="The Awaiting Service Delivery panel opened below the cards, with a search box, Priority and Status filters and a table of referrals"
+  caption="The Awaiting Service card opens a panel titled Awaiting Service Delivery."
+/>
+
+<Screen
+  src="/img/dashboards/intake-officer/high-priority.png"
+  alt="The High Priority panel opened below the cards, with a search box and a Status filter and no Priority filter"
+  caption="The High Priority panel has no Priority filter. The number on the card and the rows in the panel can differ, so go by the panel."
+/>
 
 ---
 
@@ -267,19 +371,10 @@ Clicking any analytics card opens an expanded panel below it. Click the **X** bu
 
 When there are many <Term path="referral" plural />, use pagination to navigate:
 
-- **Showing X-Y of Z** - Indicates which records are displayed
+- **Showing X–Y of Z** - Indicates which records are displayed
+- **Rows** - Choose how many rows to show per page (10 by default)
 - **Page X of Y** - Current page number
 - **< >** arrows - Navigate between pages
-
-### Refreshing Data
-
-To refresh the dashboard data:
-1. Click the **refresh icon** (circular arrow) in the top-right corner
-2. The dashboard reloads with the latest data
-
-### Switching Themes
-
-Click the **sun/moon icon** in the top-right corner to toggle between light and dark modes.
 
 ---
 
@@ -296,24 +391,30 @@ For priority handling guidelines and expected response times, see [Priority Hand
 ### Dashboard Not Loading
 
 1. Check your internet connection
-2. Click the refresh button
+2. Reload the page in your browser
 3. Try logging out and back in
 4. Clear your browser cache
 
 ### Missing <Term path="referral" plural /> {#missing-referrals}
 
 If you can't find a <Term path="referral" />:
-1. Check all tabs (it may have moved to a different status)
-2. Use the search function with the reference number
-3. Check the filters - you may have a filter active
+1. Check all four tabs (it may have moved to a different status). Completed and closed <Term path="referral" plural /> are not on any tab.
+2. Use the search box with the name or reference number
+3. Check the filters - you may have a filter active. Press **Clear** to reset the priority and date filters.
 4. Go to the full <Term path="referral" plural /> page for advanced search
 
 ### Data Not Updating
 
-1. Click the refresh button
+1. Reload the page in your browser
 2. Check if filters are affecting the view
 3. Wait a few moments and try again
 4. Contact support if the issue persists
+
+---
+
+## If your screen does not match this page
+
+Some items depend on your position, your service or your organisation's settings, so you may not see every one. If something here is missing from your screen, or your screen shows something this page does not mention, tell your supervisor or administrator what you see and where. Do not work around it.
 
 ---
 

@@ -24,12 +24,6 @@ Open either the <Term path="serviceEpisode" plural /> page or **My <Term path="s
 on your <Term path="dashboard" />, and the list is sorted by **Last Activity**,
 newest first — the journey you last recorded something against sits at the top.
 
-{/* SCREENSHOT NEEDED — 01-default-sort-last-activity.png
-    The Care Journeys listing page on first load, wide enough (1280px+) that the
-    Last Activity column is visible. Show the Last Activity header carrying its
-    down-chevron sort indicator, and the rows in newest-first order.
-    Highlight: the Last Activity header + its chevron. */}
-
 Before this change, the <Term path="serviceEpisode" plural /> page opened sorted
 by **Last Updated** and your <Term path="dashboard" /> list by when each
 <Term path="serviceEpisode" /> was created — and **no column was marked as the
@@ -42,12 +36,6 @@ header carries a chevron on first load.
 |--------|---------------------|
 | **Last Activity** | When an <Term path="activity" /> under this <Term path="serviceEpisode" /> was last created or edited |
 | **Last Entry Change** | When particular <Term path="referral" /> details behind this <Term path="serviceEpisode" /> were last saved |
-
-{/* SCREENSHOT NEEDED — 02-new-columns.png
-    The right-hand end of the Care Journeys table showing the Last Activity and
-    Last Entry Change columns side by side, with real dates in both and at least
-    one row where they differ.
-    Highlight: the two column headers. */}
 
 <Callout color="amber" title="Last Entry Change is narrower than it sounds">
 It does not move for every edit you make to the <Term path="referral" />. It is
@@ -77,11 +65,6 @@ the column you selected spins. Previously the whole table — headers included �
 was replaced by a fixed-height placeholder, so it visibly jumped as the real
 rows arrived and the headers briefly stopped responding to clicks.
 
-{/* SCREENSHOT NEEDED — 03-sorted-ascending.png
-    The same table after selecting the Last Activity header a second time, so the
-    order is reversed and the chevron points the other way. Only needed if the
-    reversed state is visually clear; otherwise drop this one. */}
-
 ## Filtering by a date range
 
 The same two dates are also available as filters on the
@@ -89,11 +72,6 @@ The same two dates are also available as filters on the
 offering **Last Updated**, **Last Activity** and **Last Entry Change** — pick
 which date you want to filter on, and a date-range picker appears beside it for
 that date.
-
-{/* SCREENSHOT NEEDED — 04-timestamp-filter.png
-    The filter row on the Care Journeys page: the search box, the dropdown open
-    showing its three options, and the date-range picker beside it.
-    Highlight: the dropdown and the date-range picker together. */}
 
 So "everything I haven't touched since August" is a date range on **Last
 Activity**, and "everyone whose consent or assessment details changed last week"
