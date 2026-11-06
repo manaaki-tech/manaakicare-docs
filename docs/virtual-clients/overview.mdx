@@ -1,6 +1,6 @@
 ---
-title: Virtual clients
-sidebar_label: Overview
+title: What is a virtual client?
+sidebar_label: What is a virtual client?
 description: What a virtual client is, how it links to Police referrals and PO cases, and how it becomes a care journey once the person agrees to work with the service
 sidebar_position: 1
 helpId: concept-virtual-clients
@@ -9,7 +9,10 @@ keywords: [virtual client, virtual clients, PO case, PO number, Police referral,
 
 import Callout from '@site/src/components/Callout';
 
-# Virtual clients
+# What is a virtual client?
+
+A virtual client is a placeholder for someone named in a Police referral, before
+they agree to work with you.
 
 By the end of this page you will know what a **virtual client** is, why it has no
 name, and how it grows into a normal <Term path="serviceEpisode" /> when the person
@@ -21,8 +24,7 @@ work with the service, staff have no name for them in the system. A virtual clie
 is how the system still keeps track of them.
 
 <Callout color="teal" title="Only available on some services">
-Virtual clients are **off by default**. An administrator switches the feature on
-for each service. If your service does not have it, you will not see
+Not every service uses virtual clients. If yours does not, you will not see
 **Virtual Clients** in the left menu.
 </Callout>
 
@@ -183,8 +185,8 @@ tell your administrator. There is no button to retry.
 
 ## Who can do what
 
-Seeing **Virtual Clients** depends on being **staff on a service that has the
-feature on**, not on your role. Beyond that, some actions depend on your position.
+Seeing **Virtual Clients** depends on being **staff on a service that uses
+virtual clients**, not on your role. Beyond that, some actions depend on your position.
 
 | Action | Case worker | Intake officer | Supervisor or manager |
 |--------|-------------|----------------|-----------------------|
@@ -196,26 +198,27 @@ feature on**, not on your role. Beyond that, some actions depend on your positio
 | Accept the <Term path="referral" /> (consent) | No | Gap | Yes (manager) |
 | Relink a person | Only if assigned to the person's current virtual client | Gap | Yes |
 | Request closure by approval | Only if assigned to the person | Gap | Yes |
-| Close directly | Only if their position is allowed | Only if their position is allowed | Yes by default |
+| Close directly | Only if their position is allowed | Only if their position is allowed | Usually yes |
 | Withdraw a closure request | Only if they made it | Only if they made it | Yes |
-| Approve or reject a closure | Only if their position is on the service's approver list | Only if their position is on the service's approver list | Yes by default |
+| Approve or reject a closure | Only if their position is on the service's approver list | Only if their position is on the service's approver list | Usually yes |
 
-Who may close directly or approve is set per service by an administrator. The
-default is supervisor and manager. A change can take up to 24 hours to apply.
+Who may close directly or approve can differ from one service to another. The
+usual answer is supervisor and manager. If it needs to change, ask your
+administrator. A change can take up to 24 hours to apply.
 
 **Gaps.** The source material does not say who can assign or remove case workers,
 who can edit a PO case's details, who can edit a person's Police number, or
 whether an intake officer can request closure or relink. Check these on your own
 screen. New Entry access for virtual clients is also unverified for case workers.
 
-## How a service gets the feature
+## Which services use virtual clients
 
-It is a per-service setting, called **Virtual client flow allowed**, and it is
-**off by default**. Only an administrator can change it. Two related settings are
-also administrator-only:
+Only some services use virtual clients. If you think yours should, ask your
+administrator. Two things can differ from one service to another or from one
+organisation to another:
 
-- **Direct close roles**: which positions may close a person without approval.
-- **Closure reasons**: the list shown when closing. An organisation administrator manages it.
+- **Who may close a person without approval.** Usually supervisors and managers.
+- **The closure reasons** shown in the closing dialog. These belong to your organisation.
 
 ## Known limits
 
@@ -245,6 +248,6 @@ also administrator-only:
 
 ## If your screen does not match this page
 
-- No **Virtual Clients** menu: the feature is off for your service, or you are not staff on it. Ask your administrator.
+- No **Virtual Clients** menu: your service does not use virtual clients, or you are not staff on it. Ask your administrator.
 - A button or menu item is missing: it depends on your position. Ask a supervisor or manager.
 - Something looks different from what is described here: tell your supervisor and your administrator, and say which page you were on.

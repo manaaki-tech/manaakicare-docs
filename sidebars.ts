@@ -65,9 +65,24 @@ const sidebars: SidebarsConfig = {
             'manual/case-worker/writing-up-what-you-did',
             'manual/case-worker/staying-on-top-of-deadlines',
             'manual/case-worker/finishing-up',
-            'manual/case-worker/virtual-clients-register-and-add-people',
-            'manual/case-worker/virtual-clients-notes-and-follow-ups',
-            'manual/case-worker/virtual-clients-closing-and-fixing',
+            {
+              type: 'category',
+              label: 'Virtual Clients',
+              link: {
+                type: 'generated-index',
+                // Explicit slug: three roles each have a "Virtual Clients" menu,
+                // and generated indexes would otherwise all claim the same URL.
+                slug: '/category/case-worker-virtual-clients',
+                title: 'Virtual Clients (Case Worker)',
+                description:
+                  'Registering Police cases, adding people, notes and follow-ups, and closing a person or fixing a wrong link.',
+              },
+              items: [
+                'manual/case-worker/virtual-clients-register-and-add-people',
+                'manual/case-worker/virtual-clients-notes-and-follow-ups',
+                'manual/case-worker/virtual-clients-closing-and-fixing',
+              ],
+            },
             'manual/case-worker/dashboard',
           ],
         },
@@ -83,7 +98,16 @@ const sidebars: SidebarsConfig = {
             'manual/intake-officer/what-you-can-do',
             'manual/intake-officer/your-day-at-a-glance',
             'manual/intake-officer/taking-on-someone-new',
-            'manual/intake-officer/linking-a-virtual-client',
+            {
+              type: 'category',
+              label: 'Virtual Clients',
+              // One page, so the menu item opens it directly.
+              link: {
+                type: 'doc',
+                id: 'manual/intake-officer/linking-a-virtual-client',
+              },
+              items: [],
+            },
             'manual/intake-officer/dashboard',
           ],
         },
@@ -102,7 +126,16 @@ const sidebars: SidebarsConfig = {
           items: [
             'manual/supervisor/what-you-can-do',
             'manual/supervisor/moving-work-between-staff',
-            'manual/supervisor/virtual-clients-closures-and-consent',
+            {
+              type: 'category',
+              label: 'Virtual Clients',
+              // One page, so the menu item opens it directly.
+              link: {
+                type: 'doc',
+                id: 'manual/supervisor/virtual-clients-closures-and-consent',
+              },
+              items: [],
+            },
             'manual/supervisor/dashboard',
           ],
         },
