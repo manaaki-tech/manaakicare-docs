@@ -9,6 +9,7 @@ const TerminologyContext = createContext<TerminologyContextValue>({
 	t: defaultTerminology as Terminology,
 	orgId: null,
 	isLoading: false,
+	resolved: false,
 });
 
 const SESSION_KEY_ENV = 'mc_docs_env';
@@ -34,10 +35,26 @@ const LOCAL_ENVS = ['local', 'development'];
  * sends outside a deployed environment; `local` is kept because it is what
  * anyone testing this by hand has been typing.
  */
+/**
+ * Names people reasonably type for an environment that is configured under a
+ * different key. `env` comes from a hand-written query string, and an
+ * unrecognised one makes the provider give up before it fetches anything — so
+ * the page silently shows default English and looks like a terminology bug
+ * rather than a typo.
+ */
+const ENV_ALIASES: Record<string, string> = {
+	prod: 'production',
+	prd: 'production',
+	dev: 'development',
+	test: 'sit',
+};
+
 function resolveBaseUrl(env: string, apiUrls: Record<string, string>): string | undefined {
-	const configured = apiUrls[env];
+	// Normalise once, so the local-env check below tests the resolved name too.
+	const key = apiUrls[env] ? env : (ENV_ALIASES[env.toLowerCase()] ?? env);
+	const configured = apiUrls[key];
 	if (!configured) return undefined;
-	if (!LOCAL_ENVS.includes(env)) return configured;
+	if (!LOCAL_ENVS.includes(key)) return configured;
 
 	try {
 		const url = new URL(configured);
@@ -60,6 +77,7 @@ export function TerminologyProvider({ children }: { children: React.ReactNode })
 	const [terminology, setTerminology] = useState<Terminology>(defaultTerminology as Terminology);
 	const [orgId, setOrgId] = useState<string | null>(null);
 	const [isLoading, setIsLoading] = useState(false);
+	const [resolved, setResolved] = useState(false);
 	const fetchedRef = useRef(false);
 
 	// Fetch terminology once on initial load
@@ -103,6 +121,7 @@ export function TerminologyProvider({ children }: { children: React.ReactNode })
 			.then((data: TerminologyOverrides) => {
 				if (data && typeof data === 'object' && Object.keys(data).length > 0) {
 					setTerminology({ ...defaultTerminology, ...data });
+					setResolved(true);
 				} else {
 					// An org with no docs-type terminology row returns {}. That is
 					// indistinguishable from a working fetch unless we say so.
@@ -145,7 +164,7 @@ export function TerminologyProvider({ children }: { children: React.ReactNode })
 	}, [isBrowser, location]);
 
 	return (
-		<TerminologyContext.Provider value={{ t: terminology, orgId, isLoading }}>
+		<TerminologyContext.Provider value={{ t: terminology, orgId, isLoading, resolved }}>
 			{children}
 		</TerminologyContext.Provider>
 	);
