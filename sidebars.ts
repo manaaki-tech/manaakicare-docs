@@ -121,12 +121,12 @@ const sidebars: SidebarsConfig = {
           // scope, so two sequences meant two near-identical pages drifting
           // apart. The difference is a column in the permissions table.
           type: 'category',
-          label: 'Supervisor & Program Manager',
+          label: 'Supervisor & Manager',
           link: {
             type: 'generated-index',
-            title: 'Supervisor & Program Manager',
+            title: 'Supervisor & Manager',
             description:
-              'Overseeing work and moving it between people. Both roles do the same things — a supervisor over their team, a programme manager over the organisation.',
+              'Overseeing work and moving it between people. Both roles do the same things — a supervisor over their team, a manager over the services they work in.',
           },
           items: [
             'manual/supervisor/what-you-can-do',
