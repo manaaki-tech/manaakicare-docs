@@ -29,17 +29,17 @@ See [Safety alerts](#safety-alerts) below.
 
 | What changed | Who sees it | What to do |
 |---|---|---|
-| **Live since 25 September.** A new **<Term path="activity" plural /> Needing Follow-up** table. Columns: **Reference**, **Client**, **Service**, **Follow-up Date**, **Priority**. | Intake Officer <Term path="dashboard" />, and Supervisor / Manager <Term path="dashboard" /> | Resolve the follow-up from its row, without leaving the dashboard. Steps are in [Resolving a follow-up](/releases/2026-09-01-follow-up-resolution). |
+| **Live since 25 September.** The **<Term path="activity" plural /> Needing Follow-up** table is simpler. Its columns are now **Reference**, **Client**, **Service**, **Follow-up Date** and **Priority**. The **Title** and **Risk** columns have gone. | Intake Officer <Term path="dashboard" />, and Supervisor / Manager <Term path="dashboard" /> | Resolve the follow-up from its row, without leaving the dashboard. Steps are in [Resolving a follow-up](/releases/2026-09-01-follow-up-resolution). |
 | **Live since 25 September.** Managers of more than one service see that table on the **Overview** tab only, not on the **Services** tab. | Managers of more than one service | Look on the **Overview** tab. |
 | **Live since 25 September.** Most <Term path="dashboard" /> tables now shrink to their heading plus **(0 entries)** when they are empty, for example **<Term path="serviceEpisode" plural /> (0 entries)** or the **Activities Needing Follow-up (0 entries)** table on the Intake Officer and Supervisor / Manager dashboards. The empty-state icon and message are gone. | Everyone | Read the heading. **(0 entries)** means nothing is waiting. The <Term path="caseWorker" /> follow-up table is the exception: it still shows **No follow-ups due**. |
 | **Live since 25 September.** The **<Term path="serviceUser" plural /> Needing Contact** table has been removed. | Supervisor / Manager <Term path="dashboard" /> | Nothing to do. You will no longer see it. |
 
-When nothing is due on the new follow-up table, it is hidden, apart from that
+When nothing is due on the follow-up table, it is hidden, apart from that
 heading.
 
 <Screen
   src="/img/releases/2026-11-09-smaller-changes/02-zero-entries-heading.png"
-  alt="A dashboard table collapsed to its heading, Activities Needing Follow-up (0 entries), with no icon or message beneath"
+  alt="A dashboard where Pending Referral Requests, Pending Exit Approvals and Pending Closure Requests each show only their heading and (0 entries)"
   caption="An empty table is now just its heading and (0 entries)."
 />
 
@@ -52,7 +52,7 @@ heading.
 | The narrow compliance bar at the side of a <Term path="serviceEpisode" /> now opens the full panel as a sheet on the right, titled **Compliance**. | Anyone who can see compliance on a <Term path="serviceEpisode" /> | Open it to see everything required for this person. |
 | Hovering over the narrow bar shows a short summary: a line such as **3 of 5 on track**, counts of overdue, due soon and pending items, and the top items. | Same | Hover to check at a glance. You do not need to open the sheet. |
 | The sheet has a **Pin panel** button. It docks the panel on the page. **Unpin panel** puts it back. | Same | Press **Pin panel** to keep it open while you work. |
-| On screens narrower than 1536 pixels, pinning the panel collapses the app's side menu to make room. | Same | Press **Unpin panel** to get the menu back. |
+| On screens narrower than 1536 pixels, pinning the panel closes the app's side menu to make room. | Same | To get the menu back, select the menu button at the top left. **Unpin panel** does not reopen it. |
 | The Overview column no longer leaves a blank gap when the compliance bar is missing or collapsed. It is now centred. | Same | Nothing to do. |
 
 Before this release the narrow bar had buttons named **Pin compliance panel**
@@ -70,7 +70,7 @@ are on the [Safety alerts](/manual/everyone/safety-alerts) page.
 | What changed | Who sees it | What to do |
 |---|---|---|
 | **Live since 21 to 27 September.** Managers, supervisors and intake officers can raise an alert on any <Term path="serviceEpisode" /> under a contract they staff. They do not need to be assigned to it. | Those three positions | Raise the alert from the <Term path="serviceEpisode" />. Everyone else still needs to be assigned first. |
-| **Live since 21 to 27 September.** The raise form now has up to two buttons. **Raise and approve** appears if you are a manager or supervisor on the service that owns the alert. **Ask another manager to approve** sits beside it, and appears only when there is someone else who could approve. Everyone else sees **Request approval**. | Anyone who raises an alert | Choose the button that matches what you want to happen next. |
+| **Live since 21 to 27 September.** The raise form now has up to two buttons. **Raise and approve** appears if you are a manager or supervisor on the service that owns the alert. **Ask another manager to approve** sits beside it, and appears only when another manager works on that service. Everyone else sees **Request approval**. | Anyone who raises an alert | Choose the button that matches what you want to happen next. |
 | **Live since 21 to 27 September.** Supervisors and managers see their own alerts and the lists of alerts waiting for a decision only for services where they are active staff. | Supervisors and managers | If a service's alerts are missing, check you are active staff on it. |
 | **Live since 21 to 27 September.** The right to confirm, resolve, cancel, edit, and decide on access requests comes only from your position on the service the alert was raised on. Administrator accounts no longer override it, apart from system administrators. | Everyone | If you cannot act on an alert, ask someone with the right position on that service. |
 | **Live since 21 to 27 September.** The alert's details show the name of the person who created it. | Anyone who can open the alert in full | Nothing to do. |
@@ -78,13 +78,13 @@ are on the [Safety alerts](/manual/everyone/safety-alerts) page.
 | **New in this release.** **View Care Journey** in the alert review window now opens the <Term path="serviceEpisode" /> the alert was raised on. | Anyone reviewing an alert | Nothing to do. |
 | **New in this release.** A person-level alert with no category now shows the hover text **Safety alert**. It used to read **Safety alert: undefined**. | Everyone | Nothing to do. |
 
-## On Hold can be switched off for a service
+## Some services do not allow On Hold
 
 **New in this release.**
 
 | What changed | Who sees it | What to do |
 |---|---|---|
-| Each service now has an **Allow on hold** setting. It is on by default. When it is off, setting a <Term path="serviceEpisode" /> to On Hold is refused with the message **On Hold is not enabled for this service.** | Anyone who tries to put a <Term path="serviceEpisode" /> on hold, on a service where it is off | Do not try to hold it. Ask your administrator if you think the setting is wrong. |
+| A service can now choose not to allow On Hold. On those services, setting a <Term path="serviceEpisode" /> to On Hold is refused with the message **On Hold is not enabled for this service.** Most services still allow it. | Anyone who tries to put a <Term path="serviceEpisode" /> on hold, on a service that does not allow it | Do not try to hold it. Ask your administrator if you think your service should allow it. |
 
 ## How things look
 

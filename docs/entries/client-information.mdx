@@ -3,7 +3,7 @@ title: Finding or Creating the Client
 description: Selecting an existing client or creating a new one during referral intake
 sidebar_position: 3
 helpId: referral-client-info
-keywords: [referral, client, search, create, duplicate, whanau, entry, new entry, entry processing, entry details, awareness and entry, whānau, kiritaki]
+keywords: [referral, client, search, create, duplicate, whanau, entry, new entry, entry processing, entry details, whānau, kiritaki]
 ---
 
 import Callout from '@site/src/components/Callout';
@@ -28,14 +28,18 @@ If the person genuinely is not in the system, click **Create new client** and co
 
 | Field | Notes |
 |-------|-------|
-| First name | |
-| Last name | |
-| Date of birth | Also determines whether guardian consent is required at Step 2 |
-| Gender | |
-| Phone | |
-| Email | |
+| First name | Required |
+| Last name | Required |
+| Date of birth | Required. Also determines whether guardian consent is required at Step 2 |
+| Gender | Required |
+| Phone | At least one of phone, email or address line 1 is needed, unless the client is under 16 |
+| Email | At least one of phone, email or address line 1 is needed, unless the client is under 16 |
+| Address line 1 | Counts as a contact method |
+| Address line 2, Suburb, City, Postal code | Optional |
+| Alias / preferred name | Optional |
+| External reference number | Optional |
 
-Submit the form and the new client is selected on the <Term path="referral" /> automatically. You do not leave the wizard.
+Click **Create Client** and the new client is selected on the <Term path="referral" /> automatically. You do not leave the wizard.
 
 ## Existing active <Term path="referral" plural /> {#existing-active-referrals}
 
@@ -45,7 +49,7 @@ This is informational, not a block. Check it before continuing — it usually me
 
 ## Referring from a client record
 
-You can also start a <Term path="referral" /> from a client's whānau tab using the **New Entry** link. This opens the wizard with that client already selected, which avoids the search step entirely and is the safest way to avoid creating a duplicate.
+You can also start a <Term path="referral" /> from a client's page using the **New Entry** button at the top. This opens the wizard with that client already selected, which avoids the search step entirely and is the safest way to avoid creating a duplicate.
 
 ## Why date of birth matters
 

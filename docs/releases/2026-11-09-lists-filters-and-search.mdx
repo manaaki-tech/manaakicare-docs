@@ -33,12 +33,13 @@ names that are shown in **bold** are quoted as they appear on screen.
 
 ## The referrals list
 
-The old filter bar has gone. You now sort and filter from the column headings,
-much as you would in a spreadsheet.
+The old filter bar has gone. To sort, select a column heading, then choose
+**Asc** or **Desc**. To filter, use the buttons beside the tabs. There is one for
+each filter. **Reset** clears them all.
 
 What you will see:
 
-- Three tabs: **Drafts**, **Active** and **Closed**. Each shows a badge with its total.
+- Three tabs: **Drafts**, **Active** and **Closed**. Each shows a badge with its total. <Term path="caseWorker" plural /> do not see **Drafts**.
 - A search box next to the page title. It reads **Search entries...**
 - Filters for **Status**, **Priority**, **Service** and a date range for when the <Term path="referral" /> was created.
 - A footer that reads **Showing X-Y of N**, where N is the total in the list.
@@ -48,9 +49,9 @@ What you will see:
 You can pick more than one service at a time. You can also sort by client name.
 
 <Callout color="teal" title="Your filters and sort are remembered">
-The filters and sort you choose stay in the page address, and they are
-remembered for you personally. When you come back to the list, it opens the way
-you left it. If a list looks shorter than you expect, check whether a filter
+The filters and sort you choose stay in the page address. They are also
+remembered while your browser tab stays open, so the list opens the way you left
+it when you come back to it from the menu. If a list looks shorter than you expect, check whether a filter
 is still switched on.
 </Callout>
 
@@ -77,20 +78,40 @@ you are a <Term path="caseWorker" />, you will not see it.
 |-------|--------------|
 | **Risk** column | New. Filter by **None**, **Low**, **Medium**, **High** or **Critical** |
 | **Service** filter | Pick more than one service at once |
-| **Assigned Staff** filter | Managers and supervisors only. Other roles do not see it |
+| **Assigned Staff** filter | Managers, supervisors and administrators only. Other roles do not see it |
 | **Status** column | Shown on the **All open** tab only |
+
+The filter buttons sit beside the tabs: **Service**, **Risk**, **Assigned
+Staff** and **Last Activity**, which filters by date. Each one opens a list.
+Tick the choices you want. A number on the button shows how many are ticked.
+**Clear filters** at the bottom of a list clears that one filter. **Reset**
+clears every filter. **View**, on the right, chooses which columns to show.
+
+<Screen
+  src="/img/releases/2026-11-09-lists-filters-and-search/01-care-journeys-filters.png"
+  alt="The Care Journeys list with the Assigned Staff filter open, showing a search box, a list of staff with three ticked, and a Clear filters button"
+  caption="The filter buttons beside the tabs. Here Assigned Staff is open with three people ticked, so its button shows 3."
+/>
 
 ### Sorting and reloading
 
-Select a column heading to sort by it. The new sort replaces the old one. Sorts
-do not stack on top of each other.
+Select a column heading to open its menu, then choose **Asc** or **Desc**. The
+new sort replaces the old one. Sorts do not stack on top of each other. Choosing
+the direction that is already ticked turns that sort off. The same menu has
+**Hide**, which takes the column off the list. Use **View** to bring it back.
+
+<Screen
+  src="/img/releases/2026-11-09-lists-filters-and-search/02-column-sort-menu.png"
+  alt="The Start Date column heading with its menu open, showing Asc, Desc and Hide"
+  caption="Select a column heading to sort by it, or to hide the column."
+/>
 
 While the list reloads after a sort, filter or search, the rows fade.
 
 ### Recipe: high-risk journeys that need staff
 
 1. Select the **Awaiting Staff** tab.
-2. Open the filter on the **Risk** column.
+2. Select the **Risk** filter button beside the tabs.
 3. Tick **High**.
 4. Tick **Critical**.
 
@@ -121,7 +142,7 @@ There are also **Service** and **Assigned Staff** filters.
 ### Recipe: closed journeys that ended in October
 
 1. Select the **Closed** tab.
-2. Open the filter on the **End Date** column.
+2. Select the **End Date** filter button beside the tabs.
 3. Choose 1 October as the start of the range.
 4. Choose 31 October as the end of the range.
 
@@ -131,22 +152,20 @@ filter and tick the reasons you want.
 
 ## Searching
 
-On the <Term path="serviceEpisode" plural /> list and the **Completed Care** page, the search box works like this:
+On all three lists, the search box works like this:
 
 - It starts searching after you have typed **3 letters** and paused briefly.
 - If you want to search for fewer letters, type them and press **Enter**.
 - The hint reads **Press Enter to search, or type 3 or more letters**.
 - The **x** button, labelled **Clear search**, empties the box and clears the search. Pressing **Esc** does the same.
 
-The box on the <Term path="serviceEpisode" plural /> list reads
-**Search client, service or staff name...**. The box on **Completed Care** reads
-**Search completed** followed by your organisation's word for
-<Term path="serviceEpisode" plural />.
+On the <Term path="serviceEpisode" plural /> list and on **Completed Care**, the
+box reads **Search client, service or staff name...**.
 
 ## If your screen does not match this page
 
-- **A tab, column or filter is missing.** **Awaiting Staff** is hidden from <Term path="caseWorker" plural />. **Assigned Staff** is only for managers and supervisors. **Status** is only on the **All open** tab.
-- **The list is shorter than you expect.** A filter from your last visit may still be on, because your filters are remembered. Check the filters in the column headings.
+- **A tab, column or filter is missing.** **Awaiting Staff** is hidden from <Term path="caseWorker" plural />. **Assigned Staff** is only for managers, supervisors and administrators. **Status** is only on the **All open** tab.
+- **The list is shorter than you expect.** A filter from your last visit may still be on, because your filters are remembered. Check the filter buttons beside the tabs, or select **Reset**.
 - **Search does nothing.** You may have typed fewer than 3 letters. Press **Enter**, or type another letter.
 - **A name looks different.** Your organisation can rename menu items and the words used for <Term path="referral" plural /> and <Term path="serviceEpisode" plural />.
 

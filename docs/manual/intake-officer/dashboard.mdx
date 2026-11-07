@@ -3,7 +3,7 @@ title: Intake Officer Dashboard
 description: Complete guide to the Intake Officer Dashboard in Manaaki Central
 sidebar_position: 1
 helpId: dashboard-intake-officer
-keywords: [dashboard, intake officer, referrals, intake processing, service dispatch, entry, new entry, entry processing, entry details, awareness and entry, awaiting service, high priority, with kaiawhina, kaiāwhina, ready to send, activities needing follow-up, follow-up, virtual client follow-ups, pending closure requests, 0 entries]
+keywords: [dashboard, intake officer, referrals, intake processing, service dispatch, entry, new entry, entry processing, entry details, awaiting service, high priority, with kaiawhina, kaiāwhina, ready to send, activities needing follow-up, follow-up, virtual client follow-ups, pending closure requests, 0 entries]
 ---
 
 import Callout from '@site/src/components/Callout';
@@ -88,7 +88,7 @@ The dashboard uses tabs to organise <Term path="referral" plural /> by their cur
 | Tab | Description | Badge |
 |-----|-------------|-------|
 | **Intake** | New <Term path="referral" plural /> requiring initial processing | Shows count of <Term path="referral" plural /> in intake |
-| **In Review** | <Term path="referral" plural /> submitted and awaiting review, and <Term path="referral" plural /> ready to be sent to a team | Shows count in review |
+| **In Review** | <Term path="referral" plural /> with consent recorded, waiting for you to submit them or send them to a team | Shows count in review |
 | **Service Review** | <Term path="referral" plural /> already sent to a team, waiting for the team to respond | Shows count pending service review |
 | **With Kaiāwhina** | <Term path="referral" plural /> a team has accepted, up to and including service in progress | Shows count in this tab |
 
@@ -189,7 +189,7 @@ This is the tab that opens first. It shows all <Term path="referral" plural /> t
 ### What You'll See
 
 <Term path="referral" plural /> with the following statuses:
-- **Draft** — intake has been started but consent is not yet recorded
+- **Draft** — saved part-way through step 1 of the intake form
 - **Pending Consent** — awaiting client consent before proceeding
 
 ### How to Process New <Term path="referral" plural /> {#how-to-process-new-referrals}
@@ -197,8 +197,8 @@ This is the tab that opens first. It shows all <Term path="referral" plural /> t
 1. Review the list - check priority levels and age
 2. Process Emergency and Crisis items first
 3. Click a row to open a summary of the <Term path="referral" />, then press **Edit in Wizard** to carry on with it
-4. Complete the intake assessment
-5. Submit for review when ready
+4. Finish the consent step
+5. On the last step, press **Submit Entry**
 
 <Callout color="teal" title="Reference Numbers">
 Each <Term path="referral" /> has a unique reference number (e.g., REF-2026-DEFAULT-00047) that you can use to track and search for <Term path="referral" plural />.
@@ -208,28 +208,28 @@ Each <Term path="referral" /> has a unique reference number (e.g., REF-2026-DEFA
 
 ## In Review Tab
 
-This tab shows <Term path="referral" plural /> that have been submitted and are awaiting review by a supervisor or manager.
+This tab shows <Term path="referral" plural /> that are still with you. Consent is recorded, but they have not been sent to a team yet.
 
 ### What You'll See
 
 <Term path="referral" plural /> with the following statuses:
-- **Pending Review** - Submitted <Term path="referral" plural /> awaiting approval
+- **Pending Review** — consent is recorded, but the <Term path="referral" /> has not been submitted yet
 - **Ready to Send** - <Term path="referral" plural /> ready for you to send to a team. A <Term path="referral" /> that a team rejects also comes back here.
 
-A supervisor or manager must approve before the <Term path="referral" /> can proceed to service dispatch.
+If you choose **Send for approval**, it moves to the **Service Review** tab while the supervisor or manager decides.
 
 ### How to Dispatch a <Term path="referral" /> {#how-to-dispatch-a-referral}
 
 Look for **Ready to Send** in the **Status** column of this tab.
 
 1. Click the row of a <Term path="referral" /> to open its summary
-2. Review the client's needs and service requirements
-3. Select the appropriate service
-4. Assign to a <Term path="caseWorker" /> or team
-5. Confirm the dispatch
+2. Press **Edit in Wizard**. The form opens on its last step.
+3. Check the summary, then press **Send to Team**
+4. Choose **Send for approval**, **Accept entry** or **Accept & assign <Term path="caseWorker" />**, and pick the person if asked
+5. Press the button at the bottom. It names where the <Term path="referral" /> is going.
 
 <Callout color="amber" title="Review Delays">
-Use the **Age** column to monitor how long <Term path="referral" plural /> have been pending. If items stay in "Pending Review" for too long, follow up with your supervisor.
+Use the **Age** column to monitor how long <Term path="referral" plural /> have been pending. If an item sits at **Pending Review** for a long time, it has not been submitted yet. Open it and finish the last step.
 </Callout>
 
 ---

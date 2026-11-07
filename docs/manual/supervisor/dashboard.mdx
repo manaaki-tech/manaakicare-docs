@@ -1,17 +1,17 @@
 ---
-title: Supervisor / Program Manager Dashboard
-description: Complete guide to the Supervisor and Program Manager Dashboard in Manaaki Central
+title: Supervisor / Manager Dashboard
+description: Complete guide to the Supervisor and manager Dashboard in Manaaki Central
 sidebar_position: 2
 helpId: dashboard-supervisor
-keywords: [dashboard, supervisor, follow-up, exit approval, safety alert, closure request, program manager, referral requests, service dispatch, team management, entry, new entry, entry processing, entry details, awareness and entry, care journey, journey, in-progress journeys, kaiawhina, kaiāwhina, kaimahi, whanau, whānau, kiritaki]
+keywords: [dashboard, supervisor, follow-up, exit approval, safety alert, closure request, program manager, referral requests, service dispatch, team management, entry, new entry, entry processing, entry details, care journey, journey, in-progress journeys, kaiawhina, kaiāwhina, kaimahi, whanau, whānau, kiritaki]
 ---
 
 import Callout from '@site/src/components/Callout';
 import Screen from '@site/src/components/Screen';
 
-# Supervisor / Program Manager <Term path="dashboard" />
+# Supervisor / Manager <Term path="dashboard" />
 
-The <Term path="supervisorDashboard" /> is your central hub for managing <Term path="referral" /> requests, approvals and follow-ups. By the end of this page you will know what each part of it shows and what you can do from it. Supervisors and Program Managers share the same dashboard.
+The <Term path="supervisorDashboard" /> is your central hub for managing <Term path="referral" /> requests, approvals and follow-ups. By the end of this page you will know what each part of it shows and what you can do from it. Supervisors and managers share the same dashboard.
 
 ## Overview
 
@@ -69,7 +69,7 @@ Select a card to open a panel beneath the cards. Select the same card again, or 
 |-------|---------------|
 | **Awaiting Commencement** | **Reference**, **Client Name**, **Service**, **Status**, **Assigned To** (or **Unassigned**) and **Start Date**. Search with **Search client name...**. Select a row to open the <Term path="serviceEpisode" />. |
 | **High Priority Referrals** | **Priority**, **Person**, **Status**, **Reason** and **Age**. Search with **Search name or reference...**. Select a row to preview the <Term path="referral" />. |
-| **Staff Workload Distribution** | A chart of active <Term path="serviceEpisode" plural /> for each staff member |
+| **Staff Workload Distribution** | A bar chart, **Active <Term path="serviceEpisode" plural /> by Staff**, with one bar for each staff member, busiest first. The number at the end of each bar is how many active <Term path="serviceEpisode" plural /> they are Primary for. Staff who are Primary for none are left out, and the chart shows up to 10 people. |
 
 <Screen
   src="/img/dashboards/supervisor/awaiting-commencement-panel.png"
@@ -133,7 +133,7 @@ After accepting:
 1. The <Term path="referral" /> service request status changes to **Accepted**
 2. A message appears: "Request accepted", followed by the client and service
 3. If you chose a staff member under **Assign to Staff (optional)**, a <Term path="serviceEpisode" /> is created for the client with that person assigned as primary responsible
-4. The <Term path="caseWorker" /> will see this <Term path="serviceEpisode" /> on their [Case Worker Dashboard](/manual/case-worker/dashboard) under **My Active <Term path="cases" />**
+4. The <Term path="caseWorker" /> will see this <Term path="serviceEpisode" /> on their [Case Worker Dashboard](/manual/case-worker/dashboard) under **My <Term path="serviceEpisode" plural />**
 5. The <Term path="referral" /> progresses forward in the workflow
 
 <Callout color="teal" title="Choose a staff member when you accept">
@@ -185,7 +185,7 @@ When there are no pending requests, the table shrinks to its heading and **(0 en
   alt="The Pending Exit Approvals table listing client, service, who submitted the request, the end date, when it was submitted, and Approve and Reject buttons on each row"
 />
 
-Where a service is configured to require approval before a <Term path="serviceEpisode" /> can be closed, the requests waiting on you collect here.
+On services where closing a <Term path="serviceEpisode" /> needs approval, the requests waiting on you collect here.
 
 ### Table Columns
 
@@ -340,11 +340,7 @@ When there are many records, pagination controls appear at the bottom of each ta
 
 ### Refreshing Data
 
-Click the **refresh icon** (circular arrow) in the top-right header to reload all dashboard data.
-
-### Switching Themes
-
-Click the **sun/moon icon** in the top-right header to toggle between light and dark modes.
+The dashboard has no refresh button. Reload the page in your browser to bring in the latest numbers.
 
 ---
 
@@ -377,12 +373,12 @@ Pending → Accepted → Case Worker Assigned → Service Delivery
 
 ## Data Visibility
 
-Supervisors and Program Managers have different data scopes:
+Supervisors and managers have different data scopes:
 
 | Role | Data Scope |
 |------|------------|
-| **Supervisor** | Own records + supervised <Term path="caseWorker" plural />' records |
-| **Program Manager** | All records within their organisation |
+| **Supervisor** | <Term path="serviceEpisode" plural /> in their services, and the <Term path="activity" plural /> of their own team |
+| **manager** | All records in the services they work in |
 | **Admin** | All records within their organisation |
 
 ---
@@ -428,7 +424,7 @@ Supervisors and Program Managers have different data scopes:
 ### Dashboard Not Loading
 
 1. Check your internet connection
-2. Click the refresh button
+2. Reload the page in your browser
 3. Try logging out and back in
 4. Clear your browser cache
 
@@ -447,7 +443,7 @@ Supervisors and Program Managers have different data scopes:
 
 ### Data Not Updating
 
-1. Click the refresh button
+1. Reload the page in your browser
 2. Wait a few moments and try again
 3. Check the service filter on the **Services** tab
 4. Contact support if the issue persists
@@ -461,7 +457,7 @@ If your dashboard does not match this page, tell your administrator which table 
 ## Related Documentation
 
 - [Supervisor Role](/manual/supervisor/what-you-can-do) - Role overview and responsibilities
-- [Program Manager Role](/manual/supervisor/what-you-can-do) - Role overview and responsibilities
+- [Manager Role](/manual/supervisor/what-you-can-do) - Role overview and responsibilities
 - [Intake Officer Dashboard](/manual/intake-officer/dashboard) - Intake officer's dashboard view
 - [Referral Overview](/entries/overview) - Understanding the <Term path="referral" /> process
 - [Searching for Clients](/whanau/searching-for-clients) - Finding client records

@@ -32,7 +32,7 @@ This page is the boundary of your job: what you can see, what you can change, an
 - Recording all <Term path="serviceUser" /> interactions (visits, phone calls, telehealth)
 - Writing case notes and documenting observations
 - Setting follow-up dates for future actions
-- Assessing and recording risk levels for <Term path="activity" plural />
+- Setting the **Priority** of each <Term path="activity" />
 
 ### Follow-up Management
 - Tracking scheduled follow-ups via the dashboard
@@ -55,7 +55,7 @@ This page is the boundary of your job: what you can see, what you can change, an
 | Create <Term path="activity" plural /> / case notes | Yes |
 | Edit own <Term path="activity" plural /> (within 10 days) | Yes |
 | Set follow-up dates | Yes |
-| Record risk levels | Yes |
+| Set the **Priority** of <Term path="activity" plural /> | Yes |
 | View assigned <Term path="serviceUser" /> information | Yes |
 | Upload documents | Yes |
 | View other <Term path="caseWorker" plural />' records | No |
@@ -79,9 +79,9 @@ This means your dashboard shows only your workload, keeping the view focused and
 
 ### Comparison with Other Roles
 
-| Feature | <Term path="caseWorker" /> | Supervisor | Program Manager |
+| Feature | <Term path="caseWorker" /> | Supervisor | Manager |
 |---------|-------------|------------|-----------------|
-| **Data scope** | Own records only | Own + supervised staff | Entire organisation |
+| **Data scope** | Own records only | Own + supervised staff | Everything in their services |
 | **Dashboard title** | "My <Term path="caseload" />" | "<Term path="supervisorDashboard" />" | "<Term path="supervisorDashboard" />" |
 | **Key focus** | Service delivery | Team management | Organisation oversight |
 | **Accept/Reject <Term path="referral" plural />** | No | Yes | Yes |
@@ -90,9 +90,9 @@ This means your dashboard shows only your workload, keeping the view focused and
 
 The <Term path="caseWorker" /> <Term path="dashboard" /> — **"My <Term path="caseload" />"** — provides:
 
-- **Analytics Overview** — Active <Term path="serviceEpisode" plural />, urgent/crisis count, follow-ups due, total <Term path="referral" plural />
-- **My Active <Term path="cases" />** — All <Term path="serviceEpisode" plural /> assigned to you with status and actions
-- **<Term path="activity" plural /> Needing Follow-up** — Scheduled follow-ups sorted by date and priority, with risk level and overdue tracking
+- **Analytics Overview** — Active <Term path="serviceEpisode" plural />, follow-ups due and total <Term path="referral" plural />
+- **My <Term path="serviceEpisode" plural />** — All <Term path="serviceEpisode" plural /> assigned to you with status and actions
+- **<Term path="activity" plural /> Needing Follow-up** — Your pending follow-ups, soonest first, with priority and overdue badges
 
 For detailed dashboard documentation, see [Case Worker Dashboard](/manual/case-worker/dashboard).
 
@@ -103,7 +103,6 @@ For detailed dashboard documentation, see [Case Worker Dashboard](/manual/case-w
 ```
 Check Dashboard Metrics
   → Address Overdue Follow-ups (red badges)
-  → Process Urgent/Crisis Items
   → Conduct Scheduled Visits & Sessions
   → Record Activities & Case Notes
   → Set Follow-up Dates
@@ -115,25 +114,27 @@ Check Dashboard Metrics
 ```
 Awaiting Commencement  (assigned to you, not yet started)
   → Active             (service delivery in progress)
+  → On Hold            (paused, if your service allows it)
+  → Awaiting Exit Review (closure waiting for approval, if your service needs it)
   → Completed / Closed (finished, one way or the other)
 ```
 
 ## Best Practices
 
 ### Prioritization
-- Check **Urgent/Crisis** count first thing each day
+- Check **Follow-ups Due** and **Ready to start** first thing each day
 - Address **overdue follow-ups** (red badges) before anything else
 - Process **follow-ups due today** next
 - Then work through routine <Term path="caseload" />
 
 ### <Term path="serviceUser" /> Contact {#service-user-contact}
-- Maintain regular contact — your supervisor is alerted when <Term path="serviceUser" plural /> aren't contacted for 5+ days
+- Maintain regular contact with every <Term path="serviceUser" />
 - Record every interaction as an <Term path="activity" />
 - Set follow-up dates to ensure no <Term path="serviceUser" /> falls through the cracks
 
 ### <Term path="activity" /> Recording
 - Record <Term path="activity" plural /> promptly after each <Term path="serviceUser" /> interaction
-- Set appropriate risk levels (None, Medium, High, Critical)
+- Set the **Priority** on each <Term path="activity" />: **None**, **Low**, **Med**, **High** or **Crit**
 - Always set a follow-up date when future action is needed
 - Mark <Term path="activity" /> outcomes accurately (completed, no-show, rescheduled, etc.)
 
