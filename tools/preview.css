@@ -188,13 +188,23 @@ code {
 /* Screenshots */
 figure { margin: 26px 0; }
 
-.shot, figure a {
+/* The screenshot frame is a CSS-module class, so its real name is hashed
+   (frame_a1b2). Matched on the substring rather than tagged during extraction,
+   because it is a div wrapping an img — rewriting its opening tag alone would
+   leave a stray closing tag behind. */
+.shot, figure a, figure [class*='frame'] {
 	display: block;
 	border: 1px solid var(--line);
 	border-radius: 8px;
 	overflow: hidden;
 	background: var(--surface);
 	line-height: 0;
+}
+
+figure [class*='frame'] img {
+	max-width: 100%;
+	height: auto;
+	margin-inline: auto;
 }
 
 figure img { width: 100%; height: auto; display: block; }

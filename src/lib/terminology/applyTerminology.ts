@@ -68,12 +68,19 @@ export function applyTerminology(label: string, t: Record<string, string>): stri
 		const defaultParts = defaultRaw.split('|');
 		const overrideParts = overrideRaw.split('|');
 
-		// Plural first (longer match) to avoid partial replacements
-		if (defaultParts[1] && overrideParts[1] && result.includes(defaultParts[1])) {
-			result = replaceAll(result, defaultParts[1], overrideParts[1]);
+		// Plural first (longer match) to avoid partial replacements.
+		//
+		// These go through replaceAlias, not a literal replace, for the same two
+		// reasons the alias forms below do. Category page descriptions are written
+		// in sentence case ("manage referrals"), so a case-sensitive match misses
+		// them entirely and leaves a page half-translated; and substitution changes
+		// the initial sound, so "Creating a Referral" has to become "Creating an
+		// Entry" rather than "a Entry".
+		if (defaultParts[1] && overrideParts[1]) {
+			result = replaceAlias(result, defaultParts[1], overrideParts[1]);
 		}
-		if (defaultParts[0] && overrideParts[0] && result.includes(defaultParts[0])) {
-			result = replaceAll(result, defaultParts[0], overrideParts[0]);
+		if (defaultParts[0] && overrideParts[0]) {
+			result = replaceAlias(result, defaultParts[0], overrideParts[0]);
 		}
 	}
 
