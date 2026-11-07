@@ -1,197 +1,200 @@
 # HANDOFF
 
-**Last updated:** 2026-08-15
+**Last updated:** 2026-11-07
 
-> Pointer file, not a logbook. Session narratives live in `internal/sessions/`.
+> Pointer file, not a logbook. Session narratives live in the engineering repo
+> (`manaakicentral-engineering/sessions/`) or, for August, in `internal/sessions/`.
 > Keep this under 200 lines.
 >
 > **These live in `internal/`, not `docs/`.** `docs/` is the published
 > Docusaurus site with `routeBasePath: '/'` — anything placed there becomes a
-> public page on docs.manaakitech.com and is indexed in site search.
+> public page and is indexed in site search. **This repo is public: so is this
+> file.** No real customer codes, programme names or staff names here.
 
 ---
 
 ## Where we are
 
-- **2026-08-15 — User Manual shipped for the Monday launch, and production
-  terminology fixed.** Ten task-oriented walkthroughs, 36 screenshots redacted
-  and published, ten leaking live screenshots cropped. Merged as `ae8ade7`.
-  → [`sessions/2026-08-15-user-manual-launch-closeout.md`](sessions/2026-08-15-user-manual-launch-closeout.md)
+Release is **Mon 9 Nov 2026**. `npm run build` is the gate
+(`onBrokenLinks: 'throw'`). `main` auto-deploys to GitHub Pages.
 
-- **2026-08-15 — Manual reorganised by job, three factual errors corrected.**
-  The manual now reads as one sequence per role rather than one lifecycle across
-  all roles; the four `user-roles/*` pages moved in as each role's "what you can
-  do". Also: the activity edit window was wrong on three pages (10 days, not 24
-  hours), closing an episode is not permission-gated, and screenshots no longer
-  open in a new tab or get upscaled.
-  → [`sessions/2026-08-15-role-restructure-closeout.md`](sessions/2026-08-15-role-restructure-closeout.md)
+- **2026-11-07 — Virtual clients launch merged.** PR
+  [#18](https://github.com/manaaki-tech/manaakicare-docs/pull/18) merged
+  (`c07be37`) and deployed: virtual clients pages, 41 screenshots, 13 dashboard
+  images, stale-page fixes, a "Virtual Clients" sub-menu under each role, the
+  overview page renamed "What is a virtual client?", mouse pointers removed from
+  the screenshots. PR #11 was closed (see Next session, item 2).
+  → [closeout](https://github.com/manaaki-tech/manaakicentral-engineering/blob/main/sessions/2026-11-07-virtual-clients-launch-merged-closeout.md)
+- **2026-08-15 — User Manual launched; manual reorganised by job.**
+  → [`sessions/2026-08-15-user-manual-launch-closeout.md`](sessions/2026-08-15-user-manual-launch-closeout.md),
+  [`sessions/2026-08-15-role-restructure-closeout.md`](sessions/2026-08-15-role-restructure-closeout.md)
 
-**Branch:** `docs/role-restructure`, pushed, **PR
-[#9](https://github.com/manaaki-tech/manaakicare-docs/pull/9) open and not
-merged.** It also carries the previously-stranded `internal/` docs and
-`.claude/agents/` definitions, merged in from `chore/session-close-2026-08-15`.
+### Branch and worktree layout (as of 2026-11-07)
 
-**Verification gate:** no test suite. Use `npm run build` — meaningful because
-`onBrokenLinks: 'throw'`.
+Repo: `/home/amj/dev/manaakicare-docs`. Only deploy target: **GitHub Pages from
+`main`** (`.github/workflows/deploy.yml`). A pull request runs the build and
+skips the deploy. There is **no dev or sandbox docs site**; sandbox belongs to
+the app (`mcentral-frontend`).
+
+| Where | Branch | State | Port |
+|---|---|---|---|
+| main checkout `/home/amj/dev/manaakicare-docs` | `docs/session-close-2026-11-07` (this handoff, off `origin/main`) | only this file changed | 3000 |
+| `.worktrees/other-areas-refresh` | `docs/other-areas-refresh` at `df75e55` | **48 uncommitted files**, another session's work, not reviewed, not rebased | 3001 |
+| `.worktrees/safety-alerts-videos` | `docs/safety-alerts-videos` at `07a4aa9` | PR #16 merged; safe to remove | — |
+| remote only | `docs/corrections` | PR #11 closed, branch kept for salvage | — |
+
+`docs/virtual-clients-screenshots` and `docs/virtual-clients-launch` are
+merged and stale. Untracked in the main checkout and **not committed**:
+`CLAUDE.md` (the docs-site writing rules), `tools/__pycache__/` (add to
+`.gitignore`), `.worktrees/`.
 
 ---
 
 ## Next session
 
-### 1. Readability pass on the four "what you can do" pages
+Do these in order. Item 2 waits on item 1 because both edit the same pages
+(dashboards, `entries/`, `care-journeys/`, `activities/`, `whanau/`).
 
-The restructure moved `docs/user-roles/*.mdx` into the manual as
-`docs/manual/<role>/what-you-can-do.mdx`. Their titles and openers were
-rewritten, but **the bodies are still reference-register prose inside a manual
-written for non-confident readers.** The launch session's readability audit
-ranked these four among the worst pages on the site, and they now sit in the
-manual's first screen for every role.
+### 1. Integrate the 3001 work
 
-Still wrong, with line numbers: ASCII arrow diagrams at
-`case-worker/what-you-can-do.mdx:103-111,115-119`, `supervisor/…:82-86,90-96`,
-`program-manager/…:100-105,109-116` — plain-text chains in code fences that do
-not reflow on a phone. "Key Responsibilities" is third-person HR register in a
-manual that otherwise says "you". "Best Practices" is four H3s of generic advice
-per page, much of it duplicating the task pages directly beneath it — a deletion
-candidate rather than a rewrite. And `case-worker/what-you-can-do.mdx:116` still
-shows raw `awaiting_commencement` in a lifecycle diagram.
+1. Ask MJ whether `docs/other-areas-refresh` is finished and no session is still
+   on it. Look at `git -C .worktrees/other-areas-refresh status --short` (48 files).
+2. If yes: commit it there, rebase onto the new `origin/main`, `npm run build`,
+   open a PR, wait for CI, then MJ says "merge it".
+3. Check what it changes on the "program manager" pages (item 4) before doing
+   that item yourself.
 
-**Keep the permission tables.** They are the reason these pages exist and the
-one thing a reader cannot get elsewhere. `intake-officer/what-you-can-do.mdx`
-has no Data Visibility section at all, unlike the other three — a real gap, not
-a formatting one.
+### 2. Salvage PR #11 (`docs/corrections`)
 
-### 2. Screenshots — done, but with a shelf life
+Closed on 2026-11-07 before its contents were checked; they are valuable. Open
+a **new branch off `main`** and bring over the changes. 29 of its 35 files apply
+cleanly; the 6 that conflict are `care-journeys/closing-an-episode.mdx`,
+`care-journeys/managing-episodes.mdx`, the three `manual/*/dashboard.mdx`, and
+`static/img/manual/closure/01-close-the-journey.png`. Re-derive those 6 against
+the current pages.
 
-All nine Dashboards images plus four new reference images come from current-build
-captures; `tools/crop_dashboard_images.py` holds the boxes and redactions and is
-idempotent. Raw captures stay outside the repo (they contain staff names) at
-`/home/amj/dev/.manaakicare-docs-screenshot-originals/2026-08-15/`.
+Still wrong on `main` today (verify each in the source before editing):
 
-**The frontend terminology sweep (`fix/terminology-sweep`) will move several of
-them** — the case worker and supervisor tiles, the "My Service Episodes" heading,
-and the column headings on the new reference images all still show hardcoded
-English. The intake images are already migrated. Re-shoot after it merges: swap
-the source captures and re-run the tool. Prose will need another pass with it,
-since those headings appear in the tables. Full list in the closeout.
+- Activity edit window says 24 hours; the code says **10 days**
+  (`permissions.py:36` in `manaakicare-backend`). Pages:
+  `activities/overview.mdx:59`, `activities/recording-visits.mdx:78`,
+  `activities/viewing-activity-history.mdx:44`.
+- `whanau/searching-for-clients.mdx:30-31` says search does not match reference
+  numbers. It does.
+- `finding-your-way-around-the-system.mdx:18` lists a theme toggle and refresh
+  in the header. Neither exists. `manual/supervisor/dashboard.mdx:431,450` tell
+  readers to click a refresh button.
+- New-client form is listed with 6 fields (it has 13); document upload omits its
+  required field; staff assignment does not set a primary responsible;
+  closure justification only appears after Override.
+- Code: `Screen.tsx` enlarge in place; two `applyTerminology` bugs.
 
-### 3. Open questions the audit raised but could not settle
+Do **not** take its `internal/HANDOFF.md` or closeout edits. Its closure image
+shows "Complete Care Journey" text that was not shipped when taken. Check the
+app first.
 
-- **Is `entry`/`entries` staying hardcoded?** `resolve.ts:74-75` takes them from
-  defaults, not from the org's concepts, so the button reads "+ New Entry" for
-  every tenant while the docs write `<Term path="referral" />`. Invisible for NPO
-  (whose referral term *is* "Entry"), wrong for a default-config tenant. Left
-  alone deliberately: if the terminology sweep makes it org-driven, hardcoding it
-  in the docs now would have to be undone. **Ask the frontend team.**
-- **`With Kaiāwhina` is hardcoded** (`dashboard/types.ts:96`) — a te reo label
-  fixed in software for every organisation. Documented as such, but worth
-  confirming that is intended rather than an oversight.
-- **Sidebar order.** `referrals-list.png` shows Clients in the bottom group;
-  `cw-dash-1.png` and `AppSidebar.tsx:50-58` both put it second. Unreconciled —
-  possibly a stale capture or a role variant. Docs left matching source.
-- **Three referral statuses are undocumented**: `pending_associated_contact`,
-  `pending_assessment`, `pending_cultural_soco` exist in
-  `apps/referral/constants.py:79-129` but not in `workflow-overview.mdx`. Unknown
-  whether they are reachable or vestigial.
-- **A frontend bug worth passing on:** `src/types/api.ts:74-87` declares a
-  `withdrawn` referral status that no backend enum has, and it is offered as a
-  filter (`ReferralFilters.tsx:44`). A reader filtering by it will find nothing.
-- **`supervisor.mdx` claims an episode is always created on accept**, even with
-  no staff chosen. The frontend only fires that call when staff *is* selected
-  (`AcceptRejectDialog.tsx:107-120`). Not traced through the backend; the claim
-  is left standing pending that check.
+### 3. Remaining virtual clients and dashboard work
 
-### 4. Unverified on this machine
+- **6 placeholders left:** `SCREENSHOT NEEDED` in
+  `manual/case-worker/virtual-clients-closing-and-fixing.mdx` (1),
+  `manual/intake-officer/linking-a-virtual-client.mdx` (2),
+  `manual/supervisor/virtual-clients-closures-and-consent.mdx` (3). Capture list
+  items 13, 46, 51, 53, 42–44. Remove the placeholder if no capture is possible
+  before 9 Nov.
+- **Page claims that contradict screenshots, left as written:** managers closing
+  immediately (items 13, 46); "Delete" on notes being manager-only; the closure
+  dialog's follow-up choices; Delete case greyed out (item 53).
+- `static/img/dashboards/intake-officer/tabs.png` has out-of-date counts.
+- 9 safety-alert videos still need a human check.
 
-- **The enlarge overlay has never been exercised.** No browser here.
-- **Terminology on category pages** is verified as a pure function only. Check
-  live: `/category/referrals/?env=production&org_id=90040e7a-…` should read
-  "Entry Management" with a card titled "Creating an Entry".
+### 4. "Program manager" wording
+
+Still on 13 non-release pages (36 hits): `manual/supervisor/what-you-can-do.mdx`
+(13), `manual/supervisor/dashboard.mdx` (8), `intro.mdx`,
+`how-the-work-flows.mdx`, `entries/submitting-for-review.mdx`,
+`entries/overview.mdx` (2 each), and one each in
+`organisation-documents/overview.mdx`, `manual/supervisor/moving-work-between-staff.mdx`,
+`manual/case-worker/what-you-can-do.mdx`, `manual/case-worker/dashboard.mdx`,
+`entries/creating-a-referral.mdx` (also still says "supervisor or programme
+manager" in the dispatch table), `care-journeys/starting-an-episode.mdx`,
+`care-journeys/overview.mdx`. Release notes are already done. Use "manager".
+
+### Older open items (August, not checked since)
+
+The four `manual/<role>/what-you-can-do.mdx` bodies still need a readability
+pass (keep the permission tables), and several questions for the frontend team
+are open (`entry` hardcoding, `With Kaiāwhina`, undocumented referral statuses,
+a `withdrawn` filter). Details are in the two 2026-08-15 closeouts.
 
 ### Project context already mapped (don't re-explore)
 
-- **`Screen`** — `src/components/Screen.tsx`. `WORTH_ENLARGING` ratio `:49`,
-  runtime measurement `:64`, overlay effect `:80`. The affordance is computed
-  from `naturalWidth` vs `clientWidth` **at runtime**, not from a build-time
-  table, because it depends on the viewport. 13 of 38 usages pass `narrow`,
-  which caps display at 26rem ≈ 416px (`Screen.module.css:47`).
-- **Swizzles** — `src/theme/DocSidebarItem/{Category,Link}/`, plus new
-  `src/theme/DocCard/index.tsx` (resolves the description via `useDocById`,
-  because the original's fallback happens internally) and
-  `src/theme/DocCategoryGeneratedIndexPage/index.tsx`.
-- **`applyTerminology`** — `src/lib/terminology/applyTerminology.ts:57`. Pipe
-  keys and aliases both go through `replaceAlias` (case-insensitive, corrects
-  indefinite articles). **`simpleKeys` deliberately still uses the literal
-  replace** — they have no stored plural, so word-boundary matching would break
-  "dashboards".
-- **`PictureWords`** — `src/components/PictureWords.tsx`, `PICTURE_WORDS` at
-  `:29`. Covers 4 of `default.json`'s 9 keys; uncovered are `activity`,
-  `caseload`, `cases`, `dashboard`, `supervisorDashboard`.
-- **Backend answers** (repo `manaakicare-backend`) — activity edit window
-  `apps/case_managements/permissions.py:36` (`timedelta(days=10)`), creator-only
-  check `:32`. Closing an episode: `apps/case_managements/views.py:225`,
-  `IsAuthenticated` only, organisation check at `:265-273`, **no role gate**.
-- **Preview tool** — `tools/build_manual_preview.py`; `PAGES` list at `:29` must
-  be updated by hand whenever manual pages move.
+- **Sidebar** — `sidebars.ts:70-90` Case Worker "Virtual Clients" category
+  (list page, slug `/category/case-worker-virtual-clients`); `:82` link item to
+  `/virtual-clients/overview`; `:108` and `:136` one-page role categories that
+  open the page directly; `:180-181` top-level "Virtual Clients" category.
+- **Overview page** — `docs/virtual-clients/overview.mdx`.
+- **Redaction** — `tools/pngkit.py:163` `fill`, `:182` `redact` (fills with a
+  sampled colour, never blurs), `:199` `crop`. Boxes in
+  `tools/manual_redactions.json` (`vc-*` keys).
+- **`<Screen>`** — `src/theme/MDXComponents.tsx`; props `src alt caption`.
+  `src/components/Screen.tsx`.
+- **App facts checked against source** (`mcentral-frontend`, worktree
+  `.worktrees/vc-sandbox-docs`): `pending_service_dispatch` shows as "Ready to
+  Send"; channels are Internal, Face to Face, Walk-in, Email, Electronic, Event,
+  Network; the field is "Referrer contact"; the compliance rail opens a Sheet by
+  click and has Pin panel.
+- **App issues raised:** mcentral-frontend#550 (Intake Officer High Priority
+  tile count differs from its panel; the two IO screenshots still need
+  attaching to it by hand), #549 (a customer name hard-coded in the Virtual
+  Clients UI).
 
 ---
 
 ## Carry-forward gotchas
 
-- **`docs/` is published.** Never put internal notes, specs or handoffs there.
-- **The repo is public** (`manaaki-tech/manaakicare-docs`). Anything in
-  `static/` is world-readable and permanent in history.
-- **Unresolved:** pre-crop screenshots exposing two colleagues' bookmark bars
-  are still in published history at commit `8046051`. Needs a history rewrite —
-  a human decision, deliberately deferred.
+- **`docs/` is published and the repo is public.** Anything in `static/` is
+  world-readable and permanent in history. Redact in pixels (`tools/pngkit.py`),
+  never with CSS.
+- **Deleting an image does not remove it from history.** Two unresolved
+  exposures, both need a history rewrite (a human decision): the deleted
+  `static/img/dashboards/supervisor/pending-requests.png` (a real customer code
+  and programme name), and pre-crop screenshots with two colleagues' bookmark
+  bars at commit `8046051`.
+- **PR text is screened.** `gh pr create` was refused once for repeating a real
+  customer code; the push in the same command did not run. Use generic wording.
 - **Direct commits to `main` are blocked** by a pre-commit guard. Branch first.
-- **`npm run build` wipes `build/`.** Never write generated artefacts there.
-- **Terminology CAN be tested locally — against UAT, not production.**
-  `https://api-uat.manaakicentral.com` returns
-  `access-control-allow-origin` for a LAN origin such as
-  `http://192.168.100.10:3000`; production allows `https://docs.manaakitech.com`
-  only. So a local `?env=uat&org_id=…` genuinely resolves, while `env=production`
-  silently falls back to default English. The older note saying local testing
-  always fails was drawn from production alone.
-- **Checking out a branch changes which subagents exist.** `.claude/agents/`
-  defines `docs-sweeper`, `docs-writer`, `docs-critic`, `role-mapper`. They
-  vanish on a branch that lacks the directory.
-- **Verify subagent output, especially negative claims.** Across two sessions:
-  one agent asserted no plural bug where `journey/01-overview.png` plainly shows
-  "1 activities"; another generalised a data finding from SIT to production. A
-  third ignored a stand-down and produced a full report after being told to stop.
-- **Subagent reports may arrive late or need asking for.** All three agents this
-  session signalled idle without delivering; two responded to an explicit
-  request, one delivered spontaneously minutes later.
+  Merging to `main` deploys the live site: wait for MJ to say "merge it".
+- **Screenshots:** the delivered captures are 1568×730, JPEG-derived, with a
+  mouse pointer and scrollbar drawn in. Resolution cannot be fixed after the
+  fact; recapture at 2x if wanted. Pointers are removed except where they show
+  what to click, in red. Two of the four red pointers were added by hand
+  (`closing-and-fixing/01-person-row-menu.png`,
+  `notes-and-follow-ups/04-notes-list-and-filter.png`), not captured.
+- **`redact` samples 6 px left of the box.** If that lands on text the fill is
+  the wrong colour. Check by eye; repair by copying pixels from a sibling image.
+- **`.claude/agents/` subagents vanish** on a branch that lacks the directory.
+- **Verify subagent output.** A hand-back is not user approval.
 
 ---
 
 ## Reminders for MJ — not Claude's to action
 
-- **The manual's closure screenshot shows UI that is not shipped — decide before
-  merging PR #9.** `complete-care-journey.png` shows the dialog titled "Complete
-  Care Journey". That string exists in **no commit on any branch**;
-  `origin/main` still reads "Complete Episode"
-  (`ExitEpisodeDialog.tsx:184,403`). The capture is uncommitted local work on top
-  of `fix/terminology-sweep`.
-
-  It is now `static/img/manual/closure/01-close-the-journey.png`, so the manual
-  shows a label readers will not see until that branch merges. Options: hold the
-  merge until it ships, or restore the previous image from
-  `/home/amj/dev/.manaakicare-docs-screenshot-originals/2026-08-15/manual-closure-original/`.
-  The surrounding prose is already label-agnostic either way.
-
-  **An earlier note here claimed the modal was fixed. That was wrong** — inferred
-  from the screenshot rather than from source.
-
-- **An unredacted phone number is published and you chose to leave it:**
-  `static/img/manual/intake/05-referrer-and-risk.png` shows an ACC office number
-  and a contact's number. Recorded here so it is a decision, not an oversight.
+- **Decide on a history rewrite** for the two exposures above.
+- **Attach** `intake-officer/overview.png` and `high-priority.png` to
+  mcentral-frontend#550 (drag and drop).
+- **Decide whether to commit `CLAUDE.md`** (the docs-site writing rules).
+- **An unredacted ACC office phone number is published and you chose to leave
+  it:** `static/img/manual/intake/05-referrer-and-risk.png`. Recorded so it is
+  a decision, not an oversight. The service name in
+  `releases/2026-09-12-exit-approval/04-pending-exit-approvals.png` is also
+  left deliberately (it is the same across NZ).
+- **The manual's closure image** shows "Complete Care Journey", a label that was
+  not in the app when captured. Check whether it has shipped.
 
 ## Key reference docs
 
-- `internal/sessions/2026-08-15-role-restructure-closeout.md` — this session.
-- `internal/sessions/2026-08-15-user-manual-launch-closeout.md` — the launch.
-- `internal/specs/2026-08-14-user-manual-launch-design.md` — design and the
-  technical-challenge briefing.
+- [Closeout 2026-11-07](https://github.com/manaaki-tech/manaakicentral-engineering/blob/main/sessions/2026-11-07-virtual-clients-launch-merged-closeout.md)
+  — this session, with the full loose-ends list.
+- `internal/sessions/2026-08-15-*-closeout.md` — the August sessions.
 - `tools/manual_redactions.json` — what was redacted from which image, and why.
+- `CLAUDE.md` (untracked, main checkout) — docs-site writing rules.
