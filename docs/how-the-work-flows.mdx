@@ -140,7 +140,7 @@ flowchart TB
         io4["Select service & allocate"]
     end
 
-    subgraph sup["<b>SUPERVISOR / SERVICE MANAGER</b>"]
+    subgraph sup["<b>SUPERVISOR / MANAGER</b>"]
         sup1["Receive service request"]
         sup2{"Approve?"}
         sup3["Select case worker on approval"]
@@ -175,7 +175,7 @@ flowchart TB
 | Role | Primary Responsibilities | <Term path="dashboard" /> Focus |
 |------|-------------------------|-----------------|
 | **Intake Officer** | Search/create clients, complete 3-step intake, dispatch to services, can directly assign <Term path="caseWorker" plural /> | New <Term path="referral" plural />, review queue, service dispatch |
-| **Supervisor / Service Manager** | Approve/reject service requests, select <Term path="caseWorker" plural /> on approval, monitor team | Pending service reviews, team <Term path="activity" /> |
+| **Supervisor / Manager** | Approve/reject service requests, select <Term path="caseWorker" plural /> on approval, monitor team | Pending service reviews, team <Term path="activity" /> |
 | **<Term path="caseWorker" />** | Start work on <Term path="serviceEpisode" plural />, deliver services, record activities, close <Term path="serviceEpisode" plural /> | Active <Term path="cases" />, follow-ups due, client interactions |
 
 ---
