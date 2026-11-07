@@ -3,7 +3,7 @@ title: Submitting and Dispatching a Referral
 description: How to submit a completed referral and dispatch it to a service
 sidebar_position: 6
 helpId: referral-submit
-keywords: [referral, submit, review, approval, dispatch, allocation, entry, new entry, entry processing, entry details, awareness and entry, care journey, journey, in-progress journeys, kaiawhina, kaiāwhina, kaimahi]
+keywords: [referral, submit, review, approval, dispatch, allocation, entry, new entry, entry processing, entry details, care journey, journey, in-progress journeys, kaiawhina, kaiāwhina, kaimahi]
 ---
 
 import Callout from '@site/src/components/Callout';
@@ -25,7 +25,7 @@ Check that:
 
 ## Submitting
 
-Click **Submit**. The <Term path="referral" /> moves to **Ready to Send** and the dispatch dialog opens automatically.
+Click **Submit Entry**. The <Term path="referral" /> moves to **Ready to Send** and the dispatch dialog opens automatically.
 
 <Callout color="teal" title="You can dispatch later">
 Submitting and dispatching are deliberately two separate steps. **Ready to Send** means "reviewed, but not yet sent to a team" — it is a normal place for a <Term path="referral" /> to sit, not an error.
@@ -35,16 +35,16 @@ If you close the dispatch dialog without choosing a service, nothing is lost. Th
 
 ## Dispatching to a service
 
-Select the service, then choose one of three options.
+The service you chose in Step 1 is already filled in. Under **How should this be handled?**, choose one of three options.
 
 | Option | What it does | Who it suits |
 |--------|--------------|--------------|
-| **Accept entry** | Accepts the <Term path="referral" /> into the service without assigning anyone yet | You know which service, but not yet which <Term path="caseWorker" /> |
+| **Accept entry** | Accepts the <Term path="referral" /> and creates the <Term path="serviceEpisode" />, without assigning anyone yet | You know which service, but not yet which <Term path="caseWorker" /> |
 | **Accept & assign kaimahi** | Accepts and assigns a <Term path="caseWorker" /> in one action, creating the <Term path="serviceEpisode" /> immediately | You have authority to allocate and know who is taking it |
-| **Send for approval** | Sends a service request to a supervisor or programme manager to approve and allocate | Allocation is someone else's decision |
+| **Send for approval** | Sends a service request to a supervisor or Service Manager to approve and allocate | Allocation is someone else's decision |
 
 <Callout color="amber" title="Signed consent document">
-If no signed consent document has been uploaded, the dispatch dialog shows a reminder. It is a warning, not a block — you can still dispatch, but the document remains outstanding against the <Term path="referral" />.
+If consent was **Written** or **Electronic** and no signed consent form has been uploaded, the dispatch dialog shows **Signed consent form not uploaded**. It is a warning, not a block — you can still dispatch, but the document remains outstanding against the <Term path="referral" />.
 </Callout>
 
 After a successful dispatch you can return to your dashboard or open the <Term path="referral" /> to view it.
@@ -53,28 +53,26 @@ After a successful dispatch you can return to your dashboard or open the <Term p
 
 To pick up a <Term path="referral" /> you submitted but did not dispatch:
 
-1. Find it on your dashboard under **Service Review**, or in the <Term path="referral" plural /> list filtered to **Ready to Send**
+1. Find it on your dashboard under **In Review**, or in the <Term path="referral" plural /> list on the **Drafts** tab, with **Status** set to **Ready to Send**
 2. Open it
-3. Click **Dispatch to Service** on the amber banner at the top
-
-The banner reads *"Dispatch to a service to begin logging activities"* — it appears on any <Term path="referral" /> that has been submitted but has no <Term path="serviceEpisode" /> yet.
+3. Click **Send to Team**
 
 ## What happens next
 
 ### If you sent it for approval
 
-The <Term path="referral" /> moves to **Pending Service Review** and appears in the supervisor's or programme manager's queue. They can:
+The <Term path="referral" /> moves to **Pending Service Review** and appears in the supervisor's or Service Manager's queue. They can:
 
-- **Accept** — they select the <Term path="caseWorker" /> and may add notes. A <Term path="serviceEpisode" /> is created.
+- **Accept** — they can choose a <Term path="caseWorker" /> in **Assign to Staff (optional)** and add notes. If they choose someone, a <Term path="serviceEpisode" /> is created.
 - **Reject** — they must give a reason. The <Term path="referral" /> returns to dispatch so it can be sent to a different service.
 
 ### If you accepted it directly
 
-The <Term path="referral" /> is allocated straight away and a <Term path="serviceEpisode" /> is created, with no manager approval step.
+The <Term path="referral" /> is accepted straight away and a <Term path="serviceEpisode" /> is created, with no manager approval step.
 
 ### Then
 
-The assigned <Term path="caseWorker" /> sees the <Term path="serviceEpisode" /> on their dashboard under **Awaiting Commencement**. They commence it, and service delivery begins — from that point work is recorded as <Term path="activity" plural /> against the <Term path="serviceEpisode" />.
+The assigned <Term path="caseWorker" /> sees the <Term path="serviceEpisode" /> on their dashboard under **Ready to start**. They start it, and service delivery begins — from that point work is recorded as <Term path="activity" plural /> against the <Term path="serviceEpisode" />.
 
 ## Related topics
 

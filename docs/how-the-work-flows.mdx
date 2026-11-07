@@ -3,7 +3,7 @@ title: Workflow Overview
 description: Visual guides to understanding how referrals flow through Manaaki Central
 sidebar_position: 4
 helpId: workflow-overview
-keywords: [workflow, referral flow, process, status, lifecycle, diagram, entry, new entry, entry processing, entry details, awareness and entry, care journey, journey, in-progress journeys, kaiawhina, kaiāwhina, kaimahi, my caseload, whanau i am supporting]
+keywords: [workflow, referral flow, process, status, lifecycle, diagram, entry, new entry, entry processing, entry details, care journey, journey, in-progress journeys, kaiawhina, kaiāwhina, kaimahi, my caseload, whanau i am supporting]
 ---
 
 import Callout from '@site/src/components/Callout';
@@ -28,12 +28,11 @@ flowchart TB
         create["Create new client"]
         details["📝 Referral details &amp; referrer"]
         consent_step["🛡️ <b>Step 2: Consent</b><br/>Permissions on file"]
-        review_step["✅ <b>Step 3: Review &amp; Submit</b><br/>Confirm &amp; dispatch"]
+        review_step["✅ <b>Step 3: Review &amp; Submit</b><br/>Confirm &amp; send"]
     end
 
     subgraph review["<b>REVIEW PHASE</b>"]
-        pending_review["⏳ <b>PENDING REVIEW</b><br/>Review all information"]
-        pending_dispatch["📤 <b>PENDING SERVICE DISPATCH</b><br/>Ready for service allocation"]
+        pending_dispatch["📤 <b>READY TO SEND</b><br/>Ready for service allocation"]
     end
 
     subgraph service_allocation["<b>SERVICE ALLOCATION</b>"]
@@ -56,7 +55,7 @@ flowchart TB
 
     subgraph delivery["<b>SERVICE DELIVERY</b>"]
         allocated["🎯 <b>ALLOCATED AWAITING SERVICE</b><br/>Service Episode Created"]
-        active["✅ <b>ACTIVE / IN PROGRESS</b><br/>Case Worker activated episode"]
+        active["✅ <b>ACTIVE</b><br/>Case Worker started work"]
         on_hold["⏸️ <b>ON HOLD</b><br/>Temporarily paused"]
         completed["🎉 <b>COMPLETED</b>"]
         closed["🔒 <b>CLOSED</b>"]
@@ -75,17 +74,16 @@ flowchart TB
     create --> details
 
     details -->|"Continue — referral created"| consent_step
-    consent_step -->|"Continue to Review"| review_step
-    review_step -->|"Submit"| pending_review
-
-    pending_review -->|"Intake Officer / Head of Intake submits review"| pending_dispatch
+    consent_step -->|"Continue to Review — status Pending Review"| review_step
+    review_step -->|"Submit Entry"| pending_dispatch
 
     pending_dispatch --> select_service
     select_service --> load_staff
     load_staff --> path
 
     path -->|"Send for approval"| pending_service_review
-    path -->|"Direct assign"| direct_assign
+    path -->|"Accept & assign Case Worker"| direct_assign
+    path -->|"Accept entry — Case Worker later"| accepted_pending
 
     pending_service_review --> manager_decision
     manager_decision -->|"Rejected"| rejected
@@ -96,7 +94,7 @@ flowchart TB
     direct_assign --> auto_approved
     auto_approved --> allocated
 
-    allocated -->|"Case Worker activates episode"| active
+    allocated -->|"Case Worker starts work"| active
     active -->|"Service delivery complete"| completed
     active -->|"Temporarily pause"| on_hold
     on_hold -->|"Resume"| active
@@ -119,11 +117,13 @@ The intake form is a three-step wizard. Each step must be completed before the n
 | 2 | Consent | How consent was obtained, and what was provided to the client |
 | 3 | Review & Submit | Read-only confirmation, then submit and dispatch to a service |
 
-The <Term path="referral" /> record is created at the **end of Step 1**, not at final submission — from that point it exists with a reference number and **Draft** status and can be returned to later.
+The <Term path="referral" /> record is created when you click **Save Draft** or **Continue** on Step 1, not at final submission. From that point it has a reference number and can be returned to later.
 
 Once all three steps are complete and the entry is submitted, it moves to **Ready to Send**.
 
 For the full walkthrough see [Creating a Referral](/entries/creating-a-referral).
+
+Some services also get Police referrals. Those people start as a virtual client — see [Virtual clients](/virtual-clients/overview).
 
 ---
 
@@ -136,16 +136,11 @@ flowchart TB
     subgraph io["<b>INTAKE OFFICER</b>"]
         io1["Search / Create client"]
         io2["Complete 3-step intake"]
-        io3["Submit for review"]
+        io3["Submit entry"]
         io4["Select service & allocate"]
     end
 
-    subgraph reviewer["<b>HEAD OF INTAKE / INTAKE OFFICER</b>"]
-        rev1["Review all referral information"]
-        rev2["Submit review"]
-    end
-
-    subgraph sup["<b>SUPERVISOR / PROGRAM MANAGER</b>"]
+    subgraph sup["<b>SUPERVISOR / SERVICE MANAGER</b>"]
         sup1["Receive service request"]
         sup2{"Approve?"}
         sup3["Select case worker on approval"]
@@ -154,18 +149,16 @@ flowchart TB
 
     subgraph cw["<b>CASE WORKER</b>"]
         cw1["Receive assignment"]
-        cw2["Activate service episode"]
+        cw2["Start work"]
         cw3["Deliver services & record activities"]
         cw4["Close service episode"]
     end
 
     io1 --> io2 --> io3
-    io3 --> rev1
-    rev1 --> rev2
-    rev2 --> io4
+    io3 --> io4
 
     io4 -->|"Send for approval"| sup1
-    io4 -->|"Direct assign"| cw1
+    io4 -->|"Accept & assign Case Worker"| cw1
 
     sup1 --> sup2
     sup2 -->|"Yes"| sup3
@@ -182,9 +175,8 @@ flowchart TB
 | Role | Primary Responsibilities | <Term path="dashboard" /> Focus |
 |------|-------------------------|-----------------|
 | **Intake Officer** | Search/create clients, complete 3-step intake, dispatch to services, can directly assign <Term path="caseWorker" plural /> | New <Term path="referral" plural />, review queue, service dispatch |
-| **Head of Intake / Intake Officer** | Review all <Term path="referral" /> information and submit review | Review queue, pending reviews |
-| **Supervisor / Program Manager** | Approve/reject service requests, select <Term path="caseWorker" plural /> on approval, monitor team | Pending service reviews, team <Term path="activity" /> |
-| **<Term path="caseWorker" />** | Activate <Term path="serviceEpisode" plural />, deliver services, record activities, close <Term path="serviceEpisode" plural /> | Active <Term path="cases" />, follow-ups due, client interactions |
+| **Supervisor / Service Manager** | Approve/reject service requests, select <Term path="caseWorker" plural /> on approval, monitor team | Pending service reviews, team <Term path="activity" /> |
+| **<Term path="caseWorker" />** | Start work on <Term path="serviceEpisode" plural />, deliver services, record activities, close <Term path="serviceEpisode" plural /> | Active <Term path="cases" />, follow-ups due, client interactions |
 
 ---
 
@@ -303,7 +295,7 @@ flowchart TB
     start(["Start"])
     dashboard["Check caseload"]
     activate{"New episodes?"}
-    activate_ep["Activate episodes"]
+    activate_ep["Start work"]
     today["Today's follow-ups"]
     visits["Client visits"]
     record["Record activities"]
@@ -342,13 +334,13 @@ These statuses track where an entry is in the intake-to-allocation pipeline.
 
 | Status | Description |
 |--------|-------------|
-| **Draft** | Entry has been created — Step 1 complete, Consent not yet done |
+| **Draft** | Saved with **Save Draft** — Step 1 not finished yet |
 | **Pending Consent** | Awaiting consent and agreement |
 | **Pending Review** | Consent recorded, awaiting review and submission |
 | **Ready to Send** | Submitted, ready for service selection and allocation |
 | **Pending Service Review** | Service request sent to supervisor or manager for approval |
-| **Accepted Pending Allocation** | Service accepted, <Term path="caseWorker" /> selection pending |
-| **Allocated Awaiting Service** | <Term path="caseWorker" /> assigned, <Term path="serviceEpisode" /> created and ready to commence |
+| **Accepted - Pending Allocation** | Service accepted, <Term path="caseWorker" /> selection pending |
+| **Allocated - Awaiting Service** | <Term path="caseWorker" /> assigned, <Term path="serviceEpisode" /> created and ready to commence |
 | **Service In Progress** | Service delivery underway |
 | **Completed** | Service concluded successfully — final status |
 | **Closed** | Entry closed without completing — final status |
@@ -362,9 +354,10 @@ Once a <Term path="referral" /> is allocated, a <Term path="serviceEpisode" /> i
 | Status | Description |
 |--------|-------------|
 | **Awaiting Staff Assignment** | <Term path="serviceEpisode" /> created, no <Term path="caseWorker" /> yet confirmed |
-| **Awaiting Commencement** | <Term path="caseWorker" /> assigned, waiting for them to activate the <Term path="serviceEpisode" /> |
-| **Active / In Progress** | <Term path="caseWorker" /> has activated the <Term path="serviceEpisode" /> — service delivery is underway |
+| **Awaiting Commencement** | <Term path="caseWorker" /> assigned, waiting for them to click **Start working with** (and the person's first name) |
+| **Active** | <Term path="caseWorker" /> has started the <Term path="serviceEpisode" /> — service delivery is underway |
 | **On Hold** | Delivery temporarily paused (e.g. client unavailable, waiting on external factor) |
+| **Awaiting Exit Review** | The <Term path="caseWorker" /> has asked to close it, and it is waiting for a manager to approve |
 | **Completed** | <Term path="serviceEpisode" /> successfully concluded |
 | **Closed** | <Term path="serviceEpisode" /> closed without full completion (early closure or termination) |
 
@@ -378,7 +371,7 @@ Consent is tracked separately from the <Term path="referral" /> status and may c
 | **Consent withdrawn** | The client has withdrawn consent — service delivery must not proceed |
 
 :::warning
-Withdrawing consent is not reversible in the system, and it does more than change a flag: it **closes any active <Term path="serviceEpisode" plural /> and closes the <Term path="referral" /> itself**, recording the withdrawal reason. Check with your supervisor before withdrawing consent on anyone's record.
+Withdrawing consent is not reversible in the system, and it does more than change the consent status: it **closes any active <Term path="serviceEpisode" plural /> and closes the <Term path="referral" /> itself**, recording the withdrawal reason. Check with your supervisor before withdrawing consent on anyone's record.
 :::
 
 ---

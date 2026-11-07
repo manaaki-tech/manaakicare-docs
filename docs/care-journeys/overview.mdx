@@ -25,14 +25,14 @@ Everything before allocation — intake, consent, dispatch, approval — happens
 
 You don't create a <Term path="serviceEpisode" /> directly — there's no "New Episode" button. One is created automatically the moment a <Term path="referral" /> is accepted into a service, whether that's:
 
-- A direct **Accept entry** or **Accept & assign kaimahi** at dispatch, or
-- A supervisor or programme manager **accepting** a service request sent for approval
+- A direct **Accept entry** or **Accept & assign <Term path="caseWorker" />** at dispatch, or
+- A supervisor or Service Manager **accepting** a service request sent for approval
 
 See [Submitting for Review](/entries/submitting-for-review) for the full dispatch and approval flow, and [Starting an Episode](/care-journeys/starting-an-episode) for what happens next.
 
 ## Lifecycle at a glance
 
-A <Term path="serviceEpisode" /> moves through up to six statuses:
+A <Term path="serviceEpisode" /> moves through up to seven statuses:
 
 | Status | What it means |
 |--------|---------------|
@@ -40,6 +40,7 @@ A <Term path="serviceEpisode" /> moves through up to six statuses:
 | **Awaiting Commencement** | <Term path="caseWorker" /> assigned, waiting for them to commence |
 | **Active** | Service delivery is underway |
 | **On Hold** | Delivery temporarily paused |
+| **Awaiting Exit Review** | An exit has been requested and is waiting for a manager to approve it |
 | **Completed** | Concluded successfully |
 | **Closed** | Ended without full completion |
 

@@ -14,7 +14,7 @@ import Screen from '@site/src/components/Screen';
 Ending a <Term path="serviceEpisode" /> — whether service was completed successfully or ended for another reason — starts from the **Actions** menu on the episode's Overview tab: choose **Exit <Term path="serviceEpisode" />**.
 
 <Callout color="teal" title="You may be requesting rather than closing">
-Each service lists the positions allowed to close directly — by default supervisors and managers. If yours isn't on that list, exiting submits a request for a manager to approve instead of closing the <Term path="serviceEpisode" /> immediately, the dialog is titled **Request <Term path="serviceEpisode" /> Exit**, and you'll also pick an approver. The fields below are the same either way. See [Manager approval for <Term path="serviceEpisode" /> exits](/releases/2026-09-12-exit-approval).
+Usually only supervisors and managers can close directly. If you cannot, exiting submits a request for a manager to approve instead of closing the <Term path="serviceEpisode" /> immediately, the dialog is titled **Request <Term path="serviceEpisode" /> Exit**, and you'll also pick an approver. The fields below are the same either way. If you can close directly, the dialog first asks you to choose **Complete now** or **Send for approval**. **Send for approval** passes it to another manager. See [Manager approval for <Term path="serviceEpisode" /> exits](/releases/2026-09-12-exit-approval).
 </Callout>
 
 <Callout color="amber" title="This cannot be undone">
@@ -30,7 +30,7 @@ The dialog uses a single **Closure Reason** field, but the reason you pick decid
 | **Service completed** | **Completed** |
 | Anything else — released from prison, transferred to another service, moved out of area, left against advice, left without notice, left involuntarily, imprisoned, sanctioned by drug court, consent withdrawn, died, other, not stated | **Closed** |
 
-Only "Service completed" counts as a true completion; every other reason closes the episode without it. Your organisation's administrator configures the exact list of reasons available, so yours may differ slightly from the list above.
+Only "Service completed" counts as a true completion; every other reason closes the episode without it. Your organisation chooses the reasons, so your list may differ slightly from the one above.
 
 Where a reason has an explanation attached to it, a small **i** icon sits beside its name in the dropdown — hover or focus it to read what that reason means. Not every reason has one; that's up to how your organisation has set them up.
 
@@ -52,7 +52,7 @@ These explanations are worth reading when two reasons sound similar. Picking the
 | **Please specify** | Only if reason is "Other" | Free text |
 | **Follow-up required** | No | If ticked, a **Follow-up date** is required (up to six months out) |
 
-If any compliance requirements for the episode are still outstanding, they're listed as blockers and you'll need to enter a justification before the button at the bottom becomes available.
+If any closure requirements are still outstanding, they're listed as blockers. To go ahead, turn on **Override** and write a **Justification for override** before the button at the bottom becomes available.
 
 ## Withdrawing consent as part of closure
 
@@ -72,7 +72,7 @@ Completing this dialog:
 
 ## After closing
 
-Closed and completed episodes move off the **Active Care** page and onto **Completed Care**, where you can still open them to review their history — you just can't change them further.
+Closed and completed episodes move off the **In-progress Journeys** page and onto **Completed Care**, where you can still open them to review their history — you just can't change them further.
 
 ## Related Topics
 

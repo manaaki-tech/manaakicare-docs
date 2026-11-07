@@ -10,11 +10,15 @@ import Callout from '@site/src/components/Callout';
 
 # Searching for <Term path="serviceUser" plural />
 
-The **Clients** page lists every <Term path="serviceUser" /> in your organisation and gives you a single search box to narrow it down.
+The **Clients** page lists the <Term path="serviceUser" plural /> you work with, and gives you a single search box to narrow it down.
+
+<Callout color="teal" title="Who you see here">
+Administrators see everyone in the organisation. Supervisors, Service Managers and intake officers see the people in the services they work in. <Term path="caseWorker" plural /> see the people assigned to them. The person search in **New Entry** looks across the whole organisation.
+</Callout>
 
 ## Opening the list
 
-Select **Clients** in the sidebar. The page loads with all <Term path="serviceUser" plural />, most recently added first, ten to a page.
+Select **Clients** in the sidebar. The page loads with the <Term path="serviceUser" plural /> you can see, most recently added first, ten to a page.
 
 ## Searching
 
@@ -24,17 +28,22 @@ The search matches:
 
 - First name
 - Last name
+- Alias
+- Reference number (the **ID** column)
+- External reference (the **External Ref** column)
 - Email address
 - Phone number
+- Whānau name
 
-<Callout color="amber" title="Reference numbers and dates of birth do not match">
-The search box does not match against a <Term path="serviceUser" />'s reference number or date of birth, even though both appear as columns in the results. To find someone by reference number, browse the list or ask them (or their referral) for their name instead.
+<Callout color="amber" title="Dates of birth do not match">
+The search box does not match a <Term path="serviceUser" />'s date of birth, even though their age appears in the results. Search by name or reference number instead.
 </Callout>
 
 ## Results table
 
 | Column | Shows |
 |--------|-------|
+| (no heading) | A red warning icon if the person has a safety alert |
 | **ID** | The <Term path="serviceUser" />'s reference number |
 | **Name** | First and last name |
 | **Alias** | An alternative name on file, if any |
@@ -64,4 +73,4 @@ Both of those creation flows search first. If you're not sure whether someone is
 
 - [Viewing Client Details](/whanau/viewing-client-details)
 - [Family Relationships](/whanau/family-relationships)
-- [Finding or Creating the Client](/entries/client-information) — the same search, used while starting a referral
+- [Finding or Creating the Client](/entries/client-information) — the person search used while starting a <Term path="referral" />. It looks across the whole organisation.

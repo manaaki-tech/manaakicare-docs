@@ -43,12 +43,12 @@ it and don't, ask your administrator to check the positions on your services.
 
 ## Starting a new entry
 
-Click **+ New Entry** at the top right of the screen.
+Click **New Entry** at the top right of the screen.
 
 <Screen
   src="/img/manual/navigation/left-menu.png"
   alt="The left-hand menu with the New Entry button highlighted"
-  caption="The menu down the left is always there. The button for starting a new entry sits at the top."
+  caption="The menu down the left is always there. The New Entry button sits in the top bar, on the right."
 />
 
 The form opens on step 1 of 3. A bar across the top shows which step you are on.
@@ -85,7 +85,7 @@ Click the search box and start typing their name.
 <Screen
   src="/img/manual/intake/03-add-a-new-person.png"
   alt="The form for adding a person who is not yet in the system"
-  caption="Only name and date of birth are needed to get going. The rest can be filled in later."
+  caption="You need their first name, last name, date of birth and gender. Anyone 16 or over also needs a phone, email or address. The rest can be filled in later."
 />
 
 <Callout color="amber" title="Always search before you create">
@@ -121,14 +121,15 @@ Working down the numbers:
 5. **Channel** — how it arrived. Choose from the list, for example Email, Face to Face or Walk-in.
 6. **Reason for referral** — a sentence or two, in plain words.
 7. **Referrer contact** — for a school or professional referral, who referred them. Type a few letters of their name to
-   search every organisation; if they are genuinely not there, choose **New
-   Referrer**.
+   search every organisation; if they are genuinely not there, choose **Add new
+   referrer...**.
 
 ### Say who referred them
 
 Search for the person who referred them in **Referrer contact**. Each result shows
-their organisation, phone and city. If they are not listed, choose **New
-Referrer** and add them.
+their organisation, phone and city. If they are not listed, choose **Add new
+referrer...** at the bottom of the list. Pick their organisation first, then add
+their name and click **Create referrer**.
 
 Underneath, you may see **extra questions specific to the service** you chose —
 often about risk. These change from service to service.
@@ -143,24 +144,28 @@ When the page is complete, click **Continue**.
 
 <Callout color="sage" title="This is the point where it is saved">
 Clicking **Continue** at the end of step 1 creates the record. It gets a
-reference number and sits as a **Draft**. From here you can safely close the
-page and come back to it later.
+reference number and sits as **Pending Consent**. You can also click
+**Save Draft** part-way through step 1, once you have chosen the service and the
+person. It then sits as a **Draft**. Either way, you can safely close the page
+and come back to it later.
 
-Before you click it, nothing is saved.
+Until you click one of them, nothing is saved.
 </Callout>
 
 ---
 
 ## Step 2 — Consent
 
-### If they are under 18
+### If they are under 16
 
-Add the parent or guardian who is giving consent, and say how they are related.
+Choose the parent or guardian who is giving consent in **Guardian**. If they are
+not listed, choose **Add new guardian...** and add them. Then tick **Guardian
+has consented** and fill in the **Guardian consent date**.
 
 <Screen
   src="/img/manual/intake/06-add-a-guardian.png"
   alt="A form for adding a guardian, with name, relationship and phone number"
-  caption="The relationship field is free text — 'Aunty', 'Grandmother', whatever is true."
+  caption="Choose how they are related from the list."
 />
 
 ### Record how consent was given
@@ -190,12 +195,15 @@ tell the system what kind of document it is.
 <Screen
   src="/img/manual/intake/09-consent-checklist.png"
   alt="A checklist of the things the person can consent to"
-  caption="Tick only what they actually agreed to. This list is your organisation's, so it may not match another service's."
+  caption="Tick only what they actually agreed to. Items marked with a red star must be ticked before you can continue."
 />
 
 ---
 
 ## Step 3 — What happens to it
+
+Click **Continue to Review** at the end of step 2. Check the summary, then click
+**Submit Entry**. A window called **Send to team** opens.
 
 This is the decision. You have three choices, and which one you pick depends on
 how sure you are.
@@ -222,14 +230,13 @@ will work with them.
 <Screen
   src="/img/manual/intake/11-accept-the-entry.png"
   alt="The accept option selected, showing the care journey start date"
-  caption="Check the start date. It defaults to today, and it is the date all their deadlines are counted from."
+  caption="Check the start date. It defaults to today, and some of their deadlines are counted from it."
   narrow
 />
 
-<Callout color="amber" title="The start date sets the clock">
-Deadlines for consent forms, assessments and other paperwork are all counted
-from this date. If the work actually started last week, change it now — it is
-much more awkward to fix afterwards.
+<Callout color="amber" title="Check the start date now">
+Some deadlines are counted from this date. If the work actually started last
+week, change it now — it can't be changed in the app afterwards.
 </Callout>
 
 ### Option 3 — Accept and assign
@@ -248,7 +255,7 @@ much more awkward to fix afterwards.
 <Screen
   src="/img/manual/intake/13-submitted.png"
   alt="A confirmation message saying the entry was submitted successfully"
-  caption="If you see this, it worked. There is nothing else you need to click."
+  caption="If you see this, it worked. Choose Go to Dashboard or View Entry details."
   narrow
 />
 
@@ -271,10 +278,11 @@ list and work through the tabs when you have time.
 
 Cultural details are now recorded once for each person, not once for each
 <Term path="referral" />. Open the care journey, go to **Entry Details**, then
-**Whānau Background**, and select the edit pencil. You fill in a grid:
-**Are you Māori?**, then **Ethnicity**, **Language**, **Spiritual belief** and
-**Religion**, and **Iwi**, **Hapū** and **Marae** if the answer is Yes. Each row
-has a **1st**, **2nd** and **3rd** box.
+**Whānau Background**, and select **Edit**. You fill in a grid:
+**Are you Māori?**, then **Ethnicity**, then **Iwi**, **Hapū** and **Marae** if
+the answer is Yes, then **Language**, **Spiritual belief** and **Religion**.
+Ethnicity, Iwi, Hapū and Marae each have a **1st**, **2nd** and **3rd** box. The
+others have one box.
 
 Iwi and ethnicity matter for reporting as well as for the mahi. If you do not
 know yet, leave it — do not guess. Choosing *Unknown* or *Not specified* is a
@@ -294,7 +302,7 @@ other agencies.
   caption="People already in the system show as suggestions. Adding an existing person is better than typing them in again."
 />
 
-To add someone new, click **Add contact** and fill in the form.
+To add someone new, click **Add Contact** and fill in the form.
 
 <Screen
   src="/img/manual/intake/17-add-a-contact.png"
@@ -322,15 +330,15 @@ To change someone already there, open them and edit.
 
 ## If it does not look like this
 
-- **No + New Entry button** — you are probably in a
+- **No New Entry button** — you are probably in a
   <Term path="caseWorker" /> position, which does not have it. See the note at
   the top of this page.
 - **The service list is empty** — you have not been given a position on any
   service. Your administrator fixes that.
 - **The risk questions never appear** — you have not chosen a service yet.
   Choose it first and they load underneath.
-- **You lost what you typed** — you had not reached the end of step 1. That is
-  the point where it saves.
+- **You lost what you typed** — it had not been saved yet. On step 1, click
+  **Save Draft** or **Continue** to save it.
 
 ## What next
 

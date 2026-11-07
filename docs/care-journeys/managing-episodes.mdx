@@ -20,7 +20,7 @@ Open **In-progress Journeys** from the sidebar to see everything in progress. (Y
 |-----|-------|
 | **All open** | Every open episode |
 | **Active** | Episodes currently delivering service |
-| **Awaiting Staff** | Episodes with no <Term path="caseWorker" /> assigned yet |
+| **Awaiting Staff** | Episodes with no <Term path="caseWorker" /> assigned yet. <Term path="caseWorker" plural /> don't see this tab. |
 | **Awaiting Commencement** | Episodes with staff assigned, not yet commenced |
 | **On Hold** | Paused episodes |
 
@@ -28,25 +28,37 @@ Open **In-progress Journeys** from the sidebar to see everything in progress. (Y
 **Completed** and **Closed** episodes don't appear here — they live on the **Completed Care** page instead. See [Closing an Episode](/care-journeys/closing-an-episode).
 </Callout>
 
-Search by client, service or staff name, and click **View** to open an episode's Care Journey workspace. The search starts after you have typed 3 letters and paused. To search for fewer letters, type them and press **Enter**. You can also filter by **Risk**, by **Service** (more than one at once) and, if you are a manager or supervisor, by **Assigned Staff**. The full list of tabs, filters and columns is in [Lists, filters and search](/releases/2026-11-09-lists-filters-and-search).
+Search by client, service or staff name, and click a row (or the eye icon at its end) to open an episode's Care Journey workspace. The search starts after you have typed 3 letters and paused. To search for fewer letters, type them and press **Enter**. You can also filter by **Risk**, by **Service** (more than one at once) and, if you are a manager or supervisor, by **Assigned Staff**. The full list of tabs, filters and columns is in [Lists, filters and search](/releases/2026-11-09-lists-filters-and-search).
+
+<Screen
+  src="/img/releases/2026-11-09-lists-filters-and-search/01-care-journeys-filters.png"
+  alt="The Care Journeys list with the Assigned Staff filter open, showing a search box, a list of staff with three ticked, and a Clear filters button"
+  caption="The filter buttons sit beside the tabs. Each opens a list. Reset clears them all."
+/>
 
 ### How the list is ordered
 
 The list opens sorted by **Last Activity**, newest first, so the episodes you've
-worked on most recently are at the top. You can sort by **Client**, **Start
-Date**, **Last Updated**, **Last Activity** or **Last Entry Change** by selecting
-that column's header; selecting it again reverses the direction. **Service**,
-**Status** and **Assigned Staff** can't be sorted on.
+worked on most recently are at the top. You can sort by **Service**, **Assigned
+Staff**, **Start Date**, **Last Updated**, **Last Activity** or **Last Entry
+Change**. Select that column's heading, then choose **Asc** or **Desc** from its
+menu. Choosing the direction that is already ticked turns that sort off.
+**Client**, **Status** and **Risk** can't be sorted on.
 
-**Last Activity** and **Last Entry Change** are only shown on wide displays — on
-a narrower screen the list is still sorted by Last Activity, but the column
-itself is hidden. See
+<Screen
+  src="/img/releases/2026-11-09-lists-filters-and-search/02-column-sort-menu.png"
+  alt="The Start Date column heading with its menu open, showing Asc, Desc and Hide"
+  caption="Select a column heading to sort by it, or to hide the column."
+/>
+
+**Last Updated** and **Last Entry Change** are hidden when the list first opens.
+To show them, use **View** above the table (on a wide screen). See
 [Sorting <Term path="serviceEpisode" plural /> by recent activity](/releases/2026-09-09-care-journey-sorting)
 for what each date means.
 
 ## Managing kaimahi
 
-The **Assigned Staff** card on the episode's Overview tab (also reachable via **Manage kaimahi**) lets you:
+On the Overview tab, the staff card (**<Term path="caseWorker" plural /> assigned**) has a **Manage** button. It opens a window where you can:
 
 | Action | What it does |
 |--------|--------------|
@@ -65,11 +77,11 @@ From the episode's Overview tab you can change status manually, depending on whe
 
 | From | Action | To |
 |------|--------|-----|
-| **Awaiting Commencement** | Commence Episode | **Active** |
+| **Awaiting Commencement** | **Start working with ...** (banner at the top) | **Active** |
 | **Active** | Put on Hold | **On Hold** |
-| **On Hold** | Resume Episode | **Active** |
+| **On Hold** | **Resume <Term path="serviceEpisode" />** | **Active** |
 
-A service can switch **Put on Hold** off. If it is off for your service, you see the message **On Hold is not enabled for this service.** See [Smaller changes](/releases/2026-11-09-smaller-changes#on-hold-can-be-switched-off-for-a-service).
+A service can choose not to allow **Put on Hold**. If yours does not, you see the message **On Hold is not enabled for this service.** See [Smaller changes](/releases/2026-11-09-smaller-changes#some-services-do-not-allow-on-hold).
 
 <Callout color="amber" title="Once closed, an episode is read-only">
 There's no manual action to move an episode to **Completed** or **Closed** from this page — that only happens through the closure process. See [Closing an Episode](/care-journeys/closing-an-episode).

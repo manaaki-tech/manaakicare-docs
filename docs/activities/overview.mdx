@@ -14,7 +14,7 @@ An <Term path="activity" /> is a record of a single piece of work done on a <Ter
 
 ## Where to find them
 
-Open a client's Care Journey, then go to the **Activities** tab (or follow **View All Activities** from the Recent Activities card on the Care Journey overview). From there you can browse the activity timeline and open **+ New Activity** to record one.
+Open a client's Care Journey, then go to the **Activities** tab (or click **View all →** on the Recent activities card on the Care Journey overview). From there you can browse the activity timeline and click **Log new** to record one.
 
 ## Activity types
 
@@ -26,7 +26,7 @@ When you create an <Term path="activity" />, the first thing you choose is its t
 | **Remote** | Contact that isn't in person — phone, video, email, SMS, or social media | A contact type |
 | **Coordination** | Liaison or coordination work relating to the case that isn't direct contact | — |
 | **Note / Admin** | Administrative work on the case | — |
-| **Incident** | Recording a safety or other incident | Incident notes |
+| **Incident** | Recording a safety or other incident | Notes on the **Notes** tab |
 
 <Callout color="amber" title="The chip label follows your terminology">
 The button you click for this type reads "<Term path="serviceUser" /> Visit" — it always uses whatever word your organisation has configured for "client", not a fixed label. The underlying record is the same either way.
@@ -41,12 +41,12 @@ Regardless of type, every <Term path="activity" /> has:
 | Field | Notes |
 |-------|-------|
 | **Title** | Free text, shown in the timeline |
-| **Date & time** | Cannot be in the future, and cannot be more than 7 days in the past |
-| **Duration** | Optional, in minutes |
-| **Priority** | A risk-level rating on the <Term path="activity" /> itself — None, Low, Medium, High, or Critical. This is separate from the <Term path="referral" />'s urgency level |
+| **Date & time** | Cannot be in the future. There is no rule limiting how far back it can be. The calendar's year list reaches back about ten years |
+| **Duration** | Optional. Pick from a list, from 5 minutes to 4 hours |
+| **Priority** | A risk-level rating on the <Term path="activity" /> itself — **None**, **Low**, **Med**, **High** or **Crit** (critical). This is separate from the <Term path="referral" />'s urgency level |
 | **Status (outcome)** | Completed, or a reason it didn't happen — see below |
 | **Notes** | Rich-text notes, with optional templates — see [Case Notes](/activities/case-notes) |
-| **Follow-up** | An optional required-follow-up flag with a date, up to three months out |
+| **Follow-up** | An optional required-follow-up flag with a date, up to six months out |
 
 ## When it didn't happen
 
@@ -54,7 +54,7 @@ If the <Term path="activity" /> didn't go ahead as planned, toggle **Didn't happ
 
 ## Saving
 
-**Save Draft** stores what you have so far without requiring every field — useful if you're interrupted partway through. **Complete Activity** validates the form and saves it as a completed record. Both are available from the footer at any point after you've given the <Term path="activity" /> a title and a type.
+**Save Draft** stores what you have so far without requiring every field — useful if you're interrupted partway through. **Complete Activity** validates the form and saves it as a completed record. Both are always in the footer. The **Next** button stays greyed out until the <Term path="activity" /> has a title and a type.
 
 Only the person who created an <Term path="activity" /> can edit it, and only within 24 hours of creating it — after that, the Edit option no longer appears. See [Viewing Activity History](/activities/viewing-activity-history) for how to find and open past activities.
 

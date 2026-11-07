@@ -3,7 +3,7 @@ title: Creating a Referral
 description: Step-by-step guide to creating a new client referral
 sidebar_position: 2
 helpId: referral-form
-keywords: [referral, create, intake, new client, wizard, entry, new entry, entry processing, entry details, awareness and entry, whanau, whānau, kiritaki, kaiawhina, kaiāwhina, kaimahi]
+keywords: [referral, create, intake, new client, wizard, entry, new entry, entry processing, entry details, whanau, whānau, kiritaki, kaiawhina, kaiāwhina, kaimahi]
 ---
 
 import Callout from '@site/src/components/Callout';
@@ -22,7 +22,7 @@ You will need:
 - Consent details, if consent has already been obtained
 
 <Callout color="teal" title="Can't see the New Entry button?">
-The **+ New Entry** button appears for staff in an **intake** position, and for **supervisors and managers**. <Term path="caseWorker" plural /> do not see it — work reaches them already allocated. Visibility depends on the positions you hold on your assigned services, so if you think you should have it and don't, ask your administrator to check those.
+The **New Entry** button appears for staff in an **intake** position, and for **supervisors and Service Managers**. <Term path="caseWorker" plural /> do not see it — work reaches them already allocated. Visibility depends on the positions you hold on your assigned services, so if you think you should have it and don't, ask your administrator to check those.
 </Callout>
 
 ---
@@ -35,30 +35,30 @@ The <Term path="referral" /> form is a three-step wizard. A progress bar at the 
 |------|------|----------------|
 | 1 | **Intake** | Client & referral — who the client is, who referred them, which service, and why |
 | 2 | **Consent** | Permissions on file — how consent was obtained and what was provided |
-| 3 | **Review & Submit** | Confirm & dispatch — check everything, submit, and send to a service |
+| 3 | **Review & Submit** | Confirm & send — check everything, submit, and send to a service |
 
 The steps are completed in order. Consent unlocks once Intake is complete, and Review & Submit unlocks once Consent is saved.
 
 <Callout color="amber" title="Saved at the end of Step 1">
-The <Term path="referral" /> record is created when you click **Continue** at the end of Step 1 — not at the end of the wizard. From that point it exists in the system with a reference number and **Draft** status, and you can safely leave and come back to it.
+The <Term path="referral" /> record is created when you click **Continue** at the end of Step 1 — not at the end of the wizard. From that point it exists in the system with a reference number and **Pending Consent** status, and you can safely leave and come back to it.
 </Callout>
 
 ---
 
 ## Step 1 — Intake
 
-Open **+ New Entry** at the top right of the screen, or go to `/entries/new`.
+Click **New Entry** at the top right of the screen, or go to `/referrals/new`.
 
 ### Choose the service
 
-Select the **service contract** the <Term path="referral" /> is for. This drives everything else on the page — each service has its own additional questions, which appear lower down once selected.
+In **Which service is this referral for?**, choose the service the <Term path="referral" /> is for. This drives everything else on the page — each service has its own additional questions, which appear lower down once selected.
 
 ### Find or create the client
 
 Click the client search box and start typing a name.
 
 - **If the client already exists** — select them from the results.
-- **If they are new** — click **Create new client** and complete the inline form: first name, last name, date of birth, gender, phone and email.
+- **If they are new** — click **Create new client** and complete the inline form. First name, last name, date of birth and gender are required. Add at least one way to contact them (phone, email or address), unless they are under 16. Then click **Create Client**.
 
 <Callout color="amber" title="Search before you create">
 Always search first. Creating a new client here also creates a new whānau group, so a duplicate record is more disruptive than it looks. If the client already has other active <Term path="referral" plural />, a warning appears once you select them — check it before continuing.
@@ -83,14 +83,14 @@ The referrer fields appear once you have chosen a **referral type**, and change 
 |---------------|--------------------------|
 | **Self** | Nothing — the client is the referrer. |
 | **Whānau** | Select the whānau member making the <Term path="referral" />. If the client is under 16, a contact phone number is also required. |
-| **Educational** | In **Referrer contact**, search for the contact person. The search covers every organisation. If they are not there, choose **New Referrer** and add them. |
-| **Professional** | In **Referrer contact**, search for the contact person. The search covers every organisation. If they are not there, choose **New Referrer** and add them. |
+| **Educational** | In **Referrer contact**, search for the contact person. The search covers every organisation. If they are not there, choose **Add new referrer...**. Pick their organisation, add their name, then click **Create referrer**. |
+| **Professional** | In **Referrer contact**, search for the contact person. The search covers every organisation. If they are not there, choose **Add new referrer...**. Pick their organisation, add their name, then click **Create referrer**. |
 
 You no longer pick the organisation first. Each search result shows the organisation, phone number and city, so you can tell two people with the same name apart. See [Referrer contacts](/releases/2026-11-09-referrer-contacts).
 
 ### Service-specific questions
 
-Below the standard fields you may see an **Entry Details** panel with extra questions specific to the service you selected — for example child safety concerns or risk ratings.
+Below the standard fields you may see a **Service-specific information** section with extra questions for the service you selected — for example child safety concerns or risk ratings.
 
 <Callout color="teal" title="These can wait">
 Service-specific questions are advisory at this stage. Complete as much as you can — they will not stop you continuing, and you can fill them in later.
@@ -110,32 +110,32 @@ Record how and when consent was obtained.
 
 | Field | Required | Options |
 |-------|----------|---------|
-| **Way consent obtained** | Yes | Verbal, Written, or Electronic |
-| **Consent date** | Yes | Cannot be in the future |
+| **How was consent obtained?** | Yes | Verbal, Written, or Electronic |
+| **Date consent obtained** | Yes | Cannot be in the future |
 
 ### Confirmations
 
 These must all be ticked before the <Term path="referral" /> can be submitted:
 
 - Consent to receive services
-- Information sharing consent
-- Rights and responsibilities document received
+- Information sharing
+- Rights and responsibilities document
 - Complaints form provided
 - Privacy information sheet provided
 
 These are optional:
 
-- Funder research contact consent
-- Photographic recording consent
+- Funder research contact
+- Photographic recording
 - Emergency contact authorisation
 
 ### Guardian consent
 
-If the client is a child, a guardian consent section appears. You will need the guardian's name, their relationship to the client, and to select them from the client's support network. If the guardian is not there yet, you can add them without leaving the page.
+If the client is under 16, a **Guardian consent** section appears. Select the guardian from the client's support network, tick **Guardian has consented**, and add the **Guardian consent date**. If the guardian is not there yet, you can add them without leaving the page.
 
 ### Supporting documents
 
-You can attach supporting documents — such as a signed consent form — in the collapsible section beneath the consent form. This is optional here, but see the note under [dispatch](#step-3--review--submit) below.
+You can attach supporting documents — such as a signed consent form — in the **Supporting documents** section, just below **How was consent obtained?**. This is optional here, but see the note under [dispatch](#step-3--review--submit) below.
 
 Click **Continue to Review** when done.
 
@@ -145,20 +145,20 @@ Click **Continue to Review** when done.
 
 The review screen shows everything you have entered, grouped by section, with an **Edit** link on each to jump back and change it.
 
-Check it over, then click **Submit**. The <Term path="referral" /> moves to **Ready to Send** and the dispatch dialog opens automatically.
+Check it over, then click **Submit Entry**. The <Term path="referral" /> moves to **Ready to Send** and the dispatch dialog opens automatically.
 
 ### Dispatching to a service
 
-Choose the service, then pick one of three options:
+The service you chose in Step 1 is already filled in. Under **How should this be handled?**, pick one of three options:
 
 | Option | What it does | Resulting status |
 |--------|--------------|------------------|
-| **Accept entry** | Accepts the <Term path="referral" /> into the service without assigning anyone yet | Accepted, awaiting allocation |
-| **Accept & assign kaimahi** | Accepts and assigns a <Term path="caseWorker" /> in one action, creating the <Term path="serviceEpisode" /> immediately | Allocated, awaiting service |
-| **Send for approval** | Sends to a supervisor or programme manager to approve and allocate | Pending Service Review |
+| **Accept entry** | Accepts the <Term path="referral" /> and creates the <Term path="serviceEpisode" />, without assigning anyone yet | Accepted - Pending Allocation |
+| **Accept & assign kaimahi** | Accepts and assigns a <Term path="caseWorker" /> in one action, creating the <Term path="serviceEpisode" /> immediately | Allocated - Awaiting Service |
+| **Send for approval** | Sends to a supervisor or Service Manager to approve and allocate | Pending Service Review |
 
 <Callout color="amber" title="Signed consent document">
-If a signed consent document has not been uploaded, the dispatch dialog shows a reminder. This is a warning, not a block — you can still dispatch, but the document will be outstanding against the <Term path="referral" />.
+If consent was **Written** or **Electronic** and no signed consent form has been uploaded, the dispatch dialog shows **Signed consent form not uploaded**. This is a warning, not a block — you can still dispatch, but the document will be outstanding against the <Term path="referral" />.
 </Callout>
 
 Once dispatched you can go back to your dashboard or open the <Term path="referral" /> to view it.
@@ -169,7 +169,7 @@ Once dispatched you can go back to your dashboard or open the <Term path="referr
 
 You can click **Save Draft** at any point after selecting a client and service. Draft saving is deliberately forgiving — it only needs the client, service, date of referral and referral type. Everything else can be incomplete.
 
-To pick a draft back up, open it from your dashboard's **Intake Processing** tab. It reopens at the step you left it on.
+To pick a draft back up, open it from your dashboard's **Intake** tab. It reopens at the step you left it on.
 
 ---
 
