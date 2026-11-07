@@ -78,6 +78,11 @@ const sidebars: SidebarsConfig = {
                   'Registering Police cases, adding people, notes and follow-ups, and closing a person or fixing a wrong link.',
               },
               items: [
+                {
+                  type: 'link',
+                  label: 'What is a virtual client?',
+                  href: '/virtual-clients/overview',
+                },
                 'manual/case-worker/virtual-clients-register-and-add-people',
                 'manual/case-worker/virtual-clients-notes-and-follow-ups',
                 'manual/case-worker/virtual-clients-closing-and-fixing',
