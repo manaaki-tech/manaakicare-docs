@@ -1,0 +1,337 @@
+---
+title: "Virtual clients: closures, accepting a referral and consent"
+sidebar_label: Virtual clients - closures and consent
+description: How supervisors and managers close a person's involvement in a PO case, approve or reject closure requests, and what happens to a virtual client when a referral is accepted.
+sidebar_position: 5
+keywords:
+  [
+    virtual client, PO case, Police referral, family harm, closure request, pending closure requests,
+    approve closure, reject closure, close case, consent, consented, pre-consent, accept referral,
+    care journey, delete PO case, closure reasons, approver, direct close, kaimahi, kaiawhina,
+    whanau, whānau, tautoko,
+  ]
+---
+
+import Callout from '@site/src/components/Callout';
+
+# Virtual clients: closures, accepting a referral and consent
+
+**By the end of this page** you will be able to close a person's involvement in a
+PO case, review closure requests from your team, and know exactly what changes
+when you accept a <Term path="referral" /> for a person who started as a virtual
+client.
+
+A virtual client is a placeholder for someone named in a Police email. It holds
+only a date of birth, a gender and an address. It never holds a name. This page
+is for supervisors and managers. The linking step belongs to the intake
+officer, and the day-to-day fixes belong to the <Term path="caseWorker" />.
+
+- [Linking a virtual client](/manual/intake-officer/linking-a-virtual-client)
+  covers the intake officer's side.
+- [Closing and fixing](/manual/case-worker/virtual-clients-closing-and-fixing)
+  covers what your team can do themselves.
+- The [overview](/virtual-clients/overview) explains the whole feature.
+
+<Callout color="amber" title="Closing a person on a PO case is final">
+Approval cannot be undone, and a closed person cannot be reopened. If the same
+person is in a new Police email later, that is a new PO link. Check the end
+date and reason before you click.
+</Callout>
+
+## What the statuses mean
+
+A virtual client and each person on a PO case show one of these statuses.
+
+| Status | What it means |
+|--------|---------------|
+| **Open** | Work is being recorded. The person has not agreed to work with the service yet. |
+| **Closure requested** | Someone has asked to close them. A manager has not decided yet. |
+| **In care journey** | The person agreed, the <Term path="referral" /> was accepted, and a <Term path="serviceEpisode" /> is running. |
+| **Closed** | Finished. For a person on a PO case this is final. |
+
+A virtual client also shows a badge. **Pre-consent** means the person has not
+agreed yet. **Consented** means the referral was accepted.
+
+The list of virtual clients has a status filter. It offers **All statuses**,
+**Open**, **In Care Journey** and **Closed**. It has no **Closure requested**
+option, so use the dashboard card below to find requests.
+
+## Closing someone straight away
+
+If your position is allowed to close directly, you can close a person's
+involvement in a PO case without asking anyone. Usually that means
+supervisors and managers.
+
+1. Open the PO case from the **Virtual Clients** menu.
+2. In the **People on this case** table, find the person.
+3. Select the three-dot menu on their row.
+4. Choose **Request closure**.
+5. Under **Closure Type**, choose **Close immediately**.
+6. Enter the **End Date**. It cannot be in the future.
+7. Choose a **Closure Reason**.
+8. If the reason is Other, fill in **Please specify**.
+9. Add **Notes** if they help.
+10. Choose **Close Case**.
+
+{/* SCREENSHOT NEEDED — 01-close-immediately-dialog.png
+    Path when added: static/img/manual/virtual-clients/closures-and-consent/01-close-immediately-dialog.png
+    Show: the closure dialog for a person on a made-up case (PO123456), with Closure Type set to Close immediately, an End Date filled in, and a Closure Reason chosen.
+    Highlight: the Closure Type radio buttons and the Close Case button.
+    Alt: The closure dialog with Close immediately selected, an end date and a closure reason filled in, and a Close Case button at the bottom.
+    Caption: Only people allowed to close directly see the Closure Type choice. */}
+
+The dialog may also list pending follow-ups for that person. If it does, choose
+**Mark as resolved** or **Cancel (not needed)** for each one.
+
+A message confirms the PO case is closed. The person's status changes to
+**Closed**.
+
+Three things can stop a closure:
+
+- The person is already **Closed**.
+- The person already has a pending closure request.
+- The person is in a <Term path="serviceEpisode" />. They close when the care
+  journey closes, not here.
+
+If the person was the last open PO case for a virtual client who never agreed to
+work with the service, the virtual client becomes **Closed** too.
+
+<Callout color="teal" title="If you do not see Closure Type">
+If the **Closure Type** choice is missing, your position is not on the service's
+direct-close list. Your request goes to a manager for approval instead. That is
+normal, not a fault.
+</Callout>
+
+## Reviewing closure requests
+
+When a <Term path="caseWorker" /> asks to close someone, the request waits on the
+dashboard of every approver.
+
+1. Open your dashboard.
+2. Find the **Pending Closure Requests** card.
+3. Find the row you want. The columns are **PO Case**, **Virtual Client**,
+   **Requested By**, **Reason**, **End Date** and **Status**.
+4. Choose **Review** on that row.
+
+<Screen
+  src="/img/manual/virtual-clients/closures-and-consent/02-pending-closure-requests.png"
+  alt="The Pending Closure Requests card on the dashboard, listing two requests with a Review button on each row."
+  caption="Each row is one person on one PO case."
+/>
+
+If nothing is waiting, the card says **No pending closure requests**.
+
+The **Review Closure Request** dialog opens.
+
+<Screen
+  src="/img/manual/virtual-clients/closures-and-consent/03-review-closure-request.png"
+  alt="The Review Closure Request dialog showing the details of one request with Approve and Reject options."
+  caption="Read the request before you choose. Both choices are in this one dialog."
+/>
+
+### Approving
+
+1. In the **Review Closure Request** dialog, choose **Approve**.
+2. Read the **Approve Closure** panel. It says you can optionally override any
+   of the closure details.
+3. If you want to change something, edit **Override End Date**,
+   **Override Closure Reason** or **Override Notes**.
+4. Choose **Approve & Close**.
+
+<Screen
+  src="/img/manual/virtual-clients/closures-and-consent/04-approve-with-overrides.png"
+  alt="The Approve Closure panel with Override End Date, Override Closure Reason and Override Notes fields and an Approve & Close button."
+  caption="Overrides are optional. Leave them empty to approve exactly what was asked."
+/>
+
+A message says **Closure request approved. PO123456 is now closed.** (with your
+own PO number). The message names the PO case, but only this person is closed.
+Anyone else on the case stays open, even though the message says the PO case is
+closed. The person's status changes to **Closed**. This is final.
+
+### Rejecting
+
+1. In the **Review Closure Request** dialog, choose **Reject**.
+2. Enter a **Rejection Reason**. It is required.
+3. Choose **Reject Request**.
+
+If you leave the reason empty you will see **Please provide a rejection reason**.
+After you reject, a message says **Closure request rejected**. The person goes
+back to the status they had before the request.
+
+<Screen
+  src="/img/manual/virtual-clients/closures-and-consent/05-reject-with-reason.png"
+  alt="The reject panel asking why the closure request is being rejected, with a reason typed in and a Reject Request button."
+  caption="A reason is required. Write something the person can act on."
+/>
+
+<Callout color="amber" title="Tell them yourself">
+The system does not tell anyone when you approve or reject a request. Tell the
+person who asked, in person or by message.
+</Callout>
+
+### Who can act on a request
+
+Any user who sees the **Pending Closure Requests** card can approve or reject
+it. It does not have to be the approver the requester picked. If two managers
+open the same request, tell each other who is dealing with it.
+
+You can also withdraw a request. Select the three-dot menu on the person's row,
+then **Withdraw closure request**. The person who asked can do this, and so can
+a manager or supervisor. The person goes back to their earlier status.
+
+## Who appears on the approver list
+
+The card and the **Approver** choice depend on which positions your service
+allows to close directly. Usually those are supervisor and manager. If the
+list needs to change, ask your administrator.
+
+If you cannot see the **Pending Closure Requests** card, your position is
+probably not on that list.
+
+If a team member sees **Nobody else in this service can approve closures. Ask an
+admin to check the service's approval roles.**, nobody is available to approve
+for them.
+
+{/* SCREENSHOT NEEDED — 06-no-approver-available.png
+    Path when added: static/img/manual/virtual-clients/closures-and-consent/06-no-approver-available.png
+    Show: the Send for approval closure dialog where the Approver field shows the message that nobody else in this service can approve closures. Made-up case PO123456.
+    Highlight: the Approver field and its message.
+    Alt: The closure dialog with the Approver field showing a message that nobody else in the service can approve closures.
+    Caption: This message means the approver list is empty for this person. Ask an administrator. */}
+
+In either case, ask your administrator to check who can approve closures on
+the service. A change can take up to 24 hours to apply. Do not wait at the screen for it.
+
+## Accepting a referral is consent
+
+If the intake officer chooses **Send for approval**, nothing changes on the
+virtual client when they submit the <Term path="referral" />. The change happens
+when you **accept** it.
+
+Most services allocate directly. The intake officer chooses **Accept & assign
+Case Worker** when they submit, because a manager has already approved the paper
+form. The referral is accepted at that moment, and the same changes happen. You
+may never see it as a request to accept.
+
+When you accept, this is exactly what happens:
+
+- The virtual client's badge changes to **Consented**.
+- Its status changes to **In care journey**.
+- **Consented at** is filled in with the date.
+- A <Term path="serviceEpisode" /> is created.
+- The virtual client's notes are copied onto the <Term path="serviceEpisode" />, in
+  date order. Each note keeps its PO number.
+- Its follow-ups are copied across too. Each keeps its status.
+- Any pending closure request for that person is closed automatically. It is
+  marked **Closed automatically at consent**.
+
+Two things are not copied:
+
+- **Assigned case workers do not move across.** Assign staff to the
+  <Term path="serviceEpisode" /> in the normal way.
+- **PO cases stay on the virtual client.** They show as links, not copies.
+
+After consent you can no longer edit date of birth or gender on the virtual
+client, and the address is read-only. If a detail is wrong, update it on the
+person's record instead.
+
+<Screen
+  src="/img/manual/virtual-clients/closures-and-consent/07-virtual-client-consented.png"
+  alt="A virtual client page showing a Consented badge, the status In care journey, a Consented at date and a Care journey row."
+  caption="After acceptance the virtual client points to its care journey."
+/>
+
+On the virtual client page, the **Care journey** reference (for example
+SEP-2026-ORG-00009) is a link. Click it and a side panel opens. It shows the care
+journey card, the case workers on it and the recent activities. The virtual
+client's notes show there as activities. Press **Open full care journey** in the
+panel to go to the care journey itself.
+
+### If you reject the referral
+
+The virtual client goes back to **Open**. The intake officer can link it to a
+different <Term path="referral" />.
+
+### If it still says Pre-consent
+
+If a virtual client still shows **Pre-consent** after you accepted the
+<Term path="referral" />, tell your administrator. There is no button to try
+again.
+
+## When the care journey ends
+
+When the <Term path="serviceEpisode" /> is exited in the normal way, the virtual
+client becomes **Closed**.
+
+If that person is named in a later Police email, searching shows **Consented,
+care journey closed. Start a new virtual client.** The intake officer creates a
+new virtual client. The old one is never reopened. Both can point to the same
+person's record.
+
+## Other manager tasks
+
+### Delete a PO case with no one on it
+
+1. Open the PO case.
+2. Open the case actions menu.
+3. Choose **Delete case**.
+4. Confirm in the **Delete PO case** dialog.
+
+A message says **PO case deleted successfully**.
+
+If **Delete case** is greyed out, the case still has people on it. The page
+says **Only a case with no one on it can be deleted.**
+
+{/* SCREENSHOT NEEDED — 08-delete-case-disabled.png
+    Path when added: static/img/manual/virtual-clients/closures-and-consent/08-delete-case-disabled.png
+    Show: the case actions menu on a made-up PO case (PO123456) that still has one person on it, with Delete case greyed out and its explanation visible.
+    Highlight: the greyed-out Delete case item and the message under it.
+    Alt: The case actions menu with Delete case greyed out and a message that only a case with no one on it can be deleted.
+    Caption: Delete is only available once the case is empty. */}
+
+### Delete a note
+
+Only managers and supervisors can delete a note. Staff can edit their own.
+
+1. Open the **Notes** section.
+2. Select the note in the list.
+3. In the reading pane, choose **Delete**.
+
+### Closure reasons
+
+The list of closure reasons belongs to your organisation, not to a service.
+You cannot change it yourself. If a reason is missing or wrong, ask your
+administrator.
+
+## Known limits
+
+- **No merge.** If the same person ended up as two virtual clients, you cannot
+  merge them. A relink moves one person on one PO case at a time.
+- **No notifications.** Nobody is told when staff are assigned, a person is
+  relinked, or a closure is approved or rejected.
+- **Closing does not chain.** Closing a consented person does not prompt you to
+  close a linked pre-consent person.
+- **Closed virtual clients drop out of New Entry search.** This applies to
+  those that never agreed to work with the service.
+- **Joint notes can show as two rows.** One note about two people may appear
+  twice in some lists.
+- **No Closure requested filter.** Use the dashboard card.
+
+## If your screen does not match this page
+
+- **No Virtual Clients menu.** Not every service uses virtual clients, and
+  yours may not. Ask your administrator.
+- **No Pending Closure Requests card.** Your position may not be on the
+  service's approver list. Ask your administrator. A change can take up to 24
+  hours to apply.
+- **No Closure Type choice.** Your position is not allowed to close directly.
+  Your request goes for approval.
+- **Delete case is greyed out.** The case still has people on it.
+- **Still Pre-consent after acceptance.** Tell your administrator. There is no
+  retry button.
+- **Anything else.** Take a photo of the screen and send it to your
+  administrator. Do not guess.
+
+Also see [Manager approval for exits](/releases/2026-09-12-exit-approval). It
+works the same way for <Term path="serviceEpisode" /> exits.

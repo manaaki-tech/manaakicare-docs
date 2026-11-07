@@ -26,13 +26,13 @@ Supervisors lead teams of <Term path="caseWorker" plural />, manage incoming <Te
 
 ### Team Oversight
 - Monitoring <Term path="caseWorker" /> <Term path="activity" /> and engagement
-- Tracking <Term path="serviceUser" /> contact frequency (flagging <Term path="serviceUser" plural /> not contacted in 5+ days)
-- Reviewing <Term path="activity" plural /> / <Term path="serviceEpisode" plural /> ratio for team productivity
+- Resolving due follow-ups from the **Activities Needing Follow-up** table
+- Checking the **Staff Workload Distribution** chart for how <Term path="serviceEpisode" plural /> are spread across the team
 - Managing workload distribution across team members
 
 ### Service Delivery Monitoring
 - Tracking active <Term path="serviceEpisode" plural /> under their supervision
-- Monitoring pending service dispatches
+- Monitoring <Term path="serviceEpisode" plural /> that are awaiting commencement
 - Ensuring <Term path="referral" plural /> progress through the workflow
 - Following up on delayed or stalled <Term path="referral" plural />
 
@@ -68,11 +68,14 @@ This scoped visibility ensures supervisors have full oversight of their team wit
 
 ## Dashboard Features
 
-The <Term path="supervisorDashboard" /> provides a management-focused view with four key sections:
+The <Term path="supervisorDashboard" /> provides a management-focused view with these sections:
 
 - **Three count tiles** - <Term path="serviceEpisode" plural /> awaiting commencement, high-priority <Term path="referral" plural />, and active <Term path="serviceEpisode" plural />, with month-to-date figures beneath them
 - **Pending <Term path="referral" /> Requests** - Incoming requests with Accept/Reject actions
-- **<Term path="serviceUser" plural /> Needing Contact** - <Term path="serviceUser" plural /> not contacted in 5+ days
+- **Pending Exit Approvals** - Requests to close a <Term path="serviceEpisode" />, to approve or reject
+- **Pending Safety Alert Confirmations** and **Safety Alert Access Requests** - Shown only when something is waiting for you
+- **Activities Needing Follow-up** - Follow-ups that are due, which you can resolve in the row
+- **Pending Closure Requests** and **Virtual client follow-ups** - At the bottom, for people who work with virtual clients
 
 For detailed dashboard documentation, see [Supervisor / Program Manager Dashboard](/manual/supervisor/dashboard).
 
@@ -100,13 +103,13 @@ Program Manager
 
 ### Prioritization
 - Process **Emergency**, **Crisis** and **Urgent** <Term path="referral" /> requests immediately
-- Review the Pending Requests card at the start of each day
-- Monitor the <Term path="serviceUser" plural /> Needing Contact section daily
+- Check the **Pending Requests** number and the **Pending Referral Requests** table at the start of each day
+- Check **Activities Needing Follow-up** daily
 
 ### Team Management
 - Distribute workload evenly across <Term path="caseWorker" plural />
-- Use the <Term path="activity" plural /> / <Term path="serviceEpisode" plural /> ratio to gauge team engagement
-- Follow up when <Term path="serviceUser" plural /> haven't been contacted in 5+ days
+- Use the **Staff Workload Distribution** chart to see who is carrying the most active <Term path="serviceEpisode" plural />
+- Follow up on overdue items in **Activities Needing Follow-up**
 
 ### Communication
 - Provide clear notes when allocating <Term path="referral" plural /> to team members
@@ -115,8 +118,8 @@ Program Manager
 
 ### Timeliness
 - Aim to process new <Term path="referral" /> requests within 24 hours
-- Follow up on <Term path="referral" plural /> pending service dispatch
-- Monitor the "Days" column for overdue <Term path="serviceUser" /> contacts
+- Follow up on <Term path="serviceEpisode" plural /> that are awaiting commencement
+- Resolve follow-ups on or before their **Follow-up Date**
 
 ## Common Tasks
 
@@ -124,7 +127,7 @@ Program Manager
 |------|--------|
 | Accept a <Term path="referral" /> request | [Supervisor Dashboard](/manual/supervisor/dashboard#accepting-a-referral) |
 | Reject a <Term path="referral" /> request | [Supervisor Dashboard](/manual/supervisor/dashboard#rejecting-a-referral) |
-| Monitor <Term path="serviceUser" /> contacts | [Supervisor Dashboard](/manual/supervisor/dashboard#service-users-needing-contact) |
+| Resolve a follow-up | [Supervisor Dashboard](/manual/supervisor/dashboard#activities-needing-follow-up) |
 | View dashboard | [Supervisor / Program Manager Dashboard](/manual/supervisor/dashboard) |
 | Search for <Term path="serviceUser" plural /> | [Searching for Clients](/whanau/searching-for-clients) |
 

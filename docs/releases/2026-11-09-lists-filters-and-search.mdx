@@ -1,0 +1,154 @@
+---
+title: "Faster lists: filters, sorting and search"
+sidebar_label: Lists, filters and search
+description: The Referrals, Care Journeys and Completed Care lists have been rebuilt, with column filters, sorting that stays put, and a search box that waits until you have typed enough.
+sidebar_position: 0
+helpId: release-2026-11-09-lists-filters-and-search
+keywords: [list, table, filter, filters, sort, sorting, search, referral, referrals, entries, care journey, care journeys, service episode, completed care, risk, assigned staff, awaiting staff, closure reason, end date, excel, column, page, kaiawhina, kaiāwhina]
+---
+
+import Callout from '@site/src/components/Callout';
+import Screen from '@site/src/components/Screen';
+
+# Faster lists: filters, sorting and search
+
+*9 November 2026*
+
+Three lists have been rebuilt: the <Term path="referral" plural /> list, the
+<Term path="serviceEpisode" plural /> list, and the **Completed Care** page.
+By the end of this page you will know how to filter each one, how to sort it,
+and how the search box behaves.
+
+<Callout color="amber" title="This replaces the older table">
+The earlier release note,
+[Sorting <Term path="serviceEpisode" plural /> by recent activity](/releases/2026-09-09-care-journey-sorting),
+describes the table as it was before this change. Where the two pages differ,
+trust this one.
+</Callout>
+
+Your organisation can rename the menu items and the words
+<Term path="referral" plural /> and <Term path="serviceEpisode" plural />. This
+page uses your organisation's words wherever it can. Button, tab and column
+names that are shown in **bold** are quoted as they appear on screen.
+
+## The referrals list
+
+The old filter bar has gone. You now sort and filter from the column headings,
+much as you would in a spreadsheet.
+
+What you will see:
+
+- Three tabs: **Drafts**, **Active** and **Closed**. Each shows a badge with its total.
+- A search box next to the page title. It reads **Search entries...**
+- Filters for **Status**, **Priority**, **Service** and a date range for when the <Term path="referral" /> was created.
+- A footer that reads **Showing X-Y of N**, where N is the total in the list.
+- The safety-alert icon, shown in the **Client** cell of any row that has an alert.
+- The **Referral #** column is hidden by default.
+
+You can pick more than one service at a time. You can also sort by client name.
+
+<Callout color="teal" title="Your filters and sort are remembered">
+The filters and sort you choose stay in the page address, and they are
+remembered for you personally. When you come back to the list, it opens the way
+you left it. If a list looks shorter than you expect, check whether a filter
+is still switched on.
+</Callout>
+
+## The care journeys list
+
+This list has been rebuilt, and it shows 20 rows per page. The number of matching rows appears beside the page title.
+
+### Tabs
+
+| Tab | Shows |
+|-----|-------|
+| **All open** | Every open <Term path="serviceEpisode" /> |
+| **Active** | <Term path="serviceEpisode" plural /> currently delivering service |
+| **Awaiting Staff** | <Term path="serviceEpisode" plural /> with no <Term path="caseWorker" /> assigned yet |
+| **Awaiting Commencement** | <Term path="serviceEpisode" plural /> with staff assigned, not yet commenced |
+| **On Hold** | Paused <Term path="serviceEpisode" plural /> |
+
+The **Awaiting Staff** tab is hidden from <Term path="caseWorker" plural />. If
+you are a <Term path="caseWorker" />, you will not see it.
+
+### Filters and columns
+
+| Where | What it does |
+|-------|--------------|
+| **Risk** column | New. Filter by **None**, **Low**, **Medium**, **High** or **Critical** |
+| **Service** filter | Pick more than one service at once |
+| **Assigned Staff** filter | Managers and supervisors only. Other roles do not see it |
+| **Status** column | Shown on the **All open** tab only |
+
+### Sorting and reloading
+
+Select a column heading to sort by it. The new sort replaces the old one. Sorts
+do not stack on top of each other.
+
+While the list reloads after a sort, filter or search, the rows fade.
+
+### Recipe: high-risk journeys that need staff
+
+1. Select the **Awaiting Staff** tab.
+2. Open the filter on the **Risk** column.
+3. Tick **High**.
+4. Tick **Critical**.
+
+The rows fade, then the list shows only the matching rows. The count beside the
+title updates to match.
+
+If you are a <Term path="caseWorker" />, you cannot see the **Awaiting Staff**
+tab. Use the **All open** tab for this recipe instead.
+
+## Completed Care
+
+The **Completed Care** page uses the same table as the
+<Term path="serviceEpisode" plural /> list.
+
+| Tab | Shows |
+|-----|-------|
+| **All** | Everything on the page |
+| **Closed** | <Term path="serviceEpisode" plural /> that were closed |
+| **Completed** | <Term path="serviceEpisode" plural /> that were completed |
+
+There are two new columns:
+
+- **End Date**. You can sort by it, and filter it by a date range.
+- **Closure Reason**. You can filter it by more than one reason at a time.
+
+There are also **Service** and **Assigned Staff** filters.
+
+### Recipe: closed journeys that ended in October
+
+1. Select the **Closed** tab.
+2. Open the filter on the **End Date** column.
+3. Choose 1 October as the start of the range.
+4. Choose 31 October as the end of the range.
+
+The list reloads and shows only <Term path="serviceEpisode" plural /> whose end
+date falls in that range. To narrow it further, open the **Closure Reason**
+filter and tick the reasons you want.
+
+## Searching
+
+On the <Term path="serviceEpisode" plural /> list and the **Completed Care** page, the search box works like this:
+
+- It starts searching after you have typed **3 letters** and paused briefly.
+- If you want to search for fewer letters, type them and press **Enter**.
+- The hint reads **Press Enter to search, or type 3 or more letters**.
+- The **x** button, labelled **Clear search**, empties the box and clears the search. Pressing **Esc** does the same.
+
+The box on the <Term path="serviceEpisode" plural /> list reads
+**Search client, service or staff name...**. The box on **Completed Care** reads
+**Search completed** followed by your organisation's word for
+<Term path="serviceEpisode" plural />.
+
+## If your screen does not match this page
+
+- **A tab, column or filter is missing.** **Awaiting Staff** is hidden from <Term path="caseWorker" plural />. **Assigned Staff** is only for managers and supervisors. **Status** is only on the **All open** tab.
+- **The list is shorter than you expect.** A filter from your last visit may still be on, because your filters are remembered. Check the filters in the column headings.
+- **Search does nothing.** You may have typed fewer than 3 letters. Press **Enter**, or type another letter.
+- **A name looks different.** Your organisation can rename menu items and the words used for <Term path="referral" plural /> and <Term path="serviceEpisode" plural />.
+
+If your screen still does not match, tell your supervisor or administrator what
+you see, and which list you were on. Do not work around it.

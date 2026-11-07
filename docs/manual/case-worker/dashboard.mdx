@@ -14,59 +14,96 @@ The <Term path="caseWorker" /> <Term path="dashboard" /> — titled **"My <Term 
 
 ## Overview
 
-![Case Worker Dashboard Analytics](/img/dashboards/case-worker/analytics.png)
+<Screen
+  src="/img/dashboards/case-worker/analytics.png"
+  alt="The three metric cards at the top of the Case Worker dashboard: Active Cases, Follow-ups Due and Total Referrals"
+  caption="Three cards at the top: Active Cases, Follow-ups Due and Total Referrals. Cards for care journeys that are ready to start sit below them."
+/>
 
 The dashboard displays:
-- **Real-time metrics** showing your active <Term path="cases" />, urgent items, follow-ups, and <Term path="referral" /> counts
-- **My Active <Term path="cases" />** table of all <Term path="serviceEpisode" plural /> assigned to you
-- **<Term path="activity" plural /> Needing Follow-up** table of scheduled follow-ups sorted by date and priority
+- **Three metric cards** showing your active <Term path="cases" />, follow-ups, and <Term path="referral" /> count
+- **Ready to start** cards for <Term path="serviceEpisode" plural /> that are allocated to you but not yet started (only when you have some)
+- **My <Term path="serviceEpisode" plural />** table of all <Term path="serviceEpisode" plural /> assigned to you
+- **<Term path="activity" plural /> Needing Follow-up** table of your pending follow-ups
+- **Virtual client follow-ups** table below those, if your service uses virtual clients
 
-The dashboard description reads: *"View and manage your assigned <Term path="serviceEpisode" plural /> and <Term path="activity" plural />."*
+The dashboard description reads: *"View your assigned care journeys and upcoming activities."* Your organisation may have changed these words.
 
 ---
 
 ## Analytics Section
 
-The top section displays four metric cards summarising your current workload.
+The top section displays three metric cards summarising your current workload. Select a card to go to the matching list.
 
 ### Statistics Cards
 
-| Card | Icon | Description | Highlight Colour |
+| Card | Icon | Description | What happens when you select it |
 |------|------|-------------|-----------------|
-| **Active <Term path="serviceEpisode" plural />** | Document | Number of active <Term path="serviceEpisode" plural /> assigned to you | Blue when you have active <Term path="cases" /> |
-| **Urgent/Crisis** | Warning triangle | Combined count of urgent, crisis, and emergency priority <Term path="referral" plural /> | Orange when count is greater than 0 |
-| **Follow-ups Due** | Calendar | Number of <Term path="activity" plural /> with scheduled follow-up dates | Yellow when follow-ups are pending |
-| **Total <Term path="referral" plural />** | Activity | Total number of <Term path="referral" plural /> across all priority levels | Default (no highlight) |
+| **Active Cases** | Briefcase | Number of <Term path="serviceEpisode" plural /> assigned to you that are active. Small text underneath reads **<Term path="serviceEpisode" plural /> currently in progress** | Opens the <Term path="serviceEpisode" plural /> list filtered to active |
+| **Follow-ups Due** | Bell | Number of your pending follow-ups. Small text underneath reads **<Term path="activity" plural /> with upcoming follow-ups** | Scrolls down to the **<Term path="activity" plural /> Needing Follow-up** table |
+| **Total <Term path="referral" plural />** | Clipboard | Number of <Term path="referral" plural /> assigned to you. Small text underneath reads **All referrals assigned to you** | Opens the full <Term path="serviceEpisode" plural /> list |
+
+Each card has a coloured stripe down its left side: teal for **Active Cases**, amber for **Follow-ups Due** and green for **Total <Term path="referral" plural />**. The stripe does not change with the number.
 
 ### Understanding the Numbers
 
-- **Active <Term path="serviceEpisode" plural />** reflects your current <Term path="serviceEpisode" /> assignments
-- **Urgent/Crisis** sums up urgent + crisis + emergency priority <Term path="referral" plural /> — check these first
-- **Follow-ups Due** counts <Term path="activity" plural /> where you have set a follow-up date that still needs action
-- **Total <Term path="referral" plural />** shows your overall <Term path="referral" /> volume across all priorities (routine, priority, urgent, crisis, emergency)
+- **Active Cases** reflects your current <Term path="serviceEpisode" /> assignments
+- **Follow-ups Due** counts <Term path="activity" plural /> where you have set a follow-up date and the follow-up is still pending
+- **Total <Term path="referral" plural />** shows your overall <Term path="referral" /> volume
+
+<Callout color="stone" title="The Urgent / Crisis card has gone">
+Older training material mentions an **Urgent / Crisis** card. It is no longer on the dashboard.
+</Callout>
 
 ---
 
-## My Active <Term path="cases" /> {#my-active-cases}
+## Ready to start
 
-![My Active Cases](/img/dashboards/case-worker/my-active-cases.png)
+When <Term path="serviceEpisode" plural /> are allocated to you but not yet started, a **Ready to start** section appears under the metric cards. If you have none, the section is not shown.
 
-This section lists all <Term path="serviceEpisode" plural /> currently assigned to you.
+With one waiting, the heading reads **Ready to start**. With more, it reads **3 care journeys ready to start** (with your own number), and a line underneath says *"Starting one begins service and sets its compliance deadlines."*
 
-**Section description:** *"<Term path="serviceEpisode" plural /> assigned to you"*
+Each waiting <Term path="serviceEpisode" /> has its own card showing:
+
+- The client's name, as a link to the <Term path="serviceEpisode" />
+- The service name
+- **Deadlines run from** a date
+- A red warning-triangle badge, titled **Safety alert**, if the <Term path="serviceEpisode" /> has a safety alert
+- A button reading **Start working with** and the client's first name
+
+To start one:
+
+1. Find the card for the person.
+2. Select **Start working with** and their first name.
+
+A message reads **You're now working with** and their first name, and you are taken to their <Term path="serviceEpisode" />. If it fails, a message reads **Could not start this care journey. Please try again.**
+
+The dashboard shows up to six cards. If there are more, a **View all** link, with the total number, opens the full list.
+
+---
+
+## My <Term path="serviceEpisode" plural /> {#my-active-cases}
+
+<Screen
+  src="/img/dashboards/case-worker/my-active-cases.png"
+  alt="The My Care Journeys table with Reference, Client, Service, Status, Start Date, Last Activity, Last Entry Change and Actions columns, and a View button on each row"
+  caption="Your care journeys, sorted by Last Activity. Use Columns to show or hide columns."
+/>
+
+This section lists the <Term path="serviceEpisode" plural /> assigned to you. Its heading reads **My <Term path="serviceEpisode" plural />**.
 
 ### Table Columns
 
 | Column | Description |
 |--------|-------------|
 | **Reference** | The <Term path="serviceEpisode" /> reference number (e.g., SEP-2026-DEFAULT-00009) |
-| **Client** | Client name |
-| **Service** | The service being delivered (displayed as a badge, e.g., "Whakaora Koti", "Social Workers in Schools") |
-| **Status** | Current status of the <Term path="serviceEpisode" /> |
+| **Client** | Client name, with a family name underneath when there is one |
+| **Service** | The service being delivered |
+| **Status** | Current status of the <Term path="serviceEpisode" />, shown as a coloured badge |
 | **Start Date** | When the <Term path="serviceEpisode" /> started |
 | **Last Activity** | When an <Term path="activity" /> under this <Term path="serviceEpisode" /> was last created or edited |
 | **Last Entry Change** | When Consent, Cultural Profile, Intake Assessment or Service Delivery Preferences were last saved on the <Term path="referral" /> |
-| **Actions** | View button to open the <Term path="serviceEpisode" /> details |
+| **Actions** | **View** button to open the <Term path="serviceEpisode" /> details |
 
 **Last Activity** and **Last Entry Change** only appear on wide displays; on a
 smaller screen the table leaves them out.
@@ -74,7 +111,7 @@ smaller screen the table leaves them out.
 The list opens sorted by **Last Activity**, newest first, so whoever you worked
 on most recently is at the top. Select a header to sort by it instead — **Client**,
 **Service**, **Status**, **Start Date**, **Last Activity** and **Last Entry Change**
-can all be sorted on. See
+can all be sorted on. **Reference** and **Actions** cannot. See
 [Sorting <Term path="serviceEpisode" plural /> by recent activity](/releases/2026-09-09-care-journey-sorting)
 for what the two date columns mean.
 
@@ -82,76 +119,79 @@ for what the two date columns mean.
 
 | Status | Colour | Meaning |
 |--------|--------|---------|
-| **awaiting_commencement** | Grey | <Term path="serviceEpisode" /> created but service delivery hasn't started yet |
-| **active** | Primary (dark) | Service delivery is in progress |
-| **completed** | Green | Service delivery has been completed |
-| **closed** | Outline | <Term path="serviceEpisode" /> has been closed |
+| **Awaiting Commencement** | Amber | <Term path="serviceEpisode" /> created but service delivery hasn't started yet |
+| **Active** | Teal | Service delivery is in progress |
+| **Completed** | Green | Service delivery has been completed |
+| **Closed** | Grey | <Term path="serviceEpisode" /> has been closed |
 
 ### Actions
 
 - **View** — Click to open the full <Term path="serviceEpisode" /> detail page where you can manage the <Term path="serviceEpisode" />, record <Term path="activity" plural />, and view client information
+- Selecting anywhere else on a row opens the same page
 
-### Search
+### Columns button
 
-Use the search bar to filter by **client name**, **service name**, or **status**.
-
-- Type your search term and results filter automatically
-- The search placeholder reads: *"Search by client, service, or status..."*
+The **Columns** button above the table opens a list titled **Toggle columns**. Untick a column to hide it. Tick it to bring it back. The change lasts until you reload the page.
 
 ### Pagination
 
-When you have more than 5 <Term path="serviceEpisode" plural />, pagination appears at the bottom:
+The bottom of the table always shows:
 
 | Element | Description |
 |---------|-------------|
-| **Showing X-Y of Z** | Which records are currently displayed |
+| **Showing X–Y of Z** | Which records are currently displayed |
+| **Rows** | How many rows per page: 10, 20 or 50. The table starts at 10 |
 | **Page X of Y** | Current page and total pages |
 | **< >** arrows | Navigate between pages |
 
 ### Empty State
 
-When you have no active <Term path="cases" />, you will see a green checkmark with the message: *"No active cases assigned to you."*
+When you have no <Term path="serviceEpisode" plural />, the table shrinks to its heading with **(0 entries)** beside it, for example **My <Term path="serviceEpisode" plural /> (0 entries)**. There is no icon or message.
 
 ---
 
 ## <Term path="activity" plural /> Needing Follow-up {#activities-needing-follow-up}
 
-![Activities Needing Follow-up](/img/dashboards/case-worker/activities-needing-follow-up.png)
+<Screen
+  src="/img/dashboards/case-worker/activities-needing-follow-up.png"
+  alt="The Activities Needing Follow-up table with Reference, Client, Service, Follow-up Date and Priority columns, and a tick button and three-dot menu on each row"
+  caption="Overdue follow-ups are marked in red, and ones due today in amber."
+/>
 
-This section shows all your <Term path="activity" plural /> that have a scheduled follow-up date, sorted by date and priority. It helps you stay on top of upcoming and overdue follow-ups.
-
-**Section description:** *"Scheduled follow-ups sorted by date and priority"*
+This section shows your <Term path="activity" plural /> that have a pending follow-up date. It helps you stay on top of upcoming and overdue follow-ups.
 
 ### Table Columns
 
 | Column | Description |
 |--------|-------------|
-| **Client** | Client name and <Term path="referral" /> reference number (e.g., REF-2026-DEFAULT-00015) |
-| **<Term path="activity" />** | Title of the <Term path="activity" /> (e.g., "Exit Episode", "Weekly Visit", "day 1") |
-| **Service** | The service name (displayed as a badge) |
-| **Risk** | Risk level badge for the <Term path="activity" /> |
-| **Follow-up** | Days until follow-up or days overdue |
-| **Actions** | Link icon to open the <Term path="activity" /> detail page |
+| **Reference** | The <Term path="referral" /> reference number (e.g., REF-2026-DEFAULT-00015) |
+| **Client** | Client name |
+| **Service** | The service name |
+| **Follow-up Date** | The follow-up date, shown as a coloured badge (see below) |
+| **Priority** | Priority badge for the follow-up |
+| (no heading) | A tick button and a three-dot menu |
 
-### Risk Badges
+### Priority Badges
 
-| Risk Level | Colour | Meaning |
-|------------|--------|---------|
-| **Critical** | Red | Highest risk — requires immediate attention |
-| **High** | Red | High risk — prioritise this <Term path="activity" /> |
-| **Medium** | Primary (dark) | Moderate risk — monitor closely |
-| **None** / other | Grey | No specific risk identified |
+The badge shows the priority's name. Its colour follows how serious the priority is:
 
-### Follow-up Badges
+| Priority | Colour |
+|----------|--------|
+| Routine or Low | Grey |
+| Medium or Priority | Pale amber |
+| Urgent or High | Deeper amber |
+| Crisis | Pale red-brown |
+| Emergency | Deeper red-brown, bold text |
 
-The Follow-up column dynamically shows how urgent the follow-up is:
+### Follow-up Date Badges
+
+The **Follow-up Date** column shows how urgent the follow-up is:
 
 | Badge | Colour | Meaning |
 |-------|--------|---------|
-| **Xd overdue** | Red | Follow-up date has passed (e.g., "22d overdue", "6d overdue") |
-| **Today** | Primary (dark) | Follow-up is due today |
-| **In Xd** | Primary (dark) | Follow-up is due within 2 days (e.g., "In 1d") |
-| **In Xd** | Grey | Follow-up is due in 3+ days (e.g., "In 3d") |
+| **Overdue — 3 Nov** | Red | Follow-up date has passed. The date shown is the day it was due |
+| **Due today** | Amber | Follow-up is due today |
+| **12 Nov** | Green | Follow-up is due on a later day. The badge shows that date |
 
 <Callout color="amber" title="Overdue Follow-ups">
 Red "overdue" badges indicate follow-ups that are past due. Address these first to ensure no client is left without timely support.
@@ -159,54 +199,76 @@ Red "overdue" badges indicate follow-ups that are past due. Address these first 
 
 ### Actions
 
-Click the **link icon** on any row to navigate directly to the <Term path="activity" /> detail page within its <Term path="serviceEpisode" />.
+Each row has two buttons on the right, and the row itself can be selected.
 
-### Search
+| Control | What it does |
+|---------|--------------|
+| Selecting the row | Opens the <Term path="activity" /> on the **Activities** tab of its <Term path="serviceEpisode" /> |
+| Tick button (hover text **Resolve follow-up**) | Opens a panel under the row where you record what happened. Buttons: **Completed**, **Didn't happen**, **Cancel** and **Save & resolve**. The panel says closing a follow-up can't be undone |
+| Three-dot button (hover text **More options**) | Opens a menu with **Log activity** and **No longer needed** |
+| **Log activity** | Takes you to the **Activities** tab of the <Term path="serviceEpisode" /> to log the follow-up in full |
+| **No longer needed** | Asks **Cancel Follow-up?** Choose **Keep Follow-up** to back out, or **Yes, Cancel Follow-up** to remove it from your list |
 
-Use the search bar to filter by **client name**, **<Term path="activity" /> title**, or **service name**.
-
-- The search placeholder reads: *"Search by client, activity, or service..."*
+The steps for the resolve panel are in [Resolving a follow-up](/releases/2026-09-01-follow-up-resolution).
 
 ### Pagination
 
-Same pagination pattern as My Active <Term path="cases" /> — 5 items per page with page navigation.
+Same pagination pattern as My <Term path="serviceEpisode" plural />: **Showing X–Y of Z**, a **Rows** selector (10, 20 or 50, starting at 10) and **Page X of Y** with arrows. This table has no **Columns** button.
 
 ### Empty State
 
-When you have no follow-ups scheduled, you will see a green checkmark with the message: *"No follow-ups scheduled"*
+When you have no follow-ups, the heading **<Term path="activity" plural /> Needing Follow-up** stays. Underneath it is a calendar icon with the message **No follow-ups due** and the line *"All your activities are up to date — nice work!"*
+
+---
+
+## Virtual client follow-ups {#virtual-client-follow-ups}
+
+If one of your services uses virtual clients, a **Virtual client follow-ups** table appears at the bottom of the dashboard. It lists your pending follow-ups on virtual client notes. If your services do not use virtual clients, you will not see it.
+
+| Column | Description |
+|--------|-------------|
+| **Note** | Title of the note the follow-up came from |
+| **Due Date** | The date. An overdue follow-up shows in red with an alert icon and **(overdue)** |
+| **Case / Client** | A link to the Police case or to the virtual client |
+| (no heading) | **Resolve** and **Cancel** buttons. On a narrow screen they show as icons only |
+
+Both buttons open a window with a **Closing note** box. A follow-up you close here stays in the list, with a **Resolved** or **Cancelled** badge, until you change page.
+
+The table shows 10 rows per page, with the same **Showing**, **Rows** and **Page** controls as above. When you have none, it shrinks to **Virtual client follow-ups (0 entries)**.
+
+For the steps, see [Notes, follow-ups and who looks after a virtual client](/manual/case-worker/virtual-clients-notes-and-follow-ups).
+
+If your position can approve virtual client closures, a **Pending Closure Requests** table also appears at the bottom. Other positions do not see it.
 
 ---
 
 ## Common Tasks
 
-### Searching Within Sections
+### Sorting and Showing Columns
 
-Each section has its own search bar:
+The dashboard tables have no search box. To find someone:
 
-| Section | Search Placeholder | Searchable Fields |
-|---------|--------------------|-------------------|
-| **My Active <Term path="cases" />** | "Search by client, service, or status..." | Client name, service name, status |
-| **<Term path="activity" plural /> Needing Follow-up** | "Search by client, activity, or service..." | Client name, <Term path="activity" /> title, service name |
+1. Select a column header in **My <Term path="serviceEpisode" plural />** to sort by it. Select it again to reverse the order.
+2. Use the **Rows** selector to show up to 50 rows at once.
+3. Use the page arrows to move through the rest.
+
+The **Columns** button on **My <Term path="serviceEpisode" plural />** hides or shows columns.
 
 ### Refreshing Data
 
-Click the **refresh icon** (circular arrow) in the top-right header to reload all dashboard data.
-
-### Switching Themes
-
-Click the **sun/moon icon** in the top-right header to toggle between light and dark modes.
+The dashboard has no refresh button. Reload the page in your browser to bring in the latest numbers.
 
 ### Navigating to a <Term path="serviceEpisode" /> {#navigating-to-a-service-episode}
 
-1. Find the <Term path="serviceEpisode" /> in the **My Active <Term path="cases" />** table
+1. Find the <Term path="serviceEpisode" /> in the **My <Term path="serviceEpisode" plural />** table
 2. Click the **View** button
 3. You will be taken to the full <Term path="serviceEpisode" /> page
 
 ### Navigating to an <Term path="activity" /> {#navigating-to-an-activity}
 
 1. Find the <Term path="activity" /> in the **<Term path="activity" plural /> Needing Follow-up** table
-2. Click the **link icon** in the Actions column
-3. You will be taken to the <Term path="activity" /> detail page within its <Term path="serviceEpisode" />
+2. Click anywhere on its row, away from the buttons on the right
+3. You will be taken to the <Term path="activity" /> within its <Term path="serviceEpisode" />
 
 ---
 
@@ -229,9 +291,9 @@ Your supervisor can see all your records plus records of other <Term path="caseW
 ### Daily Routine
 
 1. **Start of Day**
-   - Check the **Urgent/Crisis** card for high-priority items
+   - Check **Ready to start** for <Term path="serviceEpisode" plural /> waiting for you to begin
    - Review **Follow-ups Due** for any overdue follow-ups (red badges)
-   - Scan **My Active <Term path="cases" />** for <Term path="serviceEpisode" plural /> awaiting commencement
+   - Scan **My <Term path="serviceEpisode" plural />** for <Term path="serviceEpisode" plural /> awaiting commencement
 
 2. **Throughout the Day**
    - Record <Term path="activity" plural /> after each client interaction
@@ -248,18 +310,9 @@ Your supervisor can see all your records plus records of other <Term path="caseW
 | Priority | Expected Action |
 |----------|----------------|
 | **Overdue follow-ups** (red) | Address immediately |
-| **Urgent/Crisis <Term path="referral" plural />** | Process same day |
-| **Follow-ups due today or within 2 days** | Schedule into today's work |
+| **Follow-ups due today** (amber) | Schedule into today's work |
 | **Awaiting commencement <Term path="serviceEpisode" plural />** | Plan service start |
-| **Routine follow-ups** | Process in order |
-
-### Keyboard Shortcuts
-
-| Shortcut | Action |
-|----------|--------|
-| `Ctrl + F` | Open search |
-| `Enter` | Submit search |
-| `Esc` | Close dialogs |
+| **Other follow-ups** (green) | Process in date order |
 
 ---
 
@@ -268,7 +321,7 @@ Your supervisor can see all your records plus records of other <Term path="caseW
 ### Dashboard Not Loading
 
 1. Check your internet connection
-2. Click the refresh button
+2. Reload the page in your browser
 3. Try logging out and back in
 4. Clear your browser cache
 
@@ -276,7 +329,7 @@ Your supervisor can see all your records plus records of other <Term path="caseW
 
 If you cannot find an assigned <Term path="serviceEpisode" />:
 1. Check all pages using pagination
-2. Use the search bar with the client name or reference number
+2. Sort by **Client** to find the name
 3. The <Term path="serviceEpisode" /> may have been closed or reassigned — check with your supervisor
 
 ### Follow-up Dates Not Showing
@@ -284,14 +337,18 @@ If you cannot find an assigned <Term path="serviceEpisode" />:
 <Term path="activity" plural /> only appear in the follow-up section if:
 1. The <Term path="activity" /> has the **follow-up required** flag set
 2. A **follow-up date** has been entered
-3. The <Term path="activity" /> belongs to your assigned <Term path="serviceEpisode" plural />
+3. The follow-up is still pending, not already resolved or cancelled
+4. The <Term path="activity" /> belongs to your assigned <Term path="serviceEpisode" plural />
 
 ### Data Not Updating
 
-1. Click the refresh button
+1. Reload the page
 2. Wait a few moments and try again
-3. Check if search filters are narrowing your view
-4. Contact support if the issue persists
+3. Contact support if the issue persists
+
+### If your screen does not match this page
+
+Some parts of the dashboard depend on your position, your service and your organisation's settings. If something here is missing from your screen, or your screen shows something this page does not mention, tell your supervisor or administrator what you see and where. Do not work around it.
 
 ---
 

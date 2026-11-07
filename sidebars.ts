@@ -65,6 +65,29 @@ const sidebars: SidebarsConfig = {
             'manual/case-worker/writing-up-what-you-did',
             'manual/case-worker/staying-on-top-of-deadlines',
             'manual/case-worker/finishing-up',
+            {
+              type: 'category',
+              label: 'Virtual Clients',
+              link: {
+                type: 'generated-index',
+                // Explicit slug: three roles each have a "Virtual Clients" menu,
+                // and generated indexes would otherwise all claim the same URL.
+                slug: '/category/case-worker-virtual-clients',
+                title: 'Virtual Clients (Case Worker)',
+                description:
+                  'Registering Police cases, adding people, notes and follow-ups, and closing a person or fixing a wrong link.',
+              },
+              items: [
+                {
+                  type: 'link',
+                  label: 'What is a virtual client?',
+                  href: '/virtual-clients/overview',
+                },
+                'manual/case-worker/virtual-clients-register-and-add-people',
+                'manual/case-worker/virtual-clients-notes-and-follow-ups',
+                'manual/case-worker/virtual-clients-closing-and-fixing',
+              ],
+            },
             'manual/case-worker/dashboard',
           ],
         },
@@ -80,6 +103,16 @@ const sidebars: SidebarsConfig = {
             'manual/intake-officer/what-you-can-do',
             'manual/intake-officer/your-day-at-a-glance',
             'manual/intake-officer/taking-on-someone-new',
+            {
+              type: 'category',
+              label: 'Virtual Clients',
+              // One page, so the menu item opens it directly.
+              link: {
+                type: 'doc',
+                id: 'manual/intake-officer/linking-a-virtual-client',
+              },
+              items: [],
+            },
             'manual/intake-officer/dashboard',
           ],
         },
@@ -98,6 +131,16 @@ const sidebars: SidebarsConfig = {
           items: [
             'manual/supervisor/what-you-can-do',
             'manual/supervisor/moving-work-between-staff',
+            {
+              type: 'category',
+              label: 'Virtual Clients',
+              // One page, so the menu item opens it directly.
+              link: {
+                type: 'doc',
+                id: 'manual/supervisor/virtual-clients-closures-and-consent',
+              },
+              items: [],
+            },
             'manual/supervisor/dashboard',
           ],
         },
@@ -128,6 +171,15 @@ const sidebars: SidebarsConfig = {
         'care-journeys/managing-episodes',
         'care-journeys/closing-an-episode',
       ],
+    },
+    {
+      // Concept page is the landing page, as for Entries and Care Journeys. The
+      // how-to pages live in the role sections of the User Manual; this section
+      // holds the idea. Only services with the per-service switch on use it.
+      type: 'category',
+      label: 'Virtual Clients',
+      link: { type: 'doc', id: 'virtual-clients/overview' },
+      items: [],
     },
     {
       type: 'category',
@@ -182,6 +234,12 @@ const sidebars: SidebarsConfig = {
       // Newest first. This array is explicit, so order here is what renders —
       // the sidebar_position in each page's frontmatter does not affect it.
       items: [
+        'releases/2026-11-09-virtual-clients',
+        'releases/2026-11-09-cultural-identity-per-person',
+        'releases/2026-11-09-funder-reporting',
+        'releases/2026-11-09-lists-filters-and-search',
+        'releases/2026-11-09-referrer-contacts',
+        'releases/2026-11-09-smaller-changes',
         'releases/2026-09-12-exit-approval',
         'releases/2026-09-09-care-journey-sorting',
         'releases/2026-09-01-follow-up-resolution',

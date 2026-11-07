@@ -3,7 +3,7 @@ title: Supervisor / Program Manager Dashboard
 description: Complete guide to the Supervisor and Program Manager Dashboard in Manaaki Central
 sidebar_position: 2
 helpId: dashboard-supervisor
-keywords: [dashboard, supervisor, program manager, referral requests, service dispatch, team management, entry, new entry, entry processing, entry details, awareness and entry, care journey, journey, in-progress journeys, kaiawhina, kaiāwhina, kaimahi, whanau, whānau, kiritaki]
+keywords: [dashboard, supervisor, follow-up, exit approval, safety alert, closure request, program manager, referral requests, service dispatch, team management, entry, new entry, entry processing, entry details, awareness and entry, care journey, journey, in-progress journeys, kaiawhina, kaiāwhina, kaimahi, whanau, whānau, kiritaki]
 ---
 
 import Callout from '@site/src/components/Callout';
@@ -11,111 +11,170 @@ import Screen from '@site/src/components/Screen';
 
 # Supervisor / Program Manager <Term path="dashboard" />
 
-The <Term path="supervisorDashboard" /> is your central hub for managing <Term path="referral" /> requests, monitoring team <Term path="activity" />, and ensuring timely service delivery. Both Supervisors and Program Managers share the same dashboard experience.
+The <Term path="supervisorDashboard" /> is your central hub for managing <Term path="referral" /> requests, approvals and follow-ups. By the end of this page you will know what each part of it shows and what you can do from it. Supervisors and Program Managers share the same dashboard.
 
 ## Overview
 
-![Supervisor Dashboard Analytics](/img/dashboards/supervisor/analytics.png)
 
-The <Term path="supervisorDashboard" /> displays:
-- **Real-time analytics** showing pending requests, active <Term path="serviceEpisode" plural />, and <Term path="referral" /> volumes
-- **Pending <Term path="referral" plural /> Requests** queue for accepting or rejecting incoming <Term path="referral" plural />
-- **<Term path="serviceUser" plural /> Needing Contact** to flag clients not contacted recently
-- **Pending Service Dispatch** for <Term path="referral" plural /> awaiting service assignment
+<Screen
+  src="/img/dashboards/supervisor/analytics.png"
+  alt="The Manager dashboard with three cards, Awaiting Commencement, High Priority Referrals and Active Care Journeys, and a summary line beneath them"
+  caption="Three coloured cards and the summary line beneath them. Select a card to open its list."
+/>
 
-The dashboard description reads: *"Review <Term path="referral" plural />, allocate to team members, and monitor <Term path="serviceUser" /> engagement."*
+From top to bottom, the dashboard shows:
+
+1. **Three cards** - <Term path="serviceEpisode" plural /> awaiting commencement, high priority <Term path="referral" plural />, and active <Term path="serviceEpisode" plural />. Select a card to open a list beneath it.
+2. **A summary line** - **Pending Requests**, **Activities This Month** and **Referrals This Month**.
+3. **Pending Referral Requests** - incoming <Term path="referral" plural /> to accept or reject.
+4. **Pending Exit Approvals** - requests to close a <Term path="serviceEpisode" />.
+5. **Pending Safety Alert Confirmations** and **Safety Alert Access Requests** - shown only when something is waiting for you.
+6. **Activities Needing Follow-up** - follow-ups that are due.
+7. **Pending Closure Requests** and **Virtual client follow-ups** - at the very bottom, and only for some people. See [below](#pending-closure-requests-and-virtual-client-follow-ups).
+
+The page title is **Team Overview**. If you work in only one service, the title is that service's name. The line under it reads *"Monitor team workload, <Term path="referral" plural /> waiting to be sent, and <Term path="serviceUser" /> outcomes."*
+
+### Overview and Services tabs {#overview-and-services-tabs}
+
+If you work in more than one service, you see two tabs, **Overview** and **Services**. If you work in one service, there are no tabs.
+
+| Tab | What it shows |
+|-----|---------------|
+| **Overview** | Everything in the list above, across all your services |
+| **Services** | Pick one service from **Filter by service:** to see the three cards, the summary line and **Pending Referral Requests** for that service only |
+
+Until you pick a service on the **Services** tab, the page says **Select a service** and asks you to choose one from the dropdown.
+
+<Callout color="teal" title="Where is everything else?">
+The **Services** tab does not show **Pending Exit Approvals**, the safety alert tables or **Activities Needing Follow-up**. Look on the **Overview** tab for those.
+</Callout>
 
 ---
 
 ## Analytics Section
 
-The top section displays four key metric cards that give you an at-a-glance view of your workload.
+The top of the page has three cards and a summary line. Together they give you an at-a-glance view of your workload.
 
-### Statistics Cards
+### The three cards
 
-| Card | Icon | Description | What It Shows |
-|------|------|-------------|---------------|
-| **Pending Requests** | Document | <Term path="referral" /> requests awaiting your action | Count of incoming requests needing accept/reject |
-| **Active <Term path="serviceEpisode" plural />** | People | Active <Term path="serviceEpisode" plural /> under your oversight | Total active service delivery <Term path="serviceEpisode" plural /> |
-| **<Term path="activity" plural /> / <Term path="serviceEpisode" plural />** | Activity | <Term path="activity" /> engagement ratio | Format: "X/Y" (total <Term path="activity" plural /> / unique <Term path="serviceEpisode" plural /> with <Term path="activity" plural />) |
-| **<Term path="referral" plural /> (This Month)** | Clock | <Term path="referral" plural /> created in the current month | Monthly <Term path="referral" /> volume |
+| Card | What it shows |
+|------|---------------|
+| **Awaiting Commencement** | Number of <Term path="serviceEpisode" plural /> accepted but not yet started. Underneath: "<Term path="serviceEpisode" plural /> pending start" |
+| **High Priority Referrals** | Number of <Term path="referral" /> requests marked urgent, crisis or emergency. Underneath: "Urgent/crisis/emergency" |
+| **Active <Term path="serviceEpisode" plural />** | Total active <Term path="serviceEpisode" plural /> across your services. Underneath: "Currently in progress" |
 
-### Understanding the Cards
+Select a card to open a panel beneath the cards. Select the same card again, or the **X** in the panel, to close it.
 
-- **Orange highlight** on "Pending Requests" indicates items requiring your immediate attention
-- The **<Term path="activity" plural /> / <Term path="serviceEpisode" plural />** ratio helps you gauge team engagement - a higher ratio means more <Term path="activity" plural /> per <Term path="serviceEpisode" />
-- Numbers update in real-time as your team processes <Term path="referral" plural /> and records <Term path="activity" plural />
+| Panel | What it lists |
+|-------|---------------|
+| **Awaiting Commencement** | **Reference**, **Client Name**, **Service**, **Status**, **Assigned To** (or **Unassigned**) and **Start Date**. Search with **Search client name...**. Select a row to open the <Term path="serviceEpisode" />. |
+| **High Priority Referrals** | **Priority**, **Person**, **Status**, **Reason** and **Age**. Search with **Search name or reference...**. Select a row to preview the <Term path="referral" />. |
+| **Staff Workload Distribution** | A chart of active <Term path="serviceEpisode" plural /> for each staff member |
+
+<Screen
+  src="/img/dashboards/supervisor/awaiting-commencement-panel.png"
+  alt="The Awaiting Commencement panel opened below the cards, listing care journeys with their assigned staff and start dates"
+  caption="Awaiting Commencement: care journeys accepted but not yet started."
+/>
+
+<Screen
+  src="/img/dashboards/supervisor/high-priority-referrals-panel.png"
+  alt="The High Priority Referrals panel opened below the cards, with Priority, Person, Status, Reason and Age columns"
+  caption="High Priority Referrals: select a row to preview the referral."
+/>
+
+<Screen
+  src="/img/dashboards/supervisor/active-care-journeys-panel.png"
+  alt="The Active Care Journeys card opened to show the Staff Workload Distribution bar chart"
+  caption="Active Care Journeys opens the Staff Workload Distribution chart."
+/>
+
+### The summary line
+
+Under the cards you will see three numbers:
+
+- **Pending Requests** - how many rows are in **Pending Referral Requests**
+- **Activities This Month** - <Term path="activity" plural /> created this month
+- **Referrals This Month** - <Term path="referral" plural /> created this month
 
 ---
 
 ## Pending <Term path="referral" plural /> Requests {#pending-referrals-requests}
 
-![Pending Referral Requests](/img/dashboards/supervisor/pending-requests.png)
 
-This full-width section displays all incoming <Term path="referral" /> requests that require your review. These are <Term path="referral" plural /> that have been dispatched to a service you supervise and need to be accepted or rejected.
-
-**Section description:** *"Review and allocate incoming <Term path="referral" /> requests to your team."*
+This table lists incoming <Term path="referral" /> requests that need your decision. These are <Term path="referral" plural /> that have been dispatched to a service you supervise and need to be accepted or rejected.
 
 ### Table Columns
 
 | Column | Description |
 |--------|-------------|
-| **Client** | Client name and phone number |
-| **Service** | The service being requested (displayed as a badge) |
 | **Reference** | <Term path="referral" /> reference number (e.g., REF-2026-DEFAULT-00045) |
-| **Start Date** | Requested service start date |
-| **Actions** | Accept and Reject buttons |
+| **Client Name** | The client's name |
+| **Service** | The service being requested |
+| **Urgency** | How urgent the request is: Routine, Priority, Urgent, Crisis or Emergency |
+| **Status** | Where the request is up to |
+| **Date** | The date of the request |
+| **Actions** | **Accept** and **Reject** buttons |
+
+Select a row, anywhere except the buttons, to open a preview of the <Term path="referral" />.
 
 ### Accepting a <Term path="referral" /> {#accepting-a-referral}
 
-When you click **Accept**, a dialog appears with the following options:
+When you click **Accept**, the **Accept Referral Request** dialog appears. It shows the reference, the client and the service requested.
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| **Allocate to Team Member** | Optional | Dropdown to assign the <Term path="referral" /> to a specific staff member from your team |
-| **Notes for Team Member** | Optional | Free-text instructions or context for the allocated worker |
+| **Assign to Staff (optional)** | Optional | Dropdown, starting at **Select a staff member**. Lists staff for this service with their position and email |
+| **Notes (optional)** | Optional | Free text. The box reads "Any notes for the caseworker or team…" |
+
+Click **Accept Request** to finish, or **Cancel** to close the dialog.
 
 After accepting:
 1. The <Term path="referral" /> service request status changes to **Accepted**
-2. A **<Term path="serviceEpisode" />** is automatically created for the client under the requested service
-3. If a team member is selected in the "Allocate to Team Member" dropdown:
-   - The selected <Term path="caseWorker" /> is **assigned to the <Term path="serviceEpisode" />** as staff
-   - A **"<Term path="referral" /> and Service Enrolment"** <Term path="activity" /> is automatically created within the <Term path="serviceEpisode" />, containing the <Term path="referral" /> summary, service details, and staff assignment
-   - The <Term path="caseWorker" /> will see this <Term path="serviceEpisode" /> appear on their [Case Worker Dashboard](/manual/case-worker/dashboard) under **My Active <Term path="cases" />**
-4. Notes provided in the "Notes for Team Member" field are included in the enrolment <Term path="activity" /> for the <Term path="caseWorker" />'s reference
+2. A message appears: "Request accepted", followed by the client and service
+3. If you chose a staff member under **Assign to Staff (optional)**, a <Term path="serviceEpisode" /> is created for the client with that person assigned as primary responsible
+4. The <Term path="caseWorker" /> will see this <Term path="serviceEpisode" /> on their [Case Worker Dashboard](/manual/case-worker/dashboard) under **My Active <Term path="cases" />**
 5. The <Term path="referral" /> progresses forward in the workflow
 
-<Callout color="teal" title="Automatic Record Creation">
-Every accepted <Term path="referral" /> request creates a <Term path="serviceEpisode" />. Selecting a team member ensures the <Term path="caseWorker" /> is immediately assigned and can begin service delivery. If no team member is selected, the <Term path="serviceEpisode" /> is created but will need staff assignment later.
+<Callout color="teal" title="Choose a staff member when you accept">
+Choosing someone under **Assign to Staff (optional)** is what assigns the <Term path="caseWorker" /> straight away. If you leave it empty, the request is accepted with nobody assigned yet.
+</Callout>
+
+<Callout color="amber" title="If a care journey could not be created">
+If the request is accepted but the <Term path="serviceEpisode" /> cannot be created, a warning appears: "Request accepted but <Term path="serviceEpisode" /> creation failed. Please allocate manually." The request itself is still accepted.
 </Callout>
 
 ### Rejecting a <Term path="referral" /> {#rejecting-a-referral}
 
-When you click **Reject**, a dialog requires:
+When you click **Reject**, the **Reject Referral Request** dialog appears. It requires:
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| **Reason for Rejection** | **Yes** | You must provide an explanation for the rejection |
+| **Rejection Reason** | **Yes** | You must explain why the request cannot be accepted |
+
+The **Reject Request** button stays greyed out until you type a reason. Under the box, the dialog says "A reason is required to reject a request."
 
 After rejecting:
 1. The <Term path="referral" /> service request status changes to **Rejected** with the reason recorded
-2. The <Term path="referral" /> status reverts to **Pending Service Dispatch**
-3. The <Term path="referral" /> reappears in the [Pending Service Dispatch](#pending-service-dispatch) section (on the intake officer's or dispatching user's view)
+2. The <Term path="referral" /> status reverts to **Ready to Send**
+3. The <Term path="referral" /> goes back to the dispatch queue, where a different service can be selected
 4. A new service must be selected and a new service request created before the <Term path="referral" /> can proceed again
 
 <Callout color="amber" title="Rejection Reason Required">
-You cannot submit a rejection without providing a reason. This ensures transparency and helps the referring team understand the decision. After rejection, the <Term path="referral" /> goes back to pending service dispatch where a different service can be selected and a new request submitted.
+You cannot submit a rejection without providing a reason. This ensures transparency and helps the referring team understand the decision. After rejection, the <Term path="referral" /> goes back to the dispatch queue so a different service can be selected and a new request submitted.
 </Callout>
 
-### Search and Pagination
+### Columns, rows and pages
 
-- Use the search bar to filter by **client name** or **service name**
-- Results filter automatically as you type
-- Pagination controls show at the bottom: "Showing X-Y of Z" with page navigation
+- Click **Columns** above the table to show or hide columns
+- Click a column heading with arrows (**Client Name**, **Service**, **Urgency**, **Status**, **Date**) to sort
+- Under the table, **Showing X–Y of Z** tells you which rows you are looking at
+- **Rows** sets how many rows appear on a page: 10, 20 or 50
+- **Page X of Y** with the arrows moves between pages
 
-### Empty State
+### When the table is empty
 
-When there are no pending requests, you will see a green checkmark with the message: *"All caught up! No pending <Term path="referral" plural /> to allocate."*
+When there are no pending requests, the table shrinks to its heading and **(0 entries)**: **Pending Referral Requests (0 entries)**. Nothing else appears under it.
 
 ---
 
@@ -136,131 +195,146 @@ Where a service is configured to require approval before a <Term path="serviceEp
 | **Service** | The service being exited |
 | **Submitted By** | The staff member asking to close it |
 | **End Date** | The end date they've requested |
-| **Submitted** | When the request was made |
+| **Submitted** | When the request was made: **Today**, or a number of days such as **3d ago** |
 | **Actions** | **Approve** and **Reject** |
 
 ### What You Can Do
 
 - **Approve** straight from the row, without opening anything
-- Select a row to read the full request first — client, service, reference, requested end date and who submitted it — then **Approve** or **Reject** from there
+- Select a row to open **Exit Request Review** and read the full request first. It shows the client, service, reference, requested end date, when it was submitted, who submitted it and the assigned approver. Then **Approve** or **Reject** from there
 - **View Care Journey** in that dialog opens the full record if you need more context
 - **Reject** requires a reason. It's recorded on the <Term path="serviceEpisode" />'s <Term path="activity" /> timeline as an **Exit Rejected** entry — but nobody is notified, and nothing points the requester to it, so message them as well
 
+Clicking **Reject** on a row opens the same dialog with the rejection form already showing. Type the reason, then click **Confirm Rejection**.
+
 Approving closes the <Term path="serviceEpisode" /> using the details in the request. Rejecting leaves it open so the work can be finished and resubmitted.
 
-### Empty State
+### When nothing is waiting
 
-When nothing is waiting, the table reads *"No pending exit requests — All exit requests have been reviewed."*
+The table shrinks to its heading and **(0 entries)**: **Pending Exit Approvals (0 entries)**.
 
 See [Manager approval for <Term path="serviceEpisode" /> exits](/releases/2026-09-12-exit-approval) for the full workflow, including what the person requesting the exit sees.
 
 ---
 
-## <Term path="serviceUser" plural /> Needing Contact {#service-users-needing-contact}
+## Pending Safety Alert Confirmations {#pending-safety-alert-confirmations}
 
-![Service Users Needing Contact and Pending Service Dispatch](/img/dashboards/supervisor/needing-contact.png)
-
-This section (left column) flags <Term path="serviceUser" plural /> who have not been contacted by their assigned <Term path="caseWorker" /> in **5 or more days**. It helps supervisors ensure <Term path="serviceUser" plural /> receive timely follow-up.
-
-**Section description:** *"Clients not contacted in 5+ days"*
-
-### Table Columns
+This table lists safety alerts waiting for you to confirm. It only appears when there is at least one. If there is nothing to confirm, you will not see it at all.
 
 | Column | Description |
 |--------|-------------|
-| **Client** | Client name and phone number |
-| **<Term path="caseWorker" />** | The <Term path="caseWorker" /> assigned to this client |
-| **Days** | Number of days since last contact (displayed as a badge) |
+| **Client** | The client the alert is about |
+| **Alert Level** | LOW, MEDIUM or HIGH |
+| **Created By** | Who raised the alert |
+| **Date Raised** | When it was raised |
+| **Actions** | **View** and **Review** |
 
-### Days Badge Colours
+- **Review**, or selecting the row, opens the alert so you can review it
+- **View** opens the <Term path="serviceEpisode" /> the alert came from
 
-| Colour | Condition | Meaning |
-|--------|-----------|---------|
-| **Red** | More than 7 days | Overdue - requires immediate follow-up |
-| **Grey** | 5-7 days | Approaching overdue - monitor closely |
-| **--** | No contact recorded | No contact history available |
+On a narrow screen, **Created By** and **Date Raised** are hidden.
 
-### How Contact Is Tracked
+## Safety Alert Access Requests {#safety-alert-access-requests}
 
-The system tracks the most recent <Term path="activity" /> where:
-- The <Term path="activity" /> outcome is marked as **completed**
-- The <Term path="activity" /> type is a **telehealth session** or **in-person visit**
+This table lists requests from other services to see a client's safety alerts. Like the table above, it only appears when something is waiting for you.
 
-### What You Can Do
+| Column | Description |
+|--------|-------------|
+| **Client** | The client the request is about |
+| **Requesting Service** | The service asking for access |
+| **Alerts** | How many alerts the request covers |
+| **Requested By** | Who asked |
+| **Highest Level** | The highest alert level among them: LOW, MEDIUM or HIGH |
+| **Date Requested** | The earliest request date |
+| **Actions** | **View** and **Review** |
 
-1. Review <Term path="serviceUser" plural /> flagged for follow-up
-2. Search by **client name** or **<Term path="caseWorker" /> name**
-3. Follow up with <Term path="caseWorker" plural /> who have overdue contacts
-4. Ensure no <Term path="serviceUser" /> falls through the cracks
-
-<Callout color="teal" title="Proactive Monitoring">
-Check this section daily to ensure your team maintains regular contact with all <Term path="serviceUser" plural />. Early intervention prevents disengagement.
-</Callout>
+Requests from the same service about the same client are combined into one row. **Review**, or selecting the row, opens it for your decision. **View** opens the <Term path="serviceEpisode" />.
 
 ---
 
-## Pending Service Dispatch
+## Activities Needing Follow-up {#activities-needing-follow-up}
 
-This section (right column) shows <Term path="referral" plural /> where the **service request has been accepted** by a supervisor/manager but **no <Term path="caseWorker" /> has been assigned yet**. A <Term path="serviceEpisode" /> has been created, but it still needs a <Term path="caseWorker" /> allocated to begin service delivery.
+<Screen
+  src="/img/dashboards/supervisor/activities-needing-follow-up.png"
+  alt="The Activities Needing Follow-up table with Reference, Client, Service, Follow-up Date and Priority columns, and one row expanded to resolve the follow-up"
+  caption="The tick button opens the resolve panel inside the row."
+/>
 
-**Section description:** *"<Term path="referral" plural /> awaiting service assignment"*
-
-### Why <Term path="referral" plural /> Appear Here {#why-referrals-appear-here}
-
-A <Term path="referral" /> appears in this section when:
-- The service request was **accepted** by a supervisor/manager
-- **No <Term path="caseWorker" /> was selected** during the acceptance step (the "Allocate to Team Member" field was left empty)
-- The <Term path="serviceEpisode" /> exists but has no staff assigned
-
-### Table Columns
+This table lists follow-ups that are due. It includes your own follow-ups and those of the staff you supervise. Use it to resolve a follow-up without leaving the dashboard.
 
 | Column | Description |
 |--------|-------------|
-| **Client** | Client name and <Term path="referral" /> reference number |
-| **Priority** | Priority level badge |
-| **Date** | <Term path="referral" /> date |
+| **Reference** | The reference number |
+| **Client** | The client's name |
+| **Service** | The service |
+| **Follow-up Date** | When the follow-up is due |
+| **Priority** | The priority badge |
 
-### Priority Badges
+Each row also has two controls on the right:
 
-| Badge | Colour | Meaning |
-|-------|--------|---------|
-| **Routine** | Green | Standard processing timeline |
-| **Priority** | Amber/Orange | Requires prompt attention |
-| **Urgent** | Orange | Requires immediate action |
-| **Critical** | Red | Crisis situation - highest urgency |
+- The **tick** button (hover text **Resolve follow-up**) opens a panel inside the row, where you record what happened
+- The **three dots** menu (hover text **More options**) offers **Log activity**, which opens the <Term path="serviceEpisode" />'s <Term path="activity" plural /> page, and **No longer needed**, which asks you to confirm first
 
-### Search
+The steps for resolving a follow-up are in [Resolving a follow-up](/releases/2026-09-01-follow-up-resolution).
 
-Use the search bar to filter by **client name** or **priority level**.
+When nothing is due, the table is hidden and you see only the heading with **(0 entries)**: **Activities Needing Follow-up (0 entries)**. If you work in more than one service, this table is on the **Overview** tab only.
 
-### What You Can Do
+---
 
-1. Identify accepted <Term path="referral" plural /> that still need a <Term path="caseWorker" /> assigned
-2. Prioritise urgent and critical <Term path="referral" plural /> for faster allocation
-3. Assign a <Term path="caseWorker" /> to the <Term path="serviceEpisode" /> to begin service delivery
-4. Track any <Term path="referral" plural /> that have been waiting too long without staff assignment
+## Pending Closure Requests and Virtual client follow-ups {#pending-closure-requests-and-virtual-client-follow-ups}
+
+These two tables sit at the very bottom of the dashboard. They only appear for some people.
+
+### Pending Closure Requests
+
+This table appears only if your position is allowed to approve closures directly in a service that uses virtual clients.
+
+| Column | Description |
+|--------|-------------|
+| **PO Case** | The case reference, with the person number underneath |
+| **Virtual Client** | The virtual client's reference |
+| **Requested By** | Who asked, and when |
+| **Reason** | The closure reason, with any other reason they wrote |
+| **End Date** | The requested end date |
+| **Status** | **Pending**, **Approved**, **Rejected** or **Withdrawn** |
+
+Rows you can approve have a **Review** button. Selecting a row opens the same review. Rows you cannot approve do nothing when selected. When nothing is waiting, the table shows **Pending Closure Requests (0 entries)**.
+
+### Virtual client follow-ups
+
+This table appears only if one of your services uses virtual clients. It lists your own pending follow-ups on virtual client notes.
+
+| Column | Description |
+|--------|-------------|
+| **Note** | The title of the note |
+| **Due Date** | The follow-up date, with **(overdue)** beside it when it has passed |
+| **Case / Client** | A link to the case, or to the virtual client for a general note |
+
+Each row has **Resolve** and **Cancel** buttons. When nothing is due, the table shows **Virtual client follow-ups (0 entries)**. For more, see [Virtual clients](/releases/2026-11-09-virtual-clients).
 
 ---
 
 ## Common Tasks
 
-### Searching Within Sections
+### Searching
 
-Each section includes its own search bar:
+The main tables have no search box. Two places do:
 
-| Section | Search Placeholder | Searchable Fields |
-|---------|--------------------|-------------------|
-| **Pending <Term path="referral" plural /> Requests** | "Search by client or service..." | Client name, service name |
-| **<Term path="serviceUser" plural /> Needing Contact** | "Search by client or <Term path="caseWorker" />..." | Client name, <Term path="caseWorker" /> name |
-| **Pending Service Dispatch** | "Search by client or priority..." | Client name, priority level |
+| Where | Search Placeholder |
+|-------|--------------------|
+| **Awaiting Commencement** panel | "Search client name..." |
+| **High Priority Referrals** panel | "Search name or reference..." |
+
+Results filter as you type. Click **Clear** beside the box to start again.
 
 ### Pagination
 
-When there are many records, pagination controls appear at the bottom of each section:
+When there are many records, pagination controls appear at the bottom of each table:
 
 | Element | Description |
 |---------|-------------|
-| **Showing X-Y of Z** | Indicates which records are currently displayed |
+| **Showing X–Y of Z** | Indicates which records are currently displayed |
+| **Rows** | How many rows per page: 10, 20 or 50 |
 | **Page X of Y** | Current page number and total pages |
 | **< >** arrows | Navigate to previous/next page |
 
@@ -279,29 +353,24 @@ Click the **sun/moon icon** in the top-right header to toggle between light and 
 ### Status Flow for Service Requests
 
 ```
-Pending → Accepted → Service Episode Created → Case Worker Assigned → Service Delivery
+Pending → Accepted → Case Worker Assigned → Service Delivery
          → Rejected (with reason)
 ```
 
 ### What Happens on Accept
 
 1. Service request status changes to **Accepted**
-2. A **<Term path="serviceEpisode" />** is created for the client under the requested service
-3. If a team member is allocated:
-   - The <Term path="caseWorker" /> is **assigned to the <Term path="serviceEpisode" />**
-   - A **"<Term path="referral" /> and Service Enrolment"** <Term path="activity" /> is auto-created within the <Term path="serviceEpisode" /> containing:
-     - <Term path="referral" /> summary and reference number
-     - Service name and details
-     - Staff assignment information
-     - Any notes provided by the supervisor
-   - The <Term path="caseWorker" /> sees this <Term path="serviceEpisode" /> on their dashboard immediately
-4. The <Term path="referral" /> progresses to active service delivery
+2. If you choose a staff member under **Assign to Staff (optional)**:
+   - A <Term path="serviceEpisode" /> is created for the client under the requested service
+   - The <Term path="caseWorker" /> is **assigned to the <Term path="serviceEpisode" />** as primary responsible
+   - The <Term path="caseWorker" /> sees this <Term path="serviceEpisode" /> on their dashboard
+3. The <Term path="referral" /> progresses to active service delivery
 
 ### What Happens on Reject
 
 1. Service request status changes to **Rejected** with the reason recorded
-2. The <Term path="referral" /> status reverts to **Pending Service Dispatch**
-3. The <Term path="referral" /> goes back to the dispatch queue where a new service can be selected
+2. The <Term path="referral" /> status reverts to **Ready to Send**
+3. The <Term path="referral" /> goes back to the dispatch queue, where a new service can be selected
 4. A new service request must be created before the <Term path="referral" /> can be sent to a supervisor again
 
 ---
@@ -323,25 +392,25 @@ Supervisors and Program Managers have different data scopes:
 ### Daily Routine
 
 1. **Start of Day**
-   - Check the Pending Requests card for new <Term path="referral" /> requests
-   - Review the <Term path="serviceUser" plural /> Needing Contact section
-   - Accept/reject pending <Term path="referral" /> requests
+   - Check the **Pending Requests** number under the cards for new <Term path="referral" /> requests
+   - Accept or reject requests in **Pending Referral Requests**
+   - Check **Pending Exit Approvals** and, if shown, the safety alert tables
 
 2. **Throughout the Day**
-   - Allocate accepted <Term path="referral" plural /> to team members
-   - Monitor pending service dispatches
-   - Follow up on overdue <Term path="serviceUser" /> contacts
+   - Choose a staff member when you accept, so the <Term path="caseWorker" /> is assigned straight away
+   - Open **Awaiting Commencement** to see <Term path="serviceEpisode" plural /> that have not started
+   - Resolve what is due in **Activities Needing Follow-up**
 
 3. **End of Day**
    - Review any remaining pending requests
-   - Check <Term path="activity" plural /> / <Term path="serviceEpisode" plural /> ratio for team engagement
-   - Note any <Term path="serviceUser" plural /> approaching the 7-day contact threshold
+   - Open **Staff Workload Distribution** to check how work is spread across the team
+   - Look at **Activities Needing Follow-up** for anything still due
 
 ### Priority Management
 
 | Priority | Expected Response | Action |
 |----------|-------------------|--------|
-| **Critical** | Immediate | Accept and allocate immediately |
+| **Emergency** or **Crisis** | Immediate | Accept and allocate immediately |
 | **Urgent** | Same day | Process as soon as possible |
 | **Priority** | Within 24 hours | Process promptly |
 | **Routine** | Within 48 hours | Process in order received |
@@ -350,8 +419,6 @@ Supervisors and Program Managers have different data scopes:
 
 | Shortcut | Action |
 |----------|--------|
-| `Ctrl + F` | Open search |
-| `Enter` | Submit search |
 | `Esc` | Close dialogs |
 
 ---
@@ -368,15 +435,26 @@ Supervisors and Program Managers have different data scopes:
 ### No Pending Requests Showing
 
 - This is normal if all requests have been processed
-- The green checkmark message confirms there are no pending items
+- The heading **Pending Referral Requests (0 entries)** confirms there are no pending items
 - New requests will appear automatically when submitted
+- On the **Services** tab, check that you have picked the right service
+
+### I Cannot See a Table
+
+- **Pending Safety Alert Confirmations** and **Safety Alert Access Requests** only appear when something is waiting for you
+- **Pending Closure Requests** and **Virtual client follow-ups** only appear for some people, as described above
+- On the **Services** tab, only the cards, the summary line and **Pending Referral Requests** are shown, plus the two tables at the bottom if they apply to you
 
 ### Data Not Updating
 
 1. Click the refresh button
 2. Wait a few moments and try again
-3. Check if search filters are affecting the view
+3. Check the service filter on the **Services** tab
 4. Contact support if the issue persists
+
+### Your screen looks different
+
+If your dashboard does not match this page, tell your administrator which table or button is different. Do not guess what it does.
 
 ---
 
